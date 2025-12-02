@@ -1,0 +1,32 @@
+---
+title: Effective Use of AI
+subtitle: IDS:705 Principles of Machine Learning
+toc: true
+toc-expand: 3
+number-sections: false
+---
+
+## The Challenges of AI use
+
+This class is all about artificial intelligence, however, the primary intelligence that we are working to expand is *your own*. AI tools, like ChatGPT, can be useful aids for learning, but without considering your relationship with these tools, they can present several major challenges to your learning:
+
+1. **The Illusion of Knowledge**. Without careful use, you can easily succomb to the cognitive bias known as the illusion of knowledge. The illusion of knowledge, also known as the Dunning-Kruger effect, occurs when you believe you know something to a greater degree than you actually do. It's better to evaluate yourself accurately in your knowledge of a subject so that you can seek out resources for filling the gaps in your knowledge. This can lead to poor decision making and overconfidence in those poor decisions. It also prevents further learning.
+2. **Preventing actual learning**. Using an AI to avoid the cognitive struggle of thinking through the material *literally* prevents you from learning since those cognitive struggles are part of the learning process. If your goal is to learn in this course, over-reliance on AI is a clear path to 
+3. **Reduced potential for creativity and innovation**. Getting too used to the habit of relying on AI weakens your critical thinking abilities and creativity. When you depend on AI to generate ideas or solve problems, you miss out on the opportunity to develop your own innovative solutions and original thoughts. This can stifle your creative growth and limit your ability to think independently.
+4. **Getting it wrong**. AI is fallible. As we see in this course, even the best trained systems aren't 100% correct, so without the proper knowledge to evaluate AI output, over-reliance on AI sets you up for getting it wrong. 
+
+## Responsible use of AI tools
+
+With those challenges outlined, there are several ways in which AI can be helpful:
+
+- **A learning aid**. If you're not familiar with a concept or need help understanding something and you don't have easy access to another source of guidance, an AI tool (especially those that provide relevant citations) can be helpful for accelerating the learning process. Don't let the AI tool do a task for your, but allow the tool to help you connect with the knowledge and resources you need to complete the task and develop new skills (always search for high-quality resources before relying on AI directly). 
+- **A coding aid**. For coding, consider AI to be a pair programmer who may have some suggestions to enhance your coding or may be able to provide some templates to work from. DO NOT directly copy and paste code from AI tools. *You should fully understand and be capable of reproducing any code segment that you use - if not, you have not learned the material and that is considered plagiarism*.
+- **A brainstorming aid**. AI can help you to think through and generate ideas. However, always begin creating ideas on your own first, and use AI after you've done some critical thinking on your own to prevent your own creativity and problem solving skills from atrophying.
+- A tool for detecting **spelling and grammar issues** (e.g., Grammarly)
+
+You should NEVER directly submit work that was created by AI. In this class, the use of AI tools is acceptable WITH CITATION. An appropriate citation would indicate the following information:
+
+1. What AI tool you used (e.g. ChatGPT)
+2. How you used it 
+
+At the end of the day **you are responsible for the correctness of anything you submit, you are responsible for having a complete understanding and the ability to reproduce from scratch anything that you submit**.

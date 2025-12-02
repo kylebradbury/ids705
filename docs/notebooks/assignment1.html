@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kyle Bradbury">
+<meta name="dcterms.date" content="2025-01-11">
+
+<title>Assignment 1 – IDS705: Principles of Machine Learning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-504dfd40fe2ab044efd8c4ece178275b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-63SKKDGFHG"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IDS705: Principles of Machine Learning</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../schedule.html" aria-current="page"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://canvas.duke.edu/courses/50392"> 
+<span class="menu-text">Canvas</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://edstem.org/us/courses/69557/"> 
+<span class="menu-text">Ed Discussions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.gradescope.com/courses/917973"> 
+<span class="menu-text">Gradescope</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/assignment_instructions.html">Assignments</a></li><li class="breadcrumb-item"><a href="../notebooks/assignment1.html">Assignment 1</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Syllabus</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Logistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contacts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructional Team</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pedagogy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pedagogy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effective Use of AI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Assignments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment_instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Assignment 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Final Project</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software and Hardware Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources for further learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/dcc-documentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Duke Compute Cluster Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/kylebradbury/ml-project-structure-demo" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File structure template</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#exercise-1---probabilistic-reasoning" id="toc-exercise-1---probabilistic-reasoning" class="nav-link" data-scroll-target="#exercise-1---probabilistic-reasoning">Exercise 1 - Probabilistic Reasoning</a></li>
+  <li><a href="#exercise-2---probability-distributions-and-modeling" id="toc-exercise-2---probability-distributions-and-modeling" class="nav-link" data-scroll-target="#exercise-2---probability-distributions-and-modeling">Exercise 2 - Probability Distributions and Modeling</a></li>
+  <li><a href="#exercise-3---linear-algebra-operations-and-theory" id="toc-exercise-3---linear-algebra-operations-and-theory" class="nav-link" data-scroll-target="#exercise-3---linear-algebra-operations-and-theory">Exercise 3 - Linear Algebra Operations and Theory</a></li>
+  <li><a href="#exercise-4---numerical-programming-with-data" id="toc-exercise-4---numerical-programming-with-data" class="nav-link" data-scroll-target="#exercise-4---numerical-programming-with-data">Exercise 4 - Numerical Programming with Data</a></li>
+  <li><a href="#appendix-definitions-and-identities" id="toc-appendix-definitions-and-identities" class="nav-link" data-scroll-target="#appendix-definitions-and-identities">Appendix: Definitions and identities</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assignment1.out.ipynb" download="assignment1.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li><li><a href="assignment1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/assignment_instructions.html">Assignments</a></li><li class="breadcrumb-item"><a href="../notebooks/assignment1.html">Assignment 1</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Assignment 1</h1>
+<p class="subtitle lead">Probability, Linear Algebra, and Computational Programming</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kyle Bradbury </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 11, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<p><em>Instructions for all assignments can be found <a href="https://kylebradbury.github.io/ids705/notebooks/assignment_instructions.html">here</a>. Note: this assignment falls under collaboration Mode 2: Individual Assignment – Collaboration Permitted. Please refer to the syllabus for additional information. Please be sure to list the names of any students that you worked with on this assignment. Total points in the assignment add up to 90; an additional 10 points are allocated to professionalism and presentation quality.</em></p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>The purpose of this assignment is to provide a refresher on fundamental concepts that we will use throughout this course and provide an opportunity to develop skills in any of the related skills that may be unfamiliar to you. Through the course of completing this assignment, you will…</p>
+<ul>
+<li>Refresh your knowledge of probability theory including properties of random variables, probability density functions, cumulative distribution functions, and key statistics such as mean and variance.</li>
+<li>Revisit common linear algebra and matrix operations and concepts such as matrix multiplication, inner and outer products, inverses, the Hadamard (element-wise) product, eigenvalues and eigenvectors, orthogonality, and symmetry.</li>
+<li>Practice numerical programming, core to machine learning, by applying it to scenarios of probabilistic modeling, linear algebra computations, loading and plotting data, and querying the data to answer relevant questions.</li>
+</ul>
+<p>We will build on these concepts throughout the course, so use this assignment as a catalyst to deepen your knowledge and seek help with anything unfamiliar.</p>
+<p>For references on the topics in this assignment, please check out the <a href="../resources.html#">resources</a> page on the course website for online materials such as books and courses to support your learning.</p>
+<p><em>Note: don’t worry if you don’t understand everything in the references above - some of these books dive into significant minutia of each of these topics.</em></p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="exercise-1---probabilistic-reasoning" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1---probabilistic-reasoning">Exercise 1 - Probabilistic Reasoning</h2>
+<p><strong>1.1. Probabilistic Reasoning I.</strong> You are handed three fair dice and roll them sequentially. What’s the probability of the sum of the dice is 10 after you’ve rolled the first die and it shows a 1?</p>
+<p><strong>1.2. Probabilistic Computation I.</strong> Simulate the scenario in 1.1 by creating 1 million synthetic rolls of the three dice. Determine what fraction of outcomes that had a “1” for the first die also had a sum of 10 across the three die.</p>
+<p><strong>1.3. Probabilistic Reasoning II.</strong> A test for a rare disease has a 95% chance of detecting the disease if a person has it (true positive rate) and a 3% chance of wrongly detecting it if a person does <strong>not</strong> have it (false positive rate). If 1 in 1,000 people <em>actually</em> have the disease, what is the probability that a randomly chosen person who tests positive actually has the disease?</p>
+<p><strong>1.4. Discrete Probability Theory.</strong> A discrete random variable <span class="math inline">\(X\)</span> is distributed as follows (probability mass function):</p>
+<p><span class="math inline">\(P(X = x) = \begin{cases}
+                0.2 &amp; x = -1 \\
+                0.5 &amp; x = 0 \\
+                0.3 &amp; x = 1
+            \end{cases}\)</span></p>
+<p>What is the expected value, <span class="math inline">\(E_X[X]\)</span> and variance, <span class="math inline">\(Var_X(X)\)</span> of the random variable <span class="math inline">\(X\)</span>?</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="exercise-2---probability-distributions-and-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2---probability-distributions-and-modeling">Exercise 2 - Probability Distributions and Modeling</h2>
+<p>You’ve been asked to create a model of wait time for customers at Olivander’s Wand Shop. While they strive for the perfect match, there is some cleanup between customers that has been keeping wait times high. They’re open 8 hours a day and the maximum wait time is 8 hours (we won’t assume it’s possible not to be seen, assuming you’re willing to wait). Define the continuous random variable <span class="math inline">\(X = \{\text{wait time for service as a fraction of 8 hours}\}\)</span> . This means that <span class="math inline">\(x=1\)</span> represents a full day’s wait, or 8 hours, <span class="math inline">\(x=0.5\)</span> represents half a day wait or 4 hours. Additionally, the valid values of <span class="math inline">\(X\)</span> are between 0 and 1 (<span class="math inline">\(0\leq x \leq 1\)</span>).</p>
+<p>We’ll begin by analyzing some data of past visits to the shop to understand the customer wait time experience through our data (2.1-2.2). Then, we’ll select a model we hypothesize might fit our situation well and evaluate its properties like mean and variance (2.3-2.7). We’ll also evaluate the quality of the fit of the model as compare to our data (2.8-2.11). Lastly, we’ll explore how this approach can be used to generate insights (2.12).</p>
+<section id="reviewing-our-wait-time-data" class="level3">
+<h3 class="anchored" data-anchor-id="reviewing-our-wait-time-data">Reviewing our wait time data</h3>
+<p><strong>2.1. Load and plot a histogram of your wait time data.</strong> The file is <code>wait_times.csv</code> in the <code>data/a1</code> folder <a href="https://github.com/kylebradbury/ids705/tree/main/notebooks/data/a1">here on Github</a>. I recommend using the simple <code>np.loadtxt()</code> function to accomplish this so you can quickly load it in as a numpy array. Remember, the value 1 represents a full 8 hour work day so you should see your data are all in the range of <span class="math inline">\([0,1]\)</span>. Please use 10 bins and limit the bin edges to the range <span class="math inline">\([0,1]\)</span> (no values should be plotted outside that range).</p>
+<p><strong>2.2. Mean, variance, and standard deviation of the data.</strong> Compute the mean, variance, and standard deviation of the wait time data. Report the mean and standard deviation in both the original units (in <span class="math inline">\([0,1]\)</span>) and in hours (the variance is unitless).</p>
+</section>
+<section id="creating-a-model-for-the-wait-time-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-model-for-the-wait-time-distribution">Creating a model for the wait time distribution</h3>
+<p>Take a moment to review the distribution of the data. The most common distribution is normal, but this doesn’t seem normally distributed. Neither does it look uniform. The shape actually looks like it may be exponentially distributed, but truncated at 1. It’s not uncommon to have this type of shape in a wait time model, but this introduces a challenge since we can’t just use the standard exponential distribution since an exponential distribution is defined on a domain from 0 to infinity, but our data is defined between 0 and 1. Let’s create a customized distribution as a model for our data and see how well it represents the key statistics of our data.</p>
+<p>In this section, please note the list of equations and identities at the end of this document as they may be useful for several questions.</p>
+<p><strong>2.3. Probability Density Functions (PDFs).</strong> Compute the value of <span class="math inline">\(\alpha\)</span> that makes <span class="math inline">\(f_X(x)\)</span> a valid probability density function:</p>
+<p><span class="math inline">\(f_X(x) = \begin{cases}
+                \alpha e^{-x}  &amp; 0 \leq x \leq 1 \\
+                0           &amp; \text{else}
+            \end{cases}\)</span></p>
+<p>Provide this value exactly (with no approximation) and also provide and approximate decimal value with a precision to three decimal places.</p>
+<p><strong>2.4. Cumulative Distribution Functions (CDFs).</strong> Compute the cumulative distribution function (CDF) of <span class="math inline">\(X\)</span>, <span class="math inline">\(F_X(x)\)</span>, where <span class="math inline">\(F_X(x)=P(X&lt;x)\)</span> (here, <span class="math inline">\(P(\cdot)\)</span> represents the probability of the event within the brackets). Be sure to indicate the value of the CDF for <strong><em>all</em></strong> values of <span class="math inline">\(x\in(-\infty,\infty)\)</span>. Express your CDF using the variable <span class="math inline">\(\alpha\)</span> to provide the precise CDF.</p>
+<p><strong>2.5. Expected Value.</strong> Compute the expected value of <span class="math inline">\(X\)</span>, <span class="math inline">\(E_X[X]\)</span>. Provide this value exactly (no approximations and only in terms of <span class="math inline">\(e\)</span> and <span class="math inline">\(\alpha\)</span>) and provide a numerical approximation of the expected value to 3 decimal places. Also provide the approximate number of hours waiting (to 3 decimal places).</p>
+<p><strong>2.6. Variance and Standard Deviation.</strong> Compute the variance of <span class="math inline">\(X\)</span>, <span class="math inline">\(Var(X)\)</span> approximately to 3 significant figures, meaning 3 digits without leading zeros (e.g.&nbsp;12.3, 0.123, 0.00123, all have 3 significant figures). Using the variance, calculate the standard deviation and express this standard deviation in both the original units and units of hours.</p>
+<p><strong>2.7. Plotting your functions.</strong> Create functions to implement your PDF, <span class="math inline">\(f_X(x)\)</span>, and CDF, <span class="math inline">\(F_X(x)\)</span>, for all possible values of <span class="math inline">\(x\)</span>. Using these functions, plot the PDF and CDF on the inverval <span class="math inline">\(-0.5 \leq x \leq 1.5\)</span>.</p>
+</section>
+<section id="evaluating-the-quality-of-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="evaluating-the-quality-of-the-model">Evaluating the quality of the model</h3>
+<p><strong>2.8. Compare the empirical CDF to the modeled CDF.</strong> Plot both of these on the interval <span class="math inline">\(0 \leq x \leq 1\)</span>. For the empirical CDF of the data from <code>wait_times.csv</code>, you can plot the empirical CDF by sorting the data in ascending order, your <span class="math inline">\(x\)</span> values, and assigning the <span class="math inline">\(y\)</span> value as the cumulative fraction of samples that are smaller than or equal to each <span class="math inline">\(x\)</span> value.</p>
+<p><strong>2.9. Calculate the inverse CDF to enable you to generate synthetic data.</strong> Create a numerical simulation of this process. Doing this for a custom PDF is easier than you may think. We typically have access to uniformly distributed samples (through <code>np.random.rand</code>), and we can transform these uniform samples into any distribution we wish. To do this, we can input uniform variates through the <em>inverse</em> of the CDF. If <span class="math inline">\(U\)</span> is a uniformly distributed random variable and <span class="math inline">\(F_X(x)\)</span> is the CDF of the distribution we’re looking to model, then <span class="math inline">\(F_X^{-1}(U)\)</span> will be distributed in the same way as <span class="math inline">\(X\)</span>, as shown below in Figure 1.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/copula.png" class="img-fluid figure-img"></p>
+<figcaption>Synthetic Data Generation</figcaption>
+</figure>
+</div>
+<p><em>Figure 1. Demonstrating the process of transforming a uniformly distributed random variable into almost any distribution (here we transform into a normal). Here we show the transformation a sample, <span class="math inline">\(u^{\ast}\)</span>, from a uniform distribution to a sample, <span class="math inline">\(x^{\ast}\)</span> from a normal distribution by applying the inverse of the CDF of <span class="math inline">\(X\)</span> to <span class="math inline">\(u^{\ast}\)</span>, that is <span class="math inline">\(x^{\ast} = F_X^{-1}(u^{\ast})\)</span>.</em></p>
+<p>Calculate the inverse of the CDF, <span class="math inline">\(F_X^{-1}(y)\)</span> (We use the variable <span class="math inline">\(y\)</span> as the input into this function to denote that we’re inputting the “output” of the CDF into this inverse CDF).</p>
+<p><strong>2.10. Generate synthetic data using the inverse CDF by transforming uniform samples.</strong> Once you have your inverse CDF, code it up and use it to create synthetic samples from the last step. To do so, first generate 10,000 samples from the uniform distribution and then feed those uniform variates through the inverse CDF to generate synthetic variates from our wait time model. Using those samples, compute the mean and standard deviation. Present the mean and standard deviation in a table comparing (a) the empirical values computed from <code>wait_times.csv</code>, (b) your theoretical model values calculated earlier, and (c) your computed values calculated from your synthetic model. How do they compare?</p>
+<p><strong>2.11. Run a statistical test to evaluate the goodness of fit of your model to the empirical data from <code>wait_times.csv</code>.</strong> To evaluate the goodness of fit of the model to the data, one tool is the Kolmogorov–Smirnov test, or simply the KS test. The two-sample version of this test evaluates the maximum distance between two CDFs, each calculated from samples of data. In this case, the null hypothesis states that the samples are drawn from the same distribution. We can conclude that the sample data are well-represented by the reference distribution if we do NOT reject the null hypothesis. If we test at the 5% significant level, then we can conclude that data come from the same distribution if the p-value is greater than 0.05 (we fail to reject the null hypothesis).</p>
+<p>Compare the sample of data from <code>wait_times.csv</code> to the synthetic sample from the model distribution and run the KS test. Also compare the sample data to the uniform distributed data you generated before transforming it into the synthetic samples. For the test use <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstest.html"><code>scipy.stats.kstest</code></a>.</p>
+</section>
+<section id="using-the-model-to-understand-wait-times" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-model-to-understand-wait-times">Using the model to understand wait times</h3>
+<p><strong>2.12. Computing probabilities.</strong> Having a way of generating synthetic data can allow us to easily compute probabilities. Compute the probabilities of the following events using the <em>synthetic data samples</em> that you generated.</p>
+<ol type="1">
+<li>Wait time is more than 6 hours</li>
+<li>Wait time is less than 1 hour</li>
+<li>Wait time is less than one additional hour given the client has already been waiting for 3 hours (i.e., the probability of the wait time being less than 4 hours if they have already waited for 3 hours)</li>
+<li>Wait time is between 3 and 5 hours</li>
+<li>What is the 90th percentile of wait times?</li>
+<li>What is the 99th percentile of wait times?</li>
+</ol>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="exercise-3---linear-algebra-operations-and-theory" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3---linear-algebra-operations-and-theory">Exercise 3 - Linear Algebra Operations and Theory</h2>
+<p><strong>3.1. Matrix manipulations and multiplication</strong>. Machine learning involves working with many matrices and understanding what their products represent, so this exercise will provide you with the opportunity to practice those skills.</p>
+<p>Let <span class="math inline">\(\mathbf{A} =  \begin{bmatrix}
+1 &amp; 2 \\
+3 &amp; 4
+\end{bmatrix}\)</span>, <span class="math inline">\(\mathbf{b} =  \begin{bmatrix}
+-1  \\
+1
+\end{bmatrix}\)</span>, <span class="math inline">\(\mathbf{c} =  \begin{bmatrix}
+1  \\
+2
+\end{bmatrix}\)</span></p>
+<p>Compute the following <strong>by hand</strong> or indicate that it cannot be computed. For any cases where an operation is invalid and cannot be computed, explain why it is invalid.</p>
+<ol type="1">
+<li><span class="math inline">\(\mathbf{A}\mathbf{A}\)</span></li>
+<li><span class="math inline">\(\mathbf{A}\mathbf{A}^{\top}\)</span></li>
+<li><span class="math inline">\(\mathbf{A}\mathbf{b}\)</span></li>
+<li><span class="math inline">\(\mathbf{A}\mathbf{b}^{\top}\)</span></li>
+<li><span class="math inline">\(\mathbf{b}\mathbf{A}\)</span></li>
+<li><span class="math inline">\(\mathbf{b}^{\top}\mathbf{A}\)</span></li>
+<li><span class="math inline">\(\mathbf{b}\mathbf{b}\)</span></li>
+<li><span class="math inline">\(\mathbf{b}^{\top}\mathbf{b}\)</span></li>
+<li><span class="math inline">\(\mathbf{b}\mathbf{b}^{\top}\)</span></li>
+<li><span class="math inline">\(\mathbf{A}\circ\mathbf{A}\)</span></li>
+<li><span class="math inline">\(\mathbf{b}\circ\mathbf{c}\)</span></li>
+<li><span class="math inline">\(\mathbf{b}^{\top}\mathbf{b}^{\top}\)</span></li>
+<li><span class="math inline">\(\mathbf{b} + \mathbf{c}^{\top}\)</span></li>
+<li><span class="math inline">\(\mathbf{A}^{-1}\mathbf{b}\)</span></li>
+<li><span class="math inline">\(\mathbf{b}^{{\top}}\mathbf{A}\mathbf{b}\)</span></li>
+<li><span class="math inline">\(\mathbf{b}\mathbf{A}\mathbf{b}^{{\top}}\)</span></li>
+</ol>
+<p><em>Note: The element-wise (or Hadamard) product is the product of each element in one matrix with the corresponding element in another matrix, and is represented by the symbol “<span class="math inline">\(\circ\)</span>”.</em></p>
+<p><strong>3.2. Matrix manipulations and multiplication using Python</strong>. Repeat 3.1, but this time using Python. If you are using a vector, make sure the dimensions of the vector match what you’d expect, for example, matrix <span class="math inline">\(\mathbf{b}\)</span> is a <span class="math inline">\([2 \times 1]\)</span> vector. In NumPy, unless you’re specify, you’ll like create a one-dimensional array of length 2 rather than a <span class="math inline">\([2 \times 1]\)</span> vector if you don’t specify - be careful of this potential pitfall. Refer to NumPy’s tools for handling matrices. There may be circumstances when Python <strong>will</strong> produce an output, but based on the dimensions of the matrices involved, the linear algebra operation is not possible. <strong><em>Note these cases and explain why they occur</em></strong>. Please provide both the Python code AND the output of that code showing your result. If the output is an error, comment out the code and note that it cannot be computed.</p>
+<p>Be sure to use the right operator for each operation: Matrix multiplication: <code>@</code>; Element-wise multication: <code>*</code>. For this exercise, <strong>only</strong> use one of those to operators for matrix or vector multiplication.</p>
+<p><strong>3.3. Vector Norms.</strong> Norms are the effective lengths of vectors. For example, the Euclidean norm, or <span class="math inline">\(L_2\)</span> norm (denoted as <span class="math inline">\(||\mathbf{\cdot}||_2\)</span>), is the most common of several types of norms. The <span class="math inline">\(L_2\)</span> norm can be calculated for a vector <span class="math display">\[\mathbf{x} =  \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}\]</span> as follows: <span class="math display">\[||\mathbf{x}||_2 = \sqrt{\displaystyle \sum_{k=1}^n x_k^2} = \sqrt{\mathbf{x}^{\top}\mathbf{x}}\]</span></p>
+<p>What is the <span class="math inline">\(L_2\)</span> norm of vectors <span class="math inline">\(\mathbf{d}_1 =  \begin{bmatrix} 2^{-1/2} \\ -2^{-1/2} \\ 0 \end{bmatrix}\)</span> and <span class="math inline">\(\mathbf{d}_2 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}\)</span>?</p>
+<p><strong>3.4. Orthogonality and unit vectors.</strong> Orthogonal vectors are frequently used in machine learning in topics such as Principal Components Analysis and feature engineering for creating decorrelated features. Knowing what an orthogonal or orthonomal basis is for a space is an important concept. Find all values of unit vectors, <span class="math inline">\(\mathbf{d}_3\)</span>, that complete an orthonormal basis in a three-dimensional Euclidean space along with the two vectors: <span class="math inline">\(\mathbf{d}_1 =  \begin{bmatrix} 2^{-1/2} \\ -2^{-1/2} \\ 0 \end{bmatrix}\)</span> and <span class="math inline">\(\mathbf{d}_2 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}\)</span>.</p>
+<p>For review, vector <span class="math inline">\(\mathbf{x}_1\)</span> is orthonormal to vector <span class="math inline">\(\mathbf{x}_2\)</span> if (a) <span class="math inline">\(\mathbf{x}_1\)</span> is orthogonal to vector <span class="math inline">\(\mathbf{x}_2\)</span> AND <span class="math inline">\(\mathbf{x}_1\)</span> is a unit vector. Orthogonal vectors are perpendicular, which implies that their inner product is zero. A unit vector is of length 1 (meaning its <span class="math inline">\(L_2\)</span> norm is 1).</p>
+<p><strong>3.5. Eigenvectors and eigenvalues</strong>. Eigenvectors and eigenvalues are useful for numerous machine learning algorithms, but the concepts take time to solidly grasp. They are used extensively in machine learning including in Principal Components Analysis (PCA) and clustering algorithms. For an intuitive review of these concepts, explore this <a href="http://setosa.io/ev/eigenvectors-and-eigenvalues/">interactive website at Setosa.io</a>. Also, the series of linear algebra videos by Grant Sanderson of 3Brown1Blue are excellent and can be viewed on youtube <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">here</a>. For these questions, numpy may once again be helpful.</p>
+<ol type="1">
+<li>In Python, calculate the eigenvalues and corresponding eigenvectors of matrix <span class="math inline">\(\mathbf{B}=  \begin{bmatrix}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 4 &amp; 5 \\
+3 &amp; 5 &amp; 6
+\end{bmatrix}\)</span></li>
+<li>Choose one of the eigenvector/eigenvalue pairs, <span class="math inline">\(\mathbf{v}\)</span> and <span class="math inline">\(\lambda\)</span>, and show that <span class="math inline">\(\mathbf{B} \mathbf{v} = \lambda \mathbf{v}\)</span>. This relationship extends to higher orders: <span class="math inline">\(\mathbf{B} \mathbf{B} \mathbf{v} = \lambda^2 \mathbf{v}\)</span></li>
+<li>Show that the eigenvectors are orthogonal to one another (e.g.&nbsp;their inner product is zero - just compute the inner product and show it is approximately 0). This is true for eigenvectors from real, symmetric matrices. In three dimensions or less, this means that the eigenvectors are perpendicular to each other. Typically we use the orthogonal basis of our standard x, y, and z, Cartesian coordinates, which allows us, if we combine them linearly, to represent any point in a 3D space. But any three orthogonal vectors can do the same. This property is used, for example, in PCA to identify the dimensions of greatest variation.</li>
+</ol>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="exercise-4---numerical-programming-with-data" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4---numerical-programming-with-data">Exercise 4 - Numerical Programming with Data</h2>
+<p><strong>Loading data and gathering insights from a real dataset.</strong> In data science, we often need to have a sense of the idiosyncrasies of the data, how they relate to the questions we are trying to answer, and to use that information to help us to determine what approach, such as machine learning, we may need to apply to achieve our goal. This exercise provides practice in exploring a dataset and answering question that might arise from applications related to the data.</p>
+<p><strong>Your objective</strong>. For this dataset, your goal is to answer the questions below about electricity generation in the United States.</p>
+<p><strong>Data</strong>. The data for this problem can be found in the <code>data\a1\</code> subfolder in the <code>notebooks</code> folder on <a href="https://github.com/kylebradbury/ids705">github</a>. The filename is <code>egrid2016.xlsx</code>. This dataset is the Environmental Protection Agency’s (EPA) <a href="https://www.epa.gov/energy/emissions-generation-resource-integrated-database-egrid">Emissions &amp; Generation Resource Integrated Database (eGRID)</a> containing information about all power plants in the United States, the amount of generation they produce, what fuel they use, the location of the plant, and many more quantities. We’ll be using a subset of those data.</p>
+<p>The fields we’ll be using include:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SEQPLT16</td>
+<td style="text-align: left;">eGRID2016 Plant file sequence number (the index)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PSTATABB</td>
+<td style="text-align: left;">Plant state abbreviation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PNAME</td>
+<td style="text-align: left;">Plant name</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LAT</td>
+<td style="text-align: left;">Plant latitude</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LON</td>
+<td style="text-align: left;">Plant longitude</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PLPRMFL</td>
+<td style="text-align: left;">Plant primary fuel</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CAPFAC</td>
+<td style="text-align: left;">Plant capacity factor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NAMEPCAP</td>
+<td style="text-align: left;">Plant nameplate capacity (Megawatts MW)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PLNGENAN</td>
+<td style="text-align: left;">Plant annual net generation (Megawatt-hours MWh)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PLCO2EQA</td>
+<td style="text-align: left;">Plant annual CO2 equivalent emissions (tons)</td>
+</tr>
+</tbody>
+</table>
+<p>For more details on the data, you can refer to the <a href="https://www.epa.gov/sites/default/files/2020-01/documents/egrid2018_technical_support_document.pdf">eGrid technical documents</a>. For example, you may want to review page 51 and the section “Plant Primary Fuel (PLPRMFL)”, which gives the full names of the fuel types including WND for wind, NG for natural gas, BIT for Bituminous coal, etc.</p>
+<p>There also are a couple of “gotchas” to watch out for with this dataset:</p>
+<ul>
+<li>The headers are on the second row and you’ll want to ignore the first row (they’re more detailed descriptions of the headers).</li>
+<li>NaN values represent blanks in the data. These will appear regularly in real-world data, so getting experience working with these sorts of missing values will be important.</li>
+</ul>
+<p>Questions to answer:</p>
+<p><strong>4.1.</strong> Which power plant generated the most energy in 2016 (measured in MWh)?</p>
+<p><strong>4.2.</strong> Which power plant produced the most CO2 emissions (measured in tons)?</p>
+<p><strong>4.3.</strong> What is the primary fuel of the plant with the most CO2 emissions?</p>
+<p><strong>4.4.</strong> What is the name of the northern-most power plant in the United States?</p>
+<p><strong>4.5.</strong> What is the state where the northern-most power plant in the United States is located?</p>
+<p><strong>4.6.</strong> Plot a bar plot showing the amount of energy produced by each fuel type across all plants.</p>
+<p><strong>4.7.</strong> From the plot in (D), which fuel for generation produces the most energy (MWh) in the United States?</p>
+<p><strong>4.8.</strong> Which state has the largest number of hydroelectric plants? In this case, each power plant counts once so regardless of how large the power plant is, we want to determine which state has the most of them. Note the primary fuel for hydroelectric plants is listed as water in the documentation.</p>
+<p><strong>4.9.</strong> Which state has generated the most energy (MWh) using coal? You may also want to explore the documentation for the <code>isin()</code> method for pandas. Note: in the eGrid documentation, there are multiple types of coal listed; be sure to factor in each type of coal.</p>
+<p><strong>4.10.</strong> Which primary fuel produced the <em>most</em> CO2 emissions in the United States? We would like to compare natural gas, coal, oil, and renewables but the current categories are much more specific than that. As a first step, group the data as shown below, replacing the existing labels with the replacements suggested. For example, BIT and LIG should be replaced with COAL.</p>
+<ul>
+<li>COAL = BIT, LIG, RC, SUB, WC</li>
+<li>OIL = DFO, JF, KER, RFO, WO</li>
+<li>GAS = BFG, COG, LFG, NG, OG, PG, PRG</li>
+<li>RENEW = GEO, SUN, WAT, WDL, WDS, WND</li>
+</ul>
+<p>You may want to create a function that does this replacement prior to running your code. You can check whether or not it was successful by verifying that each of the values that should be replaced has been replaced - check that before moving on with the question.</p>
+<p>You will want to use ‘PLCO2EQA’ to answer this question as it’s the quantity of emissions each plant generates.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="appendix-definitions-and-identities" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-definitions-and-identities">Appendix: Definitions and identities</h2>
+<p>The symbology in this assignment conforms to the following convention:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 31%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol Example</th>
+<th>Meaning</th>
+<th>Possible variations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X\)</span></td>
+<td>A random variable</td>
+<td>Upper case, non-bolded letter</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bar{X}\)</span></td>
+<td>The complement of a random variable</td>
+<td>Upper case, non-bolded letter with bar</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{x}\)</span></td>
+<td>Vector (<span class="math inline">\(N \times 1\)</span>)</td>
+<td>Lower case, bolded letters/symbols</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{X}\)</span></td>
+<td>Matrix (<span class="math inline">\(N \times M\)</span>)</td>
+<td>Upper case, bolded letters/symbols</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(P(\cdot)\)</span></td>
+<td>Probability of the event within the parenthesis</td>
+<td>Parenthesis may include one event or more events</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A \cap B\)</span></td>
+<td>Intersection of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, that is the case of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occurring simultaneously</td>
+<td>Two random variables represented by upper case unbolded letters</td>
+</tr>
+</tbody>
+</table>
+<p>Below is a list of potentially helpful identities and equations for reference.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 53%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Identities and equations</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(E_X[X] = \displaystyle \int_{-\infty}^{\infty} x f_X(x) dx\)</span></td>
+<td>Expected value of continuous random variable <span class="math inline">\(X\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Var_X(X) = E_X[X^2]-E_X[X]^2\)</span></td>
+<td>Variance of random variable <span class="math inline">\(X\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\sigma_X(X) = \sqrt{Var_X(X)}\)</span></td>
+<td>Standard deviation of <span class="math inline">\(X\)</span> as a function of variance</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\displaystyle P( X \vert Y)= \frac{P(X \cap Y)}{P(Y)}\)</span></td>
+<td>Conditional probability of event <span class="math inline">\(X\)</span> given event <span class="math inline">\(Y\)</span> has occurred</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\displaystyle P(Y \vert X)= \frac{P(X \vert Y)P(Y)}{P(X)}\)</span></td>
+<td>Bayes’ Rule</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\displaystyle F_X(x) = \int_{-\infty}^{x} f_X(x) dx\)</span></td>
+<td>CDF as a function of PDF</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\displaystyle f_X(x) = \frac{dF_X(x)}{dx}\)</span></td>
+<td>PDF as a function of CDF</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P(X \leq x) = F_X(x)\)</span></td>
+<td>Probabilistic definition of the CDF</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(P(a &lt; X \leq b) = F_X(b) - F_X(a)\)</span></td>
+<td>Probability the <span class="math inline">\(X\)</span> lies between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P(A) + P(\bar{A}) = 1\)</span></td>
+<td>The sum of the probability of an event and its complement is 1</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\displaystyle P(Y) = P(Y \vert X)P(X) + P(Y  \vert \bar{X})P(\bar{X})\)</span></td>
+<td>Law of Total Probability</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\displaystyle \int e^{-x} dx = -e^{-x}\)</span></td>
+<td>Indefinite integral</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\displaystyle \int x e^{-x} dx = -e^{-x}(x+1)\)</span></td>
+<td>Indefinite integral</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\displaystyle \int x^2 e^{-x} dx = -e^{-x}(x^2+2x+2)\)</span></td>
+<td>Indefinite integral</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\displaystyle \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}^{-1} = \frac{1}{ad-cb} \begin{bmatrix} d &amp; -b \\ -c &amp; a \end{bmatrix}\)</span></td>
+<td><span class="math inline">\(2 \times 2\)</span> matrix inversion formula</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kyle Bradbury">
+<meta name="dcterms.date" content="2025-01-22">
+
+<title>Assignment 2 – IDS705: Principles of Machine Learning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-504dfd40fe2ab044efd8c4ece178275b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-63SKKDGFHG"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IDS705: Principles of Machine Learning</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../schedule.html" aria-current="page"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://canvas.duke.edu/courses/50392"> 
+<span class="menu-text">Canvas</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://edstem.org/us/courses/69557/"> 
+<span class="menu-text">Ed Discussions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.gradescope.com/courses/917973"> 
+<span class="menu-text">Gradescope</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/assignment_instructions.html">Assignments</a></li><li class="breadcrumb-item"><a href="../notebooks/assignment2.html">Assignment 2</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Syllabus</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Logistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contacts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructional Team</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pedagogy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pedagogy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effective Use of AI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Assignments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment_instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Assignment 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/assignment6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Final Project</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software and Hardware Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources for further learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/dcc-documentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Duke Compute Cluster Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/kylebradbury/ml-project-structure-demo" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File structure template</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives:</a></li>
+  <li><a href="#exercise-1---conceptual-questions-on-supervised-learning-i" id="toc-exercise-1---conceptual-questions-on-supervised-learning-i" class="nav-link" data-scroll-target="#exercise-1---conceptual-questions-on-supervised-learning-i">Exercise 1 - Conceptual Questions on Supervised Learning I</a></li>
+  <li><a href="#exercise-2---conceptual-questions-on-supervised-learning-ii" id="toc-exercise-2---conceptual-questions-on-supervised-learning-ii" class="nav-link" data-scroll-target="#exercise-2---conceptual-questions-on-supervised-learning-ii">Exercise 2 - Conceptual Questions on Supervised Learning II</a></li>
+  <li><a href="#exercise-3---classification-using-knn" id="toc-exercise-3---classification-using-knn" class="nav-link" data-scroll-target="#exercise-3---classification-using-knn">Exercise 3 - Classification using KNN</a></li>
+  <li><a href="#exercise-4---build-your-own-classification-algorithm" id="toc-exercise-4---build-your-own-classification-algorithm" class="nav-link" data-scroll-target="#exercise-4---build-your-own-classification-algorithm">Exercise 4 - Build your own classification algorithm</a></li>
+  <li><a href="#exercise-5---bias-variance-tradeoff-exploring-the-tradeoff-with-a-knn-classifier" id="toc-exercise-5---bias-variance-tradeoff-exploring-the-tradeoff-with-a-knn-classifier" class="nav-link" data-scroll-target="#exercise-5---bias-variance-tradeoff-exploring-the-tradeoff-with-a-knn-classifier">Exercise 5 - Bias-variance tradeoff: exploring the tradeoff with a KNN classifier</a></li>
+  <li><a href="#exercise-6---bias-variance-trade-off-ii-quantifying-the-tradeoff" id="toc-exercise-6---bias-variance-trade-off-ii-quantifying-the-tradeoff" class="nav-link" data-scroll-target="#exercise-6---bias-variance-trade-off-ii-quantifying-the-tradeoff">Exercise 6 - Bias-variance trade-off II: Quantifying the tradeoff</a></li>
+  <li><a href="#exercise-7---linear-regression-and-nonlinear-transformations" id="toc-exercise-7---linear-regression-and-nonlinear-transformations" class="nav-link" data-scroll-target="#exercise-7---linear-regression-and-nonlinear-transformations">Exercise 7 - Linear regression and nonlinear transformations</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assignment2.out.ipynb" download="assignment2.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li><li><a href="assignment2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/assignment_instructions.html">Assignments</a></li><li class="breadcrumb-item"><a href="../notebooks/assignment2.html">Assignment 2</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Assignment 2</h1>
+<p class="subtitle lead">Supervised Machine Learning Fundamentals</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kyle Bradbury </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 22, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<p><em>Instructions for all assignments can be found <a href="https://kylebradbury.github.io/ids705/notebooks/assignment_instructions.html">here</a>. Note: this assignment falls under collaboration Mode 2: Individual Assignment – Collaboration Permitted. Please refer to the syllabus for additional information. Please be sure to list the names of any students that you worked with on this assignment. Total points in the assignment add up to 90; an additional 10 points are allocated to professionalism and presentation quality.</em></p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives:</h2>
+<p>By successfully completing this assignment you will be able to… - Explain the bias-variance tradeoff of supervised machine learning and the impact of model flexibility on algorithm performance - Perform supervised machine learning training and performance evaluation - Implement a k-nearest neighbors machine learning algorithm from scratch in a style similar to that of popular machine learning tools like <code>scikit-learn</code> - Describe how KNN classification works, the method’s reliance on distance measurements, and the impact of higher dimensionality on computational speed - Apply regression (linear regression) and classification (KNN) supervised learning techniques to data and evaluate the performance of those methods - Construct simple feature transformations for improving model fit in linear models - Fit a <code>scikit-learn</code> supervised learning technique to training data and make predictions using it</p>
+</section>
+<section id="exercise-1---conceptual-questions-on-supervised-learning-i" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1---conceptual-questions-on-supervised-learning-i">Exercise 1 - Conceptual Questions on Supervised Learning I</h2>
+<p><strong>[4 points]</strong></p>
+<p>For each part below, indicate whether we would generally expect the performance of a flexible statistical learning method to be <em>better</em> or <em>worse</em> than an inflexible method. Justify your answer.</p>
+<p><strong>1.1.</strong> The sample size <span class="math inline">\(n\)</span> is extremely large, and the number of predictors <span class="math inline">\(p\)</span> is small.</p>
+<p><strong>1.2.</strong> The number of predictors <span class="math inline">\(p\)</span> is extremely large, and the number of observations <span class="math inline">\(n\)</span> is small.</p>
+<p><strong>1.3.</strong> The relationship between the predictors and response is highly non-linear.</p>
+<p><strong>1.4.</strong> The variance of the error terms, i.e.&nbsp;<span class="math inline">\(\sigma^2 = Var(\epsilon)\)</span>, is extremely high.</p>
+</section>
+<section id="exercise-2---conceptual-questions-on-supervised-learning-ii" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2---conceptual-questions-on-supervised-learning-ii">Exercise 2 - Conceptual Questions on Supervised Learning II</h2>
+<p><strong>[6 points]</strong></p>
+<p>For each of the following, (i) explain if each scenario is a classification or regression problem AND why, (ii) indicate whether we are most interested in inference or prediction for that problem AND why, and (iii) provide the sample size <span class="math inline">\(n\)</span> and number of predictors <span class="math inline">\(p\)</span> indicated for each scenario.</p>
+<p><strong>2.1.</strong> We collect a set of data on the top 500 firms in the US. For each firm we record profit, number of employees, industry and the CEO salary. We are interested in understanding which factors affect CEO salary.</p>
+<p><strong>2.2.</strong> We are considering launching a new product and wish to know whether it will be a success or a failure. We collect data on 20 similar products that were previously launched. For each product we have recorded whether it was a success or failure, price charged for the product, marketing budget, competition price, and ten other variables.</p>
+<p><strong>2.3.</strong> We are interested in predicting the % change in the US dollar in relation to the weekly changes in the world stock markets. Hence we collect weekly data for all of 2012. For each week we record the % change in the dollar, the % change in the US market, the % change in the British market, and the % change in the German market.</p>
+</section>
+<section id="exercise-3---classification-using-knn" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3---classification-using-knn">Exercise 3 - Classification using KNN</h2>
+<p><strong>[6 points]</strong></p>
+<p>The table below provides a training dataset containing six observations (a.k.a. samples) (<span class="math inline">\(n=6\)</span>) each with three predictors (a.k.a. features) (<span class="math inline">\(p=3\)</span>), and one qualitative response variable (a.k.a. target).</p>
+<p><em>Table 1. Training dataset with <span class="math inline">\(n=6\)</span> observations in <span class="math inline">\(p=3\)</span> dimensions with a categorical response, <span class="math inline">\(y\)</span></em></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Obs.</th>
+<th><span class="math inline">\(x_1\)</span></th>
+<th><span class="math inline">\(x_2\)</span></th>
+<th><span class="math inline">\(x_3\)</span></th>
+<th><span class="math inline">\(y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1</strong></td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>Red</td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>Red</td>
+</tr>
+<tr class="odd">
+<td><strong>3</strong></td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>Red</td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>Blue</td>
+</tr>
+<tr class="odd">
+<td><strong>5</strong></td>
+<td>-1</td>
+<td>0</td>
+<td>1</td>
+<td>Blue</td>
+</tr>
+<tr class="even">
+<td><strong>6</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>Red</td>
+</tr>
+</tbody>
+</table>
+<p>We want to use the above training dataset to make a prediction, <span class="math inline">\(\hat{y}\)</span>, for an unlabeled test data observation where <span class="math inline">\(x_1=x_2=x_3=0\)</span> using <span class="math inline">\(K\)</span>-nearest neighbors. You are given some code below to get you started. <em>Note: coding is only required for part (a), for (b)-(d) please provide your reasoning based on your answer to part (a)</em>.</p>
+<p><strong>3.1.</strong> Compute the Euclidean distance between each observation and the test point, <span class="math inline">\(x_1=x_2=x_3=0\)</span>. Present your answer in a table similar in style to Table 1 with observations 1-6 as the row headers.</p>
+<p><strong>3.2.</strong> What is our prediction, <span class="math inline">\(\hat{y}\)</span>, when <span class="math inline">\(K=1\)</span> for the test point? Why?</p>
+<p><strong>3.3.</strong> What is our prediction, <span class="math inline">\(\hat{y}\)</span>, when <span class="math inline">\(K=3\)</span> for the test point? Why?</p>
+<p><strong>3.4.</strong> If the Bayes decision boundary (the optimal decision boundary) in this problem is highly nonlinear, then would we expect the <em>best</em> value of <span class="math inline">\(K\)</span> to be large or small? Why?</p>
+<div id="cell-6" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([[ <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">0</span>],</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>              [ <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>              [ <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>              [ <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>              [<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>              [ <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>]])</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="st">'r'</span>,<span class="st">'r'</span>,<span class="st">'r'</span>,<span class="st">'b'</span>,<span class="st">'b'</span>,<span class="st">'r'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-4---build-your-own-classification-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4---build-your-own-classification-algorithm">Exercise 4 - Build your own classification algorithm</h2>
+<p><strong>[18 points]</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://github.com/kylebradbury/ids705/tree/main/notebooks/data/a2">Data for this exercise can be downloaded here</a></p>
+</div>
+</div>
+<p><strong>4.1.</strong> Build a working version of a binary KNN classifier using the skeleton code below. We’ll use the <code>sklearn</code> convention that a supervised learning algorithm has the methods <code>fit</code> which trains your algorithm (for KNN that means storing the data) and <code>predict</code> which identifies the K nearest neighbors and determines the most common class among those K neighbors. <em>Note: Most classification algorithms typically also have a method <code>predict_proba</code> which outputs the confidence score of each prediction, but we will explore that in a later assignment. Please use <code>NumPy</code> to implement euclidean distance function.</em></p>
+<p><strong>4.2.</strong> Load the datasets to be evaluated here. Each includes training features (<span class="math inline">\(\mathbf{X}\)</span>), and test features (<span class="math inline">\(\mathbf{y}\)</span>) for both a low dimensional dataset (<span class="math inline">\(p = 2\)</span> features/predictors) and a higher dimensional dataset (<span class="math inline">\(p = 100\)</span> features/predictors). For each of these datasets there are <span class="math inline">\(n=1000\)</span> observations of each. They can be found in the data subfolder on github (see link above). Each file is labeled similar to <code>A2_Q4_X_train_low.csv</code>, which lets you know whether the dataset is of features, <span class="math inline">\(X\)</span>, targets, <span class="math inline">\(y\)</span>; training or testing; and low or high dimensions.</p>
+<p><strong>4.3.</strong> Train your classifier on first the low dimensional dataset and then the high dimensional dataset with <span class="math inline">\(k=5\)</span>. Evaluate the classification performance on the corresponding test data for each of those trained models. Calculate the time it takes each model to make the predictions and the overall accuracy of those predictions for each corresponding set of test data - state each.</p>
+<p><strong>4.4.</strong> Compare your implementation’s accuracy and computation time to the scikit learn <a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">KNeighborsClassifier</a> class. How do the results and speed compare to your implementation? <em>Hint: your results should be identical to that of the scikit-learn implementation.</em></p>
+<p><strong>4.5.</strong> Some supervised learning algorithms are more computationally intensive during training than testing. What are the drawbacks of the prediction process being slow? In what cases in practice might slow testing (inference) be more problematic than slow training?</p>
+<div id="cell-8" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Skeleton code for part (a) to write your own kNN classifier</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Knn:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># k-Nearest Neighbor class object for classification training and testing</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, x, y):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Save the training data to properties of this class</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, x, k):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        y_hat <span class="op">=</span> [] <span class="co"># Variable to store the estimated class label for </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate the distance from each vector in x to the training data</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Return the estimated targets</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> y_hat</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Metric of overall classification accuracy</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#  (a more general function, sklearn.metrics.accuracy_score, is also available)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accuracy(y,y_hat):</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    nvalues <span class="op">=</span> <span class="bu">len</span>(y)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    accuracy <span class="op">=</span> <span class="bu">sum</span>(y <span class="op">==</span> y_hat) <span class="op">/</span> nvalues</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-5---bias-variance-tradeoff-exploring-the-tradeoff-with-a-knn-classifier" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5---bias-variance-tradeoff-exploring-the-tradeoff-with-a-knn-classifier">Exercise 5 - Bias-variance tradeoff: exploring the tradeoff with a KNN classifier</h2>
+<p><strong>[20 points]</strong></p>
+<p>This exercise will illustrate the impact of the bias-variance tradeoff on classifier performance by investigating how model flexibility impacts classifier decision boundaries. For this problem, please us Scikit-learn’s KNN implementation rather than your own implementation, as you did at the end of the last question.</p>
+<p><strong>5.1.</strong> Create a synthetic dataset (with both features and targets). Use the <a href="http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html#sklearn.datasets.make_moons"><code>make_moons</code></a> module with the parameter <code>noise=0.35</code> to generate 1000 random samples.</p>
+<p><strong>5.2.</strong> Visualize your data: scatterplot your random samples with each class in a different color.</p>
+<p><strong>5.3.</strong> Create 3 different data subsets by selecting 100 of the 1000 data points at random three times (with replacement). For each of these 100-sample datasets, fit three separate k-Nearest Neighbor classifiers with: <span class="math inline">\(k = \{1, 25, 50\}\)</span>. This will result in 9 combinations (3 datasets, each with 3 trained classifiers).</p>
+<p><strong>5.4.</strong> For each combination of dataset and trained classifier plot the decision boundary (similar in style to Figure 2.15 from <em>Introduction to Statistical Learning</em>). This should form a 3-by-3 grid. Each column should represent a different value of <span class="math inline">\(k\)</span> and each row should represent a different dataset.</p>
+<p><strong>5.5.</strong> What do you notice about the difference between the decision boundaries in the rows and the columns in your figure? Which decision boundaries appear to best separate the two classes of data with respect to the training data? Which decision boundaries vary the most as the training data change? Which decision boundaries do you anticipate will generalize best to unseen data and why?</p>
+<p><strong>5.6.</strong> Explain the bias-variance tradeoff using the example of the plots you made in this exercise and its implications for training supervised machine learning algorithms.</p>
+<p>Notes and tips for plotting decision boundaries (as in part 5.4): - <em>Resource for plotting decision boundaries with meshgrid and contour: https://scikit-learn.org/stable/auto_examples/neighbors/plot_classification.html</em> - If you would like to change the colors of the background, and do not like any of the existing cmap available in matplotlib, you can make your own cmap using the 2 sets of rgb values. Sample code (replace r, g, b with respective rgb values):</p>
+<div id="cell-10" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LinearSegmentedColormap</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>newcmp <span class="op">=</span> LinearSegmentedColormap.from_list(<span class="st">"new"</span>, [(r<span class="op">/</span><span class="dv">255</span>, g<span class="op">/</span><span class="dv">255</span>, b<span class="op">/</span><span class="dv">255</span>), (r<span class="op">/</span><span class="dv">255</span>, g<span class="op">/</span><span class="dv">255</span>, b<span class="op">/</span><span class="dv">255</span>)], N<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-6---bias-variance-trade-off-ii-quantifying-the-tradeoff" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6---bias-variance-trade-off-ii-quantifying-the-tradeoff">Exercise 6 - Bias-variance trade-off II: Quantifying the tradeoff</h2>
+<p><strong>[18 points]</strong></p>
+<p>This exercise explores the impact of the bias-variance tradeoff on classifier performance by looking at the performance on both training and test data.</p>
+<p>Here, the value of <span class="math inline">\(k\)</span> determines how flexible our model is.</p>
+<p><strong>6.1.</strong> Using the function created earlier to generate random samples (using the <code>make_moons</code> function setting the <code>noise</code> parameter to 0.35), create a new set of 1000 random samples, and call this dataset your test set and the previously created dataset your training set.</p>
+<p><strong>6.2.</strong> Train a kNN classifier on your training set for <span class="math inline">\(k = 1,2,...500\)</span>. Apply each of these trained classifiers to both your training dataset and your test dataset and plot the classification error (fraction of incorrect predictions).</p>
+<p><strong>6.3.</strong> What trend do you see in the results?</p>
+<p><strong>6.4.</strong> What values of <span class="math inline">\(k\)</span> represent high bias and which represent high variance?</p>
+<p><strong>6.5.</strong> What is the optimal value of <span class="math inline">\(k\)</span> and why?</p>
+<p><strong>6.6.</strong> In KNN classifiers, the value of k controls the flexibility of the model - what controls the flexibility of other models?</p>
+</section>
+<section id="exercise-7---linear-regression-and-nonlinear-transformations" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7---linear-regression-and-nonlinear-transformations">Exercise 7 - Linear regression and nonlinear transformations</h2>
+<p><strong>[18 points]</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://github.com/kylebradbury/ids705/tree/main/notebooks/data/a2">Data for this exercise can be downloaded here</a></p>
+</div>
+</div>
+<p>Linear regression can be used to model nonlinear relationships when feature variables are properly transformed to represent the nonlinearities in the data folder. In this exercise, you’re given training and test data contained in files “A2_Q7_train.csv” and “A2_Q7_test.csv” in the data. Your goal is to develop a regression algorithm from the training data that performs well on the test data.</p>
+<p><em>Hint: Use the scikit learn <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">LinearRegression</a> module.</em></p>
+<p><strong>7.1.</strong> Create a scatter plot of your training data.</p>
+<p><strong>7.2.</strong> Estimate a linear regression model (<span class="math inline">\(y = a_0 + a_1 x\)</span>) for the training data and calculate both the <span class="math inline">\(R^2\)</span> value and mean square error for the fit of that model for the training data. Also provide the equation representing the estimated model (e.g.&nbsp;<span class="math inline">\(y = a_0 + a_1 x\)</span>, but with the estimated coefficients inserted. Consider this your baseline model against which you will compare other model options. <em>Evaluating performance on the training data is not a measure of how well this model would generalize to unseen data. We will evaluate performance on the test data once we see our models fit the training data decently well.</em></p>
+<p><strong>7.3.</strong> If features can be nonlinearly transformed, a linear model may incorporate those non-linear feature transformation relationships in the training process. From looking at the scatter plot of the training data, choose a transformation of the predictor variable, <span class="math inline">\(x\)</span> that may make sense for these data. This will be a multiple regression model of the form <span class="math inline">\(y = a_0 + a_1 z_1 + a_2 z_2 + \ldots + a_n z_n\)</span>. Here <span class="math inline">\(z_i\)</span> could be any transformations of x - perhaps it’s <span class="math inline">\(\frac{1}{x}\)</span>, <span class="math inline">\(log(x)\)</span>, <span class="math inline">\(sin(x)\)</span>, <span class="math inline">\(x^k\)</span> (where <span class="math inline">\(k\)</span> is any power of your choosing). Provide the estimated equation for this multiple regression model (e.g.&nbsp;if you chose your predictors to be <span class="math inline">\(z_1 = x\)</span> and <span class="math inline">\(z_2 = log(x)\)</span>, your model would be of the form <span class="math inline">\(y = a_0 + a_1 x + a_2 log(x)\)</span>. Also provide the <span class="math inline">\(R^2\)</span> and mean square error of the fit for the training data.</p>
+<p><strong>7.4.</strong> Visualize the model fit to the training data. Using both of the models you created in parts (b) and (c), plot the original data (as a scatter plot) AND the curves representing your models (each as a separate curve) from (b) and (c).</p>
+<p><strong>7.5.</strong> Now its time to compare your models and evaluate the generalization performance on held out test data. Using the models above from (b) an (c), apply them to the test data and estimate the <span class="math inline">\(R^2\)</span> and mean square error of the test dataset.</p>
+<p><strong>7.6.</strong> Which models perform better on the training data, and which on the test data? Why?</p>
+<p><strong>7.7.</strong> Imagine that the test data were significantly different from the training dataset. How might this affect the predictive capability of your model? How would the accuracy of generalization performance be impacted? Why?</p>
+<p><em>To help get you started - here’s some code to help you load in the data for this exercise (you’ll just need to update the path)</em>:</p>
+<div id="cell-13" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">'./data/a2'</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> pd.read_csv(path <span class="op">+</span> <span class="st">'A2_Q7_train.csv'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> pd.read_csv(path <span class="op">+</span> <span class="st">'A2_Q7_test.csv'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> train.x.values</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> train.y.values</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> test.x.values</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> test.y.values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

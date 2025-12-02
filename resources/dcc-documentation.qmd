@@ -1,0 +1,235 @@
+---
+title: Duke Compute Cluster Guide
+subtitle: Python / Jupyter Notebook Guide for the Duke Compute Cluster (DCC)
+author: Rakeen Rouf
+toc: true
+toc-expand: 2
+number-sections: true
+---
+
+This guide walks you through setting up and running Python and Jupyter Notebook on the DCC, managing environments, and submitting GPU jobs using Slurm (Simple Linux Utility for Resource Management).
+
+## One-Time Setup Steps (First Time Only!)
+
+### Familiarize yourself with the available file systems on the DCC.
+- **Overview:** [Duke Compute Cluster](https://oit-rc.pages.oit.duke.edu/rcsupportdocs/storage/)  
+
+### SSH into the DCC.
+Log into the cluster using your NetID.  
+
+**Command:**  
+```bash
+ssh {your_netID}@dcc-login.oit.duke.edu
+```
+(Example)
+
+![](img/dcc_documentation_images/image.png)
+
+### Create a symbolic link to the `course25` directory.
+The `coursess25` directory has 1 Terabyte of shared storage space for the course. A symbolic link is a shortcut to another file system. When you first login, you will be in your home directory, create your shortcuts there.
+
+**Command:**  
+```bash
+ln -s /hpc/group/coursess25 ids_705_storage
+```
+(Example)
+
+![](img/dcc_documentation_images/image-2.png)
+
+### Download and Install Miniconda.
+Execute the following commands in your terminal and follow the instructions. Log out (close the terminal) and log back in upon successful installation, to being using Miniconda. 
+
+**Commands:**  
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh
+```
+
+## Managing Python Environments
+
+### Create a new environment.
+**Command:**  
+```bash
+conda create -n {name_of_environment} python={Python.Version}
+```
+
+(Example)
+
+![](img/dcc_documentation_images/image-1.png)
+
+### View available Conda environments.
+**Command:**  
+```bash
+conda env list
+```
+
+(Example)
+
+![](img/dcc_documentation_images/image-3.png)
+
+### Activate the environment.
+**Command:**  
+```bash
+conda activate {name_of_environment}
+```
+
+(Example)
+
+![](img/dcc_documentation_images/image-4.png)
+
+### Install Jupyter kernel and test installation.
+**Commands:**  
+```bash
+conda install ipykernel
+```
+(Example)
+
+![](img/dcc_documentation_images/image-5.png)
+
+```bash
+python -m ipykernel install --user --name test
+```
+
+(Example)
+
+![](img/dcc_documentation_images/image-6.png)
+
+
+## Accessing Jupyter Lab via DCC OnDemand Portal
+
+### Login at [DCC OnDemand](https://dcc-ondemand-01.oit.duke.edu).
+### Click on **Jupyter Lab**.
+
+![](img/dcc_documentation_images/image-7.png)
+
+### Configure session resources:
+- **Partition:** `courses-gpu` (for GPU) or `courses` (no GPU).  
+- **GPUs:** `1` (if needed) or `0`.  
+- **CPUs:** Up to `40`.  
+- **Memory:** Up to `208 GB`.  
+- **Additional Slurm Parameters:**  
+  ```bash
+  --gres=gpu:1
+  ```
+
+![](img/dcc_documentation_images/image-8.png)
+
+### Launch the session and wait for the status to change to "Running".  
+### Click the **Connect to Jupyter** button to access the server.  
+
+![](img/dcc_documentation_images/image-9.png)
+
+### Start your notebook by selecting your preferred kernel.
+
+![](img/dcc_documentation_images/image-10.png)
+
+
+
+## GPU Demonstration on Jupyter Lab
+
+### Activate the previously created Conda environment.
+
+In your terminal, activate the previously created “test” Conda environment. You can access a terminal in this session by clicking the blue plus button and selecting terminal in the now open launcher window (You can also use your ssh terminal).
+
+**Command:**  
+```bash
+conda activate test
+```
+
+![](img/dcc_documentation_images/image-11.png)
+
+### Install required packages.
+**Commands:**  
+```bash
+conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia -y
+conda install matplotlib
+```
+
+![](img/dcc_documentation_images/image-12.png)
+
+![](img/dcc_documentation_images/image-13.png)
+
+### Open and run the notebook:
+Location: `ids_705_storage/demo/gpu_demo.ipynb`.
+
+- **Important:** Restart the kernel to ensure all installed packages are available.  
+
+![](img/dcc_documentation_images/image-14.png)
+
+- **Expected Output:** Ensure the first line of output says "Using GPU!!".
+
+![](img/dcc_documentation_images/image-15.png)
+
+.
+
+.
+
+![](img/dcc_documentation_images/image-16.png)
+
+
+
+## GPU Demonstration Using Slurm Scheduler (Preferred method to run longer jobs)
+Slurm (Simple Linux Utility for Resource Management) is a powerful workload manager and job scheduler designed for high-performance computing (HPC) clusters. It enables efficient resource allocation by managing compute nodes, CPUs, GPUs, memory, and job priorities across multiple users.
+
+In this tutorial, we’ll focus on using Slurm to submit GPU jobs to Duke’s Compute Cluster (DCC). You'll learn how to create and submit job scripts, specify resources like GPUs, CPUs, and memory.
+
+### (Optional) If you want to run the demo yourself start by navigating to the demo directory.
+**Command:**  
+```bash
+cd ids_705_storage/demo/data
+```
+
+![](img/dcc_documentation_images/image-17.png)
+
+### Create your Python script (demo script: `ids_705_storage/demo/data/test.py`).
+
+![](img/dcc_documentation_images/image-18.png)
+
+### Create the Slurm file (demo file: `ids_705_storage/demo/test_cuda.slurm`).
+
+![](img/dcc_documentation_images/image-19.png)
+
+### Submit your Slurm job.
+**Command:**  
+```bash
+sbatch test_cuda.slurm
+```
+
+![](img/dcc_documentation_images/image-20.png)
+
+### Monitor job status.
+**Command:**  
+```bash
+squeue -u {your_id}
+```
+
+![](img/dcc_documentation_images/image-21.png)
+
+### Check job output (Wait for JobID to dissapear from above).
+**Command:**  
+```bash
+cat test_cuda_{your_job_id}.out
+```
+
+- **Expected Output:**Ensure the first line of the output says "Using GPU".
+
+![](img/dcc_documentation_images/image-22.png)
+
+.
+
+.
+
+![](img/dcc_documentation_images/image-23.png)
+
+
+---
+
+## Final Notes
+
+- Create a personal directory under: `/hpc/group/coursess25/ids705` and name it after your NetID.  
+- Be mindful of shared resources and job submissions.  
+- **Questions?** Contact: rakeen.rouf@duke.edu.  
+- Visit [Duke Compute Cluster](https://oit-rc.pages.oit.duke.edu/rcsupportdocs/) for more information.  
+- If resources are busy, set GPUs to `0` and ensure your code works on CPU (see demo code for an example).
+
+![](img/dcc_documentation_images/image-24.png)

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Final Project – IDS705: Principles of Machine Learning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-504dfd40fe2ab044efd8c4ece178275b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-63SKKDGFHG"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">IDS705: Principles of Machine Learning</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./schedule.html" aria-current="page"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://canvas.duke.edu/courses/50392"> 
+<span class="menu-text">Canvas</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://edstem.org/us/courses/69557/"> 
+<span class="menu-text">Ed Discussions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.gradescope.com/courses/917973"> 
+<span class="menu-text">Gradescope</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./notebooks/assignment_instructions.html">Assignments</a></li><li class="breadcrumb-item"><a href="./project.html">Final Project</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Syllabus</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Logistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contacts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructional Team</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pedagogy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pedagogy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effective Use of AI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Assignments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notebooks/assignment_instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notebooks/assignment1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notebooks/assignment2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notebooks/assignment3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notebooks/assignment4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notebooks/assignment5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notebooks/assignment6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Final Project</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software and Hardware Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources for further learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources/dcc-documentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Duke Compute Cluster Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/kylebradbury/ml-project-structure-demo" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File structure template</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#summary-and-goals" id="toc-summary-and-goals" class="nav-link active" data-scroll-target="#summary-and-goals">Summary and Goals</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a>
+  <ul class="collapse">
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  </ul></li>
+  <li><a href="#proposal" id="toc-proposal" class="nav-link" data-scroll-target="#proposal">Proposal</a></li>
+  <li><a href="#final-report" id="toc-final-report" class="nav-link" data-scroll-target="#final-report">Final Report</a></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation">Presentation</a></li>
+  <li><a href="#github-repository" id="toc-github-repository" class="nav-link" data-scroll-target="#github-repository">Github Repository</a></li>
+  <li><a href="#peer-evaluation" id="toc-peer-evaluation" class="nav-link" data-scroll-target="#peer-evaluation">Peer Evaluation</a></li>
+  <li><a href="#submission-evaluation-grading" id="toc-submission-evaluation-grading" class="nav-link" data-scroll-target="#submission-evaluation-grading">Submission, Evaluation, &amp; Grading</a></li>
+  <li><a href="#ideas" id="toc-ideas" class="nav-link" data-scroll-target="#ideas">Ideas</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./notebooks/assignment_instructions.html">Assignments</a></li><li class="breadcrumb-item"><a href="./project.html">Final Project</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Final Project</h1>
+<p class="subtitle lead">IDS:705 Principles of Machine Learning</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="summary-and-goals" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-goals">Summary and Goals</h2>
+<p>It’s time for you to unleash your creativity in the final project for the course! This is your chance to apply everything you’ve learned so far, from experimental design and model selection to evaluation and optimization. This project gives you the freedom to explore new applications, experiment, and innovate. Creativity, critical thinking, and problem-solving will be key.</p>
+<p>Machine learning tools are not an end in themselves, but yield value when making predictions, quantifying and describing phenomena in the world around us, and in all these ways and more helping us to make decisions that would otherwise be difficult or impossible. For this final project, you will work in teams to (1) identify a problem to solve or a question to answer, (2) apply machine learning techniques to conduct experiments to investigate the application area, (3) rigorously evaluate the performance of your approach, and (4) clearly communicate your findings to a wide audience. The <strong>deliverables for this project</strong> are:</p>
+<ol type="1">
+<li>Project proposal</li>
+<li>Final written report AND a draft report prior to final submission</li>
+<li>Presentation. During the class exam period, we will have a project showcase and competition.</li>
+<li>Github repository for your project</li>
+<li>Peer evaluation</li>
+</ol>
+<p>Other topics described in this document related to the project include: - Learning objectives - Submission, evaluation, &amp; grading - Project ideas - Frequently asked questions</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>This is an opportunity to creatively deploy machine learning in an application area of interest to you. A central component of your project must be a machine learning methodology. It does not have to be one that we’ve explicitly discussed in class as you’re welcome to use the project as an opportunity to learn new topics, although there should be a supervised learning component to your project. The objectives of this project are to…</p>
+<ol type="1">
+<li>Develop deeper competency in applying machine learning methods in practical applications</li>
+<li>Gain experience in learning more about a topic beyond what was explicitly discussed, but by building on the foundation you have developed throughout the course which enables you to learn about other machine learning concepts</li>
+<li>Increase your experience with collaborative data science workflows</li>
+<li>Expand your data science portfolio</li>
+</ol>
+<p>In this project you will use what you’ve learned throughout this course and build on that knowledge and experience to apply the paradigms, algorithms, evaluation tools, and interpretation techniques discussed throughout the course. I strongly encourage you to pick a project that is of genuine interest in some way (e.g.&nbsp;the application, the tools, the dataset, etc.). Learning comes from stretching yourself: this requires that you push yourself into some unfamiliar territory and that is often a challenge and leads to desirable difficulty. Through this struggle is how the best learning happens, but it requires perseverance and that is best achieved when you are able to bring intrinsic motivation to that challenge. Find a topic of interest and embrace the challenge!</p>
+<p>For this project you will identify a <strong>problem you wish to solve using machine learning tools</strong>. Identify the experiment you would need to run to evaluate how well you solved it as compared to existing approaches in the field including what metrics to use to evaluate performance.</p>
+<section id="requirements" class="level3">
+<h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
+<ul>
+<li><p>The project must involve supervised machine learning. You may include concepts we were not able to cover in the course. You may include other concepts at well, but there should be a supervised learning component.</p></li>
+<li><p>The project must be able to be completed within the course of this semester and should be scoped correctly: we encourage you to be ambitious, but please visit office hours if you have questions about project scope.</p></li>
+<li><p>Every project should involve learning more about both your <em>application domain</em> and the <em>methods that you’re using</em>. This means reading about both facets. If you’re working on a project involving diagnosis of a disease, you should read enough to understand the disease and how it manifests the symptoms that your data may be noting. You’re expected to develop some domain knowledge related to your problem and demonstrate that in the report.</p></li>
+<li><p>At minimum, your project should have at least one experimental design or study per student on the team. Examples include (but are not limited to): Options for topics to investigate:</p>
+<ul>
+<li>Cross-domain comparison. What is the impact on generalization performance if we know that the conditions under which we will apply our ML approach are different than the available training data (e.g.&nbsp;if I’m working on a computer vision problem and all my training data are from the U.S., but the goal is to apply the model to regions in Asia)</li>
+<li>Model sensitivity to imbalanced data. What if training data when the training data are not perfectly sampled to be representative of the actual target data. This could be an investigation of the impact and possible solutions to imbalanced datasets.</li>
+<li>Active learning for cases where collecting data is expensive. How little additional data do you need to add to your model and how might it be identified how to sample the new data.</li>
+<li>Bias detection and mitigation - could the fairness of algorithms be analyzed across different subsets of the data.</li>
+<li>Model explainability / interpretability.</li>
+<li>Model robustness to noise and/or adversarial attacks</li>
+<li>Model robustness when the application domain will likely be shifted from the training domain</li>
+<li>When do ensembles actually help? Investigating model stacking and the conditions under which it is adventageous (performance / computation tradeoff)</li>
+<li>Calibration in classification models - do the confidence scores match the actual probabilities?</li>
+</ul></li>
+<li><p>Your project should consider the potential ethical implications of your work and describe how that was factored into your work.</p></li>
+</ul>
+</section>
+</section>
+<section id="proposal" class="level2">
+<h2 class="anchored" data-anchor-id="proposal">Proposal</h2>
+<p>Your team will submit a short project proposal. You will receive feedback that should be used to guide your project development and execution. There are no length requirements on the proposal, but 2 pages should typically be sufficient. Every proposal should have the title of the project and the list of team members at the top of the first page.</p>
+<p>You can find the <strong><a href="https://docs.google.com/document/d/1DgPLjUB7VqBOdyYFWCZ6iYdqhyHp-etXAEgI3QIA__c/edit?usp=sharing">project proposal template and instructions here</a></strong>. <em>You are required to use the template for your proposal so that we can provide comments in Google docs</em>. Please read through and discuss the different points mentioned in the template prior to submission.</p>
+<p>Additionally, content from your proposal may be reused in your draft/final report and so you’re encouraged to invest in it with that in mind.</p>
+<p>If you are looking for ideas about datasets, etc., please see the Ideas section below. Please stop by office hours if you would like to discuss specific project ideas or for any other help in selecting your project idea.</p>
+</section>
+<section id="final-report" class="level2">
+<h2 class="anchored" data-anchor-id="final-report">Final Report</h2>
+<p>The final project report that you submit will consist of two parts: (1) a draft project report and (2) a final report. The draft project report is your main opportunity to get detailed feedback on your report. While the draft report won’t be graded, we will provide written feedback and suggestions in the form of Google doc comments that we would strongly recommend addressing in your final report.</p>
+<p>Please find the <strong><a href="https://docs.google.com/document/d/1aTpyQvFVl_F9BBoDc5Okf4mCWSlSqN5ETvHVXcbvFAA/edit?usp=sharing">instructions and template for the final report here</a></strong>.</p>
+</section>
+<section id="presentation" class="level2">
+<h2 class="anchored" data-anchor-id="presentation">Presentation</h2>
+<p>You will also make a 7-minute presentation (strictly enforced) summarizing your project. This presentation should be visually compelling and should not miss the “forest for the trees” – don’t get lost in technical details. Imagine your aunt and uncle watching your presentation – would they know what is going on? Would they find it approachable and engaging? For inspiration for what makes an approachable discussion of a machine learning project, watch videos from the following series:</p>
+<ul>
+<li><a href="https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg">Two Minute Papers</a> by Károly Zsolnai-Fehér. Concise 1-4 minute summaries of cutting edge research papers.</li>
+<li><a href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a> by Grant Sanderson. Mathematical concepts conveyed clearly, intuitively, and visually.</li>
+</ul>
+<p>Be sure to practice your presentation, ask your friends (especially those who may not be as technically inclined) for feedback. Do they think it was engaging/easy to follow? Ask them their takeaways: did they get the message you were trying to communicate? Address their feedback to help you ensure the quality of your presentation. <em>You must create your presentation as a Google Slides presentation and share and submit the link to your presentation by 5pm the night before the showcase</em>.</p>
+</section>
+<section id="github-repository" class="level2">
+<h2 class="anchored" data-anchor-id="github-repository">Github Repository</h2>
+<p>Your github respository should (a) contain a descriptive README.md file that explains what the repo is for, and how to use the code to reproduce your work (including how to set it up to run), (b) be well commented throughout all files, (c) list all dependencies in a requirements.txt file, (d) inform the user how to get the data and includes all preprocessing code, and (e) actually runs (i.e.&nbsp;we can successfully test it) and does what it says</p>
+<p><del>Also include a copy of your final report and a link to your project video from the README.md file.</del></p>
+</section>
+<section id="peer-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="peer-evaluation">Peer Evaluation</h2>
+<p>Since this is a team project, you will also receive feedback from your teammates AND reflect on your own performance in a self-evaluation. You will be evaluating your fellow team members on the following criteria:</p>
+<ol type="1">
+<li>Was dependable in attending meetings to work on the project</li>
+<li>Did work accurately and completely</li>
+<li>Completed work on time</li>
+<li>Contributed positively to team discussions</li>
+<li>Helped others when needed</li>
+<li>Responded to communications in a timely manner</li>
+<li>Treated other team members respectfully</li>
+<li>Demonstrated a positive attitude about the team and its work</li>
+</ol>
+<p>This evaluation is NOT based directly on the scores that you receive in the feedback, but a satisfactory peer and self-evaluation is assessed based on the level of constructiveness of the feedback you provide. More detailed, constructive feedback is more useful to help your peers better understand their strengths and areas for growth. Doing so respectfully and compassionately is a requirement. Your peers will receive anonymized versions of the feedback that you share.</p>
+</section>
+<section id="submission-evaluation-grading" class="level2">
+<h2 class="anchored" data-anchor-id="submission-evaluation-grading">Submission, Evaluation, &amp; Grading</h2>
+<p>You should submit each deliverable from your project through Gradescope. You will submit a link to each team deliverable. <strong>This should be submitted AS A TEAM not through individual submissions</strong> (points will be deducted if this is not followed). The project proposal, and draft final report should be submitted through GradeScope as links to Google Docs (so that we can attach easy-to-respond-to comments) using the templates provided. The link to the presentation slides and github repo should also both be submitted as links via GradeScope. The final project report, however, should be submitted as a PDF document in GradeScope.</p>
+<p>The grading for this project will be assigned as follows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Evaluation / Feedback Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Presentation</td>
+<td>5 points, graded</td>
+</tr>
+<tr class="even">
+<td>Final Report</td>
+<td>10 points, graded</td>
+</tr>
+<tr class="odd">
+<td>Team Proposal</td>
+<td>Written or verbal feedback will be provided to help guide your project design.**</td>
+</tr>
+<tr class="even">
+<td>Draft Final Report</td>
+<td>Written feedback will be provided to help guide your final report writing.**</td>
+</tr>
+<tr class="odd">
+<td>Github Repository</td>
+<td>Required for project submission to be considered complete.**</td>
+</tr>
+<tr class="even">
+<td>Peer Evaluation</td>
+<td>Required for project submission to be considered complete.**</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>15 points</td>
+</tr>
+</tbody>
+</table>
+<p>** No points will be directly assigned. One point will be deducted from your overall final project score for each day late; up to 2 points may be deducted from the overall project score (out of 15 possible points) if the deliverable is unsatisfactory (if it does not represent a serious effort towards the deliverable)</p>
+</section>
+<section id="ideas" class="level2">
+<h2 class="anchored" data-anchor-id="ideas">Ideas</h2>
+<ul>
+<li><strong>Design your own project based on a question or problem</strong>. How well can you detect a disease using only data that might be available through sensors on a smart watch? How well do interpretable machine learning techniques perform in predicting recidivism as compared to less interpretable or explainable methodologies?</li>
+<li><strong>Reproduce the work of a published study and build on it</strong>. Reproducing the results of a journal article can be a great way to dive into advanced materials. The goal for a project like this would be to reproduce the study and build on it in some way: test a new hypothesis, adjust the methodology, try it on other data that may present new and interesting challenges. Reproducing papers can be hard, so you’ll want to choose wisely and make clear what your innovation will be. As a starting place, you can explore <a href="https://paperswithcode.com/">Papers with Code</a> which typically have papers where the code and the data are both shared, often making reproducing their work simpler.</li>
+<li><strong>Participate in an active machine learning competition</strong>. Online machine learning competitions are sponsored by organizations with a significantly high interest in a problem that they are investing prize money into finding a solution. Examples of competition platforms include <a href="https://www.kaggle.com/competitions">Kaggle</a>, <a href="https://www.drivendata.org/competitions/">Driven Data</a>, <a href="https://zindi.africa/competitions">Zindi</a>, <a href="https://www.aicrowd.com/">AICrowd</a>, etc. If you choose to participate in a competition, it must be an active competition where your team can compete; it cannot be a “sample” competition that is only for learning to use the platform (e.g.&nbsp;the Kaggle Titanic competition, etc.). You will want to learn about the application domain.</li>
+<li><strong>Build your own tool</strong>. Great value can come from making a tool available for use, but building the infrastructure is a challenge. You may want to create a chatbot that creates poetry based on themes that you feed in, or design a search tool that scans satellite data of the Earth for signs of natural disasters. The key here is that your tool will need to be functional and usable by your target audience. For this path, part of your output should be a demonstration of your tool.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

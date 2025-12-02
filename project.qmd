@@ -1,0 +1,128 @@
+---
+title: Final Project
+subtitle: IDS:705 Principles of Machine Learning
+toc: true
+number-sections: false
+---
+
+## Summary and Goals
+
+It's time for you to unleash your creativity in the final project for the course!  This is your chance to apply everything you've learned so far, from experimental design and model selection to evaluation and optimization. This project gives you the freedom to explore new applications, experiment, and innovate. Creativity, critical thinking, and problem-solving will be key.
+
+Machine learning tools are not an end in themselves, but yield value when making predictions, quantifying and describing phenomena in the world around us, and in all these ways and more helping us to make decisions that would otherwise be difficult or impossible. For this final project, you will work in teams to (1) identify a problem to solve or a question to answer, (2) apply machine learning techniques to conduct experiments to investigate the application area, (3) rigorously evaluate the performance of your approach, and (4) clearly communicate your findings to a wide audience. The **deliverables for this project** are:
+
+1. Project proposal
+2. Final written report AND a draft report prior to final submission
+3. Presentation. During the class exam period, we will have a project showcase and competition.
+4. Github repository for your project
+5. Peer evaluation
+
+Other topics described in this document related to the project include:
+- Learning objectives
+- Submission, evaluation, & grading
+- Project ideas
+- Frequently asked questions
+
+## Learning Objectives
+
+This is an opportunity to creatively deploy machine learning in an application area of interest to you. A central component of your project must be a machine learning methodology. It does not have to be one that we've explicitly discussed in class as you're welcome to use the project as an opportunity to learn new topics, although there should be a supervised learning component to your project. The objectives of this project are to...
+
+1. Develop deeper competency in applying machine learning methods in practical applications
+2. Gain experience in learning more about a topic beyond what was explicitly discussed, but by building on the foundation you have developed throughout the course which enables you to learn about other machine learning concepts
+3. Increase your experience with collaborative data science workflows
+4. Expand your data science portfolio
+
+In this project you will use what you've learned throughout this course and build on that knowledge and experience to apply the paradigms, algorithms, evaluation tools, and interpretation techniques discussed throughout the course. I strongly encourage you to pick a project that is of genuine interest in some way (e.g. the application, the tools, the dataset, etc.). Learning comes from stretching yourself: this requires that you push yourself into some unfamiliar territory and that is often a challenge and leads to desirable difficulty. Through this struggle is how the best learning happens, but it requires perseverance and that is best achieved when you are able to bring intrinsic motivation to that challenge. Find a topic of interest and embrace the challenge!
+
+For this project you will identify a **problem you wish to solve using machine learning tools**. Identify the experiment you would need to run to evaluate how well you solved it as compared to existing approaches in the field including what metrics to use to evaluate performance.
+
+### Requirements
+
+- The project must involve supervised machine learning. You may include concepts we were not able to cover in the course. You may include other concepts at well, but there should be a supervised learning component.
+- The project must be able to be completed within the course of this semester and should be scoped correctly: we encourage you to be ambitious, but please visit office hours if you have questions about project scope.
+- Every project should involve learning more about both your *application domain* and the *methods that you're using*. This means reading about both facets. If you're working on a project involving diagnosis of a disease, you should read enough to understand the disease and how it manifests the symptoms that your data may be noting. You're expected to develop some domain knowledge related to your problem and demonstrate that in the report.
+- At minimum, your project should have at least one experimental design or study per student on the team. Examples include (but are not limited to):
+Options for topics to investigate:
+
+    - Cross-domain comparison. What is the impact on generalization performance if we know that the conditions under which we will apply our ML approach are different than the available training data (e.g. if I'm working on a computer vision problem and all my training data are from the U.S., but the goal is to apply the model to regions in Asia)
+    - Model sensitivity to imbalanced data. What if training data when the training data are not perfectly sampled to be representative of the actual target data. This could be an investigation of the impact and possible solutions to imbalanced datasets.
+    - Active learning for cases where collecting data is expensive. How little additional data do you need to add to your model and how might it be identified how to sample the new data.
+    - Bias detection and mitigation - could the fairness of algorithms be analyzed across different subsets of the data.
+    - Model explainability / interpretability. 
+    - Model robustness to noise and/or adversarial attacks
+    - Model robustness when the application domain will likely be shifted from the training domain
+    - When do ensembles actually help? Investigating model stacking and the conditions under which it is adventageous (performance / computation tradeoff)
+    - Calibration in classification models - do the confidence scores match the actual probabilities?
+- Your project should consider the potential ethical implications of your work and describe how that was factored into your work.
+
+
+## Proposal
+
+Your team will submit a short project proposal. You will receive feedback that should be used to guide your project development and execution. There are no length requirements on the proposal, but 2 pages should typically be sufficient. Every proposal should have the title of the project and the list of team members at the top of the first page.
+
+You can find the **[project proposal template and instructions here](https://docs.google.com/document/d/1DgPLjUB7VqBOdyYFWCZ6iYdqhyHp-etXAEgI3QIA__c/edit?usp=sharing)**. *You are required to use the template for your proposal so that we can provide comments in Google docs*. Please read through and discuss the different points mentioned in the template prior to submission.
+
+Additionally, content from your proposal may be reused in your draft/final report and so you're encouraged to invest in it with that in mind.
+
+If you are looking for ideas about datasets, etc., please see the Ideas section below. Please stop by office hours if you would like to discuss specific project ideas or for any other help in selecting your project idea.
+
+## Final Report
+
+The final project report that you submit will consist of two parts: (1) a draft project report and (2) a final report. The draft project report is your main opportunity to get detailed feedback on your report. While the draft report won't be graded, we will provide written feedback and suggestions in the form of Google doc comments that we would strongly recommend addressing in your final report.
+
+Please find the **[instructions and template for the final report here](https://docs.google.com/document/d/1aTpyQvFVl_F9BBoDc5Okf4mCWSlSqN5ETvHVXcbvFAA/edit?usp=sharing)**. 
+
+## Presentation
+
+You will also make a 7-minute presentation (strictly enforced) summarizing your project. This presentation should be visually compelling and should not miss the “forest for the trees” – don’t get lost in technical details. Imagine your aunt and uncle watching your presentation – would they know what is going on? Would they find it approachable and engaging? For inspiration for what makes an approachable discussion of a machine learning project, watch videos from the following series:
+
+- [Two Minute Papers](https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg) by Károly Zsolnai-Fehér. Concise 1-4 minute summaries of cutting edge research papers.
+- [3Blue1Brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw) by Grant Sanderson. Mathematical concepts conveyed clearly, intuitively, and visually.
+
+Be sure to practice your presentation, ask your friends (especially those who may not be as technically inclined) for feedback. Do they think it was engaging/easy to follow? Ask them their takeaways: did they get the message you were trying to communicate? Address their feedback to help you ensure the quality of your presentation. *You must create your presentation as a Google Slides presentation and share and submit the link to your presentation by 5pm the night before the showcase*.
+
+## Github Repository
+
+Your github respository should (a) contain a descriptive README.md file that explains what the repo is for, and how to use the code to reproduce your work (including how to set it up to run), (b) be well commented throughout all files, (c) list all dependencies in a requirements.txt file, (d) inform the user how to get the data and includes all preprocessing code, and (e) actually runs (i.e. we can successfully test it) and does what it says
+
+~~Also include a copy of your final report and a link to your project video from the README.md file.~~
+
+## Peer Evaluation
+
+Since this is a team project, you will also receive feedback from your teammates AND reflect on your own performance in a self-evaluation. You will be evaluating your fellow team members on the following criteria:
+
+1. Was dependable in attending meetings to work on the project
+2. Did work accurately and completely
+3. Completed work on time
+4. Contributed positively to team discussions
+5. Helped others when needed
+6. Responded to communications in a timely manner
+7. Treated other team members respectfully
+8. Demonstrated a positive attitude about the team and its work
+
+This evaluation is NOT based directly on the scores that you receive in the feedback, but a satisfactory peer and self-evaluation is assessed based on the level of constructiveness of the feedback you provide. More detailed, constructive feedback is more useful to help your peers better understand their strengths and areas for growth. Doing so respectfully and compassionately is a requirement. Your peers will receive anonymized versions of the feedback that you share.
+
+## Submission, Evaluation, & Grading
+
+You should submit each deliverable from your project through Gradescope. You will submit a link to each team deliverable. **This should be submitted AS A TEAM not through individual submissions** (points will be deducted if this is not followed). The project proposal, and draft final report should be submitted through GradeScope as links to Google Docs (so that we can attach easy-to-respond-to comments) using the templates provided. The link to the presentation slides and github repo should also both be submitted as links via GradeScope. The final project report, however, should be submitted as a PDF document in GradeScope.
+
+The grading for this project will be assigned as follows:
+
+| Component | Evaluation / Feedback Plan |
+|---|---|
+| Presentation | 5 points, graded |
+| Final Report | 10 points, graded |
+| Team Proposal | Written or verbal feedback will be provided to help guide your project design.** |
+| Draft Final Report | Written feedback will be provided to help guide your final report writing.** |
+| Github Repository | Required for project submission to be considered complete.** |
+| Peer Evaluation | Required for project submission to be considered complete.** |
+| Total | 15 points |
+
+** No points will be directly assigned. One point will be deducted from your overall final project score for each day late; up to 2 points may be deducted from the overall project score (out of 15 possible points) if the deliverable is unsatisfactory (if it does not represent a serious effort towards the deliverable)
+
+## Ideas
+
+- **Design your own project based on a question or problem**. How well can you detect a disease using only data that might be available through sensors on a smart watch? How well do interpretable machine learning techniques perform in predicting recidivism as compared to less interpretable or explainable methodologies?
+- **Reproduce the work of a published study and build on it**. Reproducing the results of a journal article can be a great way to dive into advanced materials. The goal for a project like this would be to reproduce the study and build on it in some way: test a new hypothesis, adjust the methodology, try it on other data that may present new and interesting challenges. Reproducing papers can be hard, so you'll want to choose wisely and make clear what your innovation will be. As a starting place, you can explore [Papers with Code](https://paperswithcode.com/) which typically have papers where the code and the data are both shared, often making reproducing their work simpler.
+- **Participate in an active machine learning competition**. Online machine learning competitions are sponsored by organizations with a significantly high interest in a problem that they are investing prize money into finding a solution. Examples of competition platforms include [Kaggle](https://www.kaggle.com/competitions), [Driven Data](https://www.drivendata.org/competitions/), [Zindi](https://zindi.africa/competitions), [AICrowd](https://www.aicrowd.com/), etc. If you choose to participate in a competition, it must be an active competition where your team can compete; it cannot be a "sample" competition that is only for learning to use the platform (e.g. the Kaggle Titanic competition, etc.). You will want to learn about the application domain.
+- **Build your own tool**. Great value can come from making a tool available for use, but building the infrastructure is a challenge. You may want to create a chatbot that creates poetry based on themes that you feed in, or design a search tool that scans satellite data of the Earth for signs of natural disasters. The key here is that your tool will need to be functional and usable by your target audience. For this path, part of your output should be a demonstration of your tool.

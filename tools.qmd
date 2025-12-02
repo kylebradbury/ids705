@@ -1,0 +1,46 @@
+---
+title: Software and Hardware Tools
+subtitle: IDS:705 Principles of Machine Learning
+toc: true
+toc-expand: 2
+number-sections: false
+---
+
+## Programming language: Python
+We will use Python 3.x. The Anaconda distribution is recommended and comes with the most common packages. Python continues to be an one of the top programming languages and the rich packages in the language make it an excellent choice for machine learning. In particular the Python ecosystem of packages makes it a natural choice for ML including core numerical programming and plotting libraries like numpy, scipy, matplotlib, and pandas as well as excellent packages for machine learning algorithm development and statistical modeling including Scikit-Learn, Keras, and Pytorch.
+
+## Development environments: VS Code and Jupyter Notebooks
+Jupyter lab or Jupyter notebook will be appropriate for most class assignments. We highly encourage you to use Visual Studio Code, in particular due to the debugging capabilities. There are many configurations that may work for you, but I would recommend begin by gathering ideas in Jupyter Notebooks. Once you have the basic structure of your code worked out, consider moving it to a .py file to make it easier and cleaner to run and build on.
+
+If you could use help getting started or a refresher on Jupyter notebooks, [check out this video for more on basic Jupyter functionality](https://www.youtube.com/watch?v=IMdfXGHzz5g). Using Jupyter notebooks allows you to practice applying machine learning concepts while building programming and  writing skills, strengthening your ability to both create creative solutions to machine learning challenges while simultaneously enhancing your ability to **communicate** the meaning behind your findings and why others should give credence to your results. You're encouraged to use VS Code to interact with Jupyter Notebooks.
+
+## Graphics processing units (GPUs)
+GPUs are the workhorses of many modern machine learning algorithms, especially any that involve neural network-based architectures. There will be a small number of assignments that will require additional computation that would benefit from GPUs. For these there are several options:
+
+- [Duke Compute Cluster](https://oit-rc.pages.oit.duke.edu/rcsupportdocs/). This server provides on-demand access to GPUs for computation through a centralized Duke server. You have access to this resource for the semester. [Further instructions are available here](resources/dcc-documentation.qmd).
+- [Google Colab](https://colab.research.google.com/), which is a free notebook environment that enables access to cloud resources including GPUs. For longer sessions before timeouts, greater RAM, and better GPUs you can optionally upgrade to Colab Pro.
+- We will also be making a limited number of Azure cloud credits available to students later in the semester by request if neither of the above resources meets your needs.
+
+## Version Control via Git
+
+Git is efficient for collaboration, and expectation in industry, and one of the best ways to share results in academia. You can even use some Git repositories (e.g. Github) as hosts for website, such as with the [course website](https://kylebradbury.github.io/ids705/index.html). As a data scientist with experience in machine learning, Git is expected. We will interact with Git repositories (a.k.a. repos) throughout this course, and your project will require the use of git repos for collaboration.
+
+Complete the [Atlassian Git tutorial](https://www.atlassian.com/git/tutorials/what-is-version-control), specifically the following listed sections. Try each concept that's presented. For this tutorial, instead of using BitBucket as your remote repository host, you may use your preferred platform such as [Github](https://github.com/) or [Duke's Gitlab](https://gitlab.oit.duke.edu/users/sign_in).
+1. [What is version control](https://www.atlassian.com/git/tutorials/what-is-version-control)
+2. [What is Git](https://www.atlassian.com/git/tutorials/what-is-git)
+3. [Install Git](https://www.atlassian.com/git/tutorials/install-git)
+4. [Setting up a repository](https://www.atlassian.com/git/tutorials/install-git)
+5. [Saving changes](https://www.atlassian.com/git/tutorials/saving-changes)
+6. [Inspecting a repository](https://www.atlassian.com/git/tutorials/inspecting-a-repository)
+7. [Undoing changes](https://www.atlassian.com/git/tutorials/undoing-changes)
+8. [Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history)
+9. [Syncing](https://www.atlassian.com/git/tutorials/syncing)
+10. [Making a pull request](https://www.atlassian.com/git/tutorials/making-a-pull-request)
+11. [Using branches](https://www.atlassian.com/git/tutorials/using-branches)
+12. [Comparing workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
+
+I also have created two videos on the topic to help you understand some of these concepts: [Git basics](https://www.youtube.com/watch?v=fBCwfoBr2ng) and a [step-by-step tutorial](https://www.youtube.com/watch?v=nH7qJHx-h5s).
+
+As an additional resource, Microsoft now offers a git [tutorial](https://learn.microsoft.com/en-us/collections/o1njfe825p602p) on this topic as well.
+
+For your answer, affirm that you *either* completed the tutorials above OR have previous experience with ALL of the concepts above. Confirm this by typing your name below and selecting the situation that applies from the two options in brackets.

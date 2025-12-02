@@ -1,0 +1,78 @@
+project:
+  type: website
+  output-dir: docs
+  resources: 
+    - "/notebooks/data/**"
+    - "/shared/**"
+  render:
+    - "*.qmd"
+    - "*.ipynb"
+    - "!assignments/*"
+    - "!archive/*"
+    - "!lectures/*"
+    - "!solutions/*"
+    - "!dev/*"
+
+website:
+  title: "IDS705: Principles of Machine Learning"
+  navbar:
+    left:
+      - href: ./schedule.qmd
+        text: Schedule
+      - href: https://canvas.duke.edu/courses/50392
+        text: Canvas
+      - href: https://edstem.org/us/courses/69557/
+        text: Ed Discussions
+      - href: https://www.gradescope.com/courses/917973
+        text: Gradescope
+  google-analytics: "G-63SKKDGFHG"
+    # tools:
+    #   - icon: linkedin
+    #     href: https://twitter.com
+    #   - icon: github
+    #     menu:
+    #       - text: Source Code
+    #         url:  https://code.com
+    #       - text: Report a Bug
+    #         url:  https://bugs.com
+  sidebar:
+    # style: "docked"
+    search: true
+    contents:
+      - index.qmd
+      - section: "Syllabus"
+        contents:
+          - schedule.qmd
+          - syllabus.qmd
+          - contacts.qmd
+          - pedagogy.qmd
+          - ai.qmd
+      - section: "Assignments"
+        contents:
+          - notebooks/assignment_instructions.ipynb
+          # - notebooks/assignment1.ipynb
+          # - notebooks/assignment2.ipynb
+          # - notebooks/assignment3.ipynb
+          # - notebooks/assignment4.ipynb
+          # - notebooks/assignment5.ipynb
+          # - notebooks/assignment6.ipynb
+          # - project.qmd
+      - section: "Resources"
+        contents:
+          - tools.qmd
+          - resources.qmd
+          - resources/dcc-documentation.qmd
+          - text: "File structure template"
+            href: https://github.com/kylebradbury/ml-project-structure-demo
+format:
+  html:
+    theme: 
+      - cosmo
+      # - style.css
+    css: styles.css
+    toc: true
+    grid:
+      # sidebar-width: 300px
+      body-width: 1100px
+      # margin-width: 100px
+      # gutter-width: 1rem

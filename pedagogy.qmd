@@ -1,0 +1,25 @@
+---
+title: Pedagogy
+subtitle: IDS:705 Principles of Machine Learning
+toc: true
+toc-expand: 2
+number-sections: false
+---
+
+### Tenet #1: Good learning is active learning
+
+Everyone who was good at something was once bad at it. Learning comes from practice. No amount of reading or video/lecture watching alone will help you to become good without actively engaging with the material through practice. That is why this entire course is focused on supporting you to actively apply machine learning techniques through the assignments, quizzes, and project. 
+
+### Tenet #2: Desirable difficulty leads to meaningful learning
+
+Learning is most effective when there's a degree of struggle with the material. "Requiring students to organize new information and to work harder in the initial learning period can lead to greater and deeper learning. Although this struggle, dubbed a desirable difficulty...may at first be frustrating to learner and teacher alike, ultimately it improves long-term retention" (Excerpt from A Concise Guide to Improving Student Learning: Six Evidence-Based Principles and How to Apply Them). Desirable difficulties help you build connections between concepts and learn representations of knowledge (meta-cognition) that, like an index of a book, will increase your ability to creatively connect concepts and think more deeply about the topic.
+
+### Tenet #3: Read, reflect, recall is a pattern for effective learning
+
+Spaced retrieval and reflection is a key to effective learning. When we learn something, if we don't use it, the knowledge fades. However, if we return to the material, apply it, create with it, we're increasing the probability of long-term learning. This is why you will interact with each concept typically 4 times: lectures, readings, quizzes, and assignments, and at least one more time for those concepts involved in the final project. An added benefit of the frequent reflection through quizzes is that it tests your knowledge regularly, helping us to avoid the illusion of knowledge (thinking we know something, when we actually do not).
+
+**Reference**
+
+Brown, P.C., Roediger III, H.L. and McDaniel, M.A., 2014. *[Make it stick: The science of successful learning](https://www.retrievalpractice.org/make-it-stick)*. Harvard University Press.
+
+Persellin, D.C. and Daniels, M.B., 2023. *[A concise guide to improving student learning: Six evidence-based principles and how to apply them](https://www.taylorfrancis.com/books/mono/10.4324/9781003442714/concise-guide-improving-student-learning-michael-reder-mary-blythe-daniels-diane-cummings-persellin)*. Taylor & Francis.

@@ -1,0 +1,31 @@
+---
+title: Instructional Team
+subtitle: IDS:705 Principles of Machine Learning
+toc: false
+number-sections: false
+---
+
+::: {.callout-tip}
+## Contact Us & Office Hours
+
+Reach out to us through Ed Discussions for any questions. Office hours are also posted on Ed.
+:::
+
+### Instructor
+
+![Kyle Bradbury ([{{< fa envelope >}}](mailto: kyle.bradbury@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/bradburykyle/))](img/kylebradbury.jpeg){fig-align="left"}
+
+Dr. Kyle Bradbury develops and applies machine learning techniques to better understand and manage energy and climate resources. His work focuses on how to advance machine learning methodologies and apply them to solve energy and climate system challenges through the development of open source, widely-applicable computational tools. His current research interests include developing scalable computer vision techniques for assessing energy resources, infrastructure, and access globally through the use of publicly available remote sensing data. Methodologically, he investigates how to overcome the challenge of distribution shift in computer vision through novel training paradigms that require less labeled data. 
+
+
+### Teaching Assistants
+
+::: {layout-nrow=1}
+![Kian Bagherlee ([{{< fa envelope >}}](mailto: kian.bagherlee@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/kian-bagherlee/))](img/kian_bagherlee.jpg){fig-align="left"}
+
+![Aarya Desai ([{{< fa envelope >}}](mailto: aarya.desai@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/aarya-desai-716615169/))](img/aarya_desai.jpg){fig-align="left"}
+
+![Dhaval Potdar ([{{< fa envelope >}}](mailto: dhaval.potdar@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/dhavalpotdar/))](img/potdar_dhaval.jpg){fig-align="left"}
+
+![Rakeen Rouf ([{{< fa envelope >}}](mailto: rakeen.rouf@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/rakeen-rouf/))](img/rakeen_rouf.jpg){fig-align="left"}
+:::
