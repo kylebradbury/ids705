@@ -64,7 +64,7 @@ website:
           - resources/dcc-documentation.qmd
           - text: "File structure template"
             href: https://github.com/kylebradbury/ml-project-structure-demo
-          - history.qmd
+          # - history.qmd
 format:
   html:
     theme: 
