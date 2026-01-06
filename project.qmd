@@ -1,6 +1,6 @@
 ---
 title: Final Project
-subtitle: IDS:705 Principles of Machine Learning
+subtitle: IDS 705 Principles of Machine Learning
 toc: true
 number-sections: false
 ---

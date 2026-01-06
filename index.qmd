@@ -1,6 +1,6 @@
 ---
 title: Overview
-subtitle: IDS:705 Principles of Machine Learning
+subtitle: IDS 705 Principles of Machine Learning
 author:
     - name: Kyle Bradbury
       email: kyle.bradbury@duke.edu

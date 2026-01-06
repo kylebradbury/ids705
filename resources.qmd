@@ -1,6 +1,6 @@
 ---
 title: Resources for further learning
-subtitle: IDS:705 Principles of Machine Learning
+subtitle: IDS 705 Principles of Machine Learning
 toc: true
 toc-expand: 2
 number-sections: false

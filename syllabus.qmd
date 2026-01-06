@@ -1,6 +1,6 @@
 ---
 title: Course Logistics
-subtitle: IDS:705 Principles of Machine Learning
+subtitle: IDS 705 Principles of Machine Learning
 toc: true
 toc-expand: 3
 number-sections: false
@@ -31,8 +31,9 @@ A version of each book is available free online:
 Assignments, projects, & quizzes: Assignments and projects details are posted on the course syllabus. For expectations and instructions on the assignments, see the assignment instructions. Quizzes are found on Gradescope and are due prior to the start of the lecture for which they're titled (i.e. the Lecture 3 Quiz is due by the start of Lecture 3).
 
 ### Grading:
-- 60% Assignments (5, each worth 12%)
-- 25% Quizzes (~23, each worth ~1%)
+- 50% Assignments (5 required, each worth 10%)
+- 20% Quizzes (~20 required, each worth ~1%)
+- 15% In-class Exam
 - 15% Final Project
 
 ### Prerequisites
@@ -78,8 +79,8 @@ Please reach out to the TA's or instructor as early as possible to request any s
 There will be three modes of collaboration ranging from fully-collaborative group projects, to fully-independent work. The three modes are as follows, and will be indicated throughout the course:
 
 - Mode 1: Team-based Assignment. Collaboration is expected with every member of the team contributing to a single deliverable. **Applies to the Project**
-- Mode 2: Individual Assignment – Collaboration Permitted. Students hand in *individual* work, but they may work with others if they provide citations of the help they received, such as a list of people who assisted/collaborated with them to produce the final product. Duplication or copying is not permissible, even in part, and constitutes a breach of the honor code. **Applies to Assignments**
-- Mode 3: Individual Assignment – No Collaboration Permitted. Students hand in individual work that is completed entirely independent of any discussion or help from other students. Clarifying questions to teaching assistants and instructors are both permissible and encouraged. **Applies to Quizzes**
+- Mode 2: Individual Assignment – Some collaboration is permitted. Students hand in *individual* work, but they may work with others (at the level of ideas rather than implementation) if they provide citations of the help they received, such as a list of people who assisted/collaborated with them to produce the final product. Duplication or copying is **never** permissible, even in part, and constitutes a breach of the honor code. This means that all work should in assignments should be your own. **Applies to Assignments**
+- Mode 3: Individual Assignment – No collaboration permitted. Students hand in individual work that is completed entirely independent of any discussion or help from other students. Clarifying questions to teaching assistants and instructors are both permissible and encouraged. **Applies to Quizzes**
 
 ### Rules for recording course content
 Student recording recordings of lectures must be permitted by the instructor prior to recording and shall be for private study only. Such recordings shall not be distributed to anyone without authorization by the instructor whose lecture has been recorded. However, the instructor may arrange through the Office of Information Technology to make recorded lectures available to students enrolled in the class on such terms and conditions as he or she prescribes. Redistribution of recorded lectures is prohibited. Unauthorized distribution is a cause for disciplinary action by the Judicial Board. The full policy on recoding of lectures falls under the Duke University Policy on Intellectual Property Rights, [available here](https://policies.provost.duke.edu/docs/faculty-handbook-appendix-m-intellectual-property#:~:text=In%20this%20Policy%20Duke%20reaffirms,defined%20for%20purposes%20of%20this).

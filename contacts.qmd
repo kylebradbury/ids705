@@ -1,6 +1,6 @@
 ---
 title: Instructional Team
-subtitle: IDS:705 Principles of Machine Learning
+subtitle: IDS 705 Principles of Machine Learning
 toc: false
 number-sections: false
 ---
@@ -21,11 +21,9 @@ Dr. Kyle Bradbury develops and applies machine learning techniques to better und
 ### Teaching Assistants
 
 ::: {layout-nrow=1}
-![Kian Bagherlee ([{{< fa envelope >}}](mailto: kian.bagherlee@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/kian-bagherlee/))](img/kian_bagherlee.jpg){fig-align="left"}
+![Lilah DuBoff ([{{< fa envelope >}}](mailto: lilah.duboff@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/lilah-duboff/))](img/duboff_lilah.png){fig-align="left"}
 
-![Aarya Desai ([{{< fa envelope >}}](mailto: aarya.desai@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/aarya-desai-716615169/))](img/aarya_desai.jpg){fig-align="left"}
+![Kayla Haeussler ([{{< fa envelope >}}](mailto: kayla.haeussler@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/kayla-haeussler))](img/haeussler_kayla.jpg){fig-align="left"}
 
-![Dhaval Potdar ([{{< fa envelope >}}](mailto: dhaval.potdar@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/dhavalpotdar/))](img/potdar_dhaval.jpg){fig-align="left"}
-
-![Rakeen Rouf ([{{< fa envelope >}}](mailto: rakeen.rouf@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/rakeen-rouf/))](img/rakeen_rouf.jpg){fig-align="left"}
+![Paul Markakis ([{{< fa envelope >}}](mailto: paul.markakis@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/paul-j-markakis))](img/markakis_paul.jpeg){fig-align="left"}
 :::

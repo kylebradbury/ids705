@@ -14,7 +14,7 @@ project:
     - "!dev/*"
 
 website:
-  title: "IDS705: Principles of Machine Learning"
+  title: "IDS705 (2026): Principles of Machine Learning"
   navbar:
     left:
       - href: ./schedule.qmd
@@ -64,6 +64,7 @@ website:
           - resources/dcc-documentation.qmd
           - text: "File structure template"
             href: https://github.com/kylebradbury/ml-project-structure-demo
+          - history.qmd
 format:
   html:
     theme: 
