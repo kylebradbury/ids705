@@ -55,10 +55,10 @@ I will act if the Standard is compromised
 Anyone found in violation of the Standard will be reported to the Office of Student Conduct.
 
 ### Class Attendance
-Attending class is a vital component of the course as it is one of the multiple ways in which you will interact with and learn course material. In person class attendance is therefore expected for this course. For any special circumstances, please reach out to the course instructor.
+Attending class is a vital component of the course as it is one of the multiple ways in which you will interact with and learn course material. **In person class attendance is therefore expected for this course**. For any special circumstances, please reach out to the course instructor.
 
 ### Sick absences
-To keep the university community as safe and healthy as possible, please do not come to class if you have cold symptoms. Please inform me of your absence and plan to complete any missed work. Students who encounter short- and long-term medical issues or instances of personal distress or emergency can seek academic support if needed. *Recordings of the class will be available for excused absences*.
+To keep the university community as safe and healthy as possible, please do not come to class if you have cold symptoms. Please inform the instructor of your absence and plan to complete any missed work. Students who encounter short- and long-term medical issues or instances of personal distress or emergency can seek academic support if needed. *Recordings of the class will be available for excused absences*.
 
 ### Accommodations and accessibility
 If you need special accommodations due to physical or learning disabilities, medical needs, religious practices, or other reasons, please inform us as soon as possible so we can work to accommodate those needs.
@@ -68,9 +68,9 @@ If you are a student with a disability and need accommodations for this class, p
 ### Late Submissions
 Assignments and projects are due in class by the start of class on the date posted. Late deliverables will ONLY be accepted at the discretion of the instructor and according to the following:
 
-- Course **projects deliverables** will not be accepted after the deadline. 
+- Course **projects deliverables** will not be accepted after the deadline and a grade of 0 will be assigned. 
 - Late **assignment** submissions will result in a reduction of 5 points off the grade per day late. 
-- **Quizzes** will not be accepted after the deadline since the answers to the quizzes are discussed in and made available after the class in which they're due. Quizzes are typically posted a week or more in advance, so you are encouraged to start early (you can submit as early as you'd like). Quizzes cannot be made up, but there will be an opportunity later in the semester to make up a quiz to account for any off days.
+- **Quizzes** will not be accepted after the deadline since the answers to the quizzes are discussed in and made available after the class in which they're due. Quizzes are typically posted a week or more in advance, so you are encouraged to start early (you can submit as early as you'd like). Quizzes cannot be made up since we typically go over the quiz answers immediately after in class.
 
 Please reach out to the TA's or instructor as early as possible to request any special accommodations.
 

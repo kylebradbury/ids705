@@ -18,7 +18,7 @@ Learning is most effective when there's a degree of struggle with the material. 
 
 Spaced retrieval and reflection is a key to effective learning. When we learn something, if we don't use it, the knowledge fades. However, if we return to the material, apply it, create with it, we're increasing the probability of long-term learning. This is why you will interact with each concept typically 4 times: lectures, readings, quizzes, and assignments, and at least one more time for those concepts involved in the final project. An added benefit of the frequent reflection through quizzes is that it tests your knowledge regularly, helping us to avoid the illusion of knowledge (thinking we know something, when we actually do not).
 
-**Reference**
+**References**
 
 Brown, P.C., Roediger III, H.L. and McDaniel, M.A., 2014. *[Make it stick: The science of successful learning](https://www.retrievalpractice.org/make-it-stick)*. Harvard University Press.
 

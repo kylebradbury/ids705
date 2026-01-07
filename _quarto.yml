@@ -19,11 +19,11 @@ website:
     left:
       - href: ./schedule.qmd
         text: Schedule
-      - href: https://canvas.duke.edu/courses/50392
+      - href: https://canvas.duke.edu/courses/72635
         text: Canvas
-      - href: https://edstem.org/us/courses/69557/
+      - href: https://edstem.org/us/courses/90514
         text: Ed Discussions
-      - href: https://www.gradescope.com/courses/917973
+      - href: https://www.gradescope.com/courses/1208262
         text: Gradescope
   google-analytics: "G-63SKKDGFHG"
     # tools:

@@ -40,7 +40,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </thead>
 
   <tr>
-    <td class="lecnum">Meeting 1</td>
+    <td class="lecnum">Lecture 1</td>
     <td class="date">Thursday<br> Jan 8</td>
     <td>
       <b>What is machine learning?</b> <br>
@@ -73,7 +73,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 2</td>
+    <td class="lecnum">Lecture 2</td>
     <td class="date">Thursday <br> Jan 15</td>
     <td>
       <b>An end-to-end machine learning example</b> <br>
@@ -95,7 +95,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 3</td>
+    <td class="lecnum">Lecture 3</td>
     <td class="date">Tuesday <br> Jan 20</td>
     <td>
       <b>How flexible should my algorithms be? The bias-variance tradeoff </b> <br>
@@ -121,7 +121,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 4</td>
+    <td class="lecnum">Lecture 4</td>
     <td class="date">Thursday <br> Jan 22</td>
     <td>
       <b>Linear Models I</b> <br>
@@ -137,7 +137,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   
 
   <tr>
-    <td class="lecnum">Meeting 5</td>
+    <td class="lecnum">Lecture 5</td>
     <td class="date">Tuesday <br> Jan 27</td>
     <td>
       <b>Linear Models II</b> <br>
@@ -151,7 +151,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
   
   <tr>
-    <td class="lecnum">Meeting 6</td>
+    <td class="lecnum">Lecture 6</td>
     <td class="date">Thursday <br> Jan 29</td>
     <td>
       <b>Performance evaluation: metrics for regression/classification</b> <br>
@@ -165,7 +165,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 7</td>
+    <td class="lecnum">Lecture 7</td>
     <td class="date"><b>FRIDAY <br> Jan 30</b></td>
     <td>
       <b style="color:red">MAKE UP CLASS - GROSS HALL 270, 10:05-11:20am</b> <br>
@@ -180,7 +180,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 8</td>
+    <td class="lecnum">Lecture 8</td>
     <td class="date">Tuesday <br> Feb 3</td>
     <td>
       <b>Decision theory</b> <br>
@@ -210,7 +210,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>  
-    <td class="lecnum">Meeting 9</td>
+    <td class="lecnum">Lecture 9</td>
     <td class="date">Thursday <br> Feb 5</td>
     <td>
       <b>Reducing overfit</b> <br>
@@ -224,7 +224,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 10</td>
+    <td class="lecnum">Lecture 10</td>
     <td class="date">Tuesday <br> Feb 10</td>
     <td>
       <b>Generative models for classification</b> <br>
@@ -238,7 +238,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 11</td>
+    <td class="lecnum">Lecture 11</td>
     <td class="date">Thursday <br> Feb 12</td>
     <td>
       <b>Tree-based models and ensembles</b> <br>
@@ -252,7 +252,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
     <tr>
-    <td class="lecnum">Meeting 12</td>
+    <td class="lecnum">Lecture 12</td>
     <td class="date">Tuesday <br> Feb 17</td>
     <td>
       <b>Neural networks I</b> <br>
@@ -279,7 +279,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 13</td>
+    <td class="lecnum">Lecture 13</td>
     <td class="date">Thursday <br> Feb 19</td>
     <td>
       <b>Neural networks II</b> <br>
@@ -295,7 +295,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
 
 
   <tr>
-    <td class="lecnum">Meeting 14</td>
+    <td class="lecnum">Lecture 14</td>
     <td class="date">Tuesday <br> Feb 24</td>
     <td>
       <b>Introduction to Deep learning I</b> <br>
@@ -309,7 +309,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 15</td>
+    <td class="lecnum">Lecture 15</td>
     <td class="date">Thursday <br> Feb 26</td>
     <td>
       <b>Introduction to Deep learning II</b> <br>
@@ -332,7 +332,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 16</td>
+    <td class="lecnum">Lecture 16</td>
     <td class="date">Tuesday<br>Mar 3</td>
     <td>
       <b>Dimensionality reduction</b> <br>
@@ -360,7 +360,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 17</td>
+    <td class="lecnum">Lecture 17</td>
     <td class="date">Thursday<br>Mar 5</td>
     <td>
       <b>Principal components analysis (PCA)</b> <br>
@@ -382,7 +382,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 18</td>
+    <td class="lecnum">Lecture 18</td>
     <td class="date">Tuesday <br> Mar 17</td>
     <td>
       <b>Density Estimation and Clustering</b> <br>
@@ -396,7 +396,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 19</td>
+    <td class="lecnum">Lecture 19</td>
     <td class="date">Thursday <br> Mar 19</td>
     <td>
       <b>Clustering</b> <br>
@@ -431,7 +431,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 20</td>
+    <td class="lecnum">Lecture 20</td>
     <td class="date">Tuesday <br> Mar 24</td>
     <td>
       <b>Reinforcement Learning I</b> <br>
@@ -458,7 +458,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 21</td>
+    <td class="lecnum">Lecture 21</td>
     <td class="date">Thursday <br> Mar 26</td>
     <td>
       <b>Reinforcement Learning II</b> <br>
@@ -473,7 +473,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
 
 
   <tr>
-    <td class="lecnum">Meeting 22</td>
+    <td class="lecnum">Lecture 22</td>
     <td class="date">Tuesday<br> Mar 31</td>
     <td>
       <b>Reinforcement Learning III</b> <br>
@@ -487,7 +487,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr>
-    <td class="lecnum">Meeting 23</td>
+    <td class="lecnum">Lecture 23</td>
     <td class="date">Thursday <br> Apr 2</td>
     <td>
       <b>Reinforcement Learning IV</b> <br>
@@ -500,16 +500,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
   </tr>
 
-  <tr class="module">
-    <td></td>
-    <td></td>
-    <td><b>Module 4: Practical Considerations and Advanced Topics</b></td>
-    <td></td>
-    <td></td>
-  </tr>
-
   <tr class="table-warning">
-    <td class="lecnum">Meeting 24</td>
+    <td class="lecnum">Lecture 24</td>
     <td class="date">Tuesday <br> Apr 7</td>
     <td>
       <b>Exam</b> <br>
@@ -520,8 +512,16 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
   </tr>
 
+  <tr class="module">
+    <td></td>
+    <td></td>
+    <td><b>Module 4: Practical Considerations and Advanced Topics</b></td>
+    <td></td>
+    <td></td>
+  </tr>
+
   <tr>
-    <td class="lecnum">Meeting 25</td>
+    <td class="lecnum">Lecture 25</td>
     <td class="date">Thursday <br> Apr 9</td>
     <td>
       <b>Practical Considerations and Advanced Topics I</b> <br>
@@ -537,7 +537,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
 
 
   <tr>
-    <td class="lecnum">Meeting 26</td>
+    <td class="lecnum">Lecture 26</td>
     <td class="date">Tuesday <br> Apr 14</td>
     <td>
       <b>Practical Considerations and Advanced Topics II</b> <br>
@@ -580,8 +580,9 @@ The schedule below is a guide to what we will be covering throughout the semeste
     <td><b>Deliverable</b></td>
     <td class="date">Thursday <br> Apr 30 <br> 9am-noon</td>
     <td>
-      <!-- <b>Final project showcase</b> <br>
-      Meets during the final exam period<br><br> Due on this day:
+      TBD
+      <!-- <b>Final project showcase</b> <br> -->
+      <!-- Meets during the final exam period<br><br> Due on this day:
       <ul>
         <li>Final Project Report (due by 9am on GradeScope)</li>
         <li>Final Project Presentation (due by 9am; submit <a href="https://docs.google.com/spreadsheets/d/1JIUMsAkm34bkzbMa2y-5QNfEQowTt-9nEt65o9tFyy0/edit?usp=sharing">the link to your slides here</a></li>
@@ -591,7 +592,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td></td>
     <td>
-      [project]
+      <!-- [project] -->
       <!-- <a href="https://kylebradbury.github.io/ids705/project.html">[project]</a> -->
     </td>
   </tr>
