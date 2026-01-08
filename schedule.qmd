@@ -24,7 +24,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
 - DM = Introduction to Data Mining, by Tan, Steinbach, Karpatne, and Kumar
 - PRML = [**Pattern Recognition and Machine Learning**](https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/), by Bishop
 - DL = [**Deep Learning**](https://www.deeplearningbook.org/), by Goodfellow, Bengio, and Courville
-- RL = [**Reinforcement Learning: An Introduction**](http://incompleteideas.net/book/the-book-2nd.html): An Introduction, by Sutton and Barto
+- RL = [**Reinforcement Learning: An Introduction**](http://incompleteideas.net/book/the-book-2nd.html): An Introduction, by Sutton and Barto 
 :::
 
 ```{=html}
@@ -108,8 +108,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
   </tr>
 
-  <tr class="table-warning">va
-    H:<td><b>Deliverable</b></td>
+  <tr class="table-warning">
+    <td><b>Deliverable</b></td>
     <td class="date"> Wednesday <br> Jan 21</td>
     <td><b>Assignment #1 Due (at 9pm)</b><br> Probability, Linear Algebra, & Computational Programming</td>
     <td></td>
