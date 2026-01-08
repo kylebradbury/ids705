@@ -105,76 +105,295 @@
     ]
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Course Logistics",
+    "objectID": "tools.html",
+    "href": "tools.html",
+    "title": "Software and Hardware Tools",
     "section": "",
-    "text": "Class Time and Location\n\n\n\n\nWhen: Tuesday and Thursdays 10:05am - 11:20am\nWhere: Gross Hall 103",
+    "text": "We will use Python 3.x. The Anaconda distribution is recommended and comes with the most common packages. Python continues to be an one of the top programming languages and the rich packages in the language make it an excellent choice for machine learning. In particular the Python ecosystem of packages makes it a natural choice for ML including core numerical programming and plotting libraries like numpy, scipy, matplotlib, and pandas as well as excellent packages for machine learning algorithm development and statistical modeling including Scikit-Learn, Keras, and Pytorch.",
     "crumbs": [
       "Schedule",
-      "Syllabus",
-      "Course Logistics"
+      "Resources",
+      "Software and Hardware Tools"
     ]
   },
   {
-    "objectID": "syllabus.html#class-tools-and-resources",
-    "href": "syllabus.html#class-tools-and-resources",
-    "title": "Course Logistics",
-    "section": "Class Tools and Resources",
-    "text": "Class Tools and Resources\n\nEd Discussions: Announcements, Q&A on course content (assignments, quizzes, grades), ALL course communications\nGradescope: Quizzes, assignments, and project submission & feedback\nSchedule: Schedule of class topics and deliverables\nCanvas: Posted grades",
+    "objectID": "tools.html#programming-language-python",
+    "href": "tools.html#programming-language-python",
+    "title": "Software and Hardware Tools",
+    "section": "",
+    "text": "We will use Python 3.x. The Anaconda distribution is recommended and comes with the most common packages. Python continues to be an one of the top programming languages and the rich packages in the language make it an excellent choice for machine learning. In particular the Python ecosystem of packages makes it a natural choice for ML including core numerical programming and plotting libraries like numpy, scipy, matplotlib, and pandas as well as excellent packages for machine learning algorithm development and statistical modeling including Scikit-Learn, Keras, and Pytorch.",
     "crumbs": [
       "Schedule",
-      "Syllabus",
-      "Course Logistics"
+      "Resources",
+      "Software and Hardware Tools"
     ]
   },
   {
-    "objectID": "syllabus.html#textbooks",
-    "href": "syllabus.html#textbooks",
-    "title": "Course Logistics",
-    "section": "Textbooks",
-    "text": "Textbooks\nA version of each book is available free online:\n\nAn Introduction to Statistical Learning with Python by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2013.\nUnderstanding Deep learning by Simon Prince, 2023.\nPattern Recognition and Machine Learning by Christopher Bishop, 2006.\nDeep Learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville, 2016.\nReinforcement Learning: An Introduction, by Richard Sutton and Andrew Barto, 2018.",
+    "objectID": "tools.html#development-environments-vs-code-and-jupyter-notebooks",
+    "href": "tools.html#development-environments-vs-code-and-jupyter-notebooks",
+    "title": "Software and Hardware Tools",
+    "section": "Development environments: VS Code and Jupyter Notebooks",
+    "text": "Development environments: VS Code and Jupyter Notebooks\nJupyter lab or Jupyter notebook will be appropriate for most class assignments. We highly encourage you to use Visual Studio Code, in particular due to the debugging capabilities. There are many configurations that may work for you, but I would recommend begin by gathering ideas in Jupyter Notebooks. Once you have the basic structure of your code worked out, consider moving it to a .py file to make it easier and cleaner to run and build on.\nIf you could use help getting started or a refresher on Jupyter notebooks, check out this video for more on basic Jupyter functionality. Using Jupyter notebooks allows you to practice applying machine learning concepts while building programming and writing skills, strengthening your ability to both create creative solutions to machine learning challenges while simultaneously enhancing your ability to communicate the meaning behind your findings and why others should give credence to your results. You’re encouraged to use VS Code to interact with Jupyter Notebooks.",
     "crumbs": [
       "Schedule",
-      "Syllabus",
-      "Course Logistics"
+      "Resources",
+      "Software and Hardware Tools"
     ]
   },
   {
-    "objectID": "syllabus.html#assignments-grading",
-    "href": "syllabus.html#assignments-grading",
-    "title": "Course Logistics",
-    "section": "Assignments & Grading",
-    "text": "Assignments & Grading\nAssignments, projects, & quizzes: Assignments and projects details are posted on the course syllabus. For expectations and instructions on the assignments, see the assignment instructions. Quizzes are found on Gradescope and are due prior to the start of the lecture for which they’re titled (i.e. the Lecture 3 Quiz is due by the start of Lecture 3).\n\nGrading:\n\n50% Assignments (5 required, each worth 10%)\n20% Quizzes (~20 required, each worth ~1%)\n15% In-class Exam\n15% Final Project\n\n\n\nPrerequisites\nThis course moves quickly, so having a firm grasp on prerequisites is important. The prerequisites are as follows:\n\nProgramming: Fundamentals of Python programming.\nMathematics: Calculus and linear algebra.\nStatistics: Introductory probability and statistics.",
+    "objectID": "tools.html#graphics-processing-units-gpus",
+    "href": "tools.html#graphics-processing-units-gpus",
+    "title": "Software and Hardware Tools",
+    "section": "Graphics processing units (GPUs)",
+    "text": "Graphics processing units (GPUs)\nGPUs are the workhorses of many modern machine learning algorithms, especially any that involve neural network-based architectures. There will be a small number of assignments that will require additional computation that would benefit from GPUs. For these there are several options:\n\nDuke Compute Cluster. This server provides on-demand access to GPUs for computation through a centralized Duke server. You have access to this resource for the semester. Further instructions are available here.\nGoogle Colab, which is a free notebook environment that enables access to cloud resources including GPUs. For longer sessions before timeouts, greater RAM, and better GPUs you can optionally upgrade to Colab Pro.\nWe will also be making a limited number of Azure cloud credits available to students later in the semester by request if neither of the above resources meets your needs.",
     "crumbs": [
       "Schedule",
-      "Syllabus",
-      "Course Logistics"
+      "Resources",
+      "Software and Hardware Tools"
     ]
   },
   {
-    "objectID": "syllabus.html#course-policies",
-    "href": "syllabus.html#course-policies",
-    "title": "Course Logistics",
-    "section": "Course Policies",
-    "text": "Course Policies\n\nAcademic dishonesty\nAdherence to the Duke Community Standard is expected. To uphold the Duke Community Standard:\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised\nAnyone found in violation of the Standard will be reported to the Office of Student Conduct.\n\n\nClass Attendance\nAttending class is a vital component of the course as it is one of the multiple ways in which you will interact with and learn course material. In person class attendance is therefore expected for this course. For any special circumstances, please reach out to the course instructor.\n\n\nSick absences\nTo keep the university community as safe and healthy as possible, please do not come to class if you have cold symptoms. Please inform the instructor of your absence and plan to complete any missed work. Students who encounter short- and long-term medical issues or instances of personal distress or emergency can seek academic support if needed. Recordings of the class will be available for excused absences.\n\n\nAccommodations and accessibility\nIf you need special accommodations due to physical or learning disabilities, medical needs, religious practices, or other reasons, please inform us as soon as possible so we can work to accommodate those needs.\nIf you are a student with a disability and need accommodations for this class, please register with the Student Disability Access Office (SDAO) and provide them with documentation of your disability. SDAO will work with you to determine what accommodations are appropriate for your situation. Please note that accommodations are not retroactive and disability accommodations cannot be provided until a Faculty Accommodation Letter has been given to your instructor. Please contact SDAO for more information: sdao@duke.edu or .\n\n\nLate Submissions\nAssignments and projects are due in class by the start of class on the date posted. Late deliverables will ONLY be accepted at the discretion of the instructor and according to the following:\n\nCourse projects deliverables will not be accepted after the deadline and a grade of 0 will be assigned.\nLate assignment submissions will result in a reduction of 5 points off the grade per day late.\nQuizzes will not be accepted after the deadline since the answers to the quizzes are discussed in and made available after the class in which they’re due. Quizzes are typically posted a week or more in advance, so you are encouraged to start early (you can submit as early as you’d like). Quizzes cannot be made up since we typically go over the quiz answers immediately after in class.\n\nPlease reach out to the TA’s or instructor as early as possible to request any special accommodations.\n\n\nCollaboration\nThere will be three modes of collaboration ranging from fully-collaborative group projects, to fully-independent work. The three modes are as follows, and will be indicated throughout the course:\n\nMode 1: Team-based Assignment. Collaboration is expected with every member of the team contributing to a single deliverable. Applies to the Project\nMode 2: Individual Assignment – Some collaboration is permitted. Students hand in individual work, but they may work with others (at the level of ideas rather than implementation) if they provide citations of the help they received, such as a list of people who assisted/collaborated with them to produce the final product. Duplication or copying is never permissible, even in part, and constitutes a breach of the honor code. This means that all work should in assignments should be your own. Applies to Assignments\nMode 3: Individual Assignment – No collaboration permitted. Students hand in individual work that is completed entirely independent of any discussion or help from other students. Clarifying questions to teaching assistants and instructors are both permissible and encouraged. Applies to Quizzes\n\n\n\nRules for recording course content\nStudent recording recordings of lectures must be permitted by the instructor prior to recording and shall be for private study only. Such recordings shall not be distributed to anyone without authorization by the instructor whose lecture has been recorded. However, the instructor may arrange through the Office of Information Technology to make recorded lectures available to students enrolled in the class on such terms and conditions as he or she prescribes. Redistribution of recorded lectures is prohibited. Unauthorized distribution is a cause for disciplinary action by the Judicial Board. The full policy on recoding of lectures falls under the Duke University Policy on Intellectual Property Rights, available here.",
+    "objectID": "tools.html#version-control-via-git",
+    "href": "tools.html#version-control-via-git",
+    "title": "Software and Hardware Tools",
+    "section": "Version Control via Git",
+    "text": "Version Control via Git\nGit is efficient for collaboration, and expectation in industry, and one of the best ways to share results in academia. You can even use some Git repositories (e.g. Github) as hosts for website, such as with the course website. As a data scientist with experience in machine learning, Git is expected. We will interact with Git repositories (a.k.a. repos) throughout this course, and your project will require the use of git repos for collaboration.\nComplete the Atlassian Git tutorial, specifically the following listed sections. Try each concept that’s presented. For this tutorial, instead of using BitBucket as your remote repository host, you may use your preferred platform such as Github or Duke’s Gitlab. 1. What is version control 2. What is Git 3. Install Git 4. Setting up a repository 5. Saving changes 6. Inspecting a repository 7. Undoing changes 8. Rewriting history 9. Syncing 10. Making a pull request 11. Using branches 12. Comparing workflows\nI also have created two videos on the topic to help you understand some of these concepts: Git basics and a step-by-step tutorial.\nAs an additional resource, Microsoft now offers a git tutorial on this topic as well.\nFor your answer, affirm that you either completed the tutorials above OR have previous experience with ALL of the concepts above. Confirm this by typing your name below and selecting the situation that applies from the two options in brackets.",
     "crumbs": [
       "Schedule",
-      "Syllabus",
-      "Course Logistics"
+      "Resources",
+      "Software and Hardware Tools"
     ]
   },
   {
-    "objectID": "syllabus.html#mental-health-and-wellness-resources",
-    "href": "syllabus.html#mental-health-and-wellness-resources",
-    "title": "Course Logistics",
-    "section": "Mental Health and Wellness Resources",
-    "text": "Mental Health and Wellness Resources\nStudent mental health and wellness are of primary importance at Duke, and the university offers resources to support students in managing daily stress and self- care.\nIf your mental health concerns or stressful events negatively affect your daily emotional state, academic performance, or ability to participate in your daily activities, many resources are available to help you through difficult times. Duke offers several resources for all students to seek assistance and to nurture daily habits that support overall well-being, some of which are listed below:\n\nDuWell, (919) 681-8421. DuWell provides Moments of Mindfulness (stress management and resilience building) and meditation programming (Koru workshop) to assist students in developing a daily emotional well-being practice. All are welcome and no experience necessary.\nDukeReach. DukeReach provides comprehensive outreach services to identify and support students in managing all aspects of well-being.\nCounseling and Psychological Services (CAPS), (919) 660-1000. CAPS services include individual and group counseling services, psychiatric services, and workshops. CAPS also provides referral to off-campus resources for specialized care. • TimelyCare (formerly known as Blue Devils Care). An online platform that is a convenient, confidential, and free way for Duke students to receive 24/7 mental health support through TalkNow and scheduled counseling.",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "The schedule below is a guide to what we will be covering throughout the semester and is subject to change to meet the learning goals of the class. Check this website regularly for the latest schedule and for course materials that will be posted here through links on the syllabus.\n\n\n\n\n\n\nKey to books used below\n\n\n\n\nISL = An Introduction to Statistical Learning with Python, by James, Witten, Hastie, and Tibshirani\nUDL = Understanding Deep learning by Simon Prince\nDM = Introduction to Data Mining, by Tan, Steinbach, Karpatne, and Kumar\nPRML = Pattern Recognition and Machine Learning, by Bishop\nDL = Deep Learning, by Goodfellow, Bengio, and Courville\nRL = Reinforcement Learning: An Introduction: An Introduction, by Sutton and Barto\n\n\n\nva\n    H:\n  \n    \n      Event Type\n      Date\n      Description\n      Readings\n      Course Materials\n    \n  \n\n  \n    Lecture 1\n    Thursday Jan 8\n    \n      What is machine learning? \n      Course overview and an orientation to the major branches of machine learning: supervised, unsupervised, and reinforcement learning \n    \n    None\n    \n      [slides]\n      \n    \n  \n\n  \n    \n    \n    Module 1: Supervised Learning\n    \n    \n  \n\n  \n    \n    Tuesday Jan 13\n    \n      NO CLASS \n      Make up class on Friday January 30th (10:05-11:20am) in Gross Hall 270\n    \n    \n    \n  \n\n  \n    Lecture 2\n    Thursday  Jan 15\n    \n      An end-to-end machine learning example \n      An introduction to formulating a supervised machine learning problem. Stating the problem, creating the model, evaluating performance, and operationalizing the solution. \n    ISL Ch. 1 + 2.1Watch this lecture \n    \n      [slides]\n      \n      [sample code]\n    \n  \n\n  \n    \n    Monday  Jan 19\n    Martin Luther King Jr. Day\n    \n    \n  \n\n  \n    Lecture 3\n    Tuesday  Jan 20\n    \n      How flexible should my algorithms be? The bias-variance tradeoff  \n      The bias-variance tradeoff explained using K-nearest neighbors classification\n    \n    ISL 2.2\n    \n      [slides]\n      \n    \n  \n\n  Deliverable\n     Wednesday  Jan 21\n    Assignment #1 Due (at 9pm) Probability, Linear Algebra, & Computational Programming\n    \n    \n      \n      [submit]\n      \n    \n  \n\n  \n    Lecture 4\n    Thursday  Jan 22\n    \n      Linear Models I \n      Simple linear regression, multiple linear regression, measuring error, model fitting and least squares, comparing linear regression and classification\n    \n    ISL Intro of 3, 3.1, and 3.2\n    \n      [slides]\n      \n    \n  \n\n  \n\n  \n    Lecture 5\n    Tuesday  Jan 27\n    \n      Linear Models II \n      Nonlinear transformations of predictors; linear models for classification including the perceptron and logistic regression; cost/loss functions for classification (cross entropy loss); introduction to gradient descent.\n    \n    ISL 3.3 and 3.5\n    \n      [slides]\n      \n    \n  \n  \n  \n    Lecture 6\n    Thursday  Jan 29\n    \n      Performance evaluation: metrics for regression/classification \n      Choosing the right model: accuracy vs speed vs interpretability; metrics for supervised learning performance evaluation: types of errors, receiver operating characteristics curves, and confusion matrices\n    \n    ISL 4.1, 4.2, and 4.3\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 7\n    FRIDAY  Jan 30\n    \n      MAKE UP CLASS - GROSS HALL 270, 10:05-11:20am \n      Experimental designs for evaluating generalization performance and model comparison \n      How to construct effective experimental designs for evaluating and comparing models; using model performance metrics to measure generalization performance; resampling techniques: training, testing, and validation datasets and cross validation; common pitfalls around biased sampling and data snooping/leakage\n    \n    ISL 5.1 and 5.2\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 8\n    Tuesday  Feb 3\n    \n      Decision theory \n      A risk-based framework for determining to operate supervised learning algorithms in practice; choosing ROC operating points through risk-minimization and how application-specific costs associated with different types of errors can be used to determine optimal operating points for classifiers\n    \n    \n      \n      Link to reading\n    \n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n     WednesdayFeb 4\n    Assignment #2 Due (at 9pm)Supervised Machine Learning Fundamentals\n    \n    \n      [assignment] \n      \n      [submit]\n      \n    \n  \n\n    \n    Lecture 9\n    Thursday  Feb 5\n    \n      Reducing overfit \n      Feature selection; Occam’s razor; Subset selection; L1 (ridge), L2 (LASSO), and elastic net regularization; early stopping.\n    \n    ISL 6.1 and 6.2\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 10\n    Tuesday  Feb 10\n    \n      Generative models for classification \n      Generative vs discriminative models; naïve Bayes\n    \n    ISL 4.4 and 4.5\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 11\n    Thursday  Feb 12\n    \n      Tree-based models and ensembles \n      From decision trees to random forests: bagging, bootstrapping, and boosting\n    \n    ISL 8.1 and 8.2\n    \n      [slides]\n      \n    \n  \n\n    \n    Lecture 12\n    Tuesday  Feb 17\n    \n      Neural networks I \n      Introduction to neural networks and representation learning; forward propagation, network architecture, and how to adapt to regression or classification problems\n    \n    UDL Ch 3: 3.1, 3.2; PRML Ch 5: 5.1 \n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n     Wednesday  Feb 18\n    Assignment #3 Due (at 9pm)Supervised learning model training and evaluation\n    \n    \n      [assignment] \n      \n      [submit]\n      \n    \n  \n\n  \n    Lecture 13\n    Thursday  Feb 19\n    \n      Neural networks II \n      Fitting a neural network to training data through gradient descent and backpropagation; how backpropagation is used to compute gradients in neural networks; hyperparameters and architecture choices in neural networks and practices for training neural networks successfully\n    \n    UDL Ch 6: 6.1-6.2.2; PRML Ch 5: 5.3.1, and Calculus on Computational Graphs\n    \n      [slides]\n      \n    \n  \n\n\n\n  \n    Lecture 14\n    Tuesday  Feb 24\n    \n      Introduction to Deep learning I \n      Common architectures of deep learning models and the tools used to implement them. Introduction to convolutional neural networks (CNNs) and neural networks for gridded data (e.g. imagery).\n    \n    UDL Ch 10: Convolutional Neural Networks;DL Ch 11: Practical Methodology\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 15\n    Thursday  Feb 26\n    \n      Introduction to Deep learning II \n      Common architectures of deep learning models and the tools used to implement them.\n    \n    \n    UDL Ch 12.1-12.5: Transformers;[Video: Transformers];[Video: Self-attention]\n    \n      [slides]\n      \n    \n  \n\n  \n    \n    \n    Module 2: Unsupervised Learning\n    \n    \n  \n\n  \n    Lecture 16\n    TuesdayMar 3\n    \n      Dimensionality reduction \n      The Curse of Dimensionality and intro to principal components analysis (PCA)\n    \n    ISL 6.3, 6.4, 12.1, and 12.2 \n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n    Wednesday  Mar 4\n    Assignment #4 Due (at 9pm)Neural Networks\n    \n    \n      [assignment] \n      [submit]\n      \n      \n      [NN Math Guide]\n    \n  \n\n  \n    Lecture 17\n    ThursdayMar 5\n    \n      Principal components analysis (PCA) \n      Explaining how PCA works and how we calculate the principal components.\n    \n    ISL 12.4NO QUIZ\n    \n      [slides]\n      \n    \n  \n\n  \n    \n    Mar 6-16\n    Spring Break Week\n    \n    \n  \n\n  \n    Lecture 18\n    Tuesday  Mar 17\n    \n      Density Estimation and Clustering \n      Approaches for density estimation from histograms to Gaussian mixture models (for density estimation and clustering)\n    \n    DM Ch 7 (link): Intro, 7.1 and 7.2NO QUIZ\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 19\n    Thursday  Mar 19\n    \n      Clustering \n      Hierarchical clustering, DBSCAN, and spectral clustering\n    \n   DM Ch 7 (link): 7.3 and 7.4\n   \n     [slides]\n      \n    \n  \n\n  \n    Deliverable\n     Friday  Mar 20 \n    Project Proposal Due (at 9pm)\n    \n    \n      [project]\n      [submit]\n      \n      \n    \n  \n\n  \n    \n    \n    Module 3: Reinforcement Learning\n    \n    \n  \n\n  \n    Lecture 20\n    Tuesday  Mar 24\n    \n      Reinforcement Learning I \n      Formulating the reinforcement learning problem\n    \n    RL Ch 1: 1.1-1.6; Ch 2: 2.1-2.5\n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n    Wednesday  Mar 25\n    Assignment #5 Due (at 9pm)  Kaggle Competition and Unsupervised LearningKaggle Competition Ends 9pm this day\n    \n    \n      [assignment] \n      \n      [submit]\n      \n    \n  \n\n  \n    Lecture 21\n    Thursday  Mar 26\n    \n      Reinforcement Learning II \n      Policy and value functions, rewards, and introduction to Markov processes \n    \n    RL Ch 3\n    \n      [slides]\n      \n    \n  \n\n\n  \n    Lecture 22\n    Tuesday Mar 31\n    \n      Reinforcement Learning III \n      From Markov Chains to Markov Decision Processes (MDPs)\n    \n    RL Ch 4\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 23\n    Thursday  Apr 2\n    \n      Reinforcement Learning IV \n      Finding optimal policies through policy iteration, value iteration, and Monte Carlo methods\n    \n    RL Ch 5: 5.1-5.3\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 24\n    Tuesday  Apr 7\n    \n      Exam \n      An in-class exam covering topics across the course. \n    \n    None\n    \n    \n  \n\n  \n    \n    \n    Module 4: Practical Considerations and Advanced Topics\n    \n    \n  \n\n  \n    Lecture 25\n    Thursday  Apr 9\n    \n      Practical Considerations and Advanced Topics I \n      A survey of practical considerations and advanced topics\n    \n    DL Ch 11: Practical Methodology\n    \n      [slides]\n      \n    \n  \n\n\n\n  \n    Lecture 26\n    Tuesday  Apr 14\n    \n      Practical Considerations and Advanced Topics II \n      A survey of practical considerations and advanced topics\n    \n    None\n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n    Wednesday  Apr 15 \n    Draft Final Project Report Due (at 9pm)\n    \n    \n      [project] \n      [submit]\n      \n      \n    \n  \n\n  \n    Deliverable\n    Wednesday  Apr 15\n    (Optional) Assignment #6 Due (at 9pm)Reinforcement learning\n    \n    \n      [assignment]\n      [submit]\n      \n      \n    \n  \n\n  \n    Deliverable\n    Thursday  Apr 30  9am-noon\n    \n      TBD",
     "crumbs": [
       "Schedule",
       "Syllabus",
-      "Course Logistics"
+      "Schedule"
     ]
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources for further learning",
+    "section": "",
+    "text": "The following online courses on Coursera are a 5-part series on Python programming by Nick Eubank, Kyle Bradbury, Andrew Hilton, and Genevieve Lipp:\n\nPython Programming Fundamentals\nData Science with NumPy, Sets, and Dictionaries\nPandas for Data Science\nDesigning Larger Python Programs for Data Science\nData Visualization and Modeling in Python\n\nThere is also a textbook version of much of this material by Nick Eubank and Kyle Bradbury",
+    "crumbs": [
+      "Schedule",
+      "Resources",
+      "Resources for further learning"
+    ]
+  },
+  {
+    "objectID": "resources.html#python-programming",
+    "href": "resources.html#python-programming",
+    "title": "Resources for further learning",
+    "section": "",
+    "text": "The following online courses on Coursera are a 5-part series on Python programming by Nick Eubank, Kyle Bradbury, Andrew Hilton, and Genevieve Lipp:\n\nPython Programming Fundamentals\nData Science with NumPy, Sets, and Dictionaries\nPandas for Data Science\nDesigning Larger Python Programs for Data Science\nData Visualization and Modeling in Python\n\nThere is also a textbook version of much of this material by Nick Eubank and Kyle Bradbury",
+    "crumbs": [
+      "Schedule",
+      "Resources",
+      "Resources for further learning"
+    ]
+  },
+  {
+    "objectID": "resources.html#math-for-machine-learning-calculus-and-linear-algebra",
+    "href": "resources.html#math-for-machine-learning-calculus-and-linear-algebra",
+    "title": "Resources for further learning",
+    "section": "Math for machine learning (calculus and linear algebra)",
+    "text": "Math for machine learning (calculus and linear algebra)\n\nMathematics for Machine Learning by Deisenroth, Faisal, and Ong\nDeep Learning; Part I: Applied Math and Machine Learning Basics by Goodfellow, Bengio, and Courville\nThe Matrix Calculus You Need For Deep Learning by Parr and Howard\nDive Into Deep Learning; Appendix: Mathematics for Deep Learning by Weness, Hu, et al.",
+    "crumbs": [
+      "Schedule",
+      "Resources",
+      "Resources for further learning"
+    ]
+  },
+  {
+    "objectID": "resources.html#introductory-books-for-machine-learning",
+    "href": "resources.html#introductory-books-for-machine-learning",
+    "title": "Resources for further learning",
+    "section": "Introductory books for machine learning",
+    "text": "Introductory books for machine learning\nEach of these are used in one or more course reading assignment in this course:\n\nAn Introduction to Statistical Learning with Python, by James, Witten, Hastie, and Tibshirani\nUnderstanding Deep learning by Simon Prince\nIntroduction to Data Mining, by Tan, Steinbach, Karpatne, and Kumar\nPattern Recognition and Machine Learning, by Bishop\nDeep Learning, by Goodfellow, Bengio, and Courville\nReinforcement Learning: An Introduction: An Introduction, by Sutton and Barto",
+    "crumbs": [
+      "Schedule",
+      "Resources",
+      "Resources for further learning"
+    ]
+  },
+  {
+    "objectID": "pedagogy.html",
+    "href": "pedagogy.html",
+    "title": "Pedagogy",
+    "section": "",
+    "text": "Tenet #1: Good learning is active learning\nEveryone who was good at something was once bad at it. Learning comes from practice. No amount of reading or video/lecture watching alone will help you to become good without actively engaging with the material through practice. That is why this entire course is focused on supporting you to actively apply machine learning techniques through the assignments, quizzes, and project.\n\n\nTenet #2: Desirable difficulty leads to meaningful learning\nLearning is most effective when there’s a degree of struggle with the material. “Requiring students to organize new information and to work harder in the initial learning period can lead to greater and deeper learning. Although this struggle, dubbed a desirable difficulty…may at first be frustrating to learner and teacher alike, ultimately it improves long-term retention” (Excerpt from A Concise Guide to Improving Student Learning: Six Evidence-Based Principles and How to Apply Them). Desirable difficulties help you build connections between concepts and learn representations of knowledge (meta-cognition) that, like an index of a book, will increase your ability to creatively connect concepts and think more deeply about the topic.\n\n\nTenet #3: Read, reflect, recall is a pattern for effective learning\nSpaced retrieval and reflection is a key to effective learning. When we learn something, if we don’t use it, the knowledge fades. However, if we return to the material, apply it, create with it, we’re increasing the probability of long-term learning. This is why you will interact with each concept typically 4 times: lectures, readings, quizzes, and assignments, and at least one more time for those concepts involved in the final project. An added benefit of the frequent reflection through quizzes is that it tests your knowledge regularly, helping us to avoid the illusion of knowledge (thinking we know something, when we actually do not).\nReferences\nBrown, P.C., Roediger III, H.L. and McDaniel, M.A., 2014. Make it stick: The science of successful learning. Harvard University Press.\nPersellin, D.C. and Daniels, M.B., 2023. A concise guide to improving student learning: Six evidence-based principles and how to apply them. Taylor & Francis.",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Pedagogy"
+    ]
+  },
+  {
+    "objectID": "history.html",
+    "href": "history.html",
+    "title": "Past Offerings of this Course",
+    "section": "",
+    "text": "Spring 2025 (IDS705)\nSpring 2024 (IDS705)\nSpring 2023 (IDS705)\nSpring 2022 (IDS705)\nSpring 2021 (IDS705)\nSpring 2020 (IDS705)\nSpring 2019 (IDS705)\nSpring 2018 (ECE590)"
+  },
+  {
+    "objectID": "ai.html",
+    "href": "ai.html",
+    "title": "Effective Use of AI",
+    "section": "",
+    "text": "This class is all about artificial intelligence, however, the primary intelligence that we are working to expand is your own. AI tools, like ChatGPT, can be useful aids for learning, but without considering your relationship with these tools, they can present several major challenges to your learning:\n\nThe Illusion of Knowledge. Without careful use, you can easily succomb to the cognitive bias known as the illusion of knowledge. The illusion of knowledge, also known as the Dunning-Kruger effect, occurs when you believe you know something to a greater degree than you actually do. It’s better to evaluate yourself accurately in your knowledge of a subject so that you can seek out resources for filling the gaps in your knowledge. This can lead to poor decision making and overconfidence in those poor decisions. It also prevents further learning.\nPreventing actual learning. Using an AI to avoid the cognitive struggle of thinking through the material literally prevents you from learning since those cognitive struggles are part of the learning process. If your goal is to learn in this course, over-reliance on AI is a clear path to\nReduced potential for creativity and innovation. Getting too used to the habit of relying on AI weakens your critical thinking abilities and creativity. When you depend on AI to generate ideas or solve problems, you miss out on the opportunity to develop your own innovative solutions and original thoughts. This can stifle your creative growth and limit your ability to think independently.\nGetting it wrong. AI is fallible. As we see in this course, even the best trained systems aren’t 100% correct, so without the proper knowledge to evaluate AI output, over-reliance on AI sets you up for getting it wrong.",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Effective Use of AI"
+    ]
+  },
+  {
+    "objectID": "ai.html#the-challenges-of-ai-use",
+    "href": "ai.html#the-challenges-of-ai-use",
+    "title": "Effective Use of AI",
+    "section": "",
+    "text": "This class is all about artificial intelligence, however, the primary intelligence that we are working to expand is your own. AI tools, like ChatGPT, can be useful aids for learning, but without considering your relationship with these tools, they can present several major challenges to your learning:\n\nThe Illusion of Knowledge. Without careful use, you can easily succomb to the cognitive bias known as the illusion of knowledge. The illusion of knowledge, also known as the Dunning-Kruger effect, occurs when you believe you know something to a greater degree than you actually do. It’s better to evaluate yourself accurately in your knowledge of a subject so that you can seek out resources for filling the gaps in your knowledge. This can lead to poor decision making and overconfidence in those poor decisions. It also prevents further learning.\nPreventing actual learning. Using an AI to avoid the cognitive struggle of thinking through the material literally prevents you from learning since those cognitive struggles are part of the learning process. If your goal is to learn in this course, over-reliance on AI is a clear path to\nReduced potential for creativity and innovation. Getting too used to the habit of relying on AI weakens your critical thinking abilities and creativity. When you depend on AI to generate ideas or solve problems, you miss out on the opportunity to develop your own innovative solutions and original thoughts. This can stifle your creative growth and limit your ability to think independently.\nGetting it wrong. AI is fallible. As we see in this course, even the best trained systems aren’t 100% correct, so without the proper knowledge to evaluate AI output, over-reliance on AI sets you up for getting it wrong.",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Effective Use of AI"
+    ]
+  },
+  {
+    "objectID": "ai.html#why-do-i-need-to-learn-material-if-anyone-can-get-the-answer-with-ai",
+    "href": "ai.html#why-do-i-need-to-learn-material-if-anyone-can-get-the-answer-with-ai",
+    "title": "Effective Use of AI",
+    "section": "Why do I need to learn material if anyone can get the answer with AI?",
+    "text": "Why do I need to learn material if anyone can get the answer with AI?\nLearning the basics helps us to build out abstractions in our minds. For example, when I talk about a “computer” you know what I’m saying, comprehension doesn’t require me to explicitly state that I’m talking about “an electronic device for storing and processing data, typically in binary form, according to instructions given to it in a variable program.” This is because you’ve already learned what a computer is - you’ve developed that abstraction in your mind. AI tools can allow us to shortcut the development of these abstractions to our detriment. Skipping learning how to do the “easy stuff” that AI can currently automate may cripple our ability to rapidly learn the “hard stuff” that AI can’t do and that you may be able to get a job in. Learning the basic abstractions will make the path forward easier and eliminate potential roadblocks to understanding and skill development.",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Effective Use of AI"
+    ]
+  },
+  {
+    "objectID": "ai.html#responsible-use-of-ai-tools",
+    "href": "ai.html#responsible-use-of-ai-tools",
+    "title": "Effective Use of AI",
+    "section": "Responsible use of AI tools",
+    "text": "Responsible use of AI tools\nWith those challenges outlined, there are several ways in which AI can be helpful:\n\nA learning aid. If you’re not familiar with a concept or need help understanding something and you don’t have easy access to another source of guidance, an AI tool (especially those that provide relevant citations) can be helpful for accelerating the learning process. Don’t let the AI tool do a task for your, but allow the tool to help you connect with the knowledge and resources you need to complete the task and develop new skills (always search for high-quality resources before relying on AI directly).\nA coding aid. For coding, consider AI to be a pair programmer who may have some suggestions to enhance your coding or may be able to provide some templates to work from. DO NOT directly copy and paste code from AI tools. You should fully understand and be capable of reproducing any code segment that you use - if not, you have not learned the material and that is considered plagiarism.\nA brainstorming aid. AI can help you to think through and generate ideas. However, always begin creating ideas on your own first, and use AI after you’ve done some critical thinking on your own to prevent your own creativity and problem solving skills from atrophying.\nA tool for detecting spelling and grammar issues (e.g., Grammarly)\n\nYou should NEVER directly submit work that was created by AI. In this class, the use of AI tools is acceptable WITH CITATION. An appropriate citation would indicate the following information:\n\nWhat AI tool you used (e.g. ChatGPT)\nHow you used it\n\nAt the end of the day you are responsible for the correctness of anything you submit, you are responsible for having a complete understanding and the ability to reproduce from scratch anything that you submit.",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Effective Use of AI"
+    ]
+  },
+  {
+    "objectID": "contacts.html",
+    "href": "contacts.html",
+    "title": "Instructional Team",
+    "section": "",
+    "text": "Contact Us & Office Hours\n\n\n\nReach out to us through Ed Discussions for any questions. Office hours are also posted on Ed.\n\n\n\nInstructor\n\n\n\nKyle Bradbury (, )\n\n\nDr. Kyle Bradbury develops and applies machine learning techniques to better understand and manage energy and climate resources. His work focuses on how to advance machine learning methodologies and apply them to solve energy and climate system challenges through the development of open source, widely-applicable computational tools. His current research interests include developing scalable computer vision techniques for assessing energy resources, infrastructure, and access globally through the use of publicly available remote sensing data. Methodologically, he investigates how to overcome the challenge of distribution shift in computer vision through novel training paradigms that require less labeled data.\n\n\nTeaching Assistants\n\n\n\n\n\n\n\n\n\nLilah DuBoff (, )\n\n\n\n\n\n\n\nKayla Haeussler (, )\n\n\n\n\n\n\n\nPaul Markakis (, )",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Instructional Team"
+    ]
+  },
+  {
+    "objectID": "index.html#course-summary",
+    "href": "index.html#course-summary",
+    "title": "Overview",
+    "section": "Course Summary",
+    "text": "Course Summary\nIn almost every field, there is a need to make predictions based on data to drive decisions. The goal of this course is to provide an introduction to machine learning that is approachable to diverse disciplines and empowers students to become proficient in the foundational concepts and tools. You will learn to (a) structure a machine learning problems and determine which algorithmic tools are appropriate, (b) evaluate the performance of your solution using field-appropriate metrics and practices, and (c) accurately interpret your model output and communicate your results to interdisciplinary audiences. This course is a fast-paced, applied introduction to machine learning that through extensive practice with foundational tools, helps you to develop your knowledge of foundational machine learning concepts, and provides practical experience with those tools to prepare you for practice or future study.",
+    "crumbs": [
+      "Schedule",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#detailed-description",
+    "href": "index.html#detailed-description",
+    "title": "Overview",
+    "section": "Detailed description",
+    "text": "Detailed description\nMachine learning is a collection of useful tools for understanding and making decisions based on data and past experience; it is not a hammer to be applied to every nail, but rather a precision tool to be used when needed. This course will begin with exploring the purpose of machine learning told through a discussion of the types of problems that machine learning can answer: describing, predicting, and strategizing based on data and the tools at our disposal to address these challenges: supervised learning including classification and regression; unsupervised learning including clustering and density estimation; and reinforcement learning. There will be a strong focus on how to formulate a machine learning problem. Central to that formulation will be developing an understanding of how to preprocess data for analysis (e.g. feature extraction/dimensionality reduction, training/validation data sampling), model selection, and performance evaluation with cross validation. The final topic of this course will be a brief overview of state-of-the-art machine learning techniques that are emerging in the field.\nThroughout this course, the focus will be on applying algorithms rather than diving deeply into theory. You will be asked to consider the practical issues of machine learning problem solving: challenges of applying machine learning code packages, striving for parsimony (simplicity of models) and interpretability, and ensuring model assumptions are valid for a given problem and dataset. This course will also stress the importance of team-based collaboration, the value of producing fully reproducible and validated results, and tools to help with both such as version control and code repositories.\nCommunicating your results. Data science solutions are only as impactful as the communicator who shares them: therefore communication of your findings will be a core component of this course. Demonstrating competency in data science means (a) exhibiting a working knowledge of technical concepts including programming, statistics, and mathematics and (b) being able to clearly communicate the problem you were trying to solve or question you were trying to answer, why it matters, and how well your analysis worked. You will have opportunities to practice these skills throughout this course in the context of interpreting and sharing the results of your analyses.",
+    "crumbs": [
+      "Schedule",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Final Project",
+    "section": "",
+    "text": "It’s time for you to unleash your creativity in the final project for the course! This is your chance to apply everything you’ve learned so far, from experimental design and model selection to evaluation and optimization. This project gives you the freedom to explore new applications, experiment, and innovate. Creativity, critical thinking, and problem-solving will be key.\nMachine learning tools are not an end in themselves, but yield value when making predictions, quantifying and describing phenomena in the world around us, and in all these ways and more helping us to make decisions that would otherwise be difficult or impossible. For this final project, you will work in teams to (1) identify a problem to solve or a question to answer, (2) apply machine learning techniques to conduct experiments to investigate the application area, (3) rigorously evaluate the performance of your approach, and (4) clearly communicate your findings to a wide audience. The deliverables for this project are:\n\nProject proposal\nFinal written report AND a draft report prior to final submission\nPresentation. During the class exam period, we will have a project showcase and competition.\nGithub repository for your project\nPeer evaluation\n\nOther topics described in this document related to the project include: - Learning objectives - Submission, evaluation, & grading - Project ideas - Frequently asked questions"
+  },
+  {
+    "objectID": "project.html#summary-and-goals",
+    "href": "project.html#summary-and-goals",
+    "title": "Final Project",
+    "section": "",
+    "text": "It’s time for you to unleash your creativity in the final project for the course! This is your chance to apply everything you’ve learned so far, from experimental design and model selection to evaluation and optimization. This project gives you the freedom to explore new applications, experiment, and innovate. Creativity, critical thinking, and problem-solving will be key.\nMachine learning tools are not an end in themselves, but yield value when making predictions, quantifying and describing phenomena in the world around us, and in all these ways and more helping us to make decisions that would otherwise be difficult or impossible. For this final project, you will work in teams to (1) identify a problem to solve or a question to answer, (2) apply machine learning techniques to conduct experiments to investigate the application area, (3) rigorously evaluate the performance of your approach, and (4) clearly communicate your findings to a wide audience. The deliverables for this project are:\n\nProject proposal\nFinal written report AND a draft report prior to final submission\nPresentation. During the class exam period, we will have a project showcase and competition.\nGithub repository for your project\nPeer evaluation\n\nOther topics described in this document related to the project include: - Learning objectives - Submission, evaluation, & grading - Project ideas - Frequently asked questions"
+  },
+  {
+    "objectID": "project.html#learning-objectives",
+    "href": "project.html#learning-objectives",
+    "title": "Final Project",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nThis is an opportunity to creatively deploy machine learning in an application area of interest to you. A central component of your project must be a machine learning methodology. It does not have to be one that we’ve explicitly discussed in class as you’re welcome to use the project as an opportunity to learn new topics, although there should be a supervised learning component to your project. The objectives of this project are to…\n\nDevelop deeper competency in applying machine learning methods in practical applications\nGain experience in learning more about a topic beyond what was explicitly discussed, but by building on the foundation you have developed throughout the course which enables you to learn about other machine learning concepts\nIncrease your experience with collaborative data science workflows\nExpand your data science portfolio\n\nIn this project you will use what you’ve learned throughout this course and build on that knowledge and experience to apply the paradigms, algorithms, evaluation tools, and interpretation techniques discussed throughout the course. I strongly encourage you to pick a project that is of genuine interest in some way (e.g. the application, the tools, the dataset, etc.). Learning comes from stretching yourself: this requires that you push yourself into some unfamiliar territory and that is often a challenge and leads to desirable difficulty. Through this struggle is how the best learning happens, but it requires perseverance and that is best achieved when you are able to bring intrinsic motivation to that challenge. Find a topic of interest and embrace the challenge!\nFor this project you will identify a problem you wish to solve using machine learning tools. Identify the experiment you would need to run to evaluate how well you solved it as compared to existing approaches in the field including what metrics to use to evaluate performance.\n\nRequirements\n\nThe project must involve supervised machine learning. You may include concepts we were not able to cover in the course. You may include other concepts at well, but there should be a supervised learning component.\nThe project must be able to be completed within the course of this semester and should be scoped correctly: we encourage you to be ambitious, but please visit office hours if you have questions about project scope.\nEvery project should involve learning more about both your application domain and the methods that you’re using. This means reading about both facets. If you’re working on a project involving diagnosis of a disease, you should read enough to understand the disease and how it manifests the symptoms that your data may be noting. You’re expected to develop some domain knowledge related to your problem and demonstrate that in the report.\nAt minimum, your project should have at least one experimental design or study per student on the team. Examples include (but are not limited to): Options for topics to investigate:\n\nCross-domain comparison. What is the impact on generalization performance if we know that the conditions under which we will apply our ML approach are different than the available training data (e.g. if I’m working on a computer vision problem and all my training data are from the U.S., but the goal is to apply the model to regions in Asia)\nModel sensitivity to imbalanced data. What if training data when the training data are not perfectly sampled to be representative of the actual target data. This could be an investigation of the impact and possible solutions to imbalanced datasets.\nActive learning for cases where collecting data is expensive. How little additional data do you need to add to your model and how might it be identified how to sample the new data.\nBias detection and mitigation - could the fairness of algorithms be analyzed across different subsets of the data.\nModel explainability / interpretability.\nModel robustness to noise and/or adversarial attacks\nModel robustness when the application domain will likely be shifted from the training domain\nWhen do ensembles actually help? Investigating model stacking and the conditions under which it is adventageous (performance / computation tradeoff)\nCalibration in classification models - do the confidence scores match the actual probabilities?\n\nYour project should consider the potential ethical implications of your work and describe how that was factored into your work."
+  },
+  {
+    "objectID": "project.html#proposal",
+    "href": "project.html#proposal",
+    "title": "Final Project",
+    "section": "Proposal",
+    "text": "Proposal\nYour team will submit a short project proposal. You will receive feedback that should be used to guide your project development and execution. There are no length requirements on the proposal, but 2 pages should typically be sufficient. Every proposal should have the title of the project and the list of team members at the top of the first page.\nYou can find the project proposal template and instructions here. You are required to use the template for your proposal so that we can provide comments in Google docs. Please read through and discuss the different points mentioned in the template prior to submission.\nAdditionally, content from your proposal may be reused in your draft/final report and so you’re encouraged to invest in it with that in mind.\nIf you are looking for ideas about datasets, etc., please see the Ideas section below. Please stop by office hours if you would like to discuss specific project ideas or for any other help in selecting your project idea."
+  },
+  {
+    "objectID": "project.html#final-report",
+    "href": "project.html#final-report",
+    "title": "Final Project",
+    "section": "Final Report",
+    "text": "Final Report\nThe final project report that you submit will consist of two parts: (1) a draft project report and (2) a final report. The draft project report is your main opportunity to get detailed feedback on your report. While the draft report won’t be graded, we will provide written feedback and suggestions in the form of Google doc comments that we would strongly recommend addressing in your final report.\nPlease find the instructions and template for the final report here."
+  },
+  {
+    "objectID": "project.html#presentation",
+    "href": "project.html#presentation",
+    "title": "Final Project",
+    "section": "Presentation",
+    "text": "Presentation\nYou will also make a 7-minute presentation (strictly enforced) summarizing your project. This presentation should be visually compelling and should not miss the “forest for the trees” – don’t get lost in technical details. Imagine your aunt and uncle watching your presentation – would they know what is going on? Would they find it approachable and engaging? For inspiration for what makes an approachable discussion of a machine learning project, watch videos from the following series:\n\nTwo Minute Papers by Károly Zsolnai-Fehér. Concise 1-4 minute summaries of cutting edge research papers.\n3Blue1Brown by Grant Sanderson. Mathematical concepts conveyed clearly, intuitively, and visually.\n\nBe sure to practice your presentation, ask your friends (especially those who may not be as technically inclined) for feedback. Do they think it was engaging/easy to follow? Ask them their takeaways: did they get the message you were trying to communicate? Address their feedback to help you ensure the quality of your presentation. You must create your presentation as a Google Slides presentation and share and submit the link to your presentation by 5pm the night before the showcase."
+  },
+  {
+    "objectID": "project.html#github-repository",
+    "href": "project.html#github-repository",
+    "title": "Final Project",
+    "section": "Github Repository",
+    "text": "Github Repository\nYour github respository should (a) contain a descriptive README.md file that explains what the repo is for, and how to use the code to reproduce your work (including how to set it up to run), (b) be well commented throughout all files, (c) list all dependencies in a requirements.txt file, (d) inform the user how to get the data and includes all preprocessing code, and (e) actually runs (i.e. we can successfully test it) and does what it says\nAlso include a copy of your final report and a link to your project video from the README.md file."
+  },
+  {
+    "objectID": "project.html#peer-evaluation",
+    "href": "project.html#peer-evaluation",
+    "title": "Final Project",
+    "section": "Peer Evaluation",
+    "text": "Peer Evaluation\nSince this is a team project, you will also receive feedback from your teammates AND reflect on your own performance in a self-evaluation. You will be evaluating your fellow team members on the following criteria:\n\nWas dependable in attending meetings to work on the project\nDid work accurately and completely\nCompleted work on time\nContributed positively to team discussions\nHelped others when needed\nResponded to communications in a timely manner\nTreated other team members respectfully\nDemonstrated a positive attitude about the team and its work\n\nThis evaluation is NOT based directly on the scores that you receive in the feedback, but a satisfactory peer and self-evaluation is assessed based on the level of constructiveness of the feedback you provide. More detailed, constructive feedback is more useful to help your peers better understand their strengths and areas for growth. Doing so respectfully and compassionately is a requirement. Your peers will receive anonymized versions of the feedback that you share."
+  },
+  {
+    "objectID": "project.html#submission-evaluation-grading",
+    "href": "project.html#submission-evaluation-grading",
+    "title": "Final Project",
+    "section": "Submission, Evaluation, & Grading",
+    "text": "Submission, Evaluation, & Grading\nYou should submit each deliverable from your project through Gradescope. You will submit a link to each team deliverable. This should be submitted AS A TEAM not through individual submissions (points will be deducted if this is not followed). The project proposal, and draft final report should be submitted through GradeScope as links to Google Docs (so that we can attach easy-to-respond-to comments) using the templates provided. The link to the presentation slides and github repo should also both be submitted as links via GradeScope. The final project report, however, should be submitted as a PDF document in GradeScope.\nThe grading for this project will be assigned as follows:\n\n\n\n\n\n\n\nComponent\nEvaluation / Feedback Plan\n\n\n\n\nPresentation\n5 points, graded\n\n\nFinal Report\n10 points, graded\n\n\nTeam Proposal\nWritten or verbal feedback will be provided to help guide your project design.**\n\n\nDraft Final Report\nWritten feedback will be provided to help guide your final report writing.**\n\n\nGithub Repository\nRequired for project submission to be considered complete.**\n\n\nPeer Evaluation\nRequired for project submission to be considered complete.**\n\n\nTotal\n15 points\n\n\n\n** No points will be directly assigned. One point will be deducted from your overall final project score for each day late; up to 2 points may be deducted from the overall project score (out of 15 possible points) if the deliverable is unsatisfactory (if it does not represent a serious effort towards the deliverable)"
+  },
+  {
+    "objectID": "project.html#ideas",
+    "href": "project.html#ideas",
+    "title": "Final Project",
+    "section": "Ideas",
+    "text": "Ideas\n\nDesign your own project based on a question or problem. How well can you detect a disease using only data that might be available through sensors on a smart watch? How well do interpretable machine learning techniques perform in predicting recidivism as compared to less interpretable or explainable methodologies?\nReproduce the work of a published study and build on it. Reproducing the results of a journal article can be a great way to dive into advanced materials. The goal for a project like this would be to reproduce the study and build on it in some way: test a new hypothesis, adjust the methodology, try it on other data that may present new and interesting challenges. Reproducing papers can be hard, so you’ll want to choose wisely and make clear what your innovation will be. As a starting place, you can explore Papers with Code which typically have papers where the code and the data are both shared, often making reproducing their work simpler.\nParticipate in an active machine learning competition. Online machine learning competitions are sponsored by organizations with a significantly high interest in a problem that they are investing prize money into finding a solution. Examples of competition platforms include Kaggle, Driven Data, Zindi, AICrowd, etc. If you choose to participate in a competition, it must be an active competition where your team can compete; it cannot be a “sample” competition that is only for learning to use the platform (e.g. the Kaggle Titanic competition, etc.). You will want to learn about the application domain.\nBuild your own tool. Great value can come from making a tool available for use, but building the infrastructure is a challenge. You may want to create a chatbot that creates poetry based on themes that you feed in, or design a search tool that scans satellite data of the Earth for signs of natural disasters. The key here is that your tool will need to be functional and usable by your target audience. For this path, part of your output should be a demonstration of your tool."
   },
   {
     "objectID": "resources/dcc-documentation.html",
@@ -261,294 +480,171 @@
     ]
   },
   {
-    "objectID": "project.html",
-    "href": "project.html",
-    "title": "Final Project",
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Course Logistics",
     "section": "",
-    "text": "It’s time for you to unleash your creativity in the final project for the course! This is your chance to apply everything you’ve learned so far, from experimental design and model selection to evaluation and optimization. This project gives you the freedom to explore new applications, experiment, and innovate. Creativity, critical thinking, and problem-solving will be key.\nMachine learning tools are not an end in themselves, but yield value when making predictions, quantifying and describing phenomena in the world around us, and in all these ways and more helping us to make decisions that would otherwise be difficult or impossible. For this final project, you will work in teams to (1) identify a problem to solve or a question to answer, (2) apply machine learning techniques to conduct experiments to investigate the application area, (3) rigorously evaluate the performance of your approach, and (4) clearly communicate your findings to a wide audience. The deliverables for this project are:\n\nProject proposal\nFinal written report AND a draft report prior to final submission\nPresentation. During the class exam period, we will have a project showcase and competition.\nGithub repository for your project\nPeer evaluation\n\nOther topics described in this document related to the project include: - Learning objectives - Submission, evaluation, & grading - Project ideas - Frequently asked questions"
+    "text": "Class Time and Location\n\n\n\n\nWhen: Tuesday and Thursdays 10:05am - 11:20am\nWhere: Gross Hall 103",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Course Logistics"
+    ]
   },
   {
-    "objectID": "project.html#summary-and-goals",
-    "href": "project.html#summary-and-goals",
-    "title": "Final Project",
-    "section": "",
-    "text": "It’s time for you to unleash your creativity in the final project for the course! This is your chance to apply everything you’ve learned so far, from experimental design and model selection to evaluation and optimization. This project gives you the freedom to explore new applications, experiment, and innovate. Creativity, critical thinking, and problem-solving will be key.\nMachine learning tools are not an end in themselves, but yield value when making predictions, quantifying and describing phenomena in the world around us, and in all these ways and more helping us to make decisions that would otherwise be difficult or impossible. For this final project, you will work in teams to (1) identify a problem to solve or a question to answer, (2) apply machine learning techniques to conduct experiments to investigate the application area, (3) rigorously evaluate the performance of your approach, and (4) clearly communicate your findings to a wide audience. The deliverables for this project are:\n\nProject proposal\nFinal written report AND a draft report prior to final submission\nPresentation. During the class exam period, we will have a project showcase and competition.\nGithub repository for your project\nPeer evaluation\n\nOther topics described in this document related to the project include: - Learning objectives - Submission, evaluation, & grading - Project ideas - Frequently asked questions"
+    "objectID": "syllabus.html#class-tools-and-resources",
+    "href": "syllabus.html#class-tools-and-resources",
+    "title": "Course Logistics",
+    "section": "Class Tools and Resources",
+    "text": "Class Tools and Resources\n\nEd Discussions: Announcements, Q&A on course content (assignments, quizzes, grades), ALL course communications\nGradescope: Quizzes, assignments, and project submission & feedback\nSchedule: Schedule of class topics and deliverables\nCanvas: Posted grades",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Course Logistics"
+    ]
   },
   {
-    "objectID": "project.html#learning-objectives",
-    "href": "project.html#learning-objectives",
-    "title": "Final Project",
+    "objectID": "syllabus.html#textbooks",
+    "href": "syllabus.html#textbooks",
+    "title": "Course Logistics",
+    "section": "Textbooks",
+    "text": "Textbooks\nA version of each book is available free online:\n\nAn Introduction to Statistical Learning with Python by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2013.\nUnderstanding Deep learning by Simon Prince, 2023.\nPattern Recognition and Machine Learning by Christopher Bishop, 2006.\nDeep Learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville, 2016.\nReinforcement Learning: An Introduction, by Richard Sutton and Andrew Barto, 2018.",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Course Logistics"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#assignments-grading",
+    "href": "syllabus.html#assignments-grading",
+    "title": "Course Logistics",
+    "section": "Assignments & Grading",
+    "text": "Assignments & Grading\nAssignments, projects, & quizzes: Assignments and projects details are posted on the course syllabus. For expectations and instructions on the assignments, see the assignment instructions. Quizzes are found on Gradescope and are due prior to the start of the lecture for which they’re titled (i.e. the Lecture 3 Quiz is due by the start of Lecture 3).\n\nGrading:\n\n50% Assignments (5 required, each worth 10%)\n20% Quizzes (~20 required, each worth ~1%)\n15% In-class Exam\n15% Final Project\n\n\n\nPrerequisites\nThis course moves quickly, so having a firm grasp on prerequisites is important. The prerequisites are as follows:\n\nProgramming: Fundamentals of Python programming.\nMathematics: Calculus and linear algebra.\nStatistics: Introductory probability and statistics.",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Course Logistics"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#course-policies",
+    "href": "syllabus.html#course-policies",
+    "title": "Course Logistics",
+    "section": "Course Policies",
+    "text": "Course Policies\n\nAcademic dishonesty\nAdherence to the Duke Community Standard is expected. To uphold the Duke Community Standard:\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised\nAnyone found in violation of the Standard will be reported to the Office of Student Conduct.\n\n\nClass Attendance\nAttending class is a vital component of the course as it is one of the multiple ways in which you will interact with and learn course material. In person class attendance is therefore expected for this course. For any special circumstances, please reach out to the course instructor.\n\n\nSick absences\nTo keep the university community as safe and healthy as possible, please do not come to class if you have cold symptoms. Please inform the instructor of your absence and plan to complete any missed work. Students who encounter short- and long-term medical issues or instances of personal distress or emergency can seek academic support if needed. Recordings of the class will be available for excused absences.\n\n\nAccommodations and accessibility\nIf you need special accommodations due to physical or learning disabilities, medical needs, religious practices, or other reasons, please inform us as soon as possible so we can work to accommodate those needs.\nIf you are a student with a disability and need accommodations for this class, please register with the Student Disability Access Office (SDAO) and provide them with documentation of your disability. SDAO will work with you to determine what accommodations are appropriate for your situation. Please note that accommodations are not retroactive and disability accommodations cannot be provided until a Faculty Accommodation Letter has been given to your instructor. Please contact SDAO for more information: sdao@duke.edu or .\n\n\nLate Submissions\nAssignments and projects are due in class by the start of class on the date posted. Late deliverables will ONLY be accepted at the discretion of the instructor and according to the following:\n\nCourse projects deliverables will not be accepted after the deadline and a grade of 0 will be assigned.\nLate assignment submissions will result in a reduction of 5 points off the grade per day late.\nQuizzes will not be accepted after the deadline since the answers to the quizzes are discussed in and made available after the class in which they’re due. Quizzes are typically posted a week or more in advance, so you are encouraged to start early (you can submit as early as you’d like). Quizzes cannot be made up since we typically go over the quiz answers immediately after in class.\n\nPlease reach out to the TA’s or instructor as early as possible to request any special accommodations.\n\n\nCollaboration\nThere will be three modes of collaboration ranging from fully-collaborative group projects, to fully-independent work. The three modes are as follows, and will be indicated throughout the course:\n\nMode 1: Team-based Assignment. Collaboration is expected with every member of the team contributing to a single deliverable. Applies to the Project\nMode 2: Individual Assignment – Some collaboration is permitted. Students hand in individual work, but they may work with others (at the level of ideas rather than implementation) if they provide citations of the help they received, such as a list of people who assisted/collaborated with them to produce the final product. Duplication or copying is never permissible, even in part, and constitutes a breach of the honor code. This means that all work should in assignments should be your own. Applies to Assignments\nMode 3: Individual Assignment – No collaboration permitted. Students hand in individual work that is completed entirely independent of any discussion or help from other students. Clarifying questions to teaching assistants and instructors are both permissible and encouraged. Applies to Quizzes\n\n\n\nRules for recording course content\nStudent recording recordings of lectures must be permitted by the instructor prior to recording and shall be for private study only. Such recordings shall not be distributed to anyone without authorization by the instructor whose lecture has been recorded. However, the instructor may arrange through the Office of Information Technology to make recorded lectures available to students enrolled in the class on such terms and conditions as he or she prescribes. Redistribution of recorded lectures is prohibited. Unauthorized distribution is a cause for disciplinary action by the Judicial Board. The full policy on recoding of lectures falls under the Duke University Policy on Intellectual Property Rights, available here.",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Course Logistics"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#mental-health-and-wellness-resources",
+    "href": "syllabus.html#mental-health-and-wellness-resources",
+    "title": "Course Logistics",
+    "section": "Mental Health and Wellness Resources",
+    "text": "Mental Health and Wellness Resources\nStudent mental health and wellness are of primary importance at Duke, and the university offers resources to support students in managing daily stress and self- care.\nIf your mental health concerns or stressful events negatively affect your daily emotional state, academic performance, or ability to participate in your daily activities, many resources are available to help you through difficult times. Duke offers several resources for all students to seek assistance and to nurture daily habits that support overall well-being, some of which are listed below:\n\nDuWell, (919) 681-8421. DuWell provides Moments of Mindfulness (stress management and resilience building) and meditation programming (Koru workshop) to assist students in developing a daily emotional well-being practice. All are welcome and no experience necessary.\nDukeReach. DukeReach provides comprehensive outreach services to identify and support students in managing all aspects of well-being.\nCounseling and Psychological Services (CAPS), (919) 660-1000. CAPS services include individual and group counseling services, psychiatric services, and workshops. CAPS also provides referral to off-campus resources for specialized care. • TimelyCare (formerly known as Blue Devils Care). An online platform that is a convenient, confidential, and free way for Duke students to receive 24/7 mental health support through TalkNow and scheduled counseling.",
+    "crumbs": [
+      "Schedule",
+      "Syllabus",
+      "Course Logistics"
+    ]
+  },
+  {
+    "objectID": "notebooks/assignment1.html",
+    "href": "notebooks/assignment1.html",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "Instructions for all assignments can be found here. Note: this assignment falls under collaboration Mode 2: Individual Assignment – Collaboration Permitted. Please refer to the syllabus for additional information. Please be sure to list the names of any students that you worked with on this assignment. Total points in the assignment add up to 90; an additional 10 points are allocated to professionalism and presentation quality.",
+    "crumbs": [
+      "Schedule",
+      "Assignments",
+      "Assignment 1"
+    ]
+  },
+  {
+    "objectID": "notebooks/assignment1.html#instructions",
+    "href": "notebooks/assignment1.html#instructions",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "Instructions for all assignments can be found here. Note: this assignment falls under collaboration Mode 2: Individual Assignment – Collaboration Permitted. Please refer to the syllabus for additional information. Please be sure to list the names of any students that you worked with on this assignment. Total points in the assignment add up to 90; an additional 10 points are allocated to professionalism and presentation quality.",
+    "crumbs": [
+      "Schedule",
+      "Assignments",
+      "Assignment 1"
+    ]
+  },
+  {
+    "objectID": "notebooks/assignment1.html#learning-objectives",
+    "href": "notebooks/assignment1.html#learning-objectives",
+    "title": "Assignment 1",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nThis is an opportunity to creatively deploy machine learning in an application area of interest to you. A central component of your project must be a machine learning methodology. It does not have to be one that we’ve explicitly discussed in class as you’re welcome to use the project as an opportunity to learn new topics, although there should be a supervised learning component to your project. The objectives of this project are to…\n\nDevelop deeper competency in applying machine learning methods in practical applications\nGain experience in learning more about a topic beyond what was explicitly discussed, but by building on the foundation you have developed throughout the course which enables you to learn about other machine learning concepts\nIncrease your experience with collaborative data science workflows\nExpand your data science portfolio\n\nIn this project you will use what you’ve learned throughout this course and build on that knowledge and experience to apply the paradigms, algorithms, evaluation tools, and interpretation techniques discussed throughout the course. I strongly encourage you to pick a project that is of genuine interest in some way (e.g. the application, the tools, the dataset, etc.). Learning comes from stretching yourself: this requires that you push yourself into some unfamiliar territory and that is often a challenge and leads to desirable difficulty. Through this struggle is how the best learning happens, but it requires perseverance and that is best achieved when you are able to bring intrinsic motivation to that challenge. Find a topic of interest and embrace the challenge!\nFor this project you will identify a problem you wish to solve using machine learning tools. Identify the experiment you would need to run to evaluate how well you solved it as compared to existing approaches in the field including what metrics to use to evaluate performance.\n\nRequirements\n\nThe project must involve supervised machine learning. You may include concepts we were not able to cover in the course. You may include other concepts at well, but there should be a supervised learning component.\nThe project must be able to be completed within the course of this semester and should be scoped correctly: we encourage you to be ambitious, but please visit office hours if you have questions about project scope.\nEvery project should involve learning more about both your application domain and the methods that you’re using. This means reading about both facets. If you’re working on a project involving diagnosis of a disease, you should read enough to understand the disease and how it manifests the symptoms that your data may be noting. You’re expected to develop some domain knowledge related to your problem and demonstrate that in the report.\nAt minimum, your project should have at least one experimental design or study per student on the team. Examples include (but are not limited to): Options for topics to investigate:\n\nCross-domain comparison. What is the impact on generalization performance if we know that the conditions under which we will apply our ML approach are different than the available training data (e.g. if I’m working on a computer vision problem and all my training data are from the U.S., but the goal is to apply the model to regions in Asia)\nModel sensitivity to imbalanced data. What if training data when the training data are not perfectly sampled to be representative of the actual target data. This could be an investigation of the impact and possible solutions to imbalanced datasets.\nActive learning for cases where collecting data is expensive. How little additional data do you need to add to your model and how might it be identified how to sample the new data.\nBias detection and mitigation - could the fairness of algorithms be analyzed across different subsets of the data.\nModel explainability / interpretability.\nModel robustness to noise and/or adversarial attacks\nModel robustness when the application domain will likely be shifted from the training domain\nWhen do ensembles actually help? Investigating model stacking and the conditions under which it is adventageous (performance / computation tradeoff)\nCalibration in classification models - do the confidence scores match the actual probabilities?\n\nYour project should consider the potential ethical implications of your work and describe how that was factored into your work."
-  },
-  {
-    "objectID": "project.html#proposal",
-    "href": "project.html#proposal",
-    "title": "Final Project",
-    "section": "Proposal",
-    "text": "Proposal\nYour team will submit a short project proposal. You will receive feedback that should be used to guide your project development and execution. There are no length requirements on the proposal, but 2 pages should typically be sufficient. Every proposal should have the title of the project and the list of team members at the top of the first page.\nYou can find the project proposal template and instructions here. You are required to use the template for your proposal so that we can provide comments in Google docs. Please read through and discuss the different points mentioned in the template prior to submission.\nAdditionally, content from your proposal may be reused in your draft/final report and so you’re encouraged to invest in it with that in mind.\nIf you are looking for ideas about datasets, etc., please see the Ideas section below. Please stop by office hours if you would like to discuss specific project ideas or for any other help in selecting your project idea."
-  },
-  {
-    "objectID": "project.html#final-report",
-    "href": "project.html#final-report",
-    "title": "Final Project",
-    "section": "Final Report",
-    "text": "Final Report\nThe final project report that you submit will consist of two parts: (1) a draft project report and (2) a final report. The draft project report is your main opportunity to get detailed feedback on your report. While the draft report won’t be graded, we will provide written feedback and suggestions in the form of Google doc comments that we would strongly recommend addressing in your final report.\nPlease find the instructions and template for the final report here."
-  },
-  {
-    "objectID": "project.html#presentation",
-    "href": "project.html#presentation",
-    "title": "Final Project",
-    "section": "Presentation",
-    "text": "Presentation\nYou will also make a 7-minute presentation (strictly enforced) summarizing your project. This presentation should be visually compelling and should not miss the “forest for the trees” – don’t get lost in technical details. Imagine your aunt and uncle watching your presentation – would they know what is going on? Would they find it approachable and engaging? For inspiration for what makes an approachable discussion of a machine learning project, watch videos from the following series:\n\nTwo Minute Papers by Károly Zsolnai-Fehér. Concise 1-4 minute summaries of cutting edge research papers.\n3Blue1Brown by Grant Sanderson. Mathematical concepts conveyed clearly, intuitively, and visually.\n\nBe sure to practice your presentation, ask your friends (especially those who may not be as technically inclined) for feedback. Do they think it was engaging/easy to follow? Ask them their takeaways: did they get the message you were trying to communicate? Address their feedback to help you ensure the quality of your presentation. You must create your presentation as a Google Slides presentation and share and submit the link to your presentation by 5pm the night before the showcase."
-  },
-  {
-    "objectID": "project.html#github-repository",
-    "href": "project.html#github-repository",
-    "title": "Final Project",
-    "section": "Github Repository",
-    "text": "Github Repository\nYour github respository should (a) contain a descriptive README.md file that explains what the repo is for, and how to use the code to reproduce your work (including how to set it up to run), (b) be well commented throughout all files, (c) list all dependencies in a requirements.txt file, (d) inform the user how to get the data and includes all preprocessing code, and (e) actually runs (i.e. we can successfully test it) and does what it says\nAlso include a copy of your final report and a link to your project video from the README.md file."
-  },
-  {
-    "objectID": "project.html#peer-evaluation",
-    "href": "project.html#peer-evaluation",
-    "title": "Final Project",
-    "section": "Peer Evaluation",
-    "text": "Peer Evaluation\nSince this is a team project, you will also receive feedback from your teammates AND reflect on your own performance in a self-evaluation. You will be evaluating your fellow team members on the following criteria:\n\nWas dependable in attending meetings to work on the project\nDid work accurately and completely\nCompleted work on time\nContributed positively to team discussions\nHelped others when needed\nResponded to communications in a timely manner\nTreated other team members respectfully\nDemonstrated a positive attitude about the team and its work\n\nThis evaluation is NOT based directly on the scores that you receive in the feedback, but a satisfactory peer and self-evaluation is assessed based on the level of constructiveness of the feedback you provide. More detailed, constructive feedback is more useful to help your peers better understand their strengths and areas for growth. Doing so respectfully and compassionately is a requirement. Your peers will receive anonymized versions of the feedback that you share."
-  },
-  {
-    "objectID": "project.html#submission-evaluation-grading",
-    "href": "project.html#submission-evaluation-grading",
-    "title": "Final Project",
-    "section": "Submission, Evaluation, & Grading",
-    "text": "Submission, Evaluation, & Grading\nYou should submit each deliverable from your project through Gradescope. You will submit a link to each team deliverable. This should be submitted AS A TEAM not through individual submissions (points will be deducted if this is not followed). The project proposal, and draft final report should be submitted through GradeScope as links to Google Docs (so that we can attach easy-to-respond-to comments) using the templates provided. The link to the presentation slides and github repo should also both be submitted as links via GradeScope. The final project report, however, should be submitted as a PDF document in GradeScope.\nThe grading for this project will be assigned as follows:\n\n\n\n\n\n\n\nComponent\nEvaluation / Feedback Plan\n\n\n\n\nPresentation\n5 points, graded\n\n\nFinal Report\n10 points, graded\n\n\nTeam Proposal\nWritten or verbal feedback will be provided to help guide your project design.**\n\n\nDraft Final Report\nWritten feedback will be provided to help guide your final report writing.**\n\n\nGithub Repository\nRequired for project submission to be considered complete.**\n\n\nPeer Evaluation\nRequired for project submission to be considered complete.**\n\n\nTotal\n15 points\n\n\n\n** No points will be directly assigned. One point will be deducted from your overall final project score for each day late; up to 2 points may be deducted from the overall project score (out of 15 possible points) if the deliverable is unsatisfactory (if it does not represent a serious effort towards the deliverable)"
-  },
-  {
-    "objectID": "project.html#ideas",
-    "href": "project.html#ideas",
-    "title": "Final Project",
-    "section": "Ideas",
-    "text": "Ideas\n\nDesign your own project based on a question or problem. How well can you detect a disease using only data that might be available through sensors on a smart watch? How well do interpretable machine learning techniques perform in predicting recidivism as compared to less interpretable or explainable methodologies?\nReproduce the work of a published study and build on it. Reproducing the results of a journal article can be a great way to dive into advanced materials. The goal for a project like this would be to reproduce the study and build on it in some way: test a new hypothesis, adjust the methodology, try it on other data that may present new and interesting challenges. Reproducing papers can be hard, so you’ll want to choose wisely and make clear what your innovation will be. As a starting place, you can explore Papers with Code which typically have papers where the code and the data are both shared, often making reproducing their work simpler.\nParticipate in an active machine learning competition. Online machine learning competitions are sponsored by organizations with a significantly high interest in a problem that they are investing prize money into finding a solution. Examples of competition platforms include Kaggle, Driven Data, Zindi, AICrowd, etc. If you choose to participate in a competition, it must be an active competition where your team can compete; it cannot be a “sample” competition that is only for learning to use the platform (e.g. the Kaggle Titanic competition, etc.). You will want to learn about the application domain.\nBuild your own tool. Great value can come from making a tool available for use, but building the infrastructure is a challenge. You may want to create a chatbot that creates poetry based on themes that you feed in, or design a search tool that scans satellite data of the Earth for signs of natural disasters. The key here is that your tool will need to be functional and usable by your target audience. For this path, part of your output should be a demonstration of your tool."
-  },
-  {
-    "objectID": "index.html#course-summary",
-    "href": "index.html#course-summary",
-    "title": "Overview",
-    "section": "Course Summary",
-    "text": "Course Summary\nIn almost every field, there is a need to make predictions based on data to drive decisions. The goal of this course is to provide an introduction to machine learning that is approachable to diverse disciplines and empowers students to become proficient in the foundational concepts and tools. You will learn to (a) structure a machine learning problems and determine which algorithmic tools are appropriate, (b) evaluate the performance of your solution using field-appropriate metrics and practices, and (c) accurately interpret your model output and communicate your results to interdisciplinary audiences. This course is a fast-paced, applied introduction to machine learning that through extensive practice with foundational tools, helps you to develop your knowledge of foundational machine learning concepts, and provides practical experience with those tools to prepare you for practice or future study.",
+    "text": "Learning Objectives\nThe purpose of this assignment is to provide a refresher on fundamental concepts that we will use throughout this course and provide an opportunity to develop skills in any of the related skills that may be unfamiliar to you. Through the course of completing this assignment, you will…\n\nRefresh your knowledge of probability theory including properties of random variables, probability density functions, cumulative distribution functions, and key statistics such as mean and variance.\nRevisit common linear algebra and matrix operations and concepts such as matrix multiplication, inner and outer products, inverses, the Hadamard (element-wise) product, eigenvalues and eigenvectors, orthogonality, and symmetry.\nPractice numerical programming, core to machine learning, by applying it to scenarios of probabilistic modeling, linear algebra computations, loading and plotting data, and querying the data to answer relevant questions.\n\nWe will build on these concepts throughout the course, so use this assignment as a catalyst to deepen your knowledge and seek help with anything unfamiliar.\nFor references on the topics in this assignment, please check out the resources page on the course website for online materials such as books and courses to support your learning.\nNote: don’t worry if you don’t understand everything in the references above - some of these books dive into significant minutia of each of these topics.",
     "crumbs": [
       "Schedule",
-      "Overview"
+      "Assignments",
+      "Assignment 1"
     ]
   },
   {
-    "objectID": "index.html#detailed-description",
-    "href": "index.html#detailed-description",
-    "title": "Overview",
-    "section": "Detailed description",
-    "text": "Detailed description\nMachine learning is a collection of useful tools for understanding and making decisions based on data and past experience; it is not a hammer to be applied to every nail, but rather a precision tool to be used when needed. This course will begin with exploring the purpose of machine learning told through a discussion of the types of problems that machine learning can answer: describing, predicting, and strategizing based on data and the tools at our disposal to address these challenges: supervised learning including classification and regression; unsupervised learning including clustering and density estimation; and reinforcement learning. There will be a strong focus on how to formulate a machine learning problem. Central to that formulation will be developing an understanding of how to preprocess data for analysis (e.g. feature extraction/dimensionality reduction, training/validation data sampling), model selection, and performance evaluation with cross validation. The final topic of this course will be a brief overview of state-of-the-art machine learning techniques that are emerging in the field.\nThroughout this course, the focus will be on applying algorithms rather than diving deeply into theory. You will be asked to consider the practical issues of machine learning problem solving: challenges of applying machine learning code packages, striving for parsimony (simplicity of models) and interpretability, and ensuring model assumptions are valid for a given problem and dataset. This course will also stress the importance of team-based collaboration, the value of producing fully reproducible and validated results, and tools to help with both such as version control and code repositories.\nCommunicating your results. Data science solutions are only as impactful as the communicator who shares them: therefore communication of your findings will be a core component of this course. Demonstrating competency in data science means (a) exhibiting a working knowledge of technical concepts including programming, statistics, and mathematics and (b) being able to clearly communicate the problem you were trying to solve or question you were trying to answer, why it matters, and how well your analysis worked. You will have opportunities to practice these skills throughout this course in the context of interpreting and sharing the results of your analyses.",
+    "objectID": "notebooks/assignment1.html#exercise-1---probabilistic-reasoning",
+    "href": "notebooks/assignment1.html#exercise-1---probabilistic-reasoning",
+    "title": "Assignment 1",
+    "section": "Exercise 1 - Probabilistic Reasoning",
+    "text": "Exercise 1 - Probabilistic Reasoning\n1.1. Probabilistic Reasoning I. You are handed three fair dice and roll them sequentially. What’s the probability of the sum of the dice is 10 after you’ve rolled the first die and it shows a 1?\n1.2. Probabilistic Computation I. Simulate the scenario in 1.1 by creating 1 million synthetic rolls of the three dice. Determine what fraction of outcomes that had a “1” for the first die also had a sum of 10 across the three die.\n1.3. Probabilistic Reasoning II. A test for a rare disease has a 95% chance of detecting the disease if a person has it (true positive rate) and a 3% chance of wrongly detecting it if a person does not have it (false positive rate). If 1 in 1,000 people actually have the disease, what is the probability that a randomly chosen person who tests positive actually has the disease?\n1.4. Discrete Probability Theory. A discrete random variable \\(X\\) is distributed as follows (probability mass function):\n\\(P(X = x) = \\begin{cases}\n                0.2 & x = -1 \\\\\n                0.5 & x = 0 \\\\\n                0.3 & x = 1\n            \\end{cases}\\)\nWhat is the expected value, \\(E_X[X]\\) and variance, \\(Var_X(X)\\) of the random variable \\(X\\)?",
     "crumbs": [
       "Schedule",
-      "Overview"
+      "Assignments",
+      "Assignment 1"
     ]
   },
   {
-    "objectID": "contacts.html",
-    "href": "contacts.html",
-    "title": "Instructional Team",
-    "section": "",
-    "text": "Contact Us & Office Hours\n\n\n\nReach out to us through Ed Discussions for any questions. Office hours are also posted on Ed.\n\n\n\nInstructor\n\n\n\nKyle Bradbury (, )\n\n\nDr. Kyle Bradbury develops and applies machine learning techniques to better understand and manage energy and climate resources. His work focuses on how to advance machine learning methodologies and apply them to solve energy and climate system challenges through the development of open source, widely-applicable computational tools. His current research interests include developing scalable computer vision techniques for assessing energy resources, infrastructure, and access globally through the use of publicly available remote sensing data. Methodologically, he investigates how to overcome the challenge of distribution shift in computer vision through novel training paradigms that require less labeled data.\n\n\nTeaching Assistants\n\n\n\n\n\n\n\n\n\nLilah DuBoff (, )\n\n\n\n\n\n\n\nKayla Haeussler (, )\n\n\n\n\n\n\n\nPaul Markakis (, )",
+    "objectID": "notebooks/assignment1.html#exercise-2---probability-distributions-and-modeling",
+    "href": "notebooks/assignment1.html#exercise-2---probability-distributions-and-modeling",
+    "title": "Assignment 1",
+    "section": "Exercise 2 - Probability Distributions and Modeling",
+    "text": "Exercise 2 - Probability Distributions and Modeling\nYou’ve been asked to create a model of wait time for customers at Olivander’s Wand Shop. While they strive for the perfect match, there is some cleanup between customers that has been keeping wait times high. They’re open 8 hours a day and the maximum wait time is 8 hours (we won’t assume it’s possible not to be seen, assuming you’re willing to wait). Define the continuous random variable \\(X = \\{\\text{wait time for service as a fraction of 8 hours}\\}\\) . This means that \\(x=1\\) represents a full day’s wait, or 8 hours, \\(x=0.5\\) represents half a day wait or 4 hours. Additionally, the valid values of \\(X\\) are between 0 and 1 (\\(0\\leq x \\leq 1\\)).\nWe’ll begin by analyzing some data of past visits to the shop to understand the customer wait time experience through our data (2.1-2.2). Then, we’ll select a model we hypothesize might fit our situation well and evaluate its properties like mean and variance (2.3-2.7). We’ll also evaluate the quality of the fit of the model as compare to our data (2.8-2.11). Lastly, we’ll explore how this approach can be used to generate insights (2.12).\n\nReviewing our wait time data\n2.1. Load and plot a histogram of your wait time data. The file is wait_times.csv in the data/a1 folder here on Github. I recommend using the simple np.loadtxt() function to accomplish this so you can quickly load it in as a numpy array. Remember, the value 1 represents a full 8 hour work day so you should see your data are all in the range of \\([0,1]\\). Please use 10 bins and limit the bin edges to the range \\([0,1]\\) (no values should be plotted outside that range).\n2.2. Mean, variance, and standard deviation of the data. Compute the mean, variance, and standard deviation of the wait time data. Report the mean and standard deviation in both the original units (in \\([0,1]\\)) and in hours (the variance is unitless).\n\n\nCreating a model for the wait time distribution\nTake a moment to review the distribution of the data. The most common distribution is normal, but this doesn’t seem normally distributed. Neither does it look uniform. The shape actually looks like it may be exponentially distributed, but truncated at 1. It’s not uncommon to have this type of shape in a wait time model, but this introduces a challenge since we can’t just use the standard exponential distribution since an exponential distribution is defined on a domain from 0 to infinity, but our data is defined between 0 and 1. Let’s create a customized distribution as a model for our data and see how well it represents the key statistics of our data.\nIn this section, please note the list of equations and identities at the end of this document as they may be useful for several questions.\n2.3. Probability Density Functions (PDFs). Compute the value of \\(\\alpha\\) that makes \\(f_X(x)\\) a valid probability density function:\n\\(f_X(x) = \\begin{cases}\n                \\alpha e^{-x}  & 0 \\leq x \\leq 1 \\\\\n                0           & \\text{else}\n            \\end{cases}\\)\nProvide this value exactly (with no approximation) and also provide and approximate decimal value with a precision to three decimal places.\n2.4. Cumulative Distribution Functions (CDFs). Compute the cumulative distribution function (CDF) of \\(X\\), \\(F_X(x)\\), where \\(F_X(x)=P(X&lt;x)\\) (here, \\(P(\\cdot)\\) represents the probability of the event within the brackets). Be sure to indicate the value of the CDF for all values of \\(x\\in(-\\infty,\\infty)\\). Express your CDF using the variable \\(\\alpha\\) to provide the precise CDF.\n2.5. Expected Value. Compute the expected value of \\(X\\), \\(E_X[X]\\). Provide this value exactly (no approximations and only in terms of \\(e\\) and \\(\\alpha\\)) and provide a numerical approximation of the expected value to 3 decimal places. Also provide the approximate number of hours waiting (to 3 decimal places).\n2.6. Variance and Standard Deviation. Compute the variance of \\(X\\), \\(Var(X)\\) approximately to 3 significant figures, meaning 3 digits without leading zeros (e.g. 12.3, 0.123, 0.00123, all have 3 significant figures). Using the variance, calculate the standard deviation and express this standard deviation in both the original units and units of hours.\n2.7. Plotting your functions. Create functions to implement your PDF, \\(f_X(x)\\), and CDF, \\(F_X(x)\\), for all possible values of \\(x\\). Using these functions, plot the PDF and CDF on the inverval \\(-0.5 \\leq x \\leq 1.5\\).\n\n\nEvaluating the quality of the model\n2.8. Compare the empirical CDF to the modeled CDF. Plot both of these on the interval \\(0 \\leq x \\leq 1\\). For the empirical CDF of the data from wait_times.csv, you can plot the empirical CDF by sorting the data in ascending order, your \\(x\\) values, and assigning the \\(y\\) value as the cumulative fraction of samples that are smaller than or equal to each \\(x\\) value.\n2.9. Calculate the inverse CDF to enable you to generate synthetic data. Create a numerical simulation of this process. Doing this for a custom PDF is easier than you may think. We typically have access to uniformly distributed samples (through np.random.rand), and we can transform these uniform samples into any distribution we wish. To do this, we can input uniform variates through the inverse of the CDF. If \\(U\\) is a uniformly distributed random variable and \\(F_X(x)\\) is the CDF of the distribution we’re looking to model, then \\(F_X^{-1}(U)\\) will be distributed in the same way as \\(X\\), as shown below in Figure 1.\n\n\n\nSynthetic Data Generation\n\n\nFigure 1. Demonstrating the process of transforming a uniformly distributed random variable into almost any distribution (here we transform into a normal). Here we show the transformation a sample, \\(u^{\\ast}\\), from a uniform distribution to a sample, \\(x^{\\ast}\\) from a normal distribution by applying the inverse of the CDF of \\(X\\) to \\(u^{\\ast}\\), that is \\(x^{\\ast} = F_X^{-1}(u^{\\ast})\\).\nCalculate the inverse of the CDF, \\(F_X^{-1}(y)\\) (We use the variable \\(y\\) as the input into this function to denote that we’re inputting the “output” of the CDF into this inverse CDF).\n2.10. Generate synthetic data using the inverse CDF by transforming uniform samples. Once you have your inverse CDF, code it up and use it to create synthetic samples from the last step. To do so, first generate 10,000 samples from the uniform distribution and then feed those uniform variates through the inverse CDF to generate synthetic variates from our wait time model. Using those samples, compute the mean and standard deviation. Present the mean and standard deviation in a table comparing (a) the empirical values computed from wait_times.csv, (b) your theoretical model values calculated earlier, and (c) your computed values calculated from your synthetic model. How do they compare?\n2.11. Run a statistical test to evaluate the goodness of fit of your model to the empirical data from wait_times.csv. To evaluate the goodness of fit of the model to the data, one tool is the Kolmogorov–Smirnov test, or simply the KS test. The two-sample version of this test evaluates the maximum distance between two CDFs, each calculated from samples of data. In this case, the null hypothesis states that the samples are drawn from the same distribution. We can conclude that the sample data are well-represented by the reference distribution if we do NOT reject the null hypothesis. If we test at the 5% significant level, then we can conclude that data come from the same distribution if the p-value is greater than 0.05 (we fail to reject the null hypothesis).\nCompare the sample of data from wait_times.csv to the synthetic sample from the model distribution and run the KS test. Also compare the sample data to the uniform distributed data you generated before transforming it into the synthetic samples. For the test use scipy.stats.kstest.\n\n\nUsing the model to understand wait times\n2.12. Computing probabilities. Having a way of generating synthetic data can allow us to easily compute probabilities. Compute the probabilities of the following events using the synthetic data samples that you generated.\n\nWait time is more than 6 hours\nWait time is less than 1 hour\nWait time is less than one additional hour given the client has already been waiting for 3 hours (i.e., the probability of the wait time being less than 4 hours if they have already waited for 3 hours)\nWait time is between 3 and 5 hours\nWhat is the 90th percentile of wait times?\nWhat is the 99th percentile of wait times?",
     "crumbs": [
       "Schedule",
-      "Syllabus",
-      "Instructional Team"
+      "Assignments",
+      "Assignment 1"
     ]
   },
   {
-    "objectID": "ai.html",
-    "href": "ai.html",
-    "title": "Effective Use of AI",
-    "section": "",
-    "text": "This class is all about artificial intelligence, however, the primary intelligence that we are working to expand is your own. AI tools, like ChatGPT, can be useful aids for learning, but without considering your relationship with these tools, they can present several major challenges to your learning:\n\nThe Illusion of Knowledge. Without careful use, you can easily succomb to the cognitive bias known as the illusion of knowledge. The illusion of knowledge, also known as the Dunning-Kruger effect, occurs when you believe you know something to a greater degree than you actually do. It’s better to evaluate yourself accurately in your knowledge of a subject so that you can seek out resources for filling the gaps in your knowledge. This can lead to poor decision making and overconfidence in those poor decisions. It also prevents further learning.\nPreventing actual learning. Using an AI to avoid the cognitive struggle of thinking through the material literally prevents you from learning since those cognitive struggles are part of the learning process. If your goal is to learn in this course, over-reliance on AI is a clear path to\nReduced potential for creativity and innovation. Getting too used to the habit of relying on AI weakens your critical thinking abilities and creativity. When you depend on AI to generate ideas or solve problems, you miss out on the opportunity to develop your own innovative solutions and original thoughts. This can stifle your creative growth and limit your ability to think independently.\nGetting it wrong. AI is fallible. As we see in this course, even the best trained systems aren’t 100% correct, so without the proper knowledge to evaluate AI output, over-reliance on AI sets you up for getting it wrong.",
+    "objectID": "notebooks/assignment1.html#exercise-3---linear-algebra-operations-and-theory",
+    "href": "notebooks/assignment1.html#exercise-3---linear-algebra-operations-and-theory",
+    "title": "Assignment 1",
+    "section": "Exercise 3 - Linear Algebra Operations and Theory",
+    "text": "Exercise 3 - Linear Algebra Operations and Theory\n3.1. Matrix manipulations and multiplication. Machine learning involves working with many matrices and understanding what their products represent, so this exercise will provide you with the opportunity to practice those skills.\nLet \\(\\mathbf{A} =  \\begin{bmatrix}\n1 & 2 \\\\\n3 & 4\n\\end{bmatrix}\\), \\(\\mathbf{b} =  \\begin{bmatrix}\n-1  \\\\\n1\n\\end{bmatrix}\\), \\(\\mathbf{c} =  \\begin{bmatrix}\n1  \\\\\n2\n\\end{bmatrix}\\)\nCompute the following by hand or indicate that it cannot be computed. For any cases where an operation is invalid and cannot be computed, explain why it is invalid.\n\n\\(\\mathbf{A}\\mathbf{A}\\)\n\\(\\mathbf{A}\\mathbf{A}^{\\top}\\)\n\\(\\mathbf{A}\\mathbf{b}\\)\n\\(\\mathbf{A}\\mathbf{b}^{\\top}\\)\n\\(\\mathbf{b}\\mathbf{A}\\)\n\\(\\mathbf{b}^{\\top}\\mathbf{A}\\)\n\\(\\mathbf{b}\\mathbf{b}\\)\n\\(\\mathbf{b}^{\\top}\\mathbf{b}\\)\n\\(\\mathbf{b}\\mathbf{b}^{\\top}\\)\n\\(\\mathbf{A}\\circ\\mathbf{A}\\)\n\\(\\mathbf{b}\\circ\\mathbf{c}\\)\n\\(\\mathbf{b}^{\\top}\\mathbf{b}^{\\top}\\)\n\\(\\mathbf{b} + \\mathbf{c}^{\\top}\\)\n\\(\\mathbf{A}^{-1}\\mathbf{b}\\)\n\\(\\mathbf{b}^{{\\top}}\\mathbf{A}\\mathbf{b}\\)\n\\(\\mathbf{b}\\mathbf{A}\\mathbf{b}^{{\\top}}\\)\n\nNote: The element-wise (or Hadamard) product is the product of each element in one matrix with the corresponding element in another matrix, and is represented by the symbol “\\(\\circ\\)”.\n3.2. Matrix manipulations and multiplication using Python. Repeat 3.1, but this time using Python. If you are using a vector, make sure the dimensions of the vector match what you’d expect, for example, matrix \\(\\mathbf{b}\\) is a \\([2 \\times 1]\\) vector. In NumPy, unless you’re specify, you’ll like create a one-dimensional array of length 2 rather than a \\([2 \\times 1]\\) vector if you don’t specify - be careful of this potential pitfall. Refer to NumPy’s tools for handling matrices. There may be circumstances when Python will produce an output, but based on the dimensions of the matrices involved, the linear algebra operation is not possible. Note these cases and explain why they occur. Please provide both the Python code AND the output of that code showing your result. If the output is an error, comment out the code and note that it cannot be computed.\nBe sure to use the right operator for each operation: Matrix multiplication: @; Element-wise multication: *. For this exercise, only use one of those to operators for matrix or vector multiplication.\n3.3. Vector Norms. Norms are the effective lengths of vectors. For example, the Euclidean norm, or \\(L_2\\) norm (denoted as \\(||\\mathbf{\\cdot}||_2\\)), is the most common of several types of norms. The \\(L_2\\) norm can be calculated for a vector \\[\\mathbf{x} =  \\begin{bmatrix} x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_n \\end{bmatrix}\\] as follows: \\[||\\mathbf{x}||_2 = \\sqrt{\\displaystyle \\sum_{k=1}^n x_k^2} = \\sqrt{\\mathbf{x}^{\\top}\\mathbf{x}}\\]\nWhat is the \\(L_2\\) norm of vectors \\(\\mathbf{d}_1 =  \\begin{bmatrix} 2^{-1/2} \\\\ -2^{-1/2} \\\\ 0 \\end{bmatrix}\\) and \\(\\mathbf{d}_2 = \\begin{bmatrix} 0 \\\\ 0 \\\\ 1 \\end{bmatrix}\\)?\n3.4. Orthogonality and unit vectors. Orthogonal vectors are frequently used in machine learning in topics such as Principal Components Analysis and feature engineering for creating decorrelated features. Knowing what an orthogonal or orthonomal basis is for a space is an important concept. Find all values of unit vectors, \\(\\mathbf{d}_3\\), that complete an orthonormal basis in a three-dimensional Euclidean space along with the two vectors: \\(\\mathbf{d}_1 =  \\begin{bmatrix} 2^{-1/2} \\\\ -2^{-1/2} \\\\ 0 \\end{bmatrix}\\) and \\(\\mathbf{d}_2 = \\begin{bmatrix} 0 \\\\ 0 \\\\ 1 \\end{bmatrix}\\).\nFor review, vector \\(\\mathbf{x}_1\\) is orthonormal to vector \\(\\mathbf{x}_2\\) if (a) \\(\\mathbf{x}_1\\) is orthogonal to vector \\(\\mathbf{x}_2\\) AND \\(\\mathbf{x}_1\\) is a unit vector. Orthogonal vectors are perpendicular, which implies that their inner product is zero. A unit vector is of length 1 (meaning its \\(L_2\\) norm is 1).\n3.5. Eigenvectors and eigenvalues. Eigenvectors and eigenvalues are useful for numerous machine learning algorithms, but the concepts take time to solidly grasp. They are used extensively in machine learning including in Principal Components Analysis (PCA) and clustering algorithms. For an intuitive review of these concepts, explore this interactive website at Setosa.io. Also, the series of linear algebra videos by Grant Sanderson of 3Brown1Blue are excellent and can be viewed on youtube here. For these questions, numpy may once again be helpful.\n\nIn Python, calculate the eigenvalues and corresponding eigenvectors of matrix \\(\\mathbf{B}=  \\begin{bmatrix}\n1 & 2 & 3 \\\\\n2 & 4 & 5 \\\\\n3 & 5 & 6\n\\end{bmatrix}\\)\nChoose one of the eigenvector/eigenvalue pairs, \\(\\mathbf{v}\\) and \\(\\lambda\\), and show that \\(\\mathbf{B} \\mathbf{v} = \\lambda \\mathbf{v}\\). This relationship extends to higher orders: \\(\\mathbf{B} \\mathbf{B} \\mathbf{v} = \\lambda^2 \\mathbf{v}\\)\nShow that the eigenvectors are orthogonal to one another (e.g. their inner product is zero - just compute the inner product and show it is approximately 0). This is true for eigenvectors from real, symmetric matrices. In three dimensions or less, this means that the eigenvectors are perpendicular to each other. Typically we use the orthogonal basis of our standard x, y, and z, Cartesian coordinates, which allows us, if we combine them linearly, to represent any point in a 3D space. But any three orthogonal vectors can do the same. This property is used, for example, in PCA to identify the dimensions of greatest variation.",
     "crumbs": [
       "Schedule",
-      "Syllabus",
-      "Effective Use of AI"
+      "Assignments",
+      "Assignment 1"
     ]
   },
   {
-    "objectID": "ai.html#the-challenges-of-ai-use",
-    "href": "ai.html#the-challenges-of-ai-use",
-    "title": "Effective Use of AI",
-    "section": "",
-    "text": "This class is all about artificial intelligence, however, the primary intelligence that we are working to expand is your own. AI tools, like ChatGPT, can be useful aids for learning, but without considering your relationship with these tools, they can present several major challenges to your learning:\n\nThe Illusion of Knowledge. Without careful use, you can easily succomb to the cognitive bias known as the illusion of knowledge. The illusion of knowledge, also known as the Dunning-Kruger effect, occurs when you believe you know something to a greater degree than you actually do. It’s better to evaluate yourself accurately in your knowledge of a subject so that you can seek out resources for filling the gaps in your knowledge. This can lead to poor decision making and overconfidence in those poor decisions. It also prevents further learning.\nPreventing actual learning. Using an AI to avoid the cognitive struggle of thinking through the material literally prevents you from learning since those cognitive struggles are part of the learning process. If your goal is to learn in this course, over-reliance on AI is a clear path to\nReduced potential for creativity and innovation. Getting too used to the habit of relying on AI weakens your critical thinking abilities and creativity. When you depend on AI to generate ideas or solve problems, you miss out on the opportunity to develop your own innovative solutions and original thoughts. This can stifle your creative growth and limit your ability to think independently.\nGetting it wrong. AI is fallible. As we see in this course, even the best trained systems aren’t 100% correct, so without the proper knowledge to evaluate AI output, over-reliance on AI sets you up for getting it wrong.",
+    "objectID": "notebooks/assignment1.html#exercise-4---numerical-programming-with-data",
+    "href": "notebooks/assignment1.html#exercise-4---numerical-programming-with-data",
+    "title": "Assignment 1",
+    "section": "Exercise 4 - Numerical Programming with Data",
+    "text": "Exercise 4 - Numerical Programming with Data\nLoading data and gathering insights from a real dataset. In data science, we often need to have a sense of the idiosyncrasies of the data, how they relate to the questions we are trying to answer, and to use that information to help us to determine what approach, such as machine learning, we may need to apply to achieve our goal. This exercise provides practice in exploring a dataset and answering question that might arise from applications related to the data.\nYour objective. For this dataset, your goal is to answer the questions below about electricity generation in the United States.\nData. The data for this problem can be found in the data\\a1\\ subfolder in the notebooks folder on github. The filename is egrid2016.xlsx. This dataset is the Environmental Protection Agency’s (EPA) Emissions & Generation Resource Integrated Database (eGRID) containing information about all power plants in the United States, the amount of generation they produce, what fuel they use, the location of the plant, and many more quantities. We’ll be using a subset of those data.\nThe fields we’ll be using include:\n\n\n\nfield\ndescription\n\n\n\n\nSEQPLT16\neGRID2016 Plant file sequence number (the index)\n\n\nPSTATABB\nPlant state abbreviation\n\n\nPNAME\nPlant name\n\n\nLAT\nPlant latitude\n\n\nLON\nPlant longitude\n\n\nPLPRMFL\nPlant primary fuel\n\n\nCAPFAC\nPlant capacity factor\n\n\nNAMEPCAP\nPlant nameplate capacity (Megawatts MW)\n\n\nPLNGENAN\nPlant annual net generation (Megawatt-hours MWh)\n\n\nPLCO2EQA\nPlant annual CO2 equivalent emissions (tons)\n\n\n\nFor more details on the data, you can refer to the eGrid technical documents. For example, you may want to review page 51 and the section “Plant Primary Fuel (PLPRMFL)”, which gives the full names of the fuel types including WND for wind, NG for natural gas, BIT for Bituminous coal, etc.\nThere also are a couple of “gotchas” to watch out for with this dataset:\n\nThe headers are on the second row and you’ll want to ignore the first row (they’re more detailed descriptions of the headers).\nNaN values represent blanks in the data. These will appear regularly in real-world data, so getting experience working with these sorts of missing values will be important.\n\nQuestions to answer:\n4.1. Which power plant generated the most energy in 2016 (measured in MWh)?\n4.2. Which power plant produced the most CO2 emissions (measured in tons)?\n4.3. What is the primary fuel of the plant with the most CO2 emissions?\n4.4. What is the name of the northern-most power plant in the United States?\n4.5. What is the state where the northern-most power plant in the United States is located?\n4.6. Plot a bar plot showing the amount of energy produced by each fuel type across all plants.\n4.7. From the plot in (D), which fuel for generation produces the most energy (MWh) in the United States?\n4.8. Which state has the largest number of hydroelectric plants? In this case, each power plant counts once so regardless of how large the power plant is, we want to determine which state has the most of them. Note the primary fuel for hydroelectric plants is listed as water in the documentation.\n4.9. Which state has generated the most energy (MWh) using coal? You may also want to explore the documentation for the isin() method for pandas. Note: in the eGrid documentation, there are multiple types of coal listed; be sure to factor in each type of coal.\n4.10. Which primary fuel produced the most CO2 emissions in the United States? We would like to compare natural gas, coal, oil, and renewables but the current categories are much more specific than that. As a first step, group the data as shown below, replacing the existing labels with the replacements suggested. For example, BIT and LIG should be replaced with COAL.\n\nCOAL = BIT, LIG, RC, SUB, WC\nOIL = DFO, JF, KER, RFO, WO\nGAS = BFG, COG, LFG, NG, OG, PG, PRG\nRENEW = GEO, SUN, WAT, WDL, WDS, WND\n\nYou may want to create a function that does this replacement prior to running your code. You can check whether or not it was successful by verifying that each of the values that should be replaced has been replaced - check that before moving on with the question.\nYou will want to use ‘PLCO2EQA’ to answer this question as it’s the quantity of emissions each plant generates.",
     "crumbs": [
       "Schedule",
-      "Syllabus",
-      "Effective Use of AI"
+      "Assignments",
+      "Assignment 1"
     ]
   },
   {
-    "objectID": "ai.html#why-do-i-need-to-learn-material-if-anyone-can-get-the-answer-with-ai",
-    "href": "ai.html#why-do-i-need-to-learn-material-if-anyone-can-get-the-answer-with-ai",
-    "title": "Effective Use of AI",
-    "section": "Why do I need to learn material if anyone can get the answer with AI?",
-    "text": "Why do I need to learn material if anyone can get the answer with AI?\nLearning the basics helps us to build out abstractions in our minds. For example, when I talk about a “computer” you know what I’m saying, comprehension doesn’t require me to explicitly state that I’m talking about “an electronic device for storing and processing data, typically in binary form, according to instructions given to it in a variable program.” This is because you’ve already learned what a computer is - you’ve developed that abstraction in your mind. AI tools can allow us to shortcut the development of these abstractions to our detriment. Skipping learning how to do the “easy stuff” that AI can currently automate may cripple our ability to rapidly learn the “hard stuff” that AI can’t do and that you may be able to get a job in. Learning the basic abstractions will make the path forward easier and eliminate potential roadblocks to understanding and skill development.",
+    "objectID": "notebooks/assignment1.html#appendix-definitions-and-identities",
+    "href": "notebooks/assignment1.html#appendix-definitions-and-identities",
+    "title": "Assignment 1",
+    "section": "Appendix: Definitions and identities",
+    "text": "Appendix: Definitions and identities\nThe symbology in this assignment conforms to the following convention:\n\n\n\n\n\n\n\n\nSymbol Example\nMeaning\nPossible variations\n\n\n\n\n\\(X\\)\nA random variable\nUpper case, non-bolded letter\n\n\n\\(\\bar{X}\\)\nThe complement of a random variable\nUpper case, non-bolded letter with bar\n\n\n\\(\\mathbf{x}\\)\nVector (\\(N \\times 1\\))\nLower case, bolded letters/symbols\n\n\n\\(\\mathbf{X}\\)\nMatrix (\\(N \\times M\\))\nUpper case, bolded letters/symbols\n\n\n\\(P(\\cdot)\\)\nProbability of the event within the parenthesis\nParenthesis may include one event or more events\n\n\n\\(A \\cap B\\)\nIntersection of \\(A\\) and \\(B\\), that is the case of events \\(A\\) and \\(B\\) occurring simultaneously\nTwo random variables represented by upper case unbolded letters\n\n\n\nBelow is a list of potentially helpful identities and equations for reference.\n\n\n\n\n\n\n\nIdentities and equations\nDescription\n\n\n\n\n\\(E_X[X] = \\displaystyle \\int_{-\\infty}^{\\infty} x f_X(x) dx\\)\nExpected value of continuous random variable \\(X\\)\n\n\n\\(Var_X(X) = E_X[X^2]-E_X[X]^2\\)\nVariance of random variable \\(X\\)\n\n\n\\(\\sigma_X(X) = \\sqrt{Var_X(X)}\\)\nStandard deviation of \\(X\\) as a function of variance\n\n\n\\(\\displaystyle P( X \\vert Y)= \\frac{P(X \\cap Y)}{P(Y)}\\)\nConditional probability of event \\(X\\) given event \\(Y\\) has occurred\n\n\n\\(\\displaystyle P(Y \\vert X)= \\frac{P(X \\vert Y)P(Y)}{P(X)}\\)\nBayes’ Rule\n\n\n\\(\\displaystyle F_X(x) = \\int_{-\\infty}^{x} f_X(x) dx\\)\nCDF as a function of PDF\n\n\n\\(\\displaystyle f_X(x) = \\frac{dF_X(x)}{dx}\\)\nPDF as a function of CDF\n\n\n\\(P(X \\leq x) = F_X(x)\\)\nProbabilistic definition of the CDF\n\n\n\\(P(a &lt; X \\leq b) = F_X(b) - F_X(a)\\)\nProbability the \\(X\\) lies between \\(a\\) and \\(b\\)\n\n\n\\(P(A) + P(\\bar{A}) = 1\\)\nThe sum of the probability of an event and its complement is 1\n\n\n\\(\\displaystyle P(Y) = P(Y \\vert X)P(X) + P(Y  \\vert \\bar{X})P(\\bar{X})\\)\nLaw of Total Probability\n\n\n\\(\\displaystyle \\int e^{-x} dx = -e^{-x}\\)\nIndefinite integral\n\n\n\\(\\displaystyle \\int x e^{-x} dx = -e^{-x}(x+1)\\)\nIndefinite integral\n\n\n\\(\\displaystyle \\int x^2 e^{-x} dx = -e^{-x}(x^2+2x+2)\\)\nIndefinite integral\n\n\n\\(\\displaystyle \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}^{-1} = \\frac{1}{ad-cb} \\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix}\\)\n\\(2 \\times 2\\) matrix inversion formula",
     "crumbs": [
       "Schedule",
-      "Syllabus",
-      "Effective Use of AI"
-    ]
-  },
-  {
-    "objectID": "ai.html#responsible-use-of-ai-tools",
-    "href": "ai.html#responsible-use-of-ai-tools",
-    "title": "Effective Use of AI",
-    "section": "Responsible use of AI tools",
-    "text": "Responsible use of AI tools\nWith those challenges outlined, there are several ways in which AI can be helpful:\n\nA learning aid. If you’re not familiar with a concept or need help understanding something and you don’t have easy access to another source of guidance, an AI tool (especially those that provide relevant citations) can be helpful for accelerating the learning process. Don’t let the AI tool do a task for your, but allow the tool to help you connect with the knowledge and resources you need to complete the task and develop new skills (always search for high-quality resources before relying on AI directly).\nA coding aid. For coding, consider AI to be a pair programmer who may have some suggestions to enhance your coding or may be able to provide some templates to work from. DO NOT directly copy and paste code from AI tools. You should fully understand and be capable of reproducing any code segment that you use - if not, you have not learned the material and that is considered plagiarism.\nA brainstorming aid. AI can help you to think through and generate ideas. However, always begin creating ideas on your own first, and use AI after you’ve done some critical thinking on your own to prevent your own creativity and problem solving skills from atrophying.\nA tool for detecting spelling and grammar issues (e.g., Grammarly)\n\nYou should NEVER directly submit work that was created by AI. In this class, the use of AI tools is acceptable WITH CITATION. An appropriate citation would indicate the following information:\n\nWhat AI tool you used (e.g. ChatGPT)\nHow you used it\n\nAt the end of the day you are responsible for the correctness of anything you submit, you are responsible for having a complete understanding and the ability to reproduce from scratch anything that you submit.",
-    "crumbs": [
-      "Schedule",
-      "Syllabus",
-      "Effective Use of AI"
-    ]
-  },
-  {
-    "objectID": "history.html",
-    "href": "history.html",
-    "title": "Past Offerings of this Course",
-    "section": "",
-    "text": "Spring 2025 (IDS705)\nSpring 2024 (IDS705)\nSpring 2023 (IDS705)\nSpring 2022 (IDS705)\nSpring 2021 (IDS705)\nSpring 2020 (IDS705)\nSpring 2019 (IDS705)\nSpring 2018 (ECE590)"
-  },
-  {
-    "objectID": "pedagogy.html",
-    "href": "pedagogy.html",
-    "title": "Pedagogy",
-    "section": "",
-    "text": "Tenet #1: Good learning is active learning\nEveryone who was good at something was once bad at it. Learning comes from practice. No amount of reading or video/lecture watching alone will help you to become good without actively engaging with the material through practice. That is why this entire course is focused on supporting you to actively apply machine learning techniques through the assignments, quizzes, and project.\n\n\nTenet #2: Desirable difficulty leads to meaningful learning\nLearning is most effective when there’s a degree of struggle with the material. “Requiring students to organize new information and to work harder in the initial learning period can lead to greater and deeper learning. Although this struggle, dubbed a desirable difficulty…may at first be frustrating to learner and teacher alike, ultimately it improves long-term retention” (Excerpt from A Concise Guide to Improving Student Learning: Six Evidence-Based Principles and How to Apply Them). Desirable difficulties help you build connections between concepts and learn representations of knowledge (meta-cognition) that, like an index of a book, will increase your ability to creatively connect concepts and think more deeply about the topic.\n\n\nTenet #3: Read, reflect, recall is a pattern for effective learning\nSpaced retrieval and reflection is a key to effective learning. When we learn something, if we don’t use it, the knowledge fades. However, if we return to the material, apply it, create with it, we’re increasing the probability of long-term learning. This is why you will interact with each concept typically 4 times: lectures, readings, quizzes, and assignments, and at least one more time for those concepts involved in the final project. An added benefit of the frequent reflection through quizzes is that it tests your knowledge regularly, helping us to avoid the illusion of knowledge (thinking we know something, when we actually do not).\nReferences\nBrown, P.C., Roediger III, H.L. and McDaniel, M.A., 2014. Make it stick: The science of successful learning. Harvard University Press.\nPersellin, D.C. and Daniels, M.B., 2023. A concise guide to improving student learning: Six evidence-based principles and how to apply them. Taylor & Francis.",
-    "crumbs": [
-      "Schedule",
-      "Syllabus",
-      "Pedagogy"
-    ]
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources for further learning",
-    "section": "",
-    "text": "The following online courses on Coursera are a 5-part series on Python programming by Nick Eubank, Kyle Bradbury, Andrew Hilton, and Genevieve Lipp:\n\nPython Programming Fundamentals\nData Science with NumPy, Sets, and Dictionaries\nPandas for Data Science\nDesigning Larger Python Programs for Data Science\nData Visualization and Modeling in Python\n\nThere is also a textbook version of much of this material by Nick Eubank and Kyle Bradbury",
-    "crumbs": [
-      "Schedule",
-      "Resources",
-      "Resources for further learning"
-    ]
-  },
-  {
-    "objectID": "resources.html#python-programming",
-    "href": "resources.html#python-programming",
-    "title": "Resources for further learning",
-    "section": "",
-    "text": "The following online courses on Coursera are a 5-part series on Python programming by Nick Eubank, Kyle Bradbury, Andrew Hilton, and Genevieve Lipp:\n\nPython Programming Fundamentals\nData Science with NumPy, Sets, and Dictionaries\nPandas for Data Science\nDesigning Larger Python Programs for Data Science\nData Visualization and Modeling in Python\n\nThere is also a textbook version of much of this material by Nick Eubank and Kyle Bradbury",
-    "crumbs": [
-      "Schedule",
-      "Resources",
-      "Resources for further learning"
-    ]
-  },
-  {
-    "objectID": "resources.html#math-for-machine-learning-calculus-and-linear-algebra",
-    "href": "resources.html#math-for-machine-learning-calculus-and-linear-algebra",
-    "title": "Resources for further learning",
-    "section": "Math for machine learning (calculus and linear algebra)",
-    "text": "Math for machine learning (calculus and linear algebra)\n\nMathematics for Machine Learning by Deisenroth, Faisal, and Ong\nDeep Learning; Part I: Applied Math and Machine Learning Basics by Goodfellow, Bengio, and Courville\nThe Matrix Calculus You Need For Deep Learning by Parr and Howard\nDive Into Deep Learning; Appendix: Mathematics for Deep Learning by Weness, Hu, et al.",
-    "crumbs": [
-      "Schedule",
-      "Resources",
-      "Resources for further learning"
-    ]
-  },
-  {
-    "objectID": "resources.html#introductory-books-for-machine-learning",
-    "href": "resources.html#introductory-books-for-machine-learning",
-    "title": "Resources for further learning",
-    "section": "Introductory books for machine learning",
-    "text": "Introductory books for machine learning\nEach of these are used in one or more course reading assignment in this course:\n\nAn Introduction to Statistical Learning with Python, by James, Witten, Hastie, and Tibshirani\nUnderstanding Deep learning by Simon Prince\nIntroduction to Data Mining, by Tan, Steinbach, Karpatne, and Kumar\nPattern Recognition and Machine Learning, by Bishop\nDeep Learning, by Goodfellow, Bengio, and Courville\nReinforcement Learning: An Introduction: An Introduction, by Sutton and Barto",
-    "crumbs": [
-      "Schedule",
-      "Resources",
-      "Resources for further learning"
-    ]
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "The schedule below is a guide to what we will be covering throughout the semester and is subject to change to meet the learning goals of the class. Check this website regularly for the latest schedule and for course materials that will be posted here through links on the syllabus.\n\n\n\n\n\n\nKey to books used below\n\n\n\n\nISL = An Introduction to Statistical Learning with Python, by James, Witten, Hastie, and Tibshirani\nUDL = Understanding Deep learning by Simon Prince\nDM = Introduction to Data Mining, by Tan, Steinbach, Karpatne, and Kumar\nPRML = Pattern Recognition and Machine Learning, by Bishop\nDL = Deep Learning, by Goodfellow, Bengio, and Courville\nRL = Reinforcement Learning: An Introduction: An Introduction, by Sutton and Barto\n\n\n\nva\n    H:\n  \n    \n      Event Type\n      Date\n      Description\n      Readings\n      Course Materials\n    \n  \n\n  \n    Lecture 1\n    Thursday Jan 8\n    \n      What is machine learning? \n      Course overview and an orientation to the major branches of machine learning: supervised, unsupervised, and reinforcement learning \n    \n    None\n    \n      [slides]\n      \n    \n  \n\n  \n    \n    \n    Module 1: Supervised Learning\n    \n    \n  \n\n  \n    \n    Tuesday Jan 13\n    \n      NO CLASS \n      Make up class on Friday January 30th (10:05-11:20am) in Gross Hall 270\n    \n    \n    \n  \n\n  \n    Lecture 2\n    Thursday  Jan 15\n    \n      An end-to-end machine learning example \n      An introduction to formulating a supervised machine learning problem. Stating the problem, creating the model, evaluating performance, and operationalizing the solution. \n    ISL Ch. 1 + 2.1Watch this lecture \n    \n      [slides]\n      \n      [sample code]\n    \n  \n\n  \n    \n    Monday  Jan 19\n    Martin Luther King Jr. Day\n    \n    \n  \n\n  \n    Lecture 3\n    Tuesday  Jan 20\n    \n      How flexible should my algorithms be? The bias-variance tradeoff  \n      The bias-variance tradeoff explained using K-nearest neighbors classification\n    \n    ISL 2.2\n    \n      [slides]\n      \n    \n  \n\n  Deliverable\n     Wednesday  Jan 21\n    Assignment #1 Due (at 9pm) Probability, Linear Algebra, & Computational Programming\n    \n    \n      \n      [submit]\n      \n    \n  \n\n  \n    Lecture 4\n    Thursday  Jan 22\n    \n      Linear Models I \n      Simple linear regression, multiple linear regression, measuring error, model fitting and least squares, comparing linear regression and classification\n    \n    ISL Intro of 3, 3.1, and 3.2\n    \n      [slides]\n      \n    \n  \n\n  \n\n  \n    Lecture 5\n    Tuesday  Jan 27\n    \n      Linear Models II \n      Nonlinear transformations of predictors; linear models for classification including the perceptron and logistic regression; cost/loss functions for classification (cross entropy loss); introduction to gradient descent.\n    \n    ISL 3.3 and 3.5\n    \n      [slides]\n      \n    \n  \n  \n  \n    Lecture 6\n    Thursday  Jan 29\n    \n      Performance evaluation: metrics for regression/classification \n      Choosing the right model: accuracy vs speed vs interpretability; metrics for supervised learning performance evaluation: types of errors, receiver operating characteristics curves, and confusion matrices\n    \n    ISL 4.1, 4.2, and 4.3\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 7\n    FRIDAY  Jan 30\n    \n      MAKE UP CLASS - GROSS HALL 270, 10:05-11:20am \n      Experimental designs for evaluating generalization performance and model comparison \n      How to construct effective experimental designs for evaluating and comparing models; using model performance metrics to measure generalization performance; resampling techniques: training, testing, and validation datasets and cross validation; common pitfalls around biased sampling and data snooping/leakage\n    \n    ISL 5.1 and 5.2\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 8\n    Tuesday  Feb 3\n    \n      Decision theory \n      A risk-based framework for determining to operate supervised learning algorithms in practice; choosing ROC operating points through risk-minimization and how application-specific costs associated with different types of errors can be used to determine optimal operating points for classifiers\n    \n    \n      \n      Link to reading\n    \n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n     WednesdayFeb 4\n    Assignment #2 Due (at 9pm)Supervised Machine Learning Fundamentals\n    \n    \n      [assignment] \n      \n      [submit]\n      \n    \n  \n\n    \n    Lecture 9\n    Thursday  Feb 5\n    \n      Reducing overfit \n      Feature selection; Occam’s razor; Subset selection; L1 (ridge), L2 (LASSO), and elastic net regularization; early stopping.\n    \n    ISL 6.1 and 6.2\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 10\n    Tuesday  Feb 10\n    \n      Generative models for classification \n      Generative vs discriminative models; naïve Bayes\n    \n    ISL 4.4 and 4.5\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 11\n    Thursday  Feb 12\n    \n      Tree-based models and ensembles \n      From decision trees to random forests: bagging, bootstrapping, and boosting\n    \n    ISL 8.1 and 8.2\n    \n      [slides]\n      \n    \n  \n\n    \n    Lecture 12\n    Tuesday  Feb 17\n    \n      Neural networks I \n      Introduction to neural networks and representation learning; forward propagation, network architecture, and how to adapt to regression or classification problems\n    \n    UDL Ch 3: 3.1, 3.2; PRML Ch 5: 5.1 \n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n     Wednesday  Feb 18\n    Assignment #3 Due (at 9pm)Supervised learning model training and evaluation\n    \n    \n      [assignment] \n      \n      [submit]\n      \n    \n  \n\n  \n    Lecture 13\n    Thursday  Feb 19\n    \n      Neural networks II \n      Fitting a neural network to training data through gradient descent and backpropagation; how backpropagation is used to compute gradients in neural networks; hyperparameters and architecture choices in neural networks and practices for training neural networks successfully\n    \n    UDL Ch 6: 6.1-6.2.2; PRML Ch 5: 5.3.1, and Calculus on Computational Graphs\n    \n      [slides]\n      \n    \n  \n\n\n\n  \n    Lecture 14\n    Tuesday  Feb 24\n    \n      Introduction to Deep learning I \n      Common architectures of deep learning models and the tools used to implement them. Introduction to convolutional neural networks (CNNs) and neural networks for gridded data (e.g. imagery).\n    \n    UDL Ch 10: Convolutional Neural Networks;DL Ch 11: Practical Methodology\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 15\n    Thursday  Feb 26\n    \n      Introduction to Deep learning II \n      Common architectures of deep learning models and the tools used to implement them.\n    \n    \n    UDL Ch 12.1-12.5: Transformers;[Video: Transformers];[Video: Self-attention]\n    \n      [slides]\n      \n    \n  \n\n  \n    \n    \n    Module 2: Unsupervised Learning\n    \n    \n  \n\n  \n    Lecture 16\n    TuesdayMar 3\n    \n      Dimensionality reduction \n      The Curse of Dimensionality and intro to principal components analysis (PCA)\n    \n    ISL 6.3, 6.4, 12.1, and 12.2 \n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n    Wednesday  Mar 4\n    Assignment #4 Due (at 9pm)Neural Networks\n    \n    \n      [assignment] \n      [submit]\n      \n      \n      [NN Math Guide]\n    \n  \n\n  \n    Lecture 17\n    ThursdayMar 5\n    \n      Principal components analysis (PCA) \n      Explaining how PCA works and how we calculate the principal components.\n    \n    ISL 12.4NO QUIZ\n    \n      [slides]\n      \n    \n  \n\n  \n    \n    Mar 6-16\n    Spring Break Week\n    \n    \n  \n\n  \n    Lecture 18\n    Tuesday  Mar 17\n    \n      Density Estimation and Clustering \n      Approaches for density estimation from histograms to Gaussian mixture models (for density estimation and clustering)\n    \n    DM Ch 7 (link): Intro, 7.1 and 7.2NO QUIZ\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 19\n    Thursday  Mar 19\n    \n      Clustering \n      Hierarchical clustering, DBSCAN, and spectral clustering\n    \n   DM Ch 7 (link): 7.3 and 7.4\n   \n     [slides]\n      \n    \n  \n\n  \n    Deliverable\n     Friday  Mar 20 \n    Project Proposal Due (at 9pm)\n    \n    \n      [project]\n      [submit]\n      \n      \n    \n  \n\n  \n    \n    \n    Module 3: Reinforcement Learning\n    \n    \n  \n\n  \n    Lecture 20\n    Tuesday  Mar 24\n    \n      Reinforcement Learning I \n      Formulating the reinforcement learning problem\n    \n    RL Ch 1: 1.1-1.6; Ch 2: 2.1-2.5\n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n    Wednesday  Mar 25\n    Assignment #5 Due (at 9pm)  Kaggle Competition and Unsupervised LearningKaggle Competition Ends 9pm this day\n    \n    \n      [assignment] \n      \n      [submit]\n      \n    \n  \n\n  \n    Lecture 21\n    Thursday  Mar 26\n    \n      Reinforcement Learning II \n      Policy and value functions, rewards, and introduction to Markov processes \n    \n    RL Ch 3\n    \n      [slides]\n      \n    \n  \n\n\n  \n    Lecture 22\n    Tuesday Mar 31\n    \n      Reinforcement Learning III \n      From Markov Chains to Markov Decision Processes (MDPs)\n    \n    RL Ch 4\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 23\n    Thursday  Apr 2\n    \n      Reinforcement Learning IV \n      Finding optimal policies through policy iteration, value iteration, and Monte Carlo methods\n    \n    RL Ch 5: 5.1-5.3\n    \n      [slides]\n      \n    \n  \n\n  \n    Lecture 24\n    Tuesday  Apr 7\n    \n      Exam \n      An in-class exam covering topics across the course. \n    \n    None\n    \n    \n  \n\n  \n    \n    \n    Module 4: Practical Considerations and Advanced Topics\n    \n    \n  \n\n  \n    Lecture 25\n    Thursday  Apr 9\n    \n      Practical Considerations and Advanced Topics I \n      A survey of practical considerations and advanced topics\n    \n    DL Ch 11: Practical Methodology\n    \n      [slides]\n      \n    \n  \n\n\n\n  \n    Lecture 26\n    Tuesday  Apr 14\n    \n      Practical Considerations and Advanced Topics II \n      A survey of practical considerations and advanced topics\n    \n    None\n    \n      [slides]\n      \n    \n  \n\n  \n    Deliverable\n    Wednesday  Apr 15 \n    Draft Final Project Report Due (at 9pm)\n    \n    \n      [project] \n      [submit]\n      \n      \n    \n  \n\n  \n    Deliverable\n    Wednesday  Apr 15\n    (Optional) Assignment #6 Due (at 9pm)Reinforcement learning\n    \n    \n      [assignment]\n      [submit]\n      \n      \n    \n  \n\n  \n    Deliverable\n    Thursday  Apr 30  9am-noon\n    \n      TBD",
-    "crumbs": [
-      "Schedule",
-      "Syllabus",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "tools.html",
-    "href": "tools.html",
-    "title": "Software and Hardware Tools",
-    "section": "",
-    "text": "We will use Python 3.x. The Anaconda distribution is recommended and comes with the most common packages. Python continues to be an one of the top programming languages and the rich packages in the language make it an excellent choice for machine learning. In particular the Python ecosystem of packages makes it a natural choice for ML including core numerical programming and plotting libraries like numpy, scipy, matplotlib, and pandas as well as excellent packages for machine learning algorithm development and statistical modeling including Scikit-Learn, Keras, and Pytorch.",
-    "crumbs": [
-      "Schedule",
-      "Resources",
-      "Software and Hardware Tools"
-    ]
-  },
-  {
-    "objectID": "tools.html#programming-language-python",
-    "href": "tools.html#programming-language-python",
-    "title": "Software and Hardware Tools",
-    "section": "",
-    "text": "We will use Python 3.x. The Anaconda distribution is recommended and comes with the most common packages. Python continues to be an one of the top programming languages and the rich packages in the language make it an excellent choice for machine learning. In particular the Python ecosystem of packages makes it a natural choice for ML including core numerical programming and plotting libraries like numpy, scipy, matplotlib, and pandas as well as excellent packages for machine learning algorithm development and statistical modeling including Scikit-Learn, Keras, and Pytorch.",
-    "crumbs": [
-      "Schedule",
-      "Resources",
-      "Software and Hardware Tools"
-    ]
-  },
-  {
-    "objectID": "tools.html#development-environments-vs-code-and-jupyter-notebooks",
-    "href": "tools.html#development-environments-vs-code-and-jupyter-notebooks",
-    "title": "Software and Hardware Tools",
-    "section": "Development environments: VS Code and Jupyter Notebooks",
-    "text": "Development environments: VS Code and Jupyter Notebooks\nJupyter lab or Jupyter notebook will be appropriate for most class assignments. We highly encourage you to use Visual Studio Code, in particular due to the debugging capabilities. There are many configurations that may work for you, but I would recommend begin by gathering ideas in Jupyter Notebooks. Once you have the basic structure of your code worked out, consider moving it to a .py file to make it easier and cleaner to run and build on.\nIf you could use help getting started or a refresher on Jupyter notebooks, check out this video for more on basic Jupyter functionality. Using Jupyter notebooks allows you to practice applying machine learning concepts while building programming and writing skills, strengthening your ability to both create creative solutions to machine learning challenges while simultaneously enhancing your ability to communicate the meaning behind your findings and why others should give credence to your results. You’re encouraged to use VS Code to interact with Jupyter Notebooks.",
-    "crumbs": [
-      "Schedule",
-      "Resources",
-      "Software and Hardware Tools"
-    ]
-  },
-  {
-    "objectID": "tools.html#graphics-processing-units-gpus",
-    "href": "tools.html#graphics-processing-units-gpus",
-    "title": "Software and Hardware Tools",
-    "section": "Graphics processing units (GPUs)",
-    "text": "Graphics processing units (GPUs)\nGPUs are the workhorses of many modern machine learning algorithms, especially any that involve neural network-based architectures. There will be a small number of assignments that will require additional computation that would benefit from GPUs. For these there are several options:\n\nDuke Compute Cluster. This server provides on-demand access to GPUs for computation through a centralized Duke server. You have access to this resource for the semester. Further instructions are available here.\nGoogle Colab, which is a free notebook environment that enables access to cloud resources including GPUs. For longer sessions before timeouts, greater RAM, and better GPUs you can optionally upgrade to Colab Pro.\nWe will also be making a limited number of Azure cloud credits available to students later in the semester by request if neither of the above resources meets your needs.",
-    "crumbs": [
-      "Schedule",
-      "Resources",
-      "Software and Hardware Tools"
-    ]
-  },
-  {
-    "objectID": "tools.html#version-control-via-git",
-    "href": "tools.html#version-control-via-git",
-    "title": "Software and Hardware Tools",
-    "section": "Version Control via Git",
-    "text": "Version Control via Git\nGit is efficient for collaboration, and expectation in industry, and one of the best ways to share results in academia. You can even use some Git repositories (e.g. Github) as hosts for website, such as with the course website. As a data scientist with experience in machine learning, Git is expected. We will interact with Git repositories (a.k.a. repos) throughout this course, and your project will require the use of git repos for collaboration.\nComplete the Atlassian Git tutorial, specifically the following listed sections. Try each concept that’s presented. For this tutorial, instead of using BitBucket as your remote repository host, you may use your preferred platform such as Github or Duke’s Gitlab. 1. What is version control 2. What is Git 3. Install Git 4. Setting up a repository 5. Saving changes 6. Inspecting a repository 7. Undoing changes 8. Rewriting history 9. Syncing 10. Making a pull request 11. Using branches 12. Comparing workflows\nI also have created two videos on the topic to help you understand some of these concepts: Git basics and a step-by-step tutorial.\nAs an additional resource, Microsoft now offers a git tutorial on this topic as well.\nFor your answer, affirm that you either completed the tutorials above OR have previous experience with ALL of the concepts above. Confirm this by typing your name below and selecting the situation that applies from the two options in brackets.",
-    "crumbs": [
-      "Schedule",
-      "Resources",
-      "Software and Hardware Tools"
+      "Assignments",
+      "Assignment 1"
     ]
   },
   {

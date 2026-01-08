@@ -50,7 +50,7 @@ website:
       - section: "Assignments"
         contents:
           - notebooks/assignment_instructions.ipynb
-          # - notebooks/assignment1.ipynb
+          - notebooks/assignment1.ipynb
           # - notebooks/assignment2.ipynb
           # - notebooks/assignment3.ipynb
           # - notebooks/assignment4.ipynb
