@@ -48,8 +48,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td>None</td>
     <td>
-      [slides]
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture01_what_is_machine_learning.pdf">[slides]</a><br> -->
+      <!-- [slides] -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture01_what_is_machine_learning.pdf">[slides]</a><br>
     </td>
   </tr>
 
@@ -80,8 +80,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
       An introduction to formulating a supervised machine learning problem. Stating the problem, creating the model, evaluating performance, and operationalizing the solution. </td>
     <td>ISL Ch. 1 + 2.1<br><a href="https://warpwire.duke.edu/w/aWQHAA/">Watch this lecture</a> </td>
     <td>
-      [slides]<br>
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture02_end_to_end_machine_learning.pdf">[slides]</a><br> -->
+      <!-- [slides]<br> -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture02_end_to_end_machine_learning.pdf">[slides]</a><br>
       <a href="https://github.com/ageron/handson-ml/blob/master/02_end_to_end_machine_learning_project.ipynb">[sample code]</a>
     </td>
   </tr>
@@ -114,7 +114,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
     <td><b>Assignment #1 Due (at 9pm)</b><br> Probability, Linear Algebra, & Computational Programming</td>
     <td></td>
     <td>
-      <!-- <a href="https://kylebradbury.github.io/ids705/notebooks/assignment1.html">[assignment]</a><br> -->
+      <a href="https://kylebradbury.github.io/ids705/notebooks/assignment1.html">[assignment]</a><br>
       [submit]
       <!-- <a href="https://www.gradescope.com/">[submit]</a> -->
     </td>
