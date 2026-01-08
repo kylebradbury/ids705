@@ -15,6 +15,12 @@ This class is all about artificial intelligence, however, the primary intelligen
 3. **Reduced potential for creativity and innovation**. Getting too used to the habit of relying on AI weakens your critical thinking abilities and creativity. When you depend on AI to generate ideas or solve problems, you miss out on the opportunity to develop your own innovative solutions and original thoughts. This can stifle your creative growth and limit your ability to think independently.
 4. **Getting it wrong**. AI is fallible. As we see in this course, even the best trained systems aren't 100% correct, so without the proper knowledge to evaluate AI output, over-reliance on AI sets you up for getting it wrong. 
 
+::: {.callout-note}
+For more on this topic, see [this presentation on the science of learning and how to effectively integrate AI](https://docs.google.com/presentation/d/1j4lOtn9DoA_KY2SnhbEaXWbuttWYY89RpMERiUVsCNE/edit?slide=id.p#slide=id.p).
+:::
+
+
+
 ## Why do I need to learn material if anyone can get the answer with AI?
 
 Learning the basics helps us to build out abstractions in our minds. For example, when I talk about a "computer" you know what I'm saying, comprehension doesn't require me to explicitly state that I'm talking about "an electronic device for storing and processing data, typically in binary form, according to instructions given to it in a variable program." This is because you've already learned what a computer is - you've developed that abstraction in your mind. AI tools can allow us to shortcut the development of these abstractions to our detriment. Skipping learning how to do the "easy stuff" that AI can currently automate may cripple our ability to rapidly learn the "hard stuff" that AI can't do and that you may be able to get a job in. Learning the basic abstractions will make the path forward easier and eliminate potential roadblocks to understanding and skill development.
