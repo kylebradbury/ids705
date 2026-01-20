@@ -103,8 +103,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td>ISL 2.2</td>
     <td>
-      [slides]
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture03_bias_variance_tradeoff.pdf">[slides]</a> -->
+      <!-- [slides] -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture03_bias_variance_tradeoff.pdf">[slides]</a>
     </td>
   </tr>
 
@@ -115,8 +115,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     <td></td>
     <td>
       <a href="https://kylebradbury.github.io/ids705/notebooks/assignment1.html">[assignment]</a><br>
-      [submit]
-      <!-- <a href="https://www.gradescope.com/">[submit]</a> -->
+      <!-- [submit] -->
+      <a href="https://www.gradescope.com/">[submit]</a>
     </td>
   </tr>
 
@@ -578,14 +578,13 @@ The schedule below is a guide to what we will be covering throughout the semeste
 
   <tr class="table-warning">
     <td><b>Deliverable</b></td>
-    <td class="date">Thursday <br> Apr 30 <br> 9am-noon</td>
+    <td class="date">Thursday <br> Apr 30 <br> noon</td>
     <td>
       TBD
-      <!-- <b>Final project showcase</b> <br> -->
+      <!-- <b>Final project due date</b> <br> -->
       <!-- Meets during the final exam period<br><br> Due on this day:
       <ul>
         <li>Final Project Report (due by 9am on GradeScope)</li>
-        <li>Final Project Presentation (due by 9am; submit <a href="https://docs.google.com/spreadsheets/d/1JIUMsAkm34bkzbMa2y-5QNfEQowTt-9nEt65o9tFyy0/edit?usp=sharing">the link to your slides here</a></li>
         <li>Project Github Repository (due by 9am on GradeScope)</li>
         <li>Final Project Peer Evaluation (due by 9pm; submit via TEAMMATES, see email)</li>
       </ul> -->
