@@ -1,0 +1,637 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Assignment 2},
+  pdfauthor={Kyle Bradbury},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Assignment 2}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Supervised Machine Learning Fundamentals}
+\author{Kyle Bradbury}
+\date{2026-01-21}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+
+\subsection{Instructions}\label{instructions}
+
+\emph{Instructions for all assignments can be found
+\href{https://kylebradbury.github.io/ids705/notebooks/assignment_instructions.html}{here}.
+Note: this assignment falls under collaboration Mode 2: Individual
+Assignment -- Collaboration Permitted. Please refer to the syllabus for
+additional information. Please be sure to list the names of any students
+that you worked with on this assignment. Total points in the assignment
+add up to 90; an additional 10 points are allocated to professionalism
+and presentation quality.}
+
+\subsection{Learning Objectives:}\label{learning-objectives}
+
+By successfully completing this assignment you will be able to\ldots{} -
+Explain the bias-variance tradeoff of supervised machine learning and
+the impact of model flexibility on algorithm performance - Perform
+supervised machine learning training and performance evaluation -
+Implement a k-nearest neighbors machine learning algorithm from scratch
+in a style similar to that of popular machine learning tools like
+\texttt{scikit-learn} - Describe how KNN classification works, the
+method's reliance on distance measurements, and the impact of higher
+dimensionality on computational speed - Apply regression (linear
+regression) and classification (KNN) supervised learning techniques to
+data and evaluate the performance of those methods - Construct simple
+feature transformations for improving model fit in linear models - Fit a
+\texttt{scikit-learn} supervised learning technique to training data and
+make predictions using it
+
+\subsection{Exercise 1 - Conceptual Questions on Supervised Learning
+I}\label{exercise-1---conceptual-questions-on-supervised-learning-i}
+
+\textbf{{[}4 points{]}}
+
+For each part below, indicate whether we would generally expect the
+performance of a flexible statistical learning method to be
+\emph{better} or \emph{worse} than an inflexible method. Justify your
+answer.
+
+\textbf{1.1.} The sample size \(n\) is extremely large, and the number
+of predictors \(p\) is small.
+
+\textbf{1.2.} The number of predictors \(p\) is extremely large, and the
+number of observations \(n\) is small.
+
+\textbf{1.3.} The relationship between the predictors and response is
+highly non-linear.
+
+\textbf{1.4.} The variance of the error terms,
+i.e.~\(\sigma^2 = Var(\epsilon)\), is extremely high.
+
+\subsection{Exercise 2 - Conceptual Questions on Supervised Learning
+II}\label{exercise-2---conceptual-questions-on-supervised-learning-ii}
+
+\textbf{{[}6 points{]}}
+
+For each of the following, (i) explain if each scenario is a
+classification or regression problem AND why, (ii) indicate whether we
+are most interested in inference or prediction for that problem AND why,
+and (iii) provide the sample size \(n\) and number of predictors \(p\)
+indicated for each scenario.
+
+\textbf{2.1.} We collect a set of data on the top 500 firms in the US.
+For each firm we record profit, number of employees, industry and the
+CEO salary. We are interested in understanding which factors affect CEO
+salary.
+
+\textbf{2.2.} We are considering launching a new product and wish to
+know whether it will be a success or a failure. We collect data on 20
+similar products that were previously launched. For each product we have
+recorded whether it was a success or failure, price charged for the
+product, marketing budget, competition price, and ten other variables.
+
+\textbf{2.3.} We are interested in predicting the \% change in the US
+dollar in relation to the weekly changes in the world stock markets.
+Hence we collect weekly data for all of 2012. For each week we record
+the \% change in the dollar, the \% change in the US market, the \%
+change in the British market, and the \% change in the German market.
+
+\subsection{Exercise 3 - Classification using
+KNN}\label{exercise-3---classification-using-knn}
+
+\textbf{{[}6 points{]}}
+
+The table below provides a training dataset containing six observations
+(a.k.a. samples) (\(n=6\)) each with three predictors (a.k.a. features)
+(\(p=3\)), and one qualitative response variable (a.k.a. target).
+
+\emph{Table 1. Training dataset with \(n=6\) observations in \(p=3\)
+dimensions with a categorical response, \(y\)}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Obs. & \(x_1\) & \(x_2\) & \(x_3\) & \(y\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{1} & 0 & 3 & 0 & Red \\
+\textbf{2} & 2 & 0 & 0 & Red \\
+\textbf{3} & 0 & 1 & 3 & Red \\
+\textbf{4} & 0 & 1 & 2 & Blue \\
+\textbf{5} & -1 & 0 & 1 & Blue \\
+\textbf{6} & 1 & 1 & 1 & Red \\
+\end{longtable}
+
+We want to use the above training dataset to make a prediction,
+\(\hat{y}\), for an unlabeled test data observation where
+\(x_1=x_2=x_3=0\) using \(K\)-nearest neighbors. You are given some code
+below to get you started. \emph{Note: coding is only required for part
+(a), for (b)-(d) please provide your reasoning based on your answer to
+part (a)}.
+
+\textbf{3.1.} Compute the Euclidean distance between each observation
+and the test point, \(x_1=x_2=x_3=0\). Present your answer in a table
+similar in style to Table 1 with observations 1-6 as the row headers.
+
+\textbf{3.2.} What is our prediction, \(\hat{y}\), when \(K=1\) for the
+test point? Why?
+
+\textbf{3.3.} What is our prediction, \(\hat{y}\), when \(K=3\) for the
+test point? Why?
+
+\textbf{3.4.} If the Bayes decision boundary (the optimal decision
+boundary) in this problem is highly nonlinear, then would we expect the
+\emph{best} value of \(K\) to be large or small? Why?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+
+\NormalTok{X }\OperatorTok{=}\NormalTok{ np.array([[ }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{],}
+\NormalTok{              [ }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{],}
+\NormalTok{              [ }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{],}
+\NormalTok{              [ }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{],}
+\NormalTok{              [}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{],}
+\NormalTok{              [ }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]])}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ np.array([}\StringTok{\textquotesingle{}r\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}r\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}r\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}r\textquotesingle{}}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exercise 4 - Build your own classification
+algorithm}\label{exercise-4---build-your-own-classification-algorithm}
+
+\textbf{{[}18 points{]}}
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toptitle=1mm, bottomtitle=1mm, toprule=.15mm, opacityback=0, colback=white, titlerule=0mm, breakable, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, left=2mm, bottomrule=.15mm, coltitle=black, leftrule=.75mm, rightrule=.15mm]
+
+\href{https://github.com/kylebradbury/ids705/tree/main/notebooks/data/a2}{Data
+for this exercise can be downloaded here}
+
+\end{tcolorbox}
+
+\textbf{4.1.} Build a working version of a binary KNN classifier using
+the skeleton code below. We'll use the \texttt{sklearn} convention that
+a supervised learning algorithm has the methods \texttt{fit} which
+trains your algorithm (for KNN that means storing the data) and
+\texttt{predict} which identifies the K nearest neighbors and determines
+the most common class among those K neighbors. \emph{Note: Most
+classification algorithms typically also have a method
+\texttt{predict\_proba} which outputs the confidence score of each
+prediction, but we will explore that in a later assignment. Please use
+\texttt{NumPy} to implement euclidean distance function.}
+
+\textbf{4.2.} Load the datasets to be evaluated here. Each includes
+training features (\(\mathbf{X}\)), and test features (\(\mathbf{y}\))
+for both a low dimensional dataset (\(p = 2\) features/predictors) and a
+higher dimensional dataset (\(p = 100\) features/predictors). For each
+of these datasets there are \(n=1000\) observations of each. They can be
+found in the data subfolder on github (see link above). Each file is
+labeled similar to \texttt{A2\_Q4\_X\_train\_low.csv}, which lets you
+know whether the dataset is of features, \(X\), targets, \(y\); training
+or testing; and low or high dimensions.
+
+\textbf{4.3.} Train your classifier on first the low dimensional dataset
+and then the high dimensional dataset with \(k=5\). Evaluate the
+classification performance on the corresponding test data for each of
+those trained models. Calculate the time it takes each model to make the
+predictions and the overall accuracy of those predictions for each
+corresponding set of test data - state each.
+
+\textbf{4.4.} Compare your implementation's accuracy and computation
+time to the scikit learn
+\href{http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html}{KNeighborsClassifier}
+class. How do the results and speed compare to your implementation?
+\emph{Hint: your results should be identical to that of the scikit-learn
+implementation.}
+
+\textbf{4.5.} Some supervised learning algorithms are more
+computationally intensive during training than testing. What are the
+drawbacks of the prediction process being slow? In what cases in
+practice might slow testing (inference) be more problematic than slow
+training?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Skeleton code for part (a) to write your own kNN classifier}
+
+\KeywordTok{class}\NormalTok{ Knn:}
+\CommentTok{\# k{-}Nearest Neighbor class object for classification training and testing}
+    \KeywordTok{def} \FunctionTok{\_\_init\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{):}
+        
+    \KeywordTok{def}\NormalTok{ fit(}\VariableTok{self}\NormalTok{, x, y):}
+        \CommentTok{\# Save the training data to properties of this class}
+        
+    \KeywordTok{def}\NormalTok{ predict(}\VariableTok{self}\NormalTok{, x, k):}
+\NormalTok{        y\_hat }\OperatorTok{=}\NormalTok{ [] }\CommentTok{\# Variable to store the estimated class label for }
+        \CommentTok{\# Calculate the distance from each vector in x to the training data}
+        
+        \CommentTok{\# Return the estimated targets}
+        \ControlFlowTok{return}\NormalTok{ y\_hat}
+
+\CommentTok{\# Metric of overall classification accuracy}
+\CommentTok{\#  (a more general function, sklearn.metrics.accuracy\_score, is also available)}
+\KeywordTok{def}\NormalTok{ accuracy(y,y\_hat):}
+\NormalTok{    nvalues }\OperatorTok{=} \BuiltInTok{len}\NormalTok{(y)}
+\NormalTok{    accuracy }\OperatorTok{=} \BuiltInTok{sum}\NormalTok{(y }\OperatorTok{==}\NormalTok{ y\_hat) }\OperatorTok{/}\NormalTok{ nvalues}
+    \ControlFlowTok{return}\NormalTok{ accuracy}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exercise 5 - Bias-variance tradeoff: exploring the tradeoff
+with a KNN
+classifier}\label{exercise-5---bias-variance-tradeoff-exploring-the-tradeoff-with-a-knn-classifier}
+
+\textbf{{[}20 points{]}}
+
+This exercise will illustrate the impact of the bias-variance tradeoff
+on classifier performance by investigating how model flexibility impacts
+classifier decision boundaries. For this problem, please us
+Scikit-learn's KNN implementation rather than your own implementation,
+as you did at the end of the last question.
+
+\textbf{5.1.} Create a synthetic dataset (with both features and
+targets). Use the
+\href{http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html\#sklearn.datasets.make_moons}{\texttt{make\_moons}}
+module with the parameter \texttt{noise=0.35} to generate 1000 random
+samples.
+
+\textbf{5.2.} Visualize your data: scatterplot your random samples with
+each class in a different color.
+
+\textbf{5.3.} Create 3 different data subsets by selecting 100 of the
+1000 data points at random three times (with replacement). For each of
+these 100-sample datasets, fit three separate k-Nearest Neighbor
+classifiers with: \(k = \{1, 25, 50\}\). This will result in 9
+combinations (3 datasets, each with 3 trained classifiers).
+
+\textbf{5.4.} For each combination of dataset and trained classifier
+plot the decision boundary (similar in style to Figure 2.15 from
+\emph{Introduction to Statistical Learning}). This should form a 3-by-3
+grid. Each column should represent a different value of \(k\) and each
+row should represent a different dataset.
+
+\textbf{5.5.} What do you notice about the difference between the
+decision boundaries in the rows and the columns in your figure? Which
+decision boundaries appear to best separate the two classes of data with
+respect to the training data? Which decision boundaries vary the most as
+the training data change? Which decision boundaries do you anticipate
+will generalize best to unseen data and why?
+
+\textbf{5.6.} Explain the bias-variance tradeoff using the example of
+the plots you made in this exercise and its implications for training
+supervised machine learning algorithms.
+
+Notes and tips for plotting decision boundaries (as in part 5.4): -
+\emph{Resource for plotting decision boundaries with meshgrid and
+contour:
+https://scikit-learn.org/stable/auto\_examples/neighbors/plot\_classification.html}
+- If you would like to change the colors of the background, and do not
+like any of the existing cmap available in matplotlib, you can make your
+own cmap using the 2 sets of rgb values. Sample code (replace r, g, b
+with respective rgb values):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ matplotlib.colors }\ImportTok{import}\NormalTok{ LinearSegmentedColormap}
+\NormalTok{newcmp }\OperatorTok{=}\NormalTok{ LinearSegmentedColormap.from\_list(}\StringTok{"new"}\NormalTok{, [(r}\OperatorTok{/}\DecValTok{255}\NormalTok{, g}\OperatorTok{/}\DecValTok{255}\NormalTok{, b}\OperatorTok{/}\DecValTok{255}\NormalTok{), (r}\OperatorTok{/}\DecValTok{255}\NormalTok{, g}\OperatorTok{/}\DecValTok{255}\NormalTok{, b}\OperatorTok{/}\DecValTok{255}\NormalTok{)], N}\OperatorTok{=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exercise 6 - Bias-variance trade-off II: Quantifying the
+tradeoff}\label{exercise-6---bias-variance-trade-off-ii-quantifying-the-tradeoff}
+
+\textbf{{[}18 points{]}}
+
+This exercise explores the impact of the bias-variance tradeoff on
+classifier performance by looking at the performance on both training
+and test data.
+
+Here, the value of \(k\) determines how flexible our model is.
+
+\textbf{6.1.} Using the function created earlier to generate random
+samples (using the \texttt{make\_moons} function setting the
+\texttt{noise} parameter to 0.35), create a new set of 1000 random
+samples, and call this dataset your test set and the previously created
+dataset your training set.
+
+\textbf{6.2.} Train a kNN classifier on your training set for
+\(k = 1,2,...500\). Apply each of these trained classifiers to both your
+training dataset and your test dataset and plot the classification error
+(fraction of incorrect predictions).
+
+\textbf{6.3.} What trend do you see in the results?
+
+\textbf{6.4.} What values of \(k\) represent high bias and which
+represent high variance?
+
+\textbf{6.5.} What is the optimal value of \(k\) and why?
+
+\textbf{6.6.} In KNN classifiers, the value of k controls the
+flexibility of the model - what controls the flexibility of other
+models?
+
+\subsection{Exercise 7 - Linear regression and nonlinear
+transformations}\label{exercise-7---linear-regression-and-nonlinear-transformations}
+
+\textbf{{[}18 points{]}}
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toptitle=1mm, bottomtitle=1mm, toprule=.15mm, opacityback=0, colback=white, titlerule=0mm, breakable, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, left=2mm, bottomrule=.15mm, coltitle=black, leftrule=.75mm, rightrule=.15mm]
+
+\href{https://github.com/kylebradbury/ids705/tree/main/notebooks/data/a2}{Data
+for this exercise can be downloaded here}
+
+\end{tcolorbox}
+
+Linear regression can be used to model nonlinear relationships when
+feature variables are properly transformed to represent the
+nonlinearities in the data folder. In this exercise, you're given
+training and test data contained in files ``A2\_Q7\_train.csv'' and
+``A2\_Q7\_test.csv'' in the data. Your goal is to develop a regression
+algorithm from the training data that performs well on the test data.
+
+\emph{Hint: Use the scikit learn
+\href{http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html}{LinearRegression}
+module.}
+
+\textbf{7.1.} Create a scatter plot of your training data.
+
+\textbf{7.2.} Estimate a linear regression model (\(y = a_0 + a_1 x\))
+for the training data and calculate both the \(R^2\) value and mean
+square error for the fit of that model for the training data. Also
+provide the equation representing the estimated model
+(e.g.~\(y = a_0 + a_1 x\), but with the estimated coefficients inserted.
+Consider this your baseline model against which you will compare other
+model options. \emph{Evaluating performance on the training data is not
+a measure of how well this model would generalize to unseen data. We
+will evaluate performance on the test data once we see our models fit
+the training data decently well.}
+
+\textbf{7.3.} If features can be nonlinearly transformed, a linear model
+may incorporate those non-linear feature transformation relationships in
+the training process. From looking at the scatter plot of the training
+data, choose a transformation of the predictor variable, \(x\) that may
+make sense for these data. This will be a multiple regression model of
+the form \(y = a_0 + a_1 z_1 + a_2 z_2 + \ldots + a_n z_n\). Here
+\(z_i\) could be any transformations of x - perhaps it's
+\(\frac{1}{x}\), \(log(x)\), \(sin(x)\), \(x^k\) (where \(k\) is any
+power of your choosing). Provide the estimated equation for this
+multiple regression model (e.g.~if you chose your predictors to be
+\(z_1 = x\) and \(z_2 = log(x)\), your model would be of the form
+\(y = a_0 + a_1 x + a_2 log(x)\). Also provide the \(R^2\) and mean
+square error of the fit for the training data.
+
+\textbf{7.4.} Visualize the model fit to the training data. Using both
+of the models you created in parts (b) and (c), plot the original data
+(as a scatter plot) AND the curves representing your models (each as a
+separate curve) from (b) and (c).
+
+\textbf{7.5.} Now its time to compare your models and evaluate the
+generalization performance on held out test data. Using the models above
+from (b) an (c), apply them to the test data and estimate the \(R^2\)
+and mean square error of the test dataset.
+
+\textbf{7.6.} Which models perform better on the training data, and
+which on the test data? Why?
+
+\textbf{7.7.} Imagine that the test data were significantly different
+from the training dataset. How might this affect the predictive
+capability of your model? How would the accuracy of generalization
+performance be impacted? Why?
+
+\emph{To help get you started - here's some code to help you load in the
+data for this exercise (you'll just need to update the path)}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+
+\NormalTok{path }\OperatorTok{=} \StringTok{\textquotesingle{}./data/a2\textquotesingle{}}
+\NormalTok{train }\OperatorTok{=}\NormalTok{ pd.read\_csv(path }\OperatorTok{+} \StringTok{\textquotesingle{}A2\_Q7\_train.csv\textquotesingle{}}\NormalTok{)}
+\NormalTok{test }\OperatorTok{=}\NormalTok{ pd.read\_csv(path }\OperatorTok{+} \StringTok{\textquotesingle{}A2\_Q7\_test.csv\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{x\_train }\OperatorTok{=}\NormalTok{ train.x.values}
+\NormalTok{y\_train }\OperatorTok{=}\NormalTok{ train.y.values}
+
+\NormalTok{x\_test }\OperatorTok{=}\NormalTok{ test.x.values}
+\NormalTok{y\_test }\OperatorTok{=}\NormalTok{ test.y.values}
+\end{Highlighting}
+\end{Shaded}
+
+
+
+
+
+\end{document}
