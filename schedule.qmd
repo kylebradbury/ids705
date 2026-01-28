@@ -188,7 +188,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td>
       <!-- Link to reading -->
-      <a href="https://edstem.org/us/courses/69557/resources?download=50164">Link to reading</a>
+      <a href="https://edstem.org/us/courses/90514/resources?download=97746">Link to reading</a>
     </td>
     <td>
       [slides]
