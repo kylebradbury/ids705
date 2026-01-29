@@ -159,8 +159,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td>ISL 4.1, 4.2, and 4.3</td>
     <td>
-      [slides]
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture06_performance_evaluation_1.pdf">[slides]</a> -->
+      <!-- [slides] -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture06_performance_evaluation_1.pdf">[slides]</a>
     </td>
   </tr>
 
