@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Kyle Bradbury">
-<meta name="dcterms.date" content="2026-01-21">
+<meta name="dcterms.date" content="2026-01-20">
 
 <title>Assignment 2 – IDS705 (2026): Principles of Machine Learning</title>
 <style>
@@ -339,6 +339,7 @@ window.Quarto = {
   <li><a href="#exercise-5---bias-variance-tradeoff-exploring-the-tradeoff-with-a-knn-classifier" id="toc-exercise-5---bias-variance-tradeoff-exploring-the-tradeoff-with-a-knn-classifier" class="nav-link" data-scroll-target="#exercise-5---bias-variance-tradeoff-exploring-the-tradeoff-with-a-knn-classifier">Exercise 5 - Bias-variance tradeoff: exploring the tradeoff with a KNN classifier</a></li>
   <li><a href="#exercise-6---bias-variance-trade-off-ii-quantifying-the-tradeoff" id="toc-exercise-6---bias-variance-trade-off-ii-quantifying-the-tradeoff" class="nav-link" data-scroll-target="#exercise-6---bias-variance-trade-off-ii-quantifying-the-tradeoff">Exercise 6 - Bias-variance trade-off II: Quantifying the tradeoff</a></li>
   <li><a href="#exercise-7---linear-regression-and-nonlinear-transformations" id="toc-exercise-7---linear-regression-and-nonlinear-transformations" class="nav-link" data-scroll-target="#exercise-7---linear-regression-and-nonlinear-transformations">Exercise 7 - Linear regression and nonlinear transformations</a></li>
+  <li><a href="#optional-bonus-exercise-designing-a-performant-low-latency-classification-system" id="toc-optional-bonus-exercise-designing-a-performant-low-latency-classification-system" class="nav-link" data-scroll-target="#optional-bonus-exercise-designing-a-performant-low-latency-classification-system">[OPTIONAL] Bonus Exercise: Designing a performant, low-latency classification system</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assignment2.out.ipynb" download="assignment2.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li><li><a href="assignment2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -365,7 +366,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 21, 2026</p>
+      <p class="date">January 20, 2026</p>
     </div>
   </div>
   
@@ -593,6 +594,14 @@ Note
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> test.x.values</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> test.y.values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="optional-bonus-exercise-designing-a-performant-low-latency-classification-system" class="level2">
+<h2 class="anchored" data-anchor-id="optional-bonus-exercise-designing-a-performant-low-latency-classification-system">[OPTIONAL] Bonus Exercise: Designing a performant, low-latency classification system</h2>
+<p><em>Bonus questions can offset missed points in an assignment, but the total score on an assignment cannot exceed 100 points</em></p>
+<p><strong>[5 points]</strong></p>
+<p>For machine learning models, latency can be an important factor depending on the application. There are generally two types of latency to consider with a model: training time and prediction time. For many models, you train the model once, so this could be a one-time event. However, prediction time can be far more important for real-world applications. If you’re developing a system for a self-driving car - your predictions need to be made very quickly to be useful so you don’t accidentally hit something. Similarly, if you’re an online retailer and are trying to make a recommendation for your customer, if it takes 2 minutes for the recommendation to load, the customer will likely have moved on.</p>
+<p>You’re goal is to design a system that has minimal latency for each prediction while remaining useful. You are able to adjust your KNN model characteristics (changing the value of K, the number of features used, the size of the training data, etc.). Of course, you also are interested in the performance of the model. Walk through each consideration that you factor in, showing plots of the impact varying modeling choices has on your average latency and other key performance metrics. Describe your process for evaluating the tradeoffs and justify your final recommendation for the model design supported by evidence from your analysis. Show and describe your analysis of the various factors that are involved in making this decision and how they vary.</p>
+<p>For this problem, use the <a href="https://archive.ics.uci.edu/dataset/2/adult">Census Income dataset</a> where the goal is to predict whether or not each individual makes greater than $50k per year. You will need to determine how to best structure the problem and preprocess the data (which have not been cleaned). Describe and justify the choices you make and be sure to plot some sample of the data to explore your data before you jump into modeling.</p>
 
 
 </section>
