@@ -191,8 +191,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
       <a href="https://edstem.org/us/courses/90514/resources?download=97746">Link to reading</a>
     </td>
     <td>
-      [slides]
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture08_decision_theory.pdf">[slides]</a> -->
+      <!-- [slides] -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture08_decision_theory.pdf">[slides]</a>
     </td>
   </tr>
 
@@ -204,8 +204,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     <td>
       <!-- [assignment] <br> -->
       <a href="https://kylebradbury.github.io/ids705/notebooks/assignment2.html">[assignment]</a><br>
-      [submit]
-      <!-- <a href="https://www.gradescope.com/">[submit]</a> -->
+      <!-- [submit] -->
+      <a href="https://www.gradescope.com/">[submit]</a>
     </td>
   </tr>
 
