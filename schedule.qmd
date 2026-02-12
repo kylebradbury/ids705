@@ -246,8 +246,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td>ISL 8.1 and 8.2</td>
     <td>
-      [slides]
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture11_trees_and_ensembles.pdf">[slides]</a> -->
+      <!-- [slides] -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture11_trees_and_ensembles.pdf">[slides]</a>
     </td>
   </tr>
 
