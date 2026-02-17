@@ -260,8 +260,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td>UDL Ch 3: 3.1, 3.2; PRML Ch 5: 5.1 </td>
     <td>
-      [slides]
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture12_neural_networks_1.pdf">[slides]</a> -->
+      <!-- [slides] -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture12_neural_networks_1.pdf">[slides]</a>
     </td>
   </tr>
 
