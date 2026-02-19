@@ -289,8 +289,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td>UDL Ch 6: 6.1-6.2.2; PRML Ch 5: 5.3.1, and <a href="http://colah.github.io/posts/2015-08-Backprop/">Calculus on Computational Graphs</a></td>
     <td>
-      [slides]
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture13_neural_networks_2.pdf">[slides]</a> -->
+      <!-- [slides] -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture13_neural_networks_2.pdf">[slides]</a>
     </td>
   </tr>
 
