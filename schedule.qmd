@@ -283,6 +283,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     <td class="date">Thursday <br> Feb 19</td>
     <td>
       <b>Neural networks II</b> <br>
+      <b style="color:red;">THIS MEETING WILL BE VIRTUAL</b>. Please <a href="https://edstem.org/us/courses/90514/discussion/7695238">see this Ed post for Zoom information</a>.<br>
+
       Fitting a neural network to training data through gradient descent and backpropagation; how backpropagation is used to compute gradients in neural networks; hyperparameters and architecture choices in neural networks and practices for training neural networks successfully
     </td>
     <td>UDL Ch 6: 6.1-6.2.2; PRML Ch 5: 5.3.1, and <a href="http://colah.github.io/posts/2015-08-Backprop/">Calculus on Computational Graphs</a></td>
