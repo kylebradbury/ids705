@@ -305,8 +305,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td>UDL Ch 10: Convolutional Neural Networks;<br>DL Ch 11: Practical Methodology<br></td>
     <td>
-      [slides]
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture14_deep_learning_1.pdf">[slides]</a> -->
+      <!-- [slides] -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture14_deep_learning_1.pdf">[slides]</a>
     </td>
   </tr>
 
