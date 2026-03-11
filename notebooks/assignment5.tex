@@ -1,0 +1,756 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Assignment 5},
+  pdfauthor={Kyle Bradbury},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Assignment 5}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Kaggle Competition and Unsupervised Learning}
+\author{Kyle Bradbury}
+\date{2026-03-11}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+
+\subsection{Instructions}\label{instructions}
+
+\emph{Instructions for all assignments can be found
+\href{https://kylebradbury.github.io/ids705/notebooks/assignment_instructions.html}{here}.
+Note: this assignment falls under collaboration Mode 2: Individual
+Assignment -- Collaboration Permitted. Please refer to the syllabus for
+additional information. Please be sure to list the names of any students
+that you worked with on this assignment. Total points in the assignment
+add up to 90; an additional 10 points are allocated to professionalism
+and presentation quality.}
+
+\subsection{Learning objectives}\label{learning-objectives}
+
+Through completing this assignment you will be able to\ldots{}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Apply the full supervised machine learning pipeline of preprocessing,
+  model selection, model performance evaluation and comparison, and
+  model application to a real-world scale dataset
+\item
+  Apply clustering techniques to a variety of datasets with diverse
+  distributional properties, gaining an understanding of their strengths
+  and weaknesses and how to tune model parameters
+\item
+  Apply PCA and t-SNE for performing dimensionality reduction and data
+  visualization
+\end{enumerate}
+
+\subsection{Exercise 1 - Kaggle Classification
+Competition}\label{exercise-1---kaggle-classification-competition}
+
+\textbf{{[}40 points{]}}
+
+You've learned a great deal about supervised learning and now it's time
+to bring together all that you've learned. You will be competing in a
+Kaggle Competition along with the rest of the class! Your goal is to
+predict hotel reservation cancellations based on a number of potentially
+related factors such as lead time on the booking, time of year, type of
+room, special requests made, number of children, etc. While you will be
+asked to take certain steps along the way to your submission, you're
+encouraged to try creative solutions to this problem and your choices
+are wide open for you to make your decisions on how to best make the
+predictions.
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacityback=0, toprule=.15mm, arc=.35mm, breakable, bottomrule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, colback=white, leftrule=.75mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important note}]
+
+Follow the link posted on Ed to register for the competition. You can
+view the public leaderboard anytime at the Kaggle website (see the Ed
+post).
+
+\end{tcolorbox}
+
+\textbf{The Data}. The dataset is provided as \texttt{a5\_q1.pkl} which
+is a pickle file format, which allows you to load the data directly
+using the code below; the data can be downloaded from the Kaggle
+competition website (see Ed Discussions for the link). A data dictionary
+for the project can be found
+\href{https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md}{here}
+and the original paper that describes the dataset can be found
+\href{https://www.sciencedirect.com/science/article/pii/S2352340918315191}{here}.
+When you load the data, 5 matrices are provided
+\texttt{X\_train\_original}, \texttt{y\_train}, and
+\texttt{X\_test\_original}, which are the original, unprocessed features
+and labels for the training set and the test features (the test labels
+are not provided - that's what you're predicting). Additionally,
+\texttt{X\_train\_ohe} and \texttt{X\_test\_ohe} are provided which are
+one-hot-encoded (OHE) versions of the data. The OHE versions OHE
+processed every categorical variable. This is provided for convenience
+if you find it helpful, but you're welcome to reprocess the original
+data other ways if your prefer.
+
+\textbf{Scoring}. You will need to achieve a minimum acceptable level of
+performance to demonstrate proficiency with using these supervised
+learning techniques. Beyond that, it's an open competition and scoring
+in the top three places of the \emph{private leaderboard} will result in
+\textbf{3, 2, and 1 bonus points in this assignment, respectively} (and
+the pride of the class!). Note: the Kaggle leaderboard has a public and
+private component. The public component is viewable throughout the
+competition, but the private leaderboard is revealed at the end. When
+you make a submission, you immediately see your submission on the public
+leaderboard, but that only represents scoring on a fraction of the total
+collection of test data, the rest remains hidden until the end of the
+competition to prevent overfitting to the test data through repeated
+submissions. You will be be allowed to hand-select two eligible
+submissions for private score, or by default your best two public
+scoring submissions will be selected for private scoring.
+
+\subsubsection{Requirements:}\label{requirements}
+
+\textbf{1.1. Explore your data.} Review and understand your data. Look
+at it; read up on what the features represent; think through the
+application domain; visualize statistics from the paper data to
+understand any key relationships. \textbf{There is no output required
+for this question}, but you are encouraged to explore the data
+personally before going further.
+
+\textbf{1.2. Preprocess your data.} Preprocess your data so it's ready
+for use for classification and describe what you did and why you did it.
+Preprocessing may include: normalizing data, handling missing or
+erroneous values, separating out a validation dataset, preparing
+categorical variables through one-hot-encoding, etc. To make one step in
+this process easier, you're provided with a one-hot-encoded version of
+the data already.
+
+\begin{itemize}
+\tightlist
+\item
+  Comment on each type of preprocessing that you apply and both how and
+  why you apply it.
+\end{itemize}
+
+\textbf{1.3. Select, train, and compare models.} Fit at least 5 models
+to the data. Some of these can be experiments with different
+hyperparameter-tuned versions of the same model, although all 5 should
+not be the same type of model. There are no constraints on the types of
+models, but you're encouraged to explore examples we've discussed in
+class including:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Logistic regression
+\item
+  K-nearest neighbors
+\item
+  Random Forests
+\item
+  Neural networks
+\item
+  Support Vector Machines
+\item
+  Ensembles of models (e.g.~model bagging, boosting, or stacking).
+  \texttt{Scikit-learn} offers a number of tools for assisting with this
+  including those for
+  \href{https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html\#sklearn.ensemble.BaggingClassifier}{bagging},
+  \href{https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html}{boosting},
+  and
+  \href{https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.StackingClassifier.html}{stacking}.
+  You're also welcome to explore options beyond the \texttt{sklean}
+  universe; for example, some of you may have heard of
+  \href{https://github.com/dmlc/xgboost}{XGBoost} which is a very fast
+  implementation of gradient boosted decision trees that also allows for
+  parallelization.
+\end{enumerate}
+
+When selecting models, be aware that some models may take far longer
+than others to train. Monitor your output and plan your time
+accordingly.
+
+Assess the classification performance AND computational efficiency of
+the models you selected:
+
+\begin{itemize}
+\item
+  Plot the ROC curves and PR curves for your models in two plots: one of
+  ROC curves and one of PR curves. For each of these two plots, compare
+  the performance of the models you selected above and trained on the
+  training data, evaluating them on the validation data. Be sure to plot
+  the line representing random guessing on each plot. You should plot
+  all of the model's ROC curves on a single plot and the PR curves on a
+  single plot. One of the models should also be your BEST performing
+  submission on the Kaggle public leaderboard (see below). In the
+  legends of each, include the area under the curve for each model
+  (limit to 3 significant figures). For the ROC curve, this is the AUC;
+  for the PR curve, this is the average precision (AP).
+\item
+  As you train and validate each model time how long it takes to train
+  and validate in each case and create a plot that shows both the
+  training and prediction time for each model included in the ROC and PR
+  curves.
+\item
+  Describe:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Your process of model selection and hyperparameter tuning
+  \item
+    Which model performed best and your process for
+    identifying/selecting it
+  \end{itemize}
+\end{itemize}
+
+\textbf{1.4. Apply your model ``in practice''.} Make \emph{at least} 5
+submissions of different model results to the competition (more
+submissions are encouraged and you can submit up to 5 per day!). These
+do not need to be the same that you report on above, but you should
+select your \emph{most competitive} models.
+
+\begin{itemize}
+\tightlist
+\item
+  Produce submissions by applying your model on the test data.
+\item
+  Be sure to RETRAIN YOUR MODEL ON ALL LABELED TRAINING AND VALIDATION
+  DATA before making your predictions on the test data for submission.
+  This will help to maximize your performance on the test data.
+\item
+  In order to get full credit on this problem you must achieve an AUC on
+  the Kaggle public leaderboard above the ``Benchmark'' score on the
+  public leaderboard.
+\end{itemize}
+
+\subsubsection{Guidance}\label{guidance}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Preprocessing}. You may need to preprocess the data for some
+  of these models to perform well (scaling inputs or reducing
+  dimensionality). Some of this preprocessing may differ from model to
+  model to achieve the best performance. A helpful tool for creating
+  such preprocessing and model fitting pipelines is the sklearn
+  \texttt{pipeline} module which lets you group a series of processing
+  steps together.
+\item
+  \textbf{Hyperparameters}. Hyperparameters may need to be tuned for
+  some of the model you use. You may want to perform hyperparameter
+  tuning for some of the models. If you experiment with different
+  hyperparameters that include many model runs, you may want to apply
+  them to a small subsample of your overall data before running it on
+  the larger training set to be time efficient (if you do, just make
+  sure to ensure your selected subset is representative of the rest of
+  your data).
+\item
+  \textbf{Validation data}. You're encouraged to create your own
+  validation dataset for comparing model performance; without this,
+  there's a significant likelihood of overfitting to the data. A common
+  choice of the split is 80\% training, 20\% validation. Before you make
+  your final predictions on the test data, be sure to retrain your model
+  on the entire dataset.
+\item
+  \textbf{Training time}. This is a larger dataset than you've worked
+  with previously in this class, so training times may be higher that
+  what you've experienced in the past. Plan ahead and get your model
+  pipeline working early so you can experiment with the models you use
+  for this problem and have time to let them run.
+\end{enumerate}
+
+\subsubsection{Starter code}\label{starter-code}
+
+Below is some code for (1) loading the data and (2) once you have
+predictions in the form of confidence scores for those classifiers, to
+produce submission files for Kaggle.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ pickle}
+
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\# Load the data}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\NormalTok{data }\OperatorTok{=}\NormalTok{ pd.read\_pickle(}\StringTok{"./data/a5\_q1.pkl"}\NormalTok{)}
+
+\NormalTok{y\_train }\OperatorTok{=}\NormalTok{ data[}\StringTok{\textquotesingle{}y\_train\textquotesingle{}}\NormalTok{]}
+\NormalTok{X\_train\_original }\OperatorTok{=}\NormalTok{ data[}\StringTok{\textquotesingle{}X\_train\textquotesingle{}}\NormalTok{] }\CommentTok{\# Original dataset}
+\NormalTok{X\_train\_ohe }\OperatorTok{=}\NormalTok{ data[}\StringTok{\textquotesingle{}X\_train\_ohe\textquotesingle{}}\NormalTok{]  }\CommentTok{\# One{-}hot{-}encoded dataset}
+
+\NormalTok{X\_test\_original }\OperatorTok{=}\NormalTok{ data[}\StringTok{\textquotesingle{}X\_test\textquotesingle{}}\NormalTok{]}
+\NormalTok{X\_test\_ohe }\OperatorTok{=}\NormalTok{ data[}\StringTok{\textquotesingle{}X\_test\_ohe\textquotesingle{}}\NormalTok{]}
+
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\# Produce submission}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+
+\KeywordTok{def}\NormalTok{ create\_submission(confidence\_scores, save\_path):}
+    \CommentTok{\textquotesingle{}\textquotesingle{}\textquotesingle{}Creates an output file of submissions for Kaggle}
+\CommentTok{    }
+\CommentTok{    Parameters}
+\CommentTok{    {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{    confidence\_scores : list or numpy array}
+\CommentTok{        Confidence scores (from predict\_proba methods from classifiers) or}
+\CommentTok{        binary predictions (only recommended in cases when predict\_proba is }
+\CommentTok{        not available)}
+\CommentTok{    save\_path : string}
+\CommentTok{        File path for where to save the submission file.}
+\CommentTok{    }
+\CommentTok{    Example:}
+\CommentTok{    create\_submission(my\_confidence\_scores, \textquotesingle{}./data/submission.csv\textquotesingle{})}
+
+\CommentTok{    \textquotesingle{}\textquotesingle{}\textquotesingle{}}
+    \ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+
+\NormalTok{    submission }\OperatorTok{=}\NormalTok{ pd.DataFrame(\{}\StringTok{"score"}\NormalTok{:confidence\_scores\})}
+\NormalTok{    submission.to\_csv(save\_path, index\_label}\OperatorTok{=}\StringTok{"id"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exercise 2 - Clustering}\label{exercise-2---clustering}
+
+\textbf{{[}25 points{]}}
+
+Clustering can be used to reveal structure between samples of data and
+assign group membership to similar groups of samples. This exercise will
+provide you with experience applying clustering algorithms and comparing
+these techniques on various datasets to experience the pros and cons of
+these approaches when the structure of the data being clustered varies.
+For this exercise, we'll explore clustering in two dimensions to make
+the results more tangible, but in practice these approaches can be
+applied to any number of dimensions.
+
+\emph{Note: For each set of plots across the five datasets, please
+create subplots within a single figure (for example, when applying
+DBSCAN - please show the clusters resulting from DBSCAN as a single
+figure with one subplot for each dataset). This will make comparison
+easier.}
+
+\textbf{2.1. Run K-means and choose the number of clusters}. Five
+datasets are provided for you below and the code to load them below.
+
+\begin{itemize}
+\tightlist
+\item
+  Scatterplot each dataset
+\item
+  For each dataset run the k-means algorithm for values of \(k\) ranging
+  from 1 to 10 and for each plot the ``elbow curve'' where you plot
+  dissimilarity in each case. Here, you can measure dissimilarity using
+  the within-cluster sum-of-squares, which in sklean is known as
+  ``inertia'' and can be accessed through the \texttt{inertia\_}
+  attribute of a fit KMeans class instance.
+\item
+  For each dataset, where is the elbow in the curve of within-cluster
+  sum-of-squares and why? Is the elbow always clearly visible? When it's
+  not clear, you will have to use your judgment in terms of selecting a
+  reasonable number of clusters for the data. \emph{There are also other
+  metrics you can use to explore to measure the quality of cluster fit
+  (but do not have to for this assignment) including the silhouette
+  score, the Calinski-Harabasz index, and the Davies-Bouldin, to name a
+  few within sklearn alone. However, assessing the quality of fit
+  without ``preferred'' cluster assignments to compare against (that is,
+  in a truly unsupervised manner) is challenging because measuring
+  cluster fit quality is typically poorly-defined and doesn't generalize
+  across all types of inter- and intra-cluster variation.}
+\item
+  Plot your clustered data (different color for each cluster assignment)
+  for your best \(k\)-means fit determined from both the elbow curve and
+  your judgment for each dataset and your inspection of the dataset.
+\end{itemize}
+
+\textbf{2.2. Apply DBSCAN}. Vary the \texttt{eps} and
+\texttt{min\_samples} parameters to get as close as you can to having
+the same number of clusters as your choices with K-means. The same code
+plots as gray/black any points that were not assigned to clusters.
+
+\textbf{2.3. Apply Spectral Clustering}. Select the same number of
+clusters as selected by k-means.
+
+\textbf{2.4. Comment on the strengths and weaknesses of each approach}.
+In particular, mention:
+
+\begin{itemize}
+\tightlist
+\item
+  Which technique worked ``best'' and ``worst'' (as defined by matching
+  how human intuition would cluster the data) on each dataset?
+\item
+  How much effort was required to get good clustering for each method
+  (how much parameter tuning needed to be done)?
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacityback=0, toprule=.15mm, arc=.35mm, breakable, bottomrule=.15mm, coltitle=black, colframe=quarto-callout-note-color-frame, colback=white, leftrule=.75mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Important note}]
+
+For these clustering plots in this question, do NOT include legends
+indicating cluster assignment; instead, just make sure the cluster
+assignments are clear from the plot (e.g.~different colors for each
+cluster)
+
+\end{tcolorbox}
+
+Code is provided below for loading the datasets and for making plots
+with the clusters as distinct colors
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\# Load the data}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\ImportTok{import}\NormalTok{ os}
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\ImportTok{from}\NormalTok{ sklearn.datasets }\ImportTok{import}\NormalTok{ make\_blobs, make\_moons}
+
+\CommentTok{\# Create / load the datasets:}
+\NormalTok{n\_samples }\OperatorTok{=} \DecValTok{1500}
+\NormalTok{X0, \_ }\OperatorTok{=}\NormalTok{ make\_blobs(n\_samples}\OperatorTok{=}\NormalTok{n\_samples, centers}\OperatorTok{=}\DecValTok{2}\NormalTok{, n\_features}\OperatorTok{=}\DecValTok{2}\NormalTok{, random\_state}\OperatorTok{=}\DecValTok{0}\NormalTok{)}
+\NormalTok{X1, \_ }\OperatorTok{=}\NormalTok{ make\_blobs(n\_samples}\OperatorTok{=}\NormalTok{n\_samples, centers}\OperatorTok{=}\DecValTok{5}\NormalTok{, n\_features}\OperatorTok{=}\DecValTok{2}\NormalTok{, random\_state}\OperatorTok{=}\DecValTok{0}\NormalTok{)}
+
+\NormalTok{random\_state }\OperatorTok{=} \DecValTok{170}
+\NormalTok{X, y }\OperatorTok{=}\NormalTok{ make\_blobs(n\_samples}\OperatorTok{=}\NormalTok{n\_samples, random\_state}\OperatorTok{=}\NormalTok{random\_state, cluster\_std}\OperatorTok{=}\FloatTok{1.3}\NormalTok{)}
+\NormalTok{transformation }\OperatorTok{=}\NormalTok{ [[}\FloatTok{0.6}\NormalTok{, }\OperatorTok{{-}}\FloatTok{0.6}\NormalTok{], [}\OperatorTok{{-}}\FloatTok{0.2}\NormalTok{, }\FloatTok{0.8}\NormalTok{]]}
+\NormalTok{X2 }\OperatorTok{=}\NormalTok{ np.dot(X, transformation)}
+\NormalTok{X3, \_ }\OperatorTok{=}\NormalTok{ make\_blobs(n\_samples}\OperatorTok{=}\NormalTok{n\_samples, cluster\_std}\OperatorTok{=}\NormalTok{[}\FloatTok{1.0}\NormalTok{, }\FloatTok{2.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{], random\_state}\OperatorTok{=}\NormalTok{random\_state)}
+\NormalTok{X4, \_ }\OperatorTok{=}\NormalTok{ make\_moons(n\_samples}\OperatorTok{=}\NormalTok{n\_samples, noise}\OperatorTok{=}\FloatTok{.12}\NormalTok{)}
+
+\NormalTok{X }\OperatorTok{=}\NormalTok{ [X0, X1, X2, X3, X4]}
+\CommentTok{\# The datasets are X[i], where i ranges from 0 to 4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\# Code to plot clusters}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\KeywordTok{def}\NormalTok{ plot\_cluster(ax, data, cluster\_assignments):}
+    \CommentTok{\textquotesingle{}\textquotesingle{}\textquotesingle{}Plot two{-}dimensional data clusters}
+\CommentTok{    }
+\CommentTok{    Parameters}
+\CommentTok{    {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{    ax : matplotlib axis}
+\CommentTok{        Axis to plot on}
+\CommentTok{    data : list or numpy array of size [N x 2] }
+\CommentTok{        Clustered data}
+\CommentTok{    cluster\_assignments : list or numpy array [N]}
+\CommentTok{        Cluster assignments for each point in data}
+
+\CommentTok{    \textquotesingle{}\textquotesingle{}\textquotesingle{}}
+\NormalTok{    clusters }\OperatorTok{=}\NormalTok{ np.unique(cluster\_assignments)}
+\NormalTok{    n\_clusters }\OperatorTok{=} \BuiltInTok{len}\NormalTok{(clusters)}
+    \ControlFlowTok{for}\NormalTok{ ca }\KeywordTok{in}\NormalTok{ clusters:}
+\NormalTok{        kwargs }\OperatorTok{=}\NormalTok{ \{\}}
+        \ControlFlowTok{if}\NormalTok{ ca }\OperatorTok{==} \OperatorTok{{-}}\DecValTok{1}\NormalTok{:}
+            \CommentTok{\# if samples are not assigned to a cluster (have a cluster assignment of {-}1, color them gray)}
+\NormalTok{            kwargs }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}color\textquotesingle{}}\NormalTok{:}\StringTok{\textquotesingle{}gray\textquotesingle{}}\NormalTok{\}}
+\NormalTok{            n\_clusters }\OperatorTok{=}\NormalTok{ n\_clusters }\OperatorTok{{-}} \DecValTok{1}
+\NormalTok{        ax.scatter(data[cluster\_assignments}\OperatorTok{==}\NormalTok{ca, }\DecValTok{0}\NormalTok{], data[cluster\_assignments}\OperatorTok{==}\NormalTok{ca, }\DecValTok{1}\NormalTok{],s}\OperatorTok{=}\DecValTok{5}\NormalTok{,alpha}\OperatorTok{=}\FloatTok{0.5}\NormalTok{, }\OperatorTok{**}\NormalTok{kwargs)}
+\NormalTok{        ax.set\_xlabel(}\StringTok{\textquotesingle{}feature 1\textquotesingle{}}\NormalTok{)}
+\NormalTok{        ax.set\_ylabel(}\StringTok{\textquotesingle{}feature 2\textquotesingle{}}\NormalTok{)}
+\NormalTok{        ax.set\_title(}\SpecialStringTok{f\textquotesingle{}No. Clusters = }\SpecialCharTok{\{}\NormalTok{n\_clusters}\SpecialCharTok{\}}\SpecialStringTok{\textquotesingle{}}\NormalTok{)}
+\NormalTok{        ax.axis(}\StringTok{\textquotesingle{}equal\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exercise 3 - Dimensionality reduction and visualization of
+digits with PCA and
+t-SNE}\label{exercise-3---dimensionality-reduction-and-visualization-of-digits-with-pca-and-t-sne}
+
+\textbf{{[}25 points{]}}
+
+\textbf{3.1.} Reduce the dimensionality of the data with PCA for data
+visualization. Load the \texttt{scikit-learn} digits dataset (code
+provided to do this below). Consider whether any preprocessing may need
+to be applied (do the data need to be normalized?). Apply PCA and reduce
+the data (with the associated cluster labels 0-9) into a 2-dimensional
+space. Plot the data with labels in this two dimensional space (labels
+can be colors, shapes, or using the actual numbers to represent the data
+- definitely include a legend in your plot).
+
+\textbf{3.2.} Create a plot showing the cumulative fraction of variance
+explained as you incorporate from \(1\) through all \(D\) principal
+components of the data (where \(D\) is the dimensionality of the data).
+
+\begin{itemize}
+\tightlist
+\item
+  What fraction of variance in the data is UNEXPLAINED by the first two
+  principal components of the data?
+\item
+  Briefly comment on how this may impact how well-clustered the data
+  are. \emph{You can use the \texttt{explained\_variance\_} attribute of
+  the PCA module in \texttt{scikit-learn} to assist with this question}
+\end{itemize}
+
+\textbf{3.3.} Reduce the dimensionality of the data with t-SNE for data
+visualization. T-distributed stochastic neighborhood embedding (t-SNE)
+is a nonlinear dimensionality reduction technique that is particularly
+adept at embedding the data into lower 2 or 3 dimensional spaces. Apply
+t-SNE using the \texttt{scikit-learn} implementation to the digits
+dataset and plot it in 2-dimensions (with associated cluster labels
+0-9). You may need to adjust the parameters to get acceptable
+performance. You can read more about how to use t-SNE effectively
+\href{https://distill.pub/2016/misread-tsne/}{here}.
+
+\textbf{3.4.} Briefy compare/contrast the performance of these two
+techniques.
+
+\begin{itemize}
+\tightlist
+\item
+  Which seemed to cluster the data best and why?
+\item
+  Notice that while t-SNE has a \texttt{fit} method and a
+  \texttt{fit\_transform} method, these methods are actually identical,
+  and there is no \texttt{transform} method. Why is this? What
+  implications does this imply for using this method?
+\end{itemize}
+
+\emph{Note: Remember that you typically will not have labels available
+in most problems.}
+
+Code is provided for loading the data below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\# Load the data}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\ImportTok{from}\NormalTok{ sklearn }\ImportTok{import}\NormalTok{ datasets}
+\ImportTok{from}\NormalTok{ sklearn.decomposition }\ImportTok{import}\NormalTok{ PCA}
+\ImportTok{from}\NormalTok{ sklearn.manifold }\ImportTok{import}\NormalTok{ TSNE}
+
+\CommentTok{\# load dataset}
+\NormalTok{digits }\OperatorTok{=}\NormalTok{ datasets.load\_digits()}
+\NormalTok{n\_sample }\OperatorTok{=}\NormalTok{ digits.target.shape[}\DecValTok{0}\NormalTok{]}
+\NormalTok{n\_feature }\OperatorTok{=}\NormalTok{ digits.images.shape[}\DecValTok{1}\NormalTok{] }\OperatorTok{*}\NormalTok{ digits.images.shape[}\DecValTok{2}\NormalTok{]}
+\NormalTok{X\_digits }\OperatorTok{=}\NormalTok{ np.zeros((n\_sample, n\_feature))}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(n\_sample):}
+\NormalTok{    X\_digits[i, :] }\OperatorTok{=}\NormalTok{ digits.images[i, :, :].flatten()}
+\NormalTok{y\_digits }\OperatorTok{=}\NormalTok{ digits.target}
+\end{Highlighting}
+\end{Shaded}
+
+
+
+
+
+\end{document}
