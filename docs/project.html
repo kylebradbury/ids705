@@ -124,7 +124,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Final Project</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./notebooks/assignment_instructions.html">Assignments</a></li><li class="breadcrumb-item"><a href="./project.html">Final Project</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -236,6 +236,12 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
  <span class="menu-text">Assignment 5</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Final Project</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -290,18 +296,21 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   </ul></li>
   <li><a href="#proposal" id="toc-proposal" class="nav-link" data-scroll-target="#proposal">Proposal</a></li>
   <li><a href="#final-report" id="toc-final-report" class="nav-link" data-scroll-target="#final-report">Final Report</a></li>
-  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation">Presentation</a></li>
   <li><a href="#github-repository" id="toc-github-repository" class="nav-link" data-scroll-target="#github-repository">Github Repository</a></li>
   <li><a href="#peer-evaluation" id="toc-peer-evaluation" class="nav-link" data-scroll-target="#peer-evaluation">Peer Evaluation</a></li>
   <li><a href="#submission-evaluation-grading" id="toc-submission-evaluation-grading" class="nav-link" data-scroll-target="#submission-evaluation-grading">Submission, Evaluation, &amp; Grading</a></li>
-  <li><a href="#ideas" id="toc-ideas" class="nav-link" data-scroll-target="#ideas">Ideas</a></li>
+  <li><a href="#sample-projects" id="toc-sample-projects" class="nav-link" data-scroll-target="#sample-projects">Sample projects</a>
+  <ul class="collapse">
+  <li><a href="#example-project-1-hospital-readmission-risk-prediction" id="toc-example-project-1-hospital-readmission-risk-prediction" class="nav-link" data-scroll-target="#example-project-1-hospital-readmission-risk-prediction">Example Project 1: Hospital Readmission Risk Prediction</a></li>
+  <li><a href="#example-project-2-predicting-socioeconomic-outcomes-from-satellite-imagery" id="toc-example-project-2-predicting-socioeconomic-outcomes-from-satellite-imagery" class="nav-link" data-scroll-target="#example-project-2-predicting-socioeconomic-outcomes-from-satellite-imagery">Example Project 2: Predicting Socioeconomic Outcomes from Satellite Imagery</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./notebooks/assignment_instructions.html">Assignments</a></li><li class="breadcrumb-item"><a href="./project.html">Final Project</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Final Project</h1>
 <p class="subtitle lead">IDS 705 Principles of Machine Learning</p>
@@ -324,11 +333,10 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <section id="summary-and-goals" class="level2">
 <h2 class="anchored" data-anchor-id="summary-and-goals">Summary and Goals</h2>
 <p>It’s time for you to unleash your creativity in the final project for the course! This is your chance to apply everything you’ve learned so far, from experimental design and model selection to evaluation and optimization. This project gives you the freedom to explore new applications, experiment, and innovate. Creativity, critical thinking, and problem-solving will be key.</p>
-<p>Machine learning tools are not an end in themselves, but yield value when making predictions, quantifying and describing phenomena in the world around us, and in all these ways and more helping us to make decisions that would otherwise be difficult or impossible. For this final project, you will work in teams to (1) identify a problem to solve or a question to answer, (2) apply machine learning techniques to conduct experiments to investigate the application area, (3) rigorously evaluate the performance of your approach, and (4) clearly communicate your findings to a wide audience. The <strong>deliverables for this project</strong> are:</p>
+<p>Machine learning tools are not an end in themselves, but yield value when making predictions, quantifying and describing phenomena in the world around us, and in all these ways and more helping us to make decisions that would otherwise be difficult or impossible. For this final project, you will work in teams to (1) identify a problem to solve or a question to answer, (2) apply machine learning techniques to conduct experiments to investigate the application area, (3) rigorously evaluate the performance of your approach, and (4) clearly communicate your findings to a clearly-defined stakeholder audience. The <strong>deliverables for this project</strong> are:</p>
 <ol type="1">
 <li>Project proposal</li>
 <li>Final written report AND a draft report prior to final submission</li>
-<li>Presentation. During the class exam period, we will have a project showcase and competition.</li>
 <li>Github repository for your project</li>
 <li>Peer evaluation</li>
 </ol>
@@ -336,12 +344,12 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 </section>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p>This is an opportunity to creatively deploy machine learning in an application area of interest to you. A central component of your project must be a machine learning methodology. It does not have to be one that we’ve explicitly discussed in class as you’re welcome to use the project as an opportunity to learn new topics, although there should be a supervised learning component to your project. The objectives of this project are to…</p>
+<p>This is an opportunity to creatively deploy machine learning in an application area of interest to you. The focus of your project should be a clearly defined problem with a clearly identified (hypothetical) stakeholder - a person or group who would genuinely care about that problem. A central component of your project must be a machine learning methodology. It does not have to be one that we’ve explicitly discussed in class as you’re welcome to use the project as an opportunity to learn new topics, although there should be a supervised learning component to your project. The objectives of this project are to…</p>
 <ol type="1">
-<li>Develop deeper competency in applying machine learning methods in practical applications</li>
-<li>Gain experience in learning more about a topic beyond what was explicitly discussed, but by building on the foundation you have developed throughout the course which enables you to learn about other machine learning concepts</li>
+<li>Develop deeper competency in applying machine learning methods for practical applications</li>
+<li>Gain experience in learning more about a topic beyond what was explicitly discussed</li>
 <li>Increase your experience with collaborative data science workflows</li>
-<li>Expand your data science portfolio</li>
+<li>Refine your ability to communicate the findings from a project to interdisciplinary audiences</li>
 </ol>
 <p>In this project you will use what you’ve learned throughout this course and build on that knowledge and experience to apply the paradigms, algorithms, evaluation tools, and interpretation techniques discussed throughout the course. I strongly encourage you to pick a project that is of genuine interest in some way (e.g.&nbsp;the application, the tools, the dataset, etc.). Learning comes from stretching yourself: this requires that you push yourself into some unfamiliar territory and that is often a challenge and leads to desirable difficulty. Through this struggle is how the best learning happens, but it requires perseverance and that is best achieved when you are able to bring intrinsic motivation to that challenge. Find a topic of interest and embrace the challenge!</p>
 <p>For this project you will identify a <strong>problem you wish to solve using machine learning tools</strong>. Identify the experiment you would need to run to evaluate how well you solved it as compared to existing approaches in the field including what metrics to use to evaluate performance.</p>
@@ -351,47 +359,36 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <li><p>The project must involve supervised machine learning. You may include concepts we were not able to cover in the course. You may include other concepts at well, but there should be a supervised learning component.</p></li>
 <li><p>The project must be able to be completed within the course of this semester and should be scoped correctly: we encourage you to be ambitious, but please visit office hours if you have questions about project scope.</p></li>
 <li><p>Every project should involve learning more about both your <em>application domain</em> and the <em>methods that you’re using</em>. This means reading about both facets. If you’re working on a project involving diagnosis of a disease, you should read enough to understand the disease and how it manifests the symptoms that your data may be noting. You’re expected to develop some domain knowledge related to your problem and demonstrate that in the report.</p></li>
-<li><p>At minimum, your project should have at least one experimental design or study per student on the team. Examples include (but are not limited to): Options for topics to investigate:</p>
+<li><p>Your project should consider the potential ethical implications of your work and describe how that was factored into your work.</p></li>
+<li><p><strong>Core requirement</strong>: You’re required to have at least one core experimental design with rigorous evaluation. That, alone, will get you to the grade of a “B”. This will require an appropriate experimental design and appropriately evaluated results with measures of uncertainty in your estimates, whenever possible.</p></li>
+<li><p><strong>Additional analyses</strong>: To get an “A” you will need to go beyond the core requirement and add in two more depth components to the project that more fully investigate the problem you’re working on keeping your (imagined) stakeholder’s needs in mind. While these will be problem-specific, below are several ideas to help you think through some possibilities:</p>
 <ul>
-<li>Cross-domain comparison. What is the impact on generalization performance if we know that the conditions under which we will apply our ML approach are different than the available training data (e.g.&nbsp;if I’m working on a computer vision problem and all my training data are from the U.S., but the goal is to apply the model to regions in Asia)</li>
+<li>Model interpretability (or explainability). If interpretability is important, could you explore interpretable models that could be deployed alongside more flexible models to evaluate the tradeoff between model performance and interpretability?</li>
+<li>Training data sufficiency analysis. If you anticipate limited training data im practice, could you determine how much training data is needed to sufficiently address your problem to inform future decisions for up-scaling the model? For example, vary the amount of training data and determine performance and uncertainty.</li>
+<li>Model robustness when the application domain will likely be shifted from the training domain. What is the impact on generalization performance if we know that the conditions under which we will apply our ML approach are different than the available training data (e.g.&nbsp;if I’m working on a computer vision problem and all my training data are from the U.S., but the goal is to apply the model to regions in Asia)</li>
 <li>Model sensitivity to imbalanced data. What if training data when the training data are not perfectly sampled to be representative of the actual target data. This could be an investigation of the impact and possible solutions to imbalanced datasets.</li>
 <li>Active learning for cases where collecting data is expensive. How little additional data do you need to add to your model and how might it be identified how to sample the new data.</li>
 <li>Bias detection and mitigation - could the fairness of algorithms be analyzed across different subsets of the data.</li>
-<li>Model explainability / interpretability.</li>
-<li>Model robustness to noise and/or adversarial attacks</li>
-<li>Model robustness when the application domain will likely be shifted from the training domain</li>
-<li>When do ensembles actually help? Investigating model stacking and the conditions under which it is adventageous (performance / computation tradeoff)</li>
-<li>Calibration in classification models - do the confidence scores match the actual probabilities?</li>
+<li>Model robustness to noise and/or adversarial attacks. How does the model stand up to accidental or purposeful mistakes in the dataset? How much can it take before performance degrades?</li>
+<li>Calibration in classification models. Do the confidence scores, when interpreted as probabilities match the actual probabilities? If this is important for the application, can this be corrected?</li>
 </ul></li>
-<li><p>Your project should consider the potential ethical implications of your work and describe how that was factored into your work.</p></li>
 </ul>
 </section>
 </section>
 <section id="proposal" class="level2">
 <h2 class="anchored" data-anchor-id="proposal">Proposal</h2>
-<p>Your team will submit a short project proposal. You will receive feedback that should be used to guide your project development and execution. There are no length requirements on the proposal, but 2 pages should typically be sufficient. Every proposal should have the title of the project and the list of team members at the top of the first page.</p>
-<p>You can find the <strong><a href="https://docs.google.com/document/d/1DgPLjUB7VqBOdyYFWCZ6iYdqhyHp-etXAEgI3QIA__c/edit?usp=sharing">project proposal template and instructions here</a></strong>. <em>You are required to use the template for your proposal so that we can provide comments in Google docs</em>. Please read through and discuss the different points mentioned in the template prior to submission.</p>
+<p>Your team will submit a short project proposal. You will receive feedback that should be used to guide your project development and execution. Every proposal should have the title of the project and the list of team members at the top of the first page. You can find the <strong><a href="https://docs.google.com/document/d/1Dz97yiqtnXb7m3G-dj4Gyke0Fp7YWJ3r8bA40TGA2A0/edit?usp=sharing">project proposal template and instructions here</a></strong>. <em>You are required to use the template for your proposal so that we can provide comments in Google docs</em>. Please read through follow the instructions in the proposal document for preparation and submission.</p>
 <p>Additionally, content from your proposal may be reused in your draft/final report and so you’re encouraged to invest in it with that in mind.</p>
 <p>If you are looking for ideas about datasets, etc., please see the Ideas section below. Please stop by office hours if you would like to discuss specific project ideas or for any other help in selecting your project idea.</p>
 </section>
 <section id="final-report" class="level2">
 <h2 class="anchored" data-anchor-id="final-report">Final Report</h2>
-<p>The final project report that you submit will consist of two parts: (1) a draft project report and (2) a final report. The draft project report is your main opportunity to get detailed feedback on your report. While the draft report won’t be graded, we will provide written feedback and suggestions in the form of Google doc comments that we would strongly recommend addressing in your final report.</p>
-<p>Please find the <strong><a href="https://docs.google.com/document/d/1aTpyQvFVl_F9BBoDc5Okf4mCWSlSqN5ETvHVXcbvFAA/edit?usp=sharing">instructions and template for the final report here</a></strong>.</p>
-</section>
-<section id="presentation" class="level2">
-<h2 class="anchored" data-anchor-id="presentation">Presentation</h2>
-<p>You will also make a 7-minute presentation (strictly enforced) summarizing your project. This presentation should be visually compelling and should not miss the “forest for the trees” – don’t get lost in technical details. Imagine your aunt and uncle watching your presentation – would they know what is going on? Would they find it approachable and engaging? For inspiration for what makes an approachable discussion of a machine learning project, watch videos from the following series:</p>
-<ul>
-<li><a href="https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg">Two Minute Papers</a> by Károly Zsolnai-Fehér. Concise 1-4 minute summaries of cutting edge research papers.</li>
-<li><a href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a> by Grant Sanderson. Mathematical concepts conveyed clearly, intuitively, and visually.</li>
-</ul>
-<p>Be sure to practice your presentation, ask your friends (especially those who may not be as technically inclined) for feedback. Do they think it was engaging/easy to follow? Ask them their takeaways: did they get the message you were trying to communicate? Address their feedback to help you ensure the quality of your presentation. <em>You must create your presentation as a Google Slides presentation and share and submit the link to your presentation by 5pm the night before the showcase</em>.</p>
+<p>The final project report that you submit will consist of two parts: (1) a draft project report and (2) a final report. The draft project report is your main opportunity to get detailed feedback on your report. While the draft report won’t be graded, we will provide written feedback and suggestions in the form of Google doc comments that we strongly recommend addressing in your final report.</p>
+<p>Please find the <strong><a href="https://docs.google.com/document/d/191_TgUCELuyePzzAINi4HFeIYiDO1D-LjbiwTkL42R8/edit?tab=t.0">instructions and template for the final report here</a></strong>.</p>
 </section>
 <section id="github-repository" class="level2">
 <h2 class="anchored" data-anchor-id="github-repository">Github Repository</h2>
 <p>Your github respository should (a) contain a descriptive README.md file that explains what the repo is for, and how to use the code to reproduce your work (including how to set it up to run), (b) be well commented throughout all files, (c) list all dependencies in a requirements.txt file, (d) inform the user how to get the data and includes all preprocessing code, and (e) actually runs (i.e.&nbsp;we can successfully test it) and does what it says</p>
-<p><del>Also include a copy of your final report and a link to your project video from the README.md file.</del></p>
 </section>
 <section id="peer-evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="peer-evaluation">Peer Evaluation</h2>
@@ -406,11 +403,11 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <li>Treated other team members respectfully</li>
 <li>Demonstrated a positive attitude about the team and its work</li>
 </ol>
-<p>This evaluation is NOT based directly on the scores that you receive in the feedback, but a satisfactory peer and self-evaluation is assessed based on the level of constructiveness of the feedback you provide. More detailed, constructive feedback is more useful to help your peers better understand their strengths and areas for growth. Doing so respectfully and compassionately is a requirement. Your peers will receive anonymized versions of the feedback that you share.</p>
+<p>This evaluation is NOT based directly on the scores that you receive in the feedback, but a satisfactory peer and self-evaluation is assessed based on the level of constructiveness of the feedback you provide. More detailed, constructive feedback is more useful to help your peers better understand their strengths and areas for growth. Doing so respectfully and compassionately is a requirement. Your peers will receive anonymized versions of the feedback that you share. If the feedback you submit to your teammates does not demonstrate demonstrate a meaningful effort, your final project grade will be reduced by one letter (e.g., A- to B-).</p>
 </section>
 <section id="submission-evaluation-grading" class="level2">
 <h2 class="anchored" data-anchor-id="submission-evaluation-grading">Submission, Evaluation, &amp; Grading</h2>
-<p>You should submit each deliverable from your project through Gradescope. You will submit a link to each team deliverable. <strong>This should be submitted AS A TEAM not through individual submissions</strong> (points will be deducted if this is not followed). The project proposal, and draft final report should be submitted through GradeScope as links to Google Docs (so that we can attach easy-to-respond-to comments) using the templates provided. The link to the presentation slides and github repo should also both be submitted as links via GradeScope. The final project report, however, should be submitted as a PDF document in GradeScope.</p>
+<p>You should submit each deliverable from your project through Gradescope. You will submit a link to each team deliverable. <strong>This should be submitted AS A TEAM not through individual submissions</strong>. The project proposal, and draft final report should be submitted through GradeScope as links to Google Docs (so that we can attach easy-to-respond-to comments) using the templates provided. The link to the github repo should be submitted as a link via GradeScope. The final project report, however, should be submitted as a PDF document in GradeScope.</p>
 <p>The grading for this project will be assigned as follows:</p>
 <table class="caption-top table">
 <colgroup>
@@ -425,47 +422,77 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 </thead>
 <tbody>
 <tr class="odd">
-<td>Presentation</td>
-<td>5 points, graded</td>
+<td>Final Report</td>
+<td>15 points, graded</td>
 </tr>
 <tr class="even">
-<td>Final Report</td>
-<td>10 points, graded</td>
-</tr>
-<tr class="odd">
 <td>Team Proposal</td>
 <td>Written or verbal feedback will be provided to help guide your project design.**</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Draft Final Report</td>
 <td>Written feedback will be provided to help guide your final report writing.**</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Github Repository</td>
 <td>Required for project submission to be considered complete.**</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Peer Evaluation</td>
 <td>Required for project submission to be considered complete.**</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Total</td>
 <td>15 points</td>
 </tr>
 </tbody>
 </table>
-<p>** No points will be directly assigned. One point will be deducted from your overall final project score for each day late; up to 2 points may be deducted from the overall project score (out of 15 possible points) if the deliverable is unsatisfactory (if it does not represent a serious effort towards the deliverable)</p>
+<p>** No points will be directly assigned. One point will be deducted from your overall final project score for each day late; up to 2 points may be deducted from the overall project score (out of 15 possible points) if the deliverable is unsatisfactory (i.e., if it does not represent a serious effort towards the deliverable)</p>
 </section>
-<section id="ideas" class="level2">
-<h2 class="anchored" data-anchor-id="ideas">Ideas</h2>
+<section id="sample-projects" class="level2">
+<h2 class="anchored" data-anchor-id="sample-projects">Sample projects</h2>
+<p>The following projects ideas are short sketches showing what projects that generally meet the above criteria might look like. These ideas were jointly developed using AI tools to create a sufficient breadth of project types to help provide inspiration.</p>
+<section id="example-project-1-hospital-readmission-risk-prediction" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-1-hospital-readmission-risk-prediction">Example Project 1: Hospital Readmission Risk Prediction</h3>
+<p><strong>Stakeholder</strong>: Hospital discharge planning teams and health insurance case managers.</p>
+<p><strong>Problem</strong>: Predict 30-day hospital readmission risk from patient demographics, diagnosis codes, length of stay, and prior visit history.</p>
+<p><strong>Short description of why stakeholders care</strong>: Hospitals face financial penalties from Medicare when patients are readmitted within 30 days of discharge. More importantly, readmissions often signal that a patient’s care plan was inadequate or that they lacked support to recover safely at home. A readmission risk model used at discharge could trigger additional follow-up calls, home health visits, or medication reviews for high-risk patients, but only if clinicians trust it.</p>
+<p><strong>Dataset</strong>: <a href="https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008">Diabetes 130-US Hospitals Dataset</a> (UCI, ~100K rows)</p>
+<p><strong>Core requirements</strong>:</p>
 <ul>
-<li><strong>Design your own project based on a question or problem</strong>. How well can you detect a disease using only data that might be available through sensors on a smart watch? How well do interpretable machine learning techniques perform in predicting recidivism as compared to less interpretable or explainable methodologies?</li>
-<li><strong>Reproduce the work of a published study and build on it</strong>. Reproducing the results of a journal article can be a great way to dive into advanced materials. The goal for a project like this would be to reproduce the study and build on it in some way: test a new hypothesis, adjust the methodology, try it on other data that may present new and interesting challenges. Reproducing papers can be hard, so you’ll want to choose wisely and make clear what your innovation will be. As a starting place, you can explore <a href="https://paperswithcode.com/">Papers with Code</a> which typically have papers where the code and the data are both shared, often making reproducing their work simpler.</li>
-<li><strong>Participate in an active machine learning competition</strong>. Online machine learning competitions are sponsored by organizations with a significantly high interest in a problem that they are investing prize money into finding a solution. Examples of competition platforms include <a href="https://www.kaggle.com/competitions">Kaggle</a>, <a href="https://www.drivendata.org/competitions/">Driven Data</a>, <a href="https://zindi.africa/competitions">Zindi</a>, <a href="https://www.aicrowd.com/">AICrowd</a>, etc. If you choose to participate in a competition, it must be an active competition where your team can compete; it cannot be a “sample” competition that is only for learning to use the platform (e.g.&nbsp;the Kaggle Titanic competition, etc.). You will want to learn about the application domain.</li>
-<li><strong>Build your own tool</strong>. Great value can come from making a tool available for use, but building the infrastructure is a challenge. You may want to create a chatbot that creates poetry based on themes that you feed in, or design a search tool that scans satellite data of the Earth for signs of natural disasters. The key here is that your tool will need to be functional and usable by your target audience. For this path, part of your output should be a demonstration of your tool.</li>
+<li>Model comparison and evaluation: identify a reasonable baseline model from the field and select several reasonable models to compare it to. Conduct a stratified k-fold cross-validation and compare the performance of the models.</li>
+<li>Analyze the results thoroughly and compare performance by race, insurance type, or age; investigate disparities in performance and report how this may impact healthcare equity.</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Interpretability:</strong> A black-box score that a medical professional cannot explain to a patient or justify in a care plan is unlikely to be used in practice. Investigate whether interpretable models can achieve similar performance (e.g.&nbsp;sparse logical models, generalized additive models, decision trees, etc.). Identify features most associated with readmission risk; verify alignment with clinical risk factors and discuss your findings.</li>
+<li><strong>Calibration:</strong> If a care team told a patient has “72% readmission risk” needs that number to mean something. Assess probability calibration (how closely the predicted probabilities match actual probabilities).Try some approaches to correct any issues found with model calibration.</li>
+<li><strong>Model fairness audit and improvement:</strong>. If performance differs by race, insurance type, or age, explore whether there are class imbalances in the data and investigate how these might be able to be overcome through class weighting, over- or under-sampling, etc.</li>
+<li><strong>Error cost analysis:</strong>: Define a realistic cost matrix (false negatives are more dangerous than false positives) and tune the decision threshold accordingly. How would changes in cost impact the operating point and what implications might that have for clinical applications?</li>
+</ul>
+<hr>
+</section>
+<section id="example-project-2-predicting-socioeconomic-outcomes-from-satellite-imagery" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-2-predicting-socioeconomic-outcomes-from-satellite-imagery">Example Project 2: Predicting Socioeconomic Outcomes from Satellite Imagery</h3>
+<p><strong>Stakeholder</strong>: International development organizations (e.g., World Bank) and humanitarian NGOs.</p>
+<p><strong>Problem</strong>: Use pre-trained computer vision models to extract features from satellite images and predict poverty indicators.</p>
+<p><strong>Short description of why stakeholders care</strong>: Reliable poverty data in low-income countries is often years out of date or simply unavailable. Traditional surveys are expensive, slow, and require physical access to remote areas. A model that estimates poverty indicators from freely available satellite imagery could allow organizations to continuously monitor the impact of aid programs, identify communities in need, and allocate limited resources more equitably. The distribution shift and data efficiency stretch goals are directly motivated by the reality that a model trained on one region must often be deployed in another with little additional labeled data.</p>
+<p><strong>Dataset</strong>: <a href="https://sustainlab-group.github.io/sustainbench/">SustainBench</a> or DHS poverty data + satellite tiles</p>
+<p><strong>Core requirements</strong>:</p>
+<ul>
+<li>Model comparison and evaluation: using pretrained computer visions models (e.g., CNNs or vision transforms) extract features from the relevant images and then use a spatial cross-validation (ensure train/test splits do not leak geographically adjacent tiles) to estimate poverty.</li>
+<li>Evaluate performance over different spatial contexts/regions and explore how it differs region-to-region? What might the implications be for practical applications?</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Distribution shift analysis:</strong> A model trained on one region must often be deployed in another with little additional labeled data. Fine-tune your model on one region, evaluate on another and quantify the performance drop; repeat this across several regions and determine the average change in performance. Discuss why this matters for deployment and how to address any performance gaps you might discover.</li>
+<li><strong>Deployment constraints:</strong> Document compute requirements: GPU hours, memory usage, and estimated cost on a cloud platform. With your findings comment on how scalable this approach may be for larger geographies?</li>
+<li><strong>Explainability:</strong> Generate activation maps to visualize what image regions the model attends to; do they correspond to meaningful features (roads, vegetation, building density)? What do you learn from them?</li>
+<li><strong>Data efficiency:</strong> Train on progressively smaller labeled subsets and plot a learning curve. At what point does additional labeled data stop helping? What’s the smallest amount of data for which you can still get acceptable results? What implications does this have for practical application/deployment?</li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

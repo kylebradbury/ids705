@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Past Offerings of this Course – IDS705 (2026): Principles of Machine Learning</title>
+<title>other_ideas – IDS705 (2026): Principles of Machine Learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,7 +124,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Past Offerings of this Course</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -284,44 +284,197 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#example-project-3-urban-air-quality-prediction" id="toc-example-project-3-urban-air-quality-prediction" class="nav-link active" data-scroll-target="#example-project-3-urban-air-quality-prediction">Example Project 3: Urban Air Quality Prediction</a></li>
+  <li><a href="#example-project-4-fake-news-misinformation-detection" id="toc-example-project-4-fake-news-misinformation-detection" class="nav-link" data-scroll-target="#example-project-4-fake-news-misinformation-detection">Example Project 4: Fake News / Misinformation Detection</a></li>
+  <li><a href="#example-project-5-plant-disease-detection-from-leaf-images" id="toc-example-project-5-plant-disease-detection-from-leaf-images" class="nav-link" data-scroll-target="#example-project-5-plant-disease-detection-from-leaf-images">Example Project 5: Plant Disease Detection from Leaf Images</a></li>
+  <li><a href="#example-project-6-environmental-sound-classification" id="toc-example-project-6-environmental-sound-classification" class="nav-link" data-scroll-target="#example-project-6-environmental-sound-classification">Example Project 6: Environmental Sound Classification</a></li>
+  <li><a href="#example-project-7-speech-emotion-recognition" id="toc-example-project-7-speech-emotion-recognition" class="nav-link" data-scroll-target="#example-project-7-speech-emotion-recognition">Example Project 7: Speech Emotion Recognition</a></li>
+  <li><a href="#example-project-8-credit-card-fraud-detection" id="toc-example-project-8-credit-card-fraud-detection" class="nav-link" data-scroll-target="#example-project-8-credit-card-fraud-detection">Example Project 8: Credit Card Fraud Detection</a></li>
+  <li><a href="#example-project-9-customer-churn-prediction" id="toc-example-project-9-customer-churn-prediction" class="nav-link" data-scroll-target="#example-project-9-customer-churn-prediction">Example Project 9: Customer Churn Prediction</a></li>
+  <li><a href="#example-project-10-clinical-note-classification-medical-nlp" id="toc-example-project-10-clinical-note-classification-medical-nlp" class="nav-link" data-scroll-target="#example-project-10-clinical-note-classification-medical-nlp">Example Project 10: Clinical Note Classification (Medical NLP)</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Past Offerings of this Course</h1>
-<p class="subtitle lead">IDS 705 Principles of Machine Learning</p>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<section id="example-project-3-urban-air-quality-prediction" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-3-urban-air-quality-prediction">Example Project 3: Urban Air Quality Prediction</h3>
+<p><strong>Stakeholder</strong>: Municipal public health agencies and city emergency management offices.</p>
+<p><strong>Problem</strong>: Predict next-day air quality index (AQI) using historical pollution levels, weather, and time features.</p>
+<p><strong>Short description of why stakeholders care</strong>: High-pollution days disproportionately harm children, the elderly, and people with respiratory conditions. Cities that can reliably predict next-day AQI can issue timely public health alerts, temporarily restrict high-emission vehicles, and advise vulnerable populations to stay indoors. A model that produces well-calibrated uncertainty estimates is especially valuable here: an agency that knows a forecast is highly uncertain can issue a precautionary alert rather than wait for certainty.</p>
+<p><strong>Dataset</strong>: <a href="https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data">Beijing Multi-Site Air Quality Dataset</a> (UCI, ~420K rows across 12 monitoring stations)</p>
+<p><strong>Core requirements</strong>:</p>
 <ul>
-<li><a href="https://kylebradbury.github.io/ids705_2025/">Spring 2025 (IDS705)</a></li>
-<li><a href="https://kylebradbury.github.io/ids705_2024/">Spring 2024 (IDS705)</a></li>
-<li><a href="https://kylebradbury.github.io/ids705_2023/">Spring 2023 (IDS705)</a></li>
-<li><a href="https://kylebradbury.github.io/ids705_sp2022/">Spring 2022 (IDS705)</a></li>
-<li><a href="https://kylebradbury.github.io/ids705_sp2021/">Spring 2021 (IDS705)</a></li>
-<li><a href="https://kylebradbury.github.io/ids705_sp2020/">Spring 2020 (IDS705)</a></li>
-<li><a href="https://kylebradbury.github.io/ids705_sp2019/">Spring 2019 (IDS705)</a></li>
-<li><a href="https://kylebradbury.github.io/ece590/">Spring 2018 (ECE590)</a></li>
+<li>Rigorous evaluation: time-aware train/test split (no future leakage), RMSE and MAE, plus residual plots to check for systematic errors across time of day or season</li>
+<li>Compare at least three approaches: a persistence baseline (tomorrow = today), a classical regression model, and a tree-based ensemble model</li>
+<li>Engineer and document lag features and rolling statistics; ablate them to show their contribution</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Uncertainty quantification:</strong> Use dropout-based Monte Carlo estimation or quantile regression to produce prediction intervals — discuss when uncertainty is high and what that means for a public health alert system</li>
+<li><strong>Operational deployment analysis:</strong> Design a retraining pipeline — how often should the model be updated? What triggers retraining? What monitoring would detect model drift?</li>
+<li><strong>Multi-site generalization:</strong> Train on one monitoring station and evaluate on others — quantify how well the model transfers and identify which features drive degraded performance</li>
+<li><strong>Computational profiling:</strong> Compare training and inference time across model types; discuss the right tradeoff if the model must run hourly on a city server</li>
+</ul>
+<hr>
+</section>
+<section id="example-project-4-fake-news-misinformation-detection" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-4-fake-news-misinformation-detection">Example Project 4: Fake News / Misinformation Detection</h3>
+<p><strong>Stakeholder</strong>: Social media trust &amp; safety teams and independent fact-checking organizations.</p>
+<p><strong>Problem</strong>: Classify news articles as reliable or potentially misleading using a fine-tuned language model.</p>
+<p><strong>Short description of why stakeholders care</strong>: Misinformation spreads faster than corrections, and human fact-checkers cannot scale to the volume of content posted daily on major platforms. An automated classifier could help prioritize which articles get routed to human reviewers first — but a model that systematically flags content from certain political perspectives or demographic communities could itself become a vector of harm, suppressing legitimate speech.</p>
+<p><strong>Dataset</strong>: <a href="https://www.kaggle.com/datasets/saurabhshahane/fake-news-classification">WELFake Dataset</a> (Kaggle, ~72K articles, combining 4 public datasets)</p>
+<p><strong>Core requirements</strong>:</p>
+<ul>
+<li>Rigorous evaluation: macro F1, calibration check, and held-out evaluation on articles from a time period <em>after</em> the training data to assess temporal generalization</li>
+<li>Compare TF-IDF + logistic regression baseline against fine-tuned DistilBERT — report performance, training time, and inference latency for both</li>
+<li>Perform error analysis on at least 30 misclassified examples, categorized by error type (e.g., satire, opinion pieces, etc.)</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Bias audit:</strong> Test whether error rates differ systematically across political topics, sources, or writing styles — discuss the ethical implications of deploying a biased detector</li>
+<li><strong>Adversarial robustness:</strong> Apply text perturbations (synonym replacement, paraphrasing) and measure performance degradation — what does this imply about real-world adversarial misuse?</li>
+<li><strong>Interpretability:</strong> Use attention weights or LIME to identify which words most influence predictions; do they reflect genuine signals or dataset artifacts?</li>
+<li><strong>Deployment feasibility:</strong> Estimate the cost of running this model at scale (e.g., 1M posts/day) — discuss latency, compute cost, and the human-in-the-loop considerations required</li>
+</ul>
+<hr>
+</section>
+<section id="example-project-5-plant-disease-detection-from-leaf-images" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-5-plant-disease-detection-from-leaf-images">Example Project 5: Plant Disease Detection from Leaf Images</h3>
+<p><strong>Stakeholder</strong>: Smallholder farmers in low- and middle-income countries, and the agricultural extension officers who support them.</p>
+<p><strong>Problem</strong>: Classify plant leaf images as healthy or diseased (and identify the disease type) using a fine-tuned CNN.</p>
+<p><strong>Short description of why stakeholders care</strong>: Crop disease can devastate a family’s food supply and income, but accurate diagnosis traditionally requires an agronomist to visit the farm — a service that is expensive and often unavailable in rural areas. A smartphone-based detection tool could allow a farmer to photograph a leaf and receive an immediate diagnosis, enabling early treatment before disease spreads across a field. However, the PlantVillage dataset consists of lab-quality images taken under controlled conditions, while real farm photos are taken in variable light, at odd angles, and with consumer-grade phones. This gap makes the distribution shift and edge deployment analyses central to whether this model would ever be useful in practice.</p>
+<p><strong>Dataset</strong>: <a href="https://www.kaggle.com/datasets/emmarex/plantdisease">PlantVillage Dataset</a> (~54K images, 38 classes)</p>
+<p><strong>Core requirements</strong>:</p>
+<ul>
+<li>Rigorous evaluation: per-class precision, recall, and F1; confusion matrix with analysis of which disease pairs are most often confused</li>
+<li>Compare at least two backbone architectures (e.g., MobileNetV2 vs.&nbsp;EfficientNet-B0) on both accuracy <em>and</em> inference speed — justify the final model choice based on the tradeoff</li>
+<li>Document the effect of data augmentation: train with and without it and report differences in validation performance and overfitting behavior</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Edge deployment analysis:</strong> Profile model size, inference latency, and memory footprint — assess whether it could run on a smartphone (e.g., via TensorFlow Lite) and what accuracy is sacrificed</li>
+<li><strong>Grad-CAM analysis:</strong> Generate activation maps for correct and misclassified predictions — do highlighted regions correspond to actual lesions? What does a mislocalized heatmap imply about reliability?</li>
+<li><strong>Distribution shift:</strong> Evaluate on images taken with different lighting, angles, or camera quality — discuss the gap between controlled lab images and real farm conditions</li>
+<li><strong>Low-data regime:</strong> Simulate a scenario where only 10% of labeled data is available; compare to the full-data model and discuss strategies like augmentation or synthetic data generation</li>
+</ul>
+<hr>
+</section>
+<section id="example-project-6-environmental-sound-classification" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-6-environmental-sound-classification">Example Project 6: Environmental Sound Classification</h3>
+<p><strong>Stakeholder</strong>: Smart city infrastructure teams and urban noise pollution regulators.</p>
+<p><strong>Problem</strong>: Classify short audio clips into environmental sound categories (e.g., dog bark, siren, jackhammer, street music) using audio feature extraction and a fine-tuned model.</p>
+<p><strong>Short description of why stakeholders care</strong>: Cities are increasingly deploying acoustic sensor networks to monitor urban environments — detecting sirens, construction, gunshots, or crowd noise in real time. Automating the classification of these sounds enables faster emergency response, noise ordinance enforcement, and quality-of-life monitoring in dense neighborhoods. A model that can run efficiently on low-power edge hardware (a sensor mounted on a lamppost) is far more deployable than one requiring cloud inference for every audio clip, making the edge deployment and computational profiling analyses directly relevant.</p>
+<p><strong>Dataset</strong>: <a href="https://urbansounddataset.weebly.com/urbansound8k.html">UrbanSound8K</a> (~8,700 clips, 10 classes, with pre-defined cross-validation folds)</p>
+<p><strong>Core requirements</strong>:</p>
+<ul>
+<li>Rigorous evaluation: use the pre-defined 10-fold cross-validation splits in UrbanSound8K (these exist specifically to prevent leakage across recording locations — do not shuffle and re-split)</li>
+<li>Compare at least two feature representations: hand-crafted features (MFCCs, mel spectrograms) vs.&nbsp;a pre-trained audio model (e.g., VGGish or YAMNet)</li>
+<li>Analyze per-class performance and identify which sound categories are hardest to distinguish and why</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Edge deployment analysis:</strong> Profile model size and inference latency — benchmark whether the model could run in real time on a constrained device; compare a lightweight vs.&nbsp;full model on the accuracy/efficiency tradeoff</li>
+<li><strong>Data augmentation for audio:</strong> Experiment with audio-specific augmentations (time stretching, pitch shifting, adding background noise) and measure their effect on robustness</li>
+<li><strong>Acoustic environment shift:</strong> Evaluate a model trained on one acoustic environment (e.g., one neighborhood type) on clips from a different one — quantify and interpret the performance gap</li>
+<li><strong>Confusion analysis:</strong> For the most-confused class pairs, retrieve and listen to misclassified clips; write a structured analysis of whether errors are model failures or genuinely ambiguous sounds</li>
+</ul>
+<hr>
+</section>
+<section id="example-project-7-speech-emotion-recognition" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-7-speech-emotion-recognition">Example Project 7: Speech Emotion Recognition</h3>
+<p><strong>Stakeholder</strong>: Mental health technology companies and call center quality assurance teams.</p>
+<p><strong>Problem</strong>: Classify emotional state (e.g., angry, happy, sad, neutral, fearful) from short speech recordings using audio features and a pre-trained model.</p>
+<p><strong>Short description of why stakeholders care</strong>: Detecting emotional state from speech has two distinct high-stakes use cases. In mental health tech, an app that passively monitors vocal patterns could flag signs of depression or acute distress and prompt a check-in — but deploying such a tool irresponsibly raises significant privacy and consent concerns. In call centers, emotion-aware systems can route frustrated callers to senior agents or alert supervisors in real time. Both use cases demand careful attention to whether the model’s emotion labels generalize across different speakers, accents, ages, and cultural backgrounds — making the fairness and distribution shift analyses especially meaningful here.</p>
+<p><strong>Dataset</strong>: <a href="https://zenodo.org/record/1188976">RAVDESS</a> + <a href="https://github.com/CheyneyComputerScience/CREMA-D">CREMA-D</a> combined (~10K clips across diverse speakers, 6–8 emotion classes)</p>
+<p><strong>Core requirements</strong>:</p>
+<ul>
+<li>Rigorous evaluation: speaker-independent cross-validation (train and test sets must contain <em>different</em> speakers — not just different clips from the same speaker, which would inflate results significantly)</li>
+<li>Compare MFCCs + classical classifier baseline against a pre-trained audio model (e.g., wav2vec 2.0 features)</li>
+<li>Report per-emotion F1 scores and analyze which emotions are most frequently confused</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Speaker generalization:</strong> Analyze performance broken down by speaker demographics (age, gender) available in CREMA-D — does the model perform worse for certain groups?</li>
+<li><strong>Cross-dataset generalization:</strong> Train on RAVDESS, evaluate on CREMA-D (or vice versa) — quantify the performance drop and discuss what causes it (studio conditions, actor demographics, label definitions)</li>
+<li><strong>Ethical analysis:</strong> Write a structured analysis of the risks of deploying this model in a mental health or call center context — consider consent, false positives, cultural variation in emotional expression, and potential for misuse</li>
+<li><strong>Uncertainty quantification:</strong> Identify clips where the model is least confident; listen to a sample and assess whether low confidence corresponds to genuinely ambiguous emotional expression</li>
+</ul>
+<hr>
+</section>
+<section id="example-project-8-credit-card-fraud-detection" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-8-credit-card-fraud-detection">Example Project 8: Credit Card Fraud Detection</h3>
+<p><strong>Stakeholder</strong>: Retail banks and payment processors (e.g., Visa, Mastercard, Stripe).</p>
+<p><strong>Problem</strong>: Detect fraudulent credit card transactions from anonymized transaction features.</p>
+<p><strong>Short description of why stakeholders care</strong>: Credit card fraud costs the global financial industry tens of billions of dollars annually. Banks must flag fraudulent transactions in milliseconds at the point of sale — too slow and the transaction goes through; too many false positives and legitimate customers are frustrated by declined cards. This makes the tradeoff between precision and recall not just an academic exercise but a business decision with direct revenue and customer satisfaction implications. The extreme class imbalance (~0.17% fraud rate) and the need for real-time inference make this one of the most technically demanding production ML problems in industry.</p>
+<p><strong>Dataset</strong>: <a href="https://www.kaggle.com/competitions/ieee-fraud-detection/data">IEEE-CIS Fraud Detection Dataset</a> (Kaggle, ~590K transactions with transaction, device, and identity features)</p>
+<p><strong>Core requirements</strong>:</p>
+<ul>
+<li>Rigorous evaluation: precision-recall AUC (not ROC-AUC — with extreme class imbalance, ROC-AUC is misleading), with explicit analysis of the precision/recall tradeoff at different operating thresholds</li>
+<li>Handle extreme class imbalance (~0.17% fraud rate) explicitly — compare at least two strategies and justify the choice</li>
+<li>Establish a simple rule-based baseline (e.g., flag transactions over a dollar threshold) and compare model performance against it</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Threshold optimization:</strong> Frame threshold selection as a business decision — assign a realistic cost to false positives (customer friction) and false negatives (fraud loss) and identify the threshold that minimizes expected cost</li>
+<li><strong>Feature importance and interpretability:</strong> Use SHAP to identify the most predictive features; discuss whether they make intuitive sense and whether any raise fairness concerns (e.g., device type or location as proxies for demographics)</li>
+<li><strong>Temporal validation:</strong> Split train/test by transaction time rather than randomly — evaluate how much performance degrades when tested on more recent transactions, and discuss what this means for model maintenance</li>
+<li><strong>Inference latency analysis:</strong> Profile model inference time per transaction — discuss what latency budget is realistic for point-of-sale fraud detection and which model types fit within it</li>
+</ul>
+<hr>
+</section>
+<section id="example-project-9-customer-churn-prediction" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-9-customer-churn-prediction">Example Project 9: Customer Churn Prediction</h3>
+<p><strong>Stakeholder</strong>: Subscription businesses (telecom providers, SaaS companies, streaming platforms) and their customer retention teams.</p>
+<p><strong>Problem</strong>: Predict which customers are likely to cancel their subscription based on usage patterns, contract details, and service interactions.</p>
+<p><strong>Short description of why stakeholders care</strong>: Acquiring a new customer costs significantly more than retaining an existing one. A churn prediction model allows a retention team to proactively intervene — offering a discount, a service upgrade, or a personal outreach call — before a customer cancels. But interventions cost money and can backfire (offering a discount to a customer who was not going to churn anyway reduces revenue), so the model needs to be well-calibrated and the decision of <em>who</em> to intervene with must be economically justified. This makes threshold optimization and uplift modeling particularly natural additional analyses.</p>
+<p><strong>Dataset</strong>: <a href="https://www.kaggle.com/datasets/ylchang/telco-customer-churn-1113">Microsoft Azure Telco Customer Churn Dataset</a> (Kaggle, ~100K customers with rich behavioral features)</p>
+<p><strong>Core requirements</strong>:</p>
+<ul>
+<li>Rigorous evaluation: stratified k-fold cross-validation, ROC-AUC and precision-recall AUC, with analysis of performance at multiple operating thresholds</li>
+<li>Compare at least three model types (e.g., logistic regression, random forest, gradient boosting) and document the performance/interpretability tradeoff across them</li>
+<li>Analyze feature importance and identify the top behavioral signals associated with churn risk</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Business-driven threshold selection:</strong> Assign realistic costs to false positives (wasted retention offer) and false negatives (lost customer lifetime value) — identify the profit-maximizing operating threshold</li>
+<li><strong>Interpretability:</strong> Use SHAP to explain individual predictions — which customers are at risk <em>and why</em>? Discuss how a retention agent would use this information in a real outreach workflow</li>
+<li><strong>Temporal validation:</strong> Split train/test by customer observation date — evaluate whether the model generalizes to more recently acquired customers and discuss concept drift</li>
+<li><strong>Retention uplift analysis:</strong> Discuss the difference between predicting churn and predicting <em>who will respond to an intervention</em> — introduce the concept of uplift modeling and explain why targeting the highest-churn customers is not always the right strategy</li>
+</ul>
+<hr>
+</section>
+<section id="example-project-10-clinical-note-classification-medical-nlp" class="level3">
+<h3 class="anchored" data-anchor-id="example-project-10-clinical-note-classification-medical-nlp">Example Project 10: Clinical Note Classification (Medical NLP)</h3>
+<p><strong>Stakeholder</strong>: Hospital informatics departments and health insurance prior authorization teams.</p>
+<p><strong>Problem</strong>: Classify clinical notes by medical specialty or procedure type using a fine-tuned biomedical language model.</p>
+<p><strong>Short description of why stakeholders care</strong>: Enormous amounts of clinically valuable information are locked in unstructured physician notes — discharge summaries, radiology reports, nursing notes. Automatically classifying these notes by medical specialty, diagnosis category, or acuity level could accelerate clinical workflows, improve billing accuracy, and help insurers process prior authorization requests faster. However, clinical NLP models trained on notes from one hospital system often fail when deployed at another due to differences in documentation style, abbreviation conventions, and patient populations — making distribution shift a first-class concern rather than an afterthought.</p>
+<p><strong>Dataset</strong>: <a href="https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions">MTSamples</a> (Kaggle, ~5K transcription samples across 40 specialties) or <a href="https://physionet.org/content/mimiciii/1.4/">MIMIC-III</a> discharge summaries (~52K notes, requires free credentialing via PhysioNet)</p>
+<p><strong>Core requirements</strong>:</p>
+<ul>
+<li>Rigorous evaluation: macro F1 across all specialty classes (many are underrepresented), with analysis of which specialties are hardest to classify and why</li>
+<li>Compare a general-purpose baseline (TF-IDF + logistic regression) against a fine-tuned biomedical language model (e.g., BioBERT or ClinicalBERT via HuggingFace)</li>
+<li>Analyze the effect of note length and document truncation on model performance — clinical notes are often much longer than model context windows</li>
+</ul>
+<p><strong>Additional analyses</strong> (choose at least 2):</p>
+<ul>
+<li><strong>Distribution shift:</strong> Evaluate whether a model trained on one note type (e.g., discharge summaries) generalizes to another (e.g., radiology reports) — identify what linguistic features change across note types</li>
+<li><strong>Interpretability:</strong> Use attention visualization or LIME to identify which clinical terms most drive predictions; verify that they correspond to medically meaningful signals rather than formatting artifacts</li>
+<li><strong>Data efficiency:</strong> Plot a learning curve by training on progressively smaller subsets — discuss the practical implication for a small community hospital that cannot afford to annotate thousands of notes</li>
+<li><strong>Privacy and de-identification analysis:</strong> Discuss the risks of training on real clinical text — what types of sensitive information appear in notes, how is de-identification typically done, and what residual risks remain even after de-identification?</li>
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
