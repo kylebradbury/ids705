@@ -528,7 +528,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
       <b>Practical Considerations and Advanced Topics I</b> <br>
       A survey of practical considerations and advanced topics
     </td>
-    <td>DL Ch 11: Practical Methodology</td>
+    <td>None</td>
     <td>
       [slides]
       <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture24_special_topics.pdf">[slides]</a> -->
