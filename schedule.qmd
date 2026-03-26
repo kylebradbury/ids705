@@ -462,13 +462,13 @@ The schedule below is a guide to what we will be covering throughout the semeste
 
   <tr class="table-warning">
     <td><b>Deliverable</b></td>
-    <td class="date">Friday <br> Mar 27</td>
+    <td class="date">Monday <br> Mar 30 <s>27</s></td>
     <td><b>Assignment #5 Due (at 9pm)</b> <br> Kaggle Competition and Unsupervised Learning<br><b>Kaggle Competition Ends 9pm this day</b></td>
     <td></td>
     <td>
       <!-- [assignment] <br> -->
       <a href="https://kylebradbury.github.io/ids705/notebooks/assignment5.html">[assignment]</a><br>
-      [submit]
+      <!-- [submit] -->
       <a href="https://www.gradescope.com/">[submit]</a>
     </td>
   </tr>
