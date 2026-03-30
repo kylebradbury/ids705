@@ -570,10 +570,10 @@ The schedule below is a guide to what we will be covering throughout the semeste
     <td><b>(Optional) Assignment #6 Due (at 9pm)</b><br>Reinforcement learning</td>
     <td></td>
     <td>
-      [assignment]
-      [submit]
-      <!-- <a href="https://kylebradbury.github.io/ids705/notebooks/assignment6.html">[assignment]</a><br> -->
-      <!-- <a href="https://www.gradescope.com/">[submit]</a> -->
+      <!-- [assignment] -->
+      <!-- [submit] -->
+      <a href="https://kylebradbury.github.io/ids705/notebooks/assignment6.html">[assignment]</a><br>
+      <a href="https://www.gradescope.com/">[submit]</a>
     </td>
   </tr>
 

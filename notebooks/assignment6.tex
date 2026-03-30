@@ -1,0 +1,884 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Assignment 6},
+  pdfauthor={Kyle Bradbury},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Assignment 6}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Reinforcement Learning}
+\author{Kyle Bradbury}
+\date{2026-03-30}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+
+\subsection{Instructions}\label{instructions}
+
+\emph{Instructions for all assignments can be found
+\href{https://kylebradbury.github.io/ids705/notebooks/assignment_instructions.html}{here}.
+Note: this assignment falls under collaboration Mode 2: Individual
+Assignment -- Collaboration Permitted. Please refer to the syllabus for
+additional information. Please be sure to list the names of any students
+that you worked with on this assignment. Total points in the assignment
+add up to 90; an additional 10 points are allocated to professionalism
+and presentation quality.}
+
+\subsection{Learning objectives}\label{learning-objectives}
+
+After completing this assignment, you will be able to\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  Clearly articulate the role of the key components of reinforcement
+  learning: the agent, actions, rewards, policies, state values, and
+  action values.
+\item
+  Apply policy evaluation to a problem in practice
+\item
+  Use Monte Carlo control to determine and apply an optimal policy for a
+  reinforcement learning problem and learn an optimal strategy from
+  trial and error, alone
+\end{itemize}
+
+\subsection{Background on our Blackjack
+variant}\label{background-on-our-blackjack-variant}
+
+Your goal is to develop a reinforcement learning technique to learn the
+optimal policy for winning at blackjack through trial-and-error
+learning. Here, we're going to modify the rules from traditional
+blackjack a bit in a way that corresponds to the game presented in
+Sutton and Barto's \emph{Reinforcement Learning: An Introduction}
+(Chapter 5, example 5.1). A full implementation of the game is provided
+and usage examples are detailed in the class header below.
+
+The rules of this modified version of the game of blackjack are as
+follows:
+
+\begin{itemize}
+\tightlist
+\item
+  Blackjack is a card game where the goal is to obtain cards that sum to
+  as near as possible to 21 without going over. We're playing against a
+  fixed (autonomous) dealer.
+\item
+  Face cards (Jack, Queen, King) have point value 10. Aces can either
+  count as 11 or 1 (whichever is most advantageous to the player), and
+  we're refer to it as a `usable' Ace if we're treating it as 11
+  (indicating that it could be used as a `1', instead, if need be). This
+  game is played with a deck of cards sampled with replacement.
+\item
+  The game starts with both the player and the dealer having one face up
+  and one face down card.
+\item
+  The player can request additional cards (known as taking a ``hit'',
+  which we define as action ``1'') until either they decide to stop
+  (known as ``staying'', which we define as action `0') or their cards
+  exceed 21 (known as a ``bust'', at which time the game ends and player
+  loses).
+\item
+  If the player stays (and hasn't exceeded a score of 21), the dealer
+  reveals their facedown card, and draws until their sum is 17 or
+  greater. If the dealer busts the player wins. If neither player nor
+  dealer busts, the outcome (win, lose, draw) is decided by whose sum is
+  closer to 21. The reward for winning is +1, tying is 0, and losing is
+  -1.
+\end{itemize}
+
+Over the course of these exercises, you will accomplish three things:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Try your hand at this game of blackjack and see what your human
+  reinforcement learning system is able to achieve
+\item
+  Evaluate a naive policy using Monte Carlo policy evaluation
+\item
+  Determine an optimal policy using Monte Carlo control
+\end{enumerate}
+
+\emph{This problem is adapted from David Silver's
+\href{http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html}{excellent
+series on Reinforcement Learning} at University College London}
+
+\subsection{Exercise 1 - Human reinforcement
+learning}\label{exercise-1---human-reinforcement-learning}
+
+\textbf{{[}5 points{]}}
+
+\textbf{1.1.} Using the code detailed below, play at least 20 hands of
+the modified blackjack game below, and record your returns (average
+cumulative reward) across all episodes. This will help you get
+accustomed with how the game works, the data structures involved with
+representing states, and what strategies are most effective. Since for
+this game, you only get a nonzero reward at the end of the episode, you
+can simply play the game and note the reward in a spreadsheet, then
+average across all plays of the game (of course, you're welcome to code
+up a way to do that automatically if you're so inspired).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+
+\KeywordTok{class}\NormalTok{ Blackjack():}
+    \CommentTok{"""Simple blackjack environment adapted from OpenAI Gym:}
+\CommentTok{        https://github.com/openai/gym/blob/master/gym/envs/toy\_text/blackjack.py}
+\CommentTok{    }
+\CommentTok{    Blackjack is a card game where the goal is to obtain cards that sum to as}
+\CommentTok{    near as possible to 21 without going over.  They\textquotesingle{}re playing against a fixed}
+\CommentTok{    dealer.}
+\CommentTok{    }
+\CommentTok{    Face cards (Jack, Queen, King) have point value 10.}
+\CommentTok{    Aces can either count as 11 or 1, and it\textquotesingle{}s called \textquotesingle{}usable\textquotesingle{} at 11.}
+\CommentTok{    This game is placed with a deck sampled with replacement.}
+\CommentTok{    }
+\CommentTok{    The game starts with each (player and dealer) having one face up and one}
+\CommentTok{    face down card.}
+\CommentTok{    }
+\CommentTok{    The player can request additional cards (hit = 1) until they decide to stop}
+\CommentTok{    (stay = 0) or exceed 21 (bust).}
+\CommentTok{    }
+\CommentTok{    After the player stays, the dealer reveals their facedown card, and draws}
+\CommentTok{    until their sum is 17 or greater.  If the dealer goes bust the player wins.}
+\CommentTok{    If neither player nor dealer busts, the outcome (win, lose, draw) is}
+\CommentTok{    decided by whose sum is closer to 21.  The reward for winning is +1,}
+\CommentTok{    drawing is 0, and losing is {-}1.}
+\CommentTok{    }
+\CommentTok{    The observation is a 3{-}tuple of: the players current sum,}
+\CommentTok{    the dealer\textquotesingle{}s one showing card (1{-}10 where 1 is ace),}
+\CommentTok{    and whether or not the player holds a usable ace (0 or 1).}
+\CommentTok{    }
+\CommentTok{    This environment corresponds to the version of the blackjack problem}
+\CommentTok{    described in Example 5.1 in Reinforcement Learning: An Introduction}
+\CommentTok{    by Sutton and Barto (1998).}
+\CommentTok{    }
+\CommentTok{    http://incompleteideas.net/sutton/book/the{-}book.html}
+\CommentTok{    }
+\CommentTok{    Usage: }
+\CommentTok{        Initialize the class:}
+\CommentTok{            game = Blackjack()}
+\CommentTok{        }
+\CommentTok{        Deal the cards:}
+\CommentTok{            game.deal()}
+\CommentTok{            }
+\CommentTok{             (14, 3, False)}
+\CommentTok{             }
+\CommentTok{            This is the agent\textquotesingle{}s observation of the state of the game:}
+\CommentTok{            The first value is the sum of cards in your hand (14 in this case)}
+\CommentTok{            The second is the visible card in the dealer\textquotesingle{}s hand (3 in this case)}
+\CommentTok{            The Boolean is a flag (False in this case) to indicate whether or }
+\CommentTok{                not you have a usable Ace}
+\CommentTok{            (Note: if you have a usable ace, the sum will treat the ace as a }
+\CommentTok{                value of \textquotesingle{}11\textquotesingle{} {-} this is the case if this Boolean flag is "true")}
+\CommentTok{            }
+\CommentTok{        Take an action: Hit (1) or stay (0)}
+\CommentTok{        }
+\CommentTok{            Take a hit: game.step(1)}
+\CommentTok{            To Stay:    game.step(0)}
+\CommentTok{            }
+\CommentTok{        The output summarizes the game status:}
+\CommentTok{            }
+\CommentTok{            ((15, 3, False), 0, False)}
+\CommentTok{            }
+\CommentTok{            The first tuple (15, 3, False), is the agent\textquotesingle{}s observation of the}
+\CommentTok{            state of the game as described above.}
+\CommentTok{            The second value (0) indicates the rewards}
+\CommentTok{            The third value (False) indicates whether the game is finished}
+\CommentTok{    """}
+    
+    \KeywordTok{def} \FunctionTok{\_\_init\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{):}
+        \CommentTok{\# 1 = Ace, 2{-}10 = Number cards, Jack/Queen/King = 10}
+        \VariableTok{self}\NormalTok{.deck   }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{]}
+        \VariableTok{self}\NormalTok{.dealer }\OperatorTok{=}\NormalTok{ []}
+        \VariableTok{self}\NormalTok{.player }\OperatorTok{=}\NormalTok{ []}
+        \VariableTok{self}\NormalTok{.deal()}
+
+    \KeywordTok{def}\NormalTok{ step(}\VariableTok{self}\NormalTok{, action):}
+        \ControlFlowTok{if}\NormalTok{ action }\OperatorTok{==} \DecValTok{1}\NormalTok{:  }\CommentTok{\# hit: add a card to players hand and return}
+            \VariableTok{self}\NormalTok{.player.append(}\VariableTok{self}\NormalTok{.draw\_card())}
+            \ControlFlowTok{if} \VariableTok{self}\NormalTok{.is\_bust(}\VariableTok{self}\NormalTok{.player):}
+\NormalTok{                done }\OperatorTok{=} \VariableTok{True}
+\NormalTok{                reward }\OperatorTok{=} \OperatorTok{{-}}\DecValTok{1}
+            \ControlFlowTok{else}\NormalTok{:}
+\NormalTok{                done }\OperatorTok{=} \VariableTok{False}
+\NormalTok{                reward }\OperatorTok{=} \DecValTok{0}
+        \ControlFlowTok{else}\NormalTok{:  }\CommentTok{\# stay: play out the dealers hand, and score}
+\NormalTok{            done }\OperatorTok{=} \VariableTok{True}
+            \ControlFlowTok{while} \VariableTok{self}\NormalTok{.sum\_hand(}\VariableTok{self}\NormalTok{.dealer) }\OperatorTok{\textless{}} \DecValTok{17}\NormalTok{:}
+                \VariableTok{self}\NormalTok{.dealer.append(}\VariableTok{self}\NormalTok{.draw\_card())}
+\NormalTok{            reward }\OperatorTok{=} \VariableTok{self}\NormalTok{.}\BuiltInTok{cmp}\NormalTok{(}\VariableTok{self}\NormalTok{.score(}\VariableTok{self}\NormalTok{.player), }\VariableTok{self}\NormalTok{.score(}\VariableTok{self}\NormalTok{.dealer))}
+        \ControlFlowTok{return} \VariableTok{self}\NormalTok{.\_get\_obs(), reward, done}
+
+    \KeywordTok{def}\NormalTok{ \_get\_obs(}\VariableTok{self}\NormalTok{):}
+        \ControlFlowTok{return}\NormalTok{ (}\VariableTok{self}\NormalTok{.sum\_hand(}\VariableTok{self}\NormalTok{.player), }\VariableTok{self}\NormalTok{.dealer[}\DecValTok{0}\NormalTok{], }\VariableTok{self}\NormalTok{.usable\_ace(}\VariableTok{self}\NormalTok{.player))}
+
+    \KeywordTok{def}\NormalTok{ deal(}\VariableTok{self}\NormalTok{):}
+        \VariableTok{self}\NormalTok{.dealer }\OperatorTok{=} \VariableTok{self}\NormalTok{.draw\_hand()}
+        \VariableTok{self}\NormalTok{.player }\OperatorTok{=} \VariableTok{self}\NormalTok{.draw\_hand()}
+        \ControlFlowTok{return} \VariableTok{self}\NormalTok{.\_get\_obs()}
+    
+    \CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+    \CommentTok{\# Other helper functions}
+    \CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+    \KeywordTok{def} \BuiltInTok{cmp}\NormalTok{(}\VariableTok{self}\NormalTok{, a, b):}
+        \ControlFlowTok{return} \BuiltInTok{float}\NormalTok{(a }\OperatorTok{\textgreater{}}\NormalTok{ b) }\OperatorTok{{-}} \BuiltInTok{float}\NormalTok{(a }\OperatorTok{\textless{}}\NormalTok{ b)}
+    
+    \KeywordTok{def}\NormalTok{ draw\_card(}\VariableTok{self}\NormalTok{):}
+        \ControlFlowTok{return} \BuiltInTok{int}\NormalTok{(np.random.choice(}\VariableTok{self}\NormalTok{.deck))}
+    
+    \KeywordTok{def}\NormalTok{ draw\_hand(}\VariableTok{self}\NormalTok{):}
+        \ControlFlowTok{return}\NormalTok{ [}\VariableTok{self}\NormalTok{.draw\_card(), }\VariableTok{self}\NormalTok{.draw\_card()]}
+    
+    \KeywordTok{def}\NormalTok{ usable\_ace(}\VariableTok{self}\NormalTok{,hand):  }\CommentTok{\# Does this hand have a usable ace?}
+        \ControlFlowTok{return} \DecValTok{1} \KeywordTok{in}\NormalTok{ hand }\KeywordTok{and} \BuiltInTok{sum}\NormalTok{(hand) }\OperatorTok{+} \DecValTok{10} \OperatorTok{\textless{}=} \DecValTok{21}
+    
+    \KeywordTok{def}\NormalTok{ sum\_hand(}\VariableTok{self}\NormalTok{,hand):  }\CommentTok{\# Return current hand total}
+        \ControlFlowTok{if} \VariableTok{self}\NormalTok{.usable\_ace(hand):}
+            \ControlFlowTok{return} \BuiltInTok{sum}\NormalTok{(hand) }\OperatorTok{+} \DecValTok{10}
+        \ControlFlowTok{return} \BuiltInTok{sum}\NormalTok{(hand)}
+    
+    \KeywordTok{def}\NormalTok{ is\_bust(}\VariableTok{self}\NormalTok{,hand):  }\CommentTok{\# Is this hand a bust?}
+        \ControlFlowTok{return} \VariableTok{self}\NormalTok{.sum\_hand(hand) }\OperatorTok{\textgreater{}} \DecValTok{21}
+    
+    \KeywordTok{def}\NormalTok{ score(}\VariableTok{self}\NormalTok{,hand):  }\CommentTok{\# What is the score of this hand (0 if bust)}
+        \ControlFlowTok{return} \DecValTok{0} \ControlFlowTok{if} \VariableTok{self}\NormalTok{.is\_bust(hand) }\ControlFlowTok{else} \VariableTok{self}\NormalTok{.sum\_hand(hand)}
+\end{Highlighting}
+\end{Shaded}
+
+Here's an example of how it works to get you started:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+
+\CommentTok{\# Initialize the class:}
+\NormalTok{game }\OperatorTok{=}\NormalTok{ Blackjack()}
+
+\CommentTok{\# Deal the cards:}
+\NormalTok{s0 }\OperatorTok{=}\NormalTok{ game.deal()}
+\BuiltInTok{print}\NormalTok{(s0)}
+
+\CommentTok{\# Take an action: Hit = 1 or stay = 0. Here\textquotesingle{}s a hit:}
+\NormalTok{s1 }\OperatorTok{=}\NormalTok{ game.step(}\DecValTok{1}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(s1)}
+
+\CommentTok{\# If you wanted to stay:}
+\CommentTok{\# game.step(2)}
+
+\CommentTok{\# When it\textquotesingle{}s gameover, just redeal:}
+\CommentTok{\# game.deal()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(12, 10, False)
+((22, 10, False), -1, True)
+\end{verbatim}
+
+\textbf{Sample Anwer}
+
+My rewards for each episode played were: {[}??, ??, ??, ??,
+\ldots\ldots{]}
+
+My average reward was {[}INSERT HERE{]} after playing ?? hands. {[}Note
+- you must play at least 20 hands{]}
+
+\subsection{Exercise 2 - Perform Monte Carlo Policy
+Evaluation}\label{exercise-2---perform-monte-carlo-policy-evaluation}
+
+\textbf{{[}40 points{]}}
+
+Thinking that you want to make your millions playing this modified
+version of blackjack, you decide to test out a policy for playing this
+game. Your idea is an aggressive strategy: always hit unless the total
+of your cards adds up to 20 or 21, in which case you stay.
+
+\textbf{2.1.} Use Monte Carlo policy evaluation to evaluate the expected
+returns from each state. Create plots for these similar to Sutton and
+Barto, Figure 5.1 where you plot the expected returns for each state. In
+this case create 2 plots (sample code is provided below):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  When you have a usable ace, plot the value function showing the
+  dealer's card on the x-axis, and the player's sum on the y-axis, and
+  use a colormap to plot the state value corresponding to each state
+  under the policy described above. The domain of your x and y axes
+  should include all possible states (2 to 21 for the player sum, and 1
+  to 10 for the dealer's card). Show the estimated state value function
+  after 10,000 episodes.
+\item
+  Repeat (1) for the states without a usable ace (code is also provided
+  for this).
+\item
+  Repeat (1) after 500,000 episodes.
+\item
+  Repeat (2) after 500,000 episodes.
+\end{enumerate}
+
+\textbf{2.2.} Show a plot of the cumulative average reward (returns) per
+episode vs the number of episodes.
+
+\begin{itemize}
+\tightlist
+\item
+  For this plot, make the x-axis log scale
+\item
+  For both the 10,000 episode case and the 500,000 episode case, state
+  the final value of that average returns for this policy in those two
+  cases (these are just the values of the plot of cumulative average
+  reward at iteration 10,000 and 500,000, respectively), you can write
+  this in a line of text.
+\end{itemize}
+
+\emph{Note on sample code: the code provided for these questions is
+meant to be a helpful starting point - you are not required to fill it
+out exactly or use all components, but it is meant to help you as you
+begin thinking about this problem.}
+
+\textbf{Starter Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ policy\_evaluation(N\_episodes):}
+    \CommentTok{\# Initialize variables}
+\NormalTok{    avg\_return }\OperatorTok{=}\NormalTok{ []    }\CommentTok{\# Accumulator to store the average returns over all episodes}
+\NormalTok{    episode\_count }\OperatorTok{=} \DecValTok{0}  \CommentTok{\# Number of episodes played (will increment as more episodes are played)}
+\NormalTok{    N\_player   }\OperatorTok{=} \DecValTok{32}    \CommentTok{\# Number of possible states of the players hand}
+                       \CommentTok{\#  The max hand value is 21, but then if the player busts }
+                       \CommentTok{\#  they could reach 32 (if they had 21 and took a hit)}
+\NormalTok{    N\_dealer   }\OperatorTok{=} \DecValTok{10}    \CommentTok{\# Maximum number of states the dealer\textquotesingle{}s hand could take on}
+                       \CommentTok{\#  1 through 10 (Ace could be 1 or 11, but would still be a singe card in hand)}
+\NormalTok{    N\_ace      }\OperatorTok{=} \DecValTok{2}     \CommentTok{\# There are two states for the ace: (1) No usable ace, (2) Usable ace}
+    
+    \CommentTok{\# Initialize the state value function (in this case, the value function is the }
+    \CommentTok{\#   average return over episodes, so no need for an explicit returns array)}
+\NormalTok{    v }\OperatorTok{=}\NormalTok{ np.zeros((N\_player, N\_dealer, N\_ace)) }
+    
+    \CommentTok{\# Initialize a variable counting the number of visits to each state}
+\NormalTok{    n\_visits }\OperatorTok{=}\NormalTok{ np.zeros((N\_player, N\_dealer, N\_ace))}
+    
+    \CommentTok{\# Initialize the policy that stays only if the player has 20 or 21, otherwise hit}
+    \CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+    \CommentTok{\# FILL IN THIS CODE}
+    \CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+    
+    \CommentTok{\# Load the game}
+\NormalTok{    B }\OperatorTok{=}\NormalTok{ Blackjack()}
+    
+    \CommentTok{\# HELPER FUNCTIONS}
+    \CommentTok{\# Convert the current state into a set of indices for the value function}
+    \KeywordTok{def}\NormalTok{ state\_to\_index(s):}
+\NormalTok{        ace }\OperatorTok{=} \DecValTok{0}
+        \ControlFlowTok{if}\NormalTok{ s[}\DecValTok{2}\NormalTok{]:}
+\NormalTok{            ace }\OperatorTok{=} \DecValTok{1}
+\NormalTok{        index }\OperatorTok{=}\NormalTok{ [s[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, s[}\DecValTok{1}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, ace]}
+        \ControlFlowTok{return}\NormalTok{ index}
+    
+    \CommentTok{\# Choose an action based on the policy, pi, and the current state, s}
+    \KeywordTok{def}\NormalTok{ choose\_action(pi,s):}
+        \CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+        \CommentTok{\# FILL IN THIS FUNCTION}
+        \CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+        \CommentTok{\# Outputs a value of 0 or 1}
+    
+    \CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+    \CommentTok{\# Run the policy evaluation   }
+    \CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+    \ControlFlowTok{for}\NormalTok{ episode }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(N\_episodes):}
+           
+        \CommentTok{\# Deal a hand of blackjack}
+    
+        \CommentTok{\# Initialize a variable to hold the list of states visited and add to }
+        \CommentTok{\#  the list the initial state}
+        
+        \CommentTok{\# Play the hand through, following the policy}
+        
+        \CommentTok{\# Update the average returns}
+
+        \CommentTok{\# Update your state value function}
+
+    \ControlFlowTok{return}\NormalTok{ (v, avg\_return)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# Sample plotting function for the state value function}
+\CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}        }
+
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\CommentTok{\# Uncomment the line below on macs for clearer plots:}
+\CommentTok{\# \%config InlineBackend.figure\_format = \textquotesingle{}retina\textquotesingle{} }
+
+\CommentTok{\# Plot the resulting state value function (expected returns from each state)}
+\KeywordTok{def}\NormalTok{ plot\_value(v):}
+\NormalTok{    plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{7}\NormalTok{))}
+\NormalTok{    drange }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{,}\DecValTok{10}\NormalTok{] }\CommentTok{\# Dealer range}
+\NormalTok{    prange }\OperatorTok{=}\NormalTok{ [}\DecValTok{4}\NormalTok{,}\DecValTok{21}\NormalTok{] }\CommentTok{\# Player range}
+\NormalTok{    axes }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{    axes.append(plt.subplot(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.title(}\StringTok{\textquotesingle{}No Usable Ace\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.imshow(v[prange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{:prange[}\DecValTok{1}\NormalTok{],:,}\DecValTok{0}\NormalTok{], }
+\NormalTok{               vmin}\OperatorTok{={-}}\DecValTok{1}\NormalTok{,vmax}\OperatorTok{=}\DecValTok{1}\NormalTok{,}
+\NormalTok{               origin}\OperatorTok{=}\StringTok{\textquotesingle{}lower\textquotesingle{}}\NormalTok{, }
+\NormalTok{               extent}\OperatorTok{=}\NormalTok{(drange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       drange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       prange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       prange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{),}
+\NormalTok{               cmap }\OperatorTok{=} \StringTok{\textquotesingle{}RdBu\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.xticks(np.arange(drange[}\DecValTok{0}\NormalTok{],drange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.yticks(np.arange(prange[}\DecValTok{0}\NormalTok{],prange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.ylabel(}\StringTok{\textquotesingle{}Player Total\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.xlabel(}\StringTok{\textquotesingle{}Dealer\textquotesingle{}}\NormalTok{)}
+    
+\NormalTok{    axes.append(plt.subplot(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\NormalTok{    plt.title(}\StringTok{\textquotesingle{}Usable Ace\textquotesingle{}}\NormalTok{)}
+\NormalTok{    im }\OperatorTok{=}\NormalTok{ plt.imshow(v[prange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{:prange[}\DecValTok{1}\NormalTok{],:,}\DecValTok{1}\NormalTok{], }
+\NormalTok{               vmin}\OperatorTok{={-}}\DecValTok{1}\NormalTok{,vmax}\OperatorTok{=}\DecValTok{1}\NormalTok{,}
+\NormalTok{               origin}\OperatorTok{=}\StringTok{\textquotesingle{}lower\textquotesingle{}}\NormalTok{, }
+\NormalTok{               extent}\OperatorTok{=}\NormalTok{(drange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       drange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       prange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       prange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{),}
+\NormalTok{               cmap }\OperatorTok{=} \StringTok{\textquotesingle{}RdBu\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.xticks(np.arange(drange[}\DecValTok{0}\NormalTok{],drange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.yticks(np.arange(prange[}\DecValTok{0}\NormalTok{],prange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.ylabel(}\StringTok{\textquotesingle{}Player Total\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.xlabel(}\StringTok{\textquotesingle{}Dealer\textquotesingle{}}\NormalTok{)}
+\NormalTok{    cbar }\OperatorTok{=}\NormalTok{ plt.colorbar(im, ax}\OperatorTok{=}\NormalTok{axes)}
+\NormalTok{    cbar.set\_label(}\StringTok{\textquotesingle{}Value (Expected Returns)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exercise 3 - Perform Monte Carlo
+Control}\label{exercise-3---perform-monte-carlo-control}
+
+\textbf{{[}40 points{]}}
+
+Now it's time to actually implement a reinforcement learning strategy
+that learns to play this version of Blackjack well, only through
+trial-and-error learning. Here, you will develop your Monte Carlo
+Control algorithm and evaluate its performance for our Blackjack-like
+game.
+
+\textbf{3.1.} Using Monte Carlo Control through policy iteration,
+estimate the optimal policy for playing our modified blackjack game to
+maximize rewards.
+
+In doing this, use the following assumptions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Initialize the state value function and the action value function to
+  all zeros
+\item
+  Keep a running tally of the number of times the agent visited each
+  state and chose an action. \(N(s_t,a_t)\) is the number of times
+  action \(a\) has been selected from state \(s\). You'll need this to
+  compute the running average. You can implement an online average as:
+  \(\bar{x}_{t} = \frac{1}{N}x_t + \frac{N-1}{N}\bar{x}_{t-1}\)
+\item
+  Use an \(\epsilon\)-greedy exploration strategy with
+  \(\epsilon_t = \frac{N_0}{N_0 + N(s_t)}\), where we define
+  \(N_0 = 100\). Vary \(N_0\) as needed. Varying \(0 \leq N_0 < \inf\)
+  will determine the amount of exploration the algorithm performs where
+  the lower \(N_0\) the less exploration and vice versa.
+\end{enumerate}
+
+Show your results by plotting the optimal state value function:
+\(v^*(s) = \max_a q^*(s,a)\) and the optimal policy \(\pi^*(s)\). Create
+plots for these similar to Sutton and Barto, Figure 5.2 in the 2018
+edition (5.5 in the original edition) - sample code provided for the
+plots. Your results SHOULD be very similar to the plots in that text
+(although you will show your results with the player sum ranging from 4
+to 21). For these plots include the following (note - code from the
+previous section of this assignment for state value function plotting
+and below for policy plotting are provided to help you to accomplish
+these):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  When you have a useable ace, plot the value function with the dealer's
+  card on the x-axis, and the player's sum on the y-axis, and use the
+  colormap and \texttt{imshow} to plot the value function that
+  corresponds with those states. Plot the state value corresponding to
+  each state under the policy described above. The domain of your x and
+  y axes should include all possible states (4 to 21 for the player sum,
+  and 1 to 10 for the dealer's visible card).
+\item
+  Repeat (1) for the same states but without a usable ace.
+\item
+  Plot the optimal policy \(\pi^*(s)\) for the states with a usable ace
+  (this plot can be an imshow plot with binary values - sample code
+  provided).
+\item
+  Plot the optimal policy \(\pi^*(s)\) for the states without a usable
+  ace (this plot can be an imshow plot with binary values - sample code
+  provided).
+\end{enumerate}
+
+\textbf{3.2.} Plot the cumulative average return per episode vs the
+number of episodes (your x-axis should be log-scaled to clearly see the
+trend). What is the average return your control strategy was able to
+achieve? You'll know your method is working if you see a steady rise in
+your average returns over time.
+
+\emph{Note on convergence: convergence of this algorithm is extremely
+slow. You may need to let this run a few million episodes before the
+policy starts to converge. You're not expected to get EXACTLY the
+optimal policy, but it should be visibly close.}
+
+\emph{Note on sample code: the code provided for these questions is
+meant to be a helpful starting point - you are not required to fill it
+out exactly or use all components, but it is meant to help you as you
+begin thinking about this problem.}
+
+\textbf{Sample Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ mc\_control(episodes):}
+\NormalTok{    N\_player  }\OperatorTok{=} \DecValTok{32}
+\NormalTok{    N\_dealer  }\OperatorTok{=} \DecValTok{10}
+\NormalTok{    N\_ace     }\OperatorTok{=} \DecValTok{2}
+\NormalTok{    N\_actions }\OperatorTok{=} \DecValTok{2}
+    
+\NormalTok{    avg\_return }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{    N          }\OperatorTok{=} \DecValTok{0}
+\NormalTok{    N0         }\OperatorTok{=} \DecValTok{1} \CommentTok{\# Coefficient for controlling the level of exploration}
+    
+    \CommentTok{\# Initialize the state value function, v, and the action value function, q}
+\NormalTok{    v }\OperatorTok{=}\NormalTok{ np.zeros((N\_player, N\_dealer, N\_ace))}
+\NormalTok{    q }\OperatorTok{=}\NormalTok{ np.zeros((N\_player, N\_dealer, N\_ace, N\_actions))}
+    
+    \CommentTok{\# Initialize a variable counting the number of visits to each state}
+\NormalTok{    nv\_visits }\OperatorTok{=}\NormalTok{ np.zeros((N\_player, N\_dealer, N\_ace))           }\CommentTok{\# For the state value function}
+\NormalTok{    nq\_visits }\OperatorTok{=}\NormalTok{ np.zeros((N\_player, N\_dealer, N\_ace, N\_actions)) }\CommentTok{\# For the action value function}
+    
+    \CommentTok{\# Initialize the policy to all always "stay" (all zeros)}
+\NormalTok{    pi }\OperatorTok{=}\NormalTok{ np.zeros((N\_player, N\_dealer, N\_ace))}
+    
+    \CommentTok{\# Initialize the game}
+\NormalTok{    B  }\OperatorTok{=}\NormalTok{ Blackjack()}
+
+    \CommentTok{\# HELPER FUNCTIONS}
+    \CommentTok{\# Convert the current state into a set of indices for the state value function}
+    \KeywordTok{def}\NormalTok{ state\_to\_index\_v(s):}
+\NormalTok{        ace }\OperatorTok{=} \DecValTok{0}
+        \ControlFlowTok{if}\NormalTok{ s[}\DecValTok{2}\NormalTok{]:}
+\NormalTok{            ace }\OperatorTok{=} \DecValTok{1}
+\NormalTok{        index }\OperatorTok{=}\NormalTok{ [s[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, s[}\DecValTok{1}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, ace]}
+        \ControlFlowTok{return}\NormalTok{ index}
+    
+    \CommentTok{\# Convert the current state into a set of indices for the action value function}
+    \KeywordTok{def}\NormalTok{ state\_to\_index\_av(s,a):}
+\NormalTok{        ace }\OperatorTok{=} \DecValTok{0}
+        \ControlFlowTok{if}\NormalTok{ s[}\DecValTok{2}\NormalTok{]:}
+\NormalTok{            ace }\OperatorTok{=} \DecValTok{1}
+\NormalTok{        index }\OperatorTok{=}\NormalTok{ [s[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, s[}\DecValTok{1}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, ace, }\BuiltInTok{int}\NormalTok{(a)]}
+        \ControlFlowTok{return}\NormalTok{ index}
+    
+    \CommentTok{\# Choose an action based on the policy, pi, and the current state, s, with }
+    \CommentTok{\#  epsilon{-}greedy exploration}
+    \KeywordTok{def}\NormalTok{ choose\_action(pi,s):}
+        \CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+        \CommentTok{\# FILL IN THIS FUNCTION}
+        \CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+        \CommentTok{\# Outputs an action}
+    
+    \CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+    \CommentTok{\# Run episodes of MC Control    }
+    \CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+    \ControlFlowTok{for}\NormalTok{ episode }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(episodes):}
+        \CommentTok{\# Play a hand a blackjack       }
+        
+        \CommentTok{\# Update average return count}
+        
+        \CommentTok{\# Update the state value function}
+        
+        \CommentTok{\# Update the action value function }
+        
+        \CommentTok{\# Update the policy}
+
+    \ControlFlowTok{return}\NormalTok{ (v, pi, avg\_return)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# Sample code for plotting your policy}
+\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\KeywordTok{def}\NormalTok{ plot\_policy(pi):}
+    \CommentTok{\# Plot the policy}
+\NormalTok{    drange }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{,}\DecValTok{10}\NormalTok{]}
+\NormalTok{    prange }\OperatorTok{=}\NormalTok{ [}\DecValTok{4}\NormalTok{,}\DecValTok{21}\NormalTok{]}
+\NormalTok{    plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{7}\NormalTok{))}
+\NormalTok{    axes }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{    axes.append(plt.subplot(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.title(}\StringTok{\textquotesingle{}No Usable Ace\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.imshow(pi[prange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{:prange[}\DecValTok{1}\NormalTok{],:,}\DecValTok{0}\NormalTok{], }
+\NormalTok{               vmin}\OperatorTok{=}\DecValTok{0}\NormalTok{,vmax}\OperatorTok{=}\DecValTok{1}\NormalTok{,}
+\NormalTok{               origin}\OperatorTok{=}\StringTok{\textquotesingle{}lower\textquotesingle{}}\NormalTok{, }
+\NormalTok{               extent}\OperatorTok{=}\NormalTok{(drange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       drange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       prange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       prange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{),}
+\NormalTok{               cmap }\OperatorTok{=} \StringTok{\textquotesingle{}binary\_r\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.xticks(np.arange(drange[}\DecValTok{0}\NormalTok{],drange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.yticks(np.arange(prange[}\DecValTok{0}\NormalTok{],prange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.ylabel(}\StringTok{\textquotesingle{}Player Total\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.xlabel(}\StringTok{\textquotesingle{}Dealer\textquotesingle{}}\NormalTok{)}
+    
+\NormalTok{    axes.append(plt.subplot(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\NormalTok{    plt.title(}\StringTok{\textquotesingle{}Usable Ace\textquotesingle{}}\NormalTok{)}
+\NormalTok{    im }\OperatorTok{=}\NormalTok{ plt.imshow(pi[prange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\DecValTok{1}\NormalTok{:prange[}\DecValTok{1}\NormalTok{],:,}\DecValTok{1}\NormalTok{], }
+\NormalTok{               vmin}\OperatorTok{=}\DecValTok{0}\NormalTok{,vmax}\OperatorTok{=}\DecValTok{1}\NormalTok{,}
+\NormalTok{               origin}\OperatorTok{=}\StringTok{\textquotesingle{}lower\textquotesingle{}}\NormalTok{, }
+\NormalTok{               extent}\OperatorTok{=}\NormalTok{(drange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       drange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       prange[}\DecValTok{0}\NormalTok{]}\OperatorTok{{-}}\FloatTok{0.5}\NormalTok{,}
+\NormalTok{                       prange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{),}
+\NormalTok{               cmap }\OperatorTok{=} \StringTok{\textquotesingle{}binary\_r\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.xticks(np.arange(drange[}\DecValTok{0}\NormalTok{],drange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.yticks(np.arange(prange[}\DecValTok{0}\NormalTok{],prange[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{    plt.ylabel(}\StringTok{\textquotesingle{}Player Total\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.xlabel(}\StringTok{\textquotesingle{}Dealer\textquotesingle{}}\NormalTok{)}
+\NormalTok{    cbar }\OperatorTok{=}\NormalTok{ plt.colorbar(im, ax}\OperatorTok{=}\NormalTok{axes)}
+\NormalTok{    cbar.set\_label(}\StringTok{\textquotesingle{}Action (Stay = 0, Hit = 1)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exercise 4 - Discuss your
+findings}\label{exercise-4---discuss-your-findings}
+
+\textbf{{[}5 points{]}}
+
+Compare the performance of your human control policy, in question 1, the
+naive policy from question 2, and the optimal control policy in question
+3.
+
+\textbf{4.1.} Which performs best? What was different about the policies
+developed for each and how may that have contributed to their
+comparative advantages?
+
+\textbf{4.2.} Could you have created a better policy if you knew the
+full Markov Decision Process for this environment? Why or why not?
+\emph{(assume the policy estimated from your MC control algorithm had
+\textbf{fully converged})}
+
+
+
+
+\end{document}
