@@ -25,22 +25,16 @@ ssh {your_netID}@dcc-login.oit.duke.edu
 
 ![](img/dcc_documentation_images/image.png)
 
-### Create a symbolic link to the `course26` directory.
-The `coursess26` directory has 1 Terabyte of shared storage space for the course. A symbolic link is a shortcut to another file system. When you first login, you will be in your home directory, create your shortcuts there.
+### Create a symbolic link to the `course25` directory.
+The `coursess25` directory has 1 Terabyte of shared storage space for the course. A symbolic link is a shortcut to another file system. When you first login, you will be in your home directory, create your shortcuts there.
 
 **Command:**  
 ```bash
-ln -s /hpc/group/coursess26 ids705
+ln -s /hpc/group/coursess25 ids_705_storage
 ```
-
-To verify that the symbolic link has been created correctly, you should see the `ids705` folder in the home directory pointing to the `/hpc/group/coursess26` directory by using a command such as:
-```bash
-ls -lrth
-```
-
 (Example)
 
-![](img/dcc_documentation_images/image-2-26.png)
+![](img/dcc_documentation_images/image-2.png)
 
 ### Download and Install Miniconda.
 Execute the following commands in your terminal and follow the instructions. Log out (close the terminal) and log back in upon successful installation, to being using Miniconda. 
@@ -232,15 +226,10 @@ cat test_cuda_{your_job_id}.out
 
 ## Final Notes
 
-- Create a personal directory under: `/hpc/group/coursess26/ids705` and name it after your NetID.  
+- Create a personal directory under: `/hpc/group/coursess25/ids705` and name it after your NetID.  
 - Be mindful of shared resources and job submissions.  
-- **Questions?** Contact: paul.markakis@duke.edu.  
+- **Questions?** Contact: rakeen.rouf@duke.edu.  
 - Visit [Duke Compute Cluster](https://oit-rc.pages.oit.duke.edu/rcsupportdocs/) for more information.  
 - If resources are busy, set GPUs to `0` and ensure your code works on CPU (see demo code for an example).
 
 ![](img/dcc_documentation_images/image-24.png)
-
-### Shared Access & Permissions
-- The DCC is an open cluster built for the purpose of research and collaboration. 
-- Access to the `/hpc/group/coursess26/ids705` directory is shared across all IDS705 students and staff. 
-- Anything that you need to store privately should be stored in your home directory (all DCC users have 25GB of home space at `/hpc/home/<netID>`). 
