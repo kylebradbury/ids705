@@ -334,7 +334,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   <ul class="collapse">
   <li><a href="#familiarize-yourself-with-the-available-file-systems-on-the-dcc." id="toc-familiarize-yourself-with-the-available-file-systems-on-the-dcc." class="nav-link" data-scroll-target="#familiarize-yourself-with-the-available-file-systems-on-the-dcc."><span class="header-section-number">1.1</span> Familiarize yourself with the available file systems on the DCC.</a></li>
   <li><a href="#ssh-into-the-dcc." id="toc-ssh-into-the-dcc." class="nav-link" data-scroll-target="#ssh-into-the-dcc."><span class="header-section-number">1.2</span> SSH into the DCC.</a></li>
-  <li><a href="#create-a-symbolic-link-to-the-course25-directory." id="toc-create-a-symbolic-link-to-the-course25-directory." class="nav-link" data-scroll-target="#create-a-symbolic-link-to-the-course25-directory."><span class="header-section-number">1.3</span> Create a symbolic link to the <code>course25</code> directory.</a></li>
+  <li><a href="#create-a-symbolic-link-to-the-course26-directory." id="toc-create-a-symbolic-link-to-the-course26-directory." class="nav-link" data-scroll-target="#create-a-symbolic-link-to-the-course26-directory."><span class="header-section-number">1.3</span> Create a symbolic link to the <code>course26</code> directory.</a></li>
   <li><a href="#download-and-install-miniconda." id="toc-download-and-install-miniconda." class="nav-link" data-scroll-target="#download-and-install-miniconda."><span class="header-section-number">1.4</span> Download and Install Miniconda.</a></li>
   </ul></li>
   <li><a href="#managing-python-environments" id="toc-managing-python-environments" class="nav-link" data-scroll-target="#managing-python-environments"><span class="header-section-number">2</span> Managing Python Environments</a>
@@ -368,7 +368,10 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   <li><a href="#monitor-job-status." id="toc-monitor-job-status." class="nav-link" data-scroll-target="#monitor-job-status."><span class="header-section-number">5.5</span> Monitor job status.</a></li>
   <li><a href="#check-job-output-wait-for-jobid-to-dissapear-from-above." id="toc-check-job-output-wait-for-jobid-to-dissapear-from-above." class="nav-link" data-scroll-target="#check-job-output-wait-for-jobid-to-dissapear-from-above."><span class="header-section-number">5.6</span> Check job output (Wait for JobID to dissapear from above).</a></li>
   </ul></li>
-  <li><a href="#final-notes" id="toc-final-notes" class="nav-link" data-scroll-target="#final-notes"><span class="header-section-number">6</span> Final Notes</a></li>
+  <li><a href="#final-notes" id="toc-final-notes" class="nav-link" data-scroll-target="#final-notes"><span class="header-section-number">6</span> Final Notes</a>
+  <ul class="collapse">
+  <li><a href="#shared-access-permissions" id="toc-shared-access-permissions" class="nav-link" data-scroll-target="#shared-access-permissions"><span class="header-section-number">6.1</span> Shared Access &amp; Permissions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -418,20 +421,22 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <p>(Example)</p>
 <p><img src="img/dcc_documentation_images/image.png" class="img-fluid"></p>
 </section>
-<section id="create-a-symbolic-link-to-the-course25-directory." class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="create-a-symbolic-link-to-the-course25-directory."><span class="header-section-number">1.3</span> Create a symbolic link to the <code>course25</code> directory.</h3>
-<p>The <code>coursess25</code> directory has 1 Terabyte of shared storage space for the course. A symbolic link is a shortcut to another file system. When you first login, you will be in your home directory, create your shortcuts there.</p>
+<section id="create-a-symbolic-link-to-the-course26-directory." class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="create-a-symbolic-link-to-the-course26-directory."><span class="header-section-number">1.3</span> Create a symbolic link to the <code>course26</code> directory.</h3>
+<p>The <code>coursess26</code> directory has 1 Terabyte of shared storage space for the course. A symbolic link is a shortcut to another file system. When you first login, you will be in your home directory, create your shortcuts there.</p>
 <p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /hpc/group/coursess25 ids_705_storage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /hpc/group/coursess26 ids705</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To verify that the symbolic link has been created correctly, you should see the <code>ids705</code> folder in the home directory pointing to the <code>/hpc/group/coursess26</code> directory by using a command such as:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lrth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Example)</p>
-<p><img src="img/dcc_documentation_images/image-2.png" class="img-fluid"></p>
+<p><img src="img/dcc_documentation_images/image-2-26.png" class="img-fluid"></p>
 </section>
 <section id="download-and-install-miniconda." class="level3" data-number="1.4">
 <h3 data-number="1.4" class="anchored" data-anchor-id="download-and-install-miniconda."><span class="header-section-number">1.4</span> Download and Install Miniconda.</h3>
 <p>Execute the following commands in your terminal and follow the instructions. Log out (close the terminal) and log back in upon successful installation, to being using Miniconda.</p>
 <p><strong>Commands:</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sh</span> Miniconda3-latest-Linux-x86_64.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sh</span> Miniconda3-latest-Linux-x86_64.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="managing-python-environments" class="level2" data-number="2">
@@ -439,31 +444,31 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <section id="create-a-new-environment." class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="create-a-new-environment."><span class="header-section-number">2.1</span> Create a new environment.</h3>
 <p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> {name_of_environment} python={Python.Version}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> {name_of_environment} python={Python.Version}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Example)</p>
 <p><img src="img/dcc_documentation_images/image-1.png" class="img-fluid"></p>
 </section>
 <section id="view-available-conda-environments." class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="view-available-conda-environments."><span class="header-section-number">2.2</span> View available Conda environments.</h3>
 <p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Example)</p>
 <p><img src="img/dcc_documentation_images/image-3.png" class="img-fluid"></p>
 </section>
 <section id="activate-the-environment." class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="activate-the-environment."><span class="header-section-number">2.3</span> Activate the environment.</h3>
 <p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate {name_of_environment}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate {name_of_environment}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Example)</p>
 <p><img src="img/dcc_documentation_images/image-4.png" class="img-fluid"></p>
 </section>
 <section id="install-jupyter-kernel-and-test-installation." class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="install-jupyter-kernel-and-test-installation."><span class="header-section-number">2.4</span> Install Jupyter kernel and test installation.</h3>
 <p><strong>Commands:</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Example)</p>
 <p><img src="img/dcc_documentation_images/image-5.png" class="img-fluid"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Example)</p>
 <p><img src="img/dcc_documentation_images/image-6.png" class="img-fluid"></p>
 </section>
@@ -489,7 +494,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <li><p><strong>Memory:</strong> Up to <code>208 GB</code>.<br>
 </p></li>
 <li><p><strong>Additional Slurm Parameters:</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--gres=gpu:1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--gres=gpu:1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 <p><img src="img/dcc_documentation_images/image-8.png" class="img-fluid"></p>
 </section>
@@ -511,14 +516,14 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <h3 data-number="4.1" class="anchored" data-anchor-id="activate-the-previously-created-conda-environment."><span class="header-section-number">4.1</span> Activate the previously created Conda environment.</h3>
 <p>In your terminal, activate the previously created “test” Conda environment. You can access a terminal in this session by clicking the blue plus button and selecting terminal in the now open launcher window (You can also use your ssh terminal).</p>
 <p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="img/dcc_documentation_images/image-11.png" class="img-fluid"></p>
 </section>
 <section id="install-required-packages." class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="install-required-packages."><span class="header-section-number">4.2</span> Install required packages.</h3>
 <p><strong>Commands:</strong></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install pytorch torchvision torchaudio pytorch-cuda=11.8 <span class="at">-c</span> pytorch <span class="at">-c</span> nvidia <span class="at">-y</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install pytorch torchvision torchaudio pytorch-cuda=11.8 <span class="at">-c</span> pytorch <span class="at">-c</span> nvidia <span class="at">-y</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="img/dcc_documentation_images/image-12.png" class="img-fluid"></p>
 <p><img src="img/dcc_documentation_images/image-13.png" class="img-fluid"></p>
 </section>
@@ -545,7 +550,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <section id="optional-if-you-want-to-run-the-demo-yourself-start-by-navigating-to-the-demo-directory." class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="optional-if-you-want-to-run-the-demo-yourself-start-by-navigating-to-the-demo-directory."><span class="header-section-number">5.1</span> (Optional) If you want to run the demo yourself start by navigating to the demo directory.</h3>
 <p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ids_705_storage/demo/data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ids_705_storage/demo/data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="img/dcc_documentation_images/image-17.png" class="img-fluid"></p>
 </section>
 <section id="create-your-python-script-demo-script-ids_705_storagedemodatatest.py." class="level3" data-number="5.2">
@@ -559,19 +564,19 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <section id="submit-your-slurm-job." class="level3" data-number="5.4">
 <h3 data-number="5.4" class="anchored" data-anchor-id="submit-your-slurm-job."><span class="header-section-number">5.4</span> Submit your Slurm job.</h3>
 <p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> test_cuda.slurm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> test_cuda.slurm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="img/dcc_documentation_images/image-20.png" class="img-fluid"></p>
 </section>
 <section id="monitor-job-status." class="level3" data-number="5.5">
 <h3 data-number="5.5" class="anchored" data-anchor-id="monitor-job-status."><span class="header-section-number">5.5</span> Monitor job status.</h3>
 <p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> {your_id}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> {your_id}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="img/dcc_documentation_images/image-21.png" class="img-fluid"></p>
 </section>
 <section id="check-job-output-wait-for-jobid-to-dissapear-from-above." class="level3" data-number="5.6">
 <h3 data-number="5.6" class="anchored" data-anchor-id="check-job-output-wait-for-jobid-to-dissapear-from-above."><span class="header-section-number">5.6</span> Check job output (Wait for JobID to dissapear from above).</h3>
 <p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> test_cuda_{your_job_id}.out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> test_cuda_{your_job_id}.out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Expected Output:</strong>Ensure the first line of the output says “Using GPU”.</li>
 </ul>
@@ -585,19 +590,27 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <section id="final-notes" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="final-notes"><span class="header-section-number">6</span> Final Notes</h2>
 <ul>
-<li>Create a personal directory under: <code>/hpc/group/coursess25/ids705</code> and name it after your NetID.<br>
+<li>Create a personal directory under: <code>/hpc/group/coursess26/ids705</code> and name it after your NetID.<br>
 </li>
 <li>Be mindful of shared resources and job submissions.<br>
 </li>
-<li><strong>Questions?</strong> Contact: rakeen.rouf@duke.edu.<br>
+<li><strong>Questions?</strong> Contact: paul.markakis@duke.edu.<br>
 </li>
 <li>Visit <a href="https://oit-rc.pages.oit.duke.edu/rcsupportdocs/">Duke Compute Cluster</a> for more information.<br>
 </li>
 <li>If resources are busy, set GPUs to <code>0</code> and ensure your code works on CPU (see demo code for an example).</li>
 </ul>
 <p><img src="img/dcc_documentation_images/image-24.png" class="img-fluid"></p>
+<section id="shared-access-permissions" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="shared-access-permissions"><span class="header-section-number">6.1</span> Shared Access &amp; Permissions</h3>
+<ul>
+<li>The DCC is an open cluster built for the purpose of research and collaboration.</li>
+<li>Access to the <code>/hpc/group/coursess26/ids705</code> directory is shared across all IDS705 students and staff.</li>
+<li>Anything that you need to store privately should be stored in your home directory (all DCC users have 25GB of home space at <code>/hpc/home/&lt;netID&gt;</code>).</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
