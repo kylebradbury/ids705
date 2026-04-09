@@ -559,8 +559,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     <td>
       [project] <br>
       [submit]
-      <!-- <a href="https://kylebradbury.github.io/ids705/project.html#finalreport">[project]</a><br> -->
-      <!-- <a href="https://www.gradescope.com/">[submit]</a> -->
+      <a href="https://kylebradbury.github.io/ids705/project.html#finalreport">[project]</a><br>
+      <a href="https://www.gradescope.com/">[submit]</a>
     </td>
   </tr>
 
