@@ -546,8 +546,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
     </td>
     <td>None</td>
     <td>
-      [slides]
-      <!-- <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture25_machine_learning_frontiers.pdf">[slides]</a> -->
+      <!-- [slides] -->
+      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture25_machine_learning_frontiers.pdf">[slides]</a>
     </td>
   </tr>
 
