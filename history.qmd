@@ -1,11 +1,11 @@
 ---
-title: Past Offerings of this Course
-subtitle: IDS 705 Principles of Machine Learning
+title: Past Offerings of This Course
 toc: true
 toc-expand: 2
 number-sections: false
 ---
 
+- [Spring 2026 (IDS705)](https://kylebradbury.github.io/ids705_2026/)
 - [Spring 2025 (IDS705)](https://kylebradbury.github.io/ids705_2025/)
 - [Spring 2024 (IDS705)](https://kylebradbury.github.io/ids705_2024/)
 - [Spring 2023 (IDS705)](https://kylebradbury.github.io/ids705_2023/)

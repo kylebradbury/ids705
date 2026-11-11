@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Final Project – IDS705 (2027): Principles of Machine Learning</title>
+<title>Final Project – IDS 705: Principles of Machine Learning (Spring 2027)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./img/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,20 +76,33 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 </script>
+<meta name="quarto:status" content="draft">
 
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Final Project – IDS 705: Principles of Machine Learning (Spring 2027)">
+<meta property="og:description" content="IDS 705 Principles of Machine Learning">
+<meta property="og:image" content="https://kylebradbury.github.io/ids705/img/decision-boundaries.png">
+<meta property="og:site_name" content="IDS 705: Principles of Machine Learning (Spring 2027)">
+<meta property="og:image:height" content="753">
+<meta property="og:image:width" content="2324">
+<meta name="twitter:title" content="Final Project – IDS 705: Principles of Machine Learning (Spring 2027)">
+<meta name="twitter:description" content="IDS 705 Principles of Machine Learning">
+<meta name="twitter:image" content="https://kylebradbury.github.io/ids705/img/decision-boundaries.png">
+<meta name="twitter:image-height" content="753">
+<meta name="twitter:image-width" content="2324">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">IDS705 (2027): Principles of Machine Learning</span>
+    <span class="navbar-title">IDS 705 · Spring 2027</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -141,7 +155,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Syllabus</span></a>
+ <span class="menu-text">Course Info</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -156,7 +170,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Course Logistics</span></a>
+ <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -214,13 +228,13 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Resources for further learning</span></a>
+ <span class="menu-text">Resources for Further Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="https://github.com/kylebradbury/ml-project-structure-demo" class="sidebar-item-text sidebar-link">
- <span class="menu-text">File structure template</span></a>
+ <span class="menu-text">File Structure Template</span></a>
   </div>
 </li>
       </ul>
@@ -302,7 +316,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <section id="requirements" class="level3">
 <h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
 <ul>
-<li><p>The project must involve supervised machine learning. You may include concepts we were not able to cover in the course. You may include other concepts at well, but there should be a supervised learning component.</p></li>
+<li><p>The project must involve supervised machine learning. You may include concepts we were not able to cover in the course. You may include other concepts as well, but there should be a supervised learning component.</p></li>
 <li><p>The project must be able to be completed within the course of this semester and should be scoped correctly: we encourage you to be ambitious, but please visit office hours if you have questions about project scope.</p></li>
 <li><p>Every project should involve learning more about both your <em>application domain</em> and the <em>methods that you’re using</em>. This means reading about both facets. If you’re working on a project involving diagnosis of a disease, you should read enough to understand the disease and how it manifests the symptoms that your data may be noting. You’re expected to develop some domain knowledge related to your problem and demonstrate that in the report.</p></li>
 <li><p>Your project should consider the potential ethical implications of your work and describe how that was factored into your work.</p></li>
@@ -310,9 +324,9 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <li><p><strong>Additional analyses</strong>: To get an “A” you will need to go beyond the core requirement and add in two more depth components to the project that more fully investigate the problem you’re working on keeping your (imagined) stakeholder’s needs in mind. While these will be problem-specific, below are several ideas to help you think through some possibilities:</p>
 <ul>
 <li>Model interpretability (or explainability). If interpretability is important, could you explore interpretable models that could be deployed alongside more flexible models to evaluate the tradeoff between model performance and interpretability?</li>
-<li>Training data sufficiency analysis. If you anticipate limited training data im practice, could you determine how much training data is needed to sufficiently address your problem to inform future decisions for up-scaling the model? For example, vary the amount of training data and determine performance and uncertainty.</li>
+<li>Training data sufficiency analysis. If you anticipate limited training data in practice, could you determine how much training data is needed to sufficiently address your problem to inform future decisions for up-scaling the model? For example, vary the amount of training data and determine performance and uncertainty.</li>
 <li>Model robustness when the application domain will likely be shifted from the training domain. What is the impact on generalization performance if we know that the conditions under which we will apply our ML approach are different than the available training data (e.g.&nbsp;if I’m working on a computer vision problem and all my training data are from the U.S., but the goal is to apply the model to regions in Asia)</li>
-<li>Model sensitivity to imbalanced data. What if training data when the training data are not perfectly sampled to be representative of the actual target data. This could be an investigation of the impact and possible solutions to imbalanced datasets.</li>
+<li>Model sensitivity to imbalanced data. What if the training data are not perfectly sampled to be representative of the actual target data. This could be an investigation of the impact and possible solutions to imbalanced datasets.</li>
 <li>Active learning for cases where collecting data is expensive. How little additional data do you need to add to your model and how might it be identified how to sample the new data.</li>
 <li>Bias detection and mitigation - could the fairness of algorithms be analyzed across different subsets of the data.</li>
 <li>Model robustness to noise and/or adversarial attacks. How does the model stand up to accidental or purposeful mistakes in the dataset? How much can it take before performance degrades?</li>
@@ -334,7 +348,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 </section>
 <section id="github-repository" class="level2">
 <h2 class="anchored" data-anchor-id="github-repository">Github Repository</h2>
-<p>Your github respository should (a) contain a descriptive README.md file that explains what the repo is for, and how to use the code to reproduce your work (including how to set it up to run), (b) be well commented throughout all files, (c) list all dependencies in a requirements.txt file, (d) inform the user how to get the data and includes all preprocessing code, and (e) actually runs (i.e.&nbsp;we can successfully test it) and does what it says</p>
+<p>Your github repository should (a) contain a descriptive README.md file that explains what the repo is for, and how to use the code to reproduce your work (including how to set it up to run), (b) be well commented throughout all files, (c) list all dependencies in a requirements.txt file, (d) inform the user how to get the data and includes all preprocessing code, and (e) actually runs (i.e.&nbsp;we can successfully test it) and does what it says</p>
 </section>
 <section id="peer-evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="peer-evaluation">Peer Evaluation</h2>
@@ -349,7 +363,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <li>Treated other team members respectfully</li>
 <li>Demonstrated a positive attitude about the team and its work</li>
 </ol>
-<p>This evaluation is NOT based directly on the scores that you receive in the feedback, but a satisfactory peer and self-evaluation is assessed based on the level of constructiveness of the feedback you provide. More detailed, constructive feedback is more useful to help your peers better understand their strengths and areas for growth. Doing so respectfully and compassionately is a requirement. Your peers will receive anonymized versions of the feedback that you share. If the feedback you submit to your teammates does not demonstrate demonstrate a meaningful effort, your final project grade will be reduced by one letter (e.g., A- to B-).</p>
+<p>This evaluation is NOT based directly on the scores that you receive in the feedback, but a satisfactory peer and self-evaluation is assessed based on the level of constructiveness of the feedback you provide. More detailed, constructive feedback is more useful to help your peers better understand their strengths and areas for growth. Doing so respectfully and compassionately is a requirement. Your peers will receive anonymized versions of the feedback that you share. If the feedback you submit to your teammates does not demonstrate a meaningful effort, your final project grade will be reduced by one letter (e.g., A- to B-).</p>
 </section>
 <section id="submission-evaluation-grading" class="level2">
 <h2 class="anchored" data-anchor-id="submission-evaluation-grading">Submission, Evaluation, &amp; Grading</h2>
@@ -393,7 +407,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
-<p>** No points will be directly assigned. One point will be deducted from your overall final project score for each day late; up to 2 points may be deducted from the overall project score (out of 15 possible points) if the deliverable is unsatisfactory (i.e., if it does not represent a serious effort towards the deliverable)</p>
+<p>** No points will be directly assigned. Up to 2 points may be deducted from the overall project score (out of 15 possible points) if the deliverable is unsatisfactory (i.e., if it does not represent a serious effort towards the deliverable)</p>
 </section>
 <section id="sample-projects" class="level2">
 <h2 class="anchored" data-anchor-id="sample-projects">Sample projects</h2>
@@ -412,9 +426,9 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <p><strong>Additional analyses</strong> (choose at least 2):</p>
 <ul>
 <li><strong>Interpretability:</strong> A black-box score that a medical professional cannot explain to a patient or justify in a care plan is unlikely to be used in practice. Investigate whether interpretable models can achieve similar performance (e.g.&nbsp;sparse logical models, generalized additive models, decision trees, etc.). Identify features most associated with readmission risk; verify alignment with clinical risk factors and discuss your findings.</li>
-<li><strong>Calibration:</strong> If a care team told a patient has “72% readmission risk” needs that number to mean something. Assess probability calibration (how closely the predicted probabilities match actual probabilities).Try some approaches to correct any issues found with model calibration.</li>
-<li><strong>Model fairness audit and improvement:</strong>. If performance differs by race, insurance type, or age, explore whether there are class imbalances in the data and investigate how these might be able to be overcome through class weighting, over- or under-sampling, etc.</li>
-<li><strong>Error cost analysis:</strong>: Define a realistic cost matrix (false negatives are more dangerous than false positives) and tune the decision threshold accordingly. How would changes in cost impact the operating point and what implications might that have for clinical applications?</li>
+<li><strong>Calibration:</strong> If a care team told a patient has “72% readmission risk” needs that number to mean something. Assess probability calibration (how closely the predicted probabilities match actual probabilities). Try some approaches to correct any issues found with model calibration.</li>
+<li><strong>Model fairness audit and improvement:</strong> If performance differs by race, insurance type, or age, explore whether there are class imbalances in the data and investigate how these might be able to be overcome through class weighting, over- or under-sampling, etc.</li>
+<li><strong>Error cost analysis:</strong> Define a realistic cost matrix (false negatives are more dangerous than false positives) and tune the decision threshold accordingly. How would changes in cost impact the operating point and what implications might that have for clinical applications?</li>
 </ul>
 <hr>
 </section>
@@ -426,7 +440,7 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 <p><strong>Dataset</strong>: <a href="https://sustainlab-group.github.io/sustainbench/">SustainBench</a> or DHS poverty data + satellite tiles</p>
 <p><strong>Core requirements</strong>:</p>
 <ul>
-<li>Model comparison and evaluation: using pretrained computer visions models (e.g., CNNs or vision transforms) extract features from the relevant images and then use a spatial cross-validation (ensure train/test splits do not leak geographically adjacent tiles) to estimate poverty.</li>
+<li>Model comparison and evaluation: using pretrained computer vision models (e.g., CNNs or vision transformers) extract features from the relevant images and then use a spatial cross-validation (ensure train/test splits do not leak geographically adjacent tiles) to estimate poverty.</li>
 <li>Evaluate performance over different spatial contexts/regions and explore how it differs region-to-region? What might the implications be for practical applications?</li>
 </ul>
 <p><strong>Additional analyses</strong> (choose at least 2):</p>
@@ -532,7 +546,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/kylebradbury\.github\.io\/ids705\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -860,6 +874,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://kylebradbury.org">Kyle Bradbury</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://duke.edu">Duke University</a> · <a href="https://datascience.duke.edu">MIDS</a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="./history.html">Past Offerings</a> · <a href="https://github.com/kylebradbury/ids705">Source</a></p>
+</div>
+  </div>
+</footer>
 
 
 

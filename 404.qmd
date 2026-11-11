@@ -1,0 +1,14 @@
+---
+title: Page Not Found
+search: false
+toc: false
+number-sections: false
+---
+
+Sorry, the page you're looking for isn't here.
+
+Course materials (lecture slides, assignments, and project details) are added to the schedule as the semester progresses, so the page you're looking for may not be posted yet.
+
+- [Schedule](schedule.qmd): topics, readings, deadlines, and materials
+- [Overview](index.qmd): course summary
+- [Past Offerings](history.qmd): looking for an earlier semester of this course?

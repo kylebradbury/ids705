@@ -1,7 +1,7 @@
 project:
   type: website
   output-dir: docs
-  resources: 
+  resources:
     - "/notebooks/data/**"
     - "/shared/**"
   render:
@@ -14,8 +14,22 @@ project:
     - "!dev/*"
 
 website:
-  title: "IDS705 (2027): Principles of Machine Learning"
+  title: "IDS 705: Principles of Machine Learning (Spring 2027)"
+  description: "Course website for IDS 705, Principles of Machine Learning, at Duke University (Spring 2027): an applied introduction to supervised, unsupervised, and reinforcement learning."
+  site-url: https://kylebradbury.github.io/ids705/
+  image: img/decision-boundaries.png
+  favicon: img/favicon.svg
+  open-graph: true
+  twitter-card: true
+  google-analytics: "G-63SKKDGFHG"
+  # Drafts are rendered (reachable by direct link) but hidden from navigation and search.
+  # To publish one, remove it from this list and add it to the sidebar.
+  drafts:
+    - project.qmd
+    - other_ideas.qmd
+  draft-mode: unlinked
   navbar:
+    title: "IDS 705 · Spring 2027"
     left:
       - href: ./schedule.qmd
         text: Schedule
@@ -25,22 +39,16 @@ website:
       #   text: Ed Discussions
       # - href: https://www.gradescope.com/courses/1208262
       #   text: Gradescope
-  google-analytics: "G-63SKKDGFHG"
-    # tools:
-    #   - icon: linkedin
-    #     href: https://twitter.com
-    #   - icon: github
-    #     menu:
-    #       - text: Source Code
-    #         url:  https://code.com
-    #       - text: Report a Bug
-    #         url:  https://bugs.com
+  page-footer:
+    left: "[Kyle Bradbury](https://kylebradbury.org)"
+    center: "[Duke University](https://duke.edu) · [MIDS](https://datascience.duke.edu)"
+    right: "[Past Offerings](/history.qmd) · [Source](https://github.com/kylebradbury/ids705)"
   sidebar:
     # style: "docked"
     search: true
     contents:
       - index.qmd
-      - section: "Syllabus"
+      - section: "Course Info"
         contents:
           - schedule.qmd
           - syllabus.qmd
@@ -61,19 +69,13 @@ website:
         contents:
           - tools.qmd
           - resources.qmd
-          # - resources/dcc-documentation.qmd
-          - text: "File structure template"
+          - text: "File Structure Template"
             href: https://github.com/kylebradbury/ml-project-structure-demo
-          # - history.qmd
 format:
   html:
-    theme: 
+    theme:
       - cosmo
-      # - style.css
     css: styles.css
     toc: true
     grid:
-      # sidebar-width: 300px
       body-width: 1100px
-      # margin-width: 100px
-      # gutter-width: 1rem

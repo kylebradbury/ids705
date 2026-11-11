@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignment 0 - Sample Assignment – IDS705 (2027): Principles of Machine Learning</title>
+<title>Assignment 0 - Sample Assignment – IDS 705: Principles of Machine Learning (Spring 2027)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../img/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -107,6 +108,14 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Assignment 0 - Sample Assignment – IDS 705: Principles of Machine Learning (Spring 2027)">
+<meta property="og:description" content="Course website for IDS 705, Principles of Machine Learning, at Duke University (Spring 2027): an applied introduction to supervised, unsupervised, and reinforcement learning.">
+<meta property="og:image" content="https://kylebradbury.github.io/ids705/shared/img/decision-boundaries.png">
+<meta property="og:site_name" content="IDS 705: Principles of Machine Learning (Spring 2027)">
+<meta name="twitter:title" content="Assignment 0 - Sample Assignment – IDS 705: Principles of Machine Learning (Spring 2027)">
+<meta name="twitter:description" content="Course website for IDS 705, Principles of Machine Learning, at Duke University (Spring 2027): an applied introduction to supervised, unsupervised, and reinforcement learning.">
+<meta name="twitter:image" content="https://kylebradbury.github.io/ids705/shared/img/decision-boundaries.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -117,7 +126,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">IDS705 (2027): Principles of Machine Learning</span>
+    <span class="navbar-title">IDS 705 · Spring 2027</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -170,7 +179,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Syllabus</span></a>
+ <span class="menu-text">Course Info</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -185,7 +194,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Course Logistics</span></a>
+ <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -243,13 +252,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Resources for further learning</span></a>
+ <span class="menu-text">Resources for Further Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="https://github.com/kylebradbury/ml-project-structure-demo" class="sidebar-item-text sidebar-link">
- <span class="menu-text">File structure template</span></a>
+ <span class="menu-text">File Structure Template</span></a>
   </div>
 </li>
       </ul>
@@ -301,7 +310,7 @@ window.Quarto = {
 </section>
 <section id="exercise-2---plotting" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2---plotting">Exercise 2 - Plotting</h2>
-<p><strong>2.1.</strong> Create a plot of the first derivative of <span class="math inline">\(f(t)\)</span> for the values <span class="math inline">\(-2 \leq t \leq 1\)</span>.</p>
+<p><strong>2.1.</strong> Create a plot of the first derivative of <span class="math inline">\(f(t)\)</span> for the values <span class="math inline">\(-2 \leq t \leq 2\)</span>.</p>
 <p><strong>2.2.</strong> What does the first derivative of <span class="math inline">\(f(t)\)</span> for <span class="math inline">\(t=2\)</span> mean in this case?</p>
 
 
@@ -398,7 +407,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/kylebradbury\.github\.io\/ids705\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -726,6 +735,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://kylebradbury.org">Kyle Bradbury</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://duke.edu">Duke University</a> · <a href="https://datascience.duke.edu">MIDS</a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="../history.html">Past Offerings</a> · <a href="https://github.com/kylebradbury/ids705">Source</a></p>
+</div>
+  </div>
+</footer>
 
 
 

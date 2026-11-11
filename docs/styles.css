@@ -81,6 +81,9 @@ table.schedule > tbody > tr.module > td {
 .schedule td:nth-child(5) a[href*="warpwire"]::before,
 .schedule td:nth-child(5) a[href*="youtube"]::before       { content: "\f4f1"; }  /* video */
 
+/* Not posted yet: <a class="pending" href="...">. Delete the class to show the link */
+table.schedule td a.pending { display: none; }  /* more specific than the Materials link rules */
+
 /* Phones: each row becomes a card */
 @media (max-width: 767.98px) {
   .schedule, .schedule tbody, .schedule tr, .schedule td { display: block; }

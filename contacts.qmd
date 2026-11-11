@@ -1,6 +1,5 @@
 ---
 title: Instructional Team
-subtitle: IDS 705 Principles of Machine Learning
 toc: false
 number-sections: false
 ---
@@ -13,17 +12,17 @@ Reach out to us through Ed Discussions for any questions. Office hours are also 
 
 ### Instructor
 
-![Kyle Bradbury ([{{< fa envelope >}}](mailto: kyle.bradbury@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/bradburykyle/))](img/kylebradbury.jpeg){fig-align="left"}
+![Kyle Bradbury ([{{< fa envelope label="Email Kyle Bradbury" title="Email" >}}](mailto:kyle.bradbury@duke.edu), [{{< fa brands linkedin label="Kyle Bradbury on LinkedIn" title="LinkedIn" >}}](https://www.linkedin.com/in/bradburykyle/))](img/kylebradbury.jpeg){fig-align="left" fig-alt="Photo of Kyle Bradbury"}
 
-Dr. Kyle Bradbury develops and applies machine learning techniques to better understand and manage energy and climate resources. His work focuses on how to advance machine learning methodologies and apply them to solve energy and climate system challenges through the development of open source, widely-applicable computational tools. His current research interests include developing scalable computer vision techniques for assessing energy resources, infrastructure, and access globally through the use of publicly available remote sensing data. Methodologically, he investigates how to overcome the challenge of distribution shift in computer vision through novel training paradigms that require less labeled data. 
+Dr. Kyle Bradbury develops and applies machine learning techniques to better understand and manage energy and climate resources. His work focuses on how to advance machine learning methodologies and apply them to solve energy and climate system challenges through the development of open source, widely-applicable computational tools. His current research interests include developing scalable computer vision techniques for assessing energy resources, infrastructure, and access globally through the use of publicly available remote sensing data. Methodologically, he investigates how to overcome the challenge of distribution shift in computer vision through novel training paradigms that require less labeled data.
 
 
 ### Teaching Assistants
 
 ::: {layout-nrow=1}
-![Lilah DuBoff ([{{< fa envelope >}}](mailto: lilah.duboff@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/lilah-duboff/))](img/duboff_lilah.png){fig-align="left"}
+![Lilah DuBoff ([{{< fa envelope label="Email Lilah DuBoff" title="Email" >}}](mailto:lilah.duboff@duke.edu), [{{< fa brands linkedin label="Lilah DuBoff on LinkedIn" title="LinkedIn" >}}](https://www.linkedin.com/in/lilah-duboff/))](img/duboff_lilah.png){fig-align="left" fig-alt="Photo of Lilah DuBoff"}
 
-![Kayla Haeussler ([{{< fa envelope >}}](mailto: kayla.haeussler@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/kayla-haeussler))](img/haeussler_kayla.jpg){fig-align="left"}
+![Kayla Haeussler ([{{< fa envelope label="Email Kayla Haeussler" title="Email" >}}](mailto:kayla.haeussler@duke.edu), [{{< fa brands linkedin label="Kayla Haeussler on LinkedIn" title="LinkedIn" >}}](https://www.linkedin.com/in/kayla-haeussler))](img/haeussler_kayla.jpg){fig-align="left" fig-alt="Photo of Kayla Haeussler"}
 
-![Paul Markakis ([{{< fa envelope >}}](mailto: paul.markakis@duke.edu), [{{< fa brands linkedin >}}](https://www.linkedin.com/in/paul-j-markakis))](img/markakis_paul.jpeg){fig-align="left"}
+![Paul Markakis ([{{< fa envelope label="Email Paul Markakis" title="Email" >}}](mailto:paul.markakis@duke.edu), [{{< fa brands linkedin label="Paul Markakis on LinkedIn" title="LinkedIn" >}}](https://www.linkedin.com/in/paul-j-markakis))](img/markakis_paul.jpeg){fig-align="left" fig-alt="Photo of Paul Markakis"}
 :::

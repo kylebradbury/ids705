@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignment Instructions – IDS705 (2027): Principles of Machine Learning</title>
+<title>Assignment Instructions – IDS 705: Principles of Machine Learning (Spring 2027)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../img/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -141,6 +142,14 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Assignment Instructions – IDS 705: Principles of Machine Learning (Spring 2027)">
+<meta property="og:description" content="Grading, Formatting, and Submission">
+<meta property="og:image" content="https://kylebradbury.github.io/ids705/notebooks/images_instruction/guide01.JPG">
+<meta property="og:site_name" content="IDS 705: Principles of Machine Learning (Spring 2027)">
+<meta name="twitter:title" content="Assignment Instructions – IDS 705: Principles of Machine Learning (Spring 2027)">
+<meta name="twitter:description" content="Grading, Formatting, and Submission">
+<meta name="twitter:image" content="https://kylebradbury.github.io/ids705/notebooks/images_instruction/guide01.JPG">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -151,7 +160,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">IDS705 (2027): Principles of Machine Learning</span>
+    <span class="navbar-title">IDS 705 · Spring 2027</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -204,7 +213,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Syllabus</span></a>
+ <span class="menu-text">Course Info</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -219,7 +228,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Course Logistics</span></a>
+ <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -277,13 +286,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Resources for further learning</span></a>
+ <span class="menu-text">Resources for Further Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="https://github.com/kylebradbury/ml-project-structure-demo" class="sidebar-item-text sidebar-link">
- <span class="menu-text">File structure template</span></a>
+ <span class="menu-text">File Structure Template</span></a>
   </div>
 </li>
       </ul>
@@ -299,20 +308,20 @@ window.Quarto = {
    
   <ul>
   <li><a href="#assignment-grading" id="toc-assignment-grading" class="nav-link active" data-scroll-target="#assignment-grading">Assignment Grading</a></li>
-  <li><a href="#how-to-submit-assignments" id="toc-how-to-submit-assignments" class="nav-link" data-scroll-target="#how-to-submit-assignments">How to submit assignments</a></li>
+  <li><a href="#how-to-submit-assignments" id="toc-how-to-submit-assignments" class="nav-link" data-scroll-target="#how-to-submit-assignments">How to Submit Assignments</a></li>
   <li><a href="#example-question-and-template" id="toc-example-question-and-template" class="nav-link" data-scroll-target="#example-question-and-template">Example Question and Template</a>
   <ul class="collapse">
-  <li><a href="#entering-mathematical-equations" id="toc-entering-mathematical-equations" class="nav-link" data-scroll-target="#entering-mathematical-equations">Entering mathematical equations</a></li>
+  <li><a href="#entering-mathematical-equations" id="toc-entering-mathematical-equations" class="nav-link" data-scroll-target="#entering-mathematical-equations">Entering Mathematical Equations</a></li>
   </ul></li>
-  <li><a href="#rendering-a-pdf-file" id="toc-rendering-a-pdf-file" class="nav-link" data-scroll-target="#rendering-a-pdf-file">Rendering a PDF file</a>
+  <li><a href="#rendering-a-pdf-file" id="toc-rendering-a-pdf-file" class="nav-link" data-scroll-target="#rendering-a-pdf-file">Rendering a PDF File</a>
   <ul class="collapse">
-  <li><a href="#option-1-render-from-vs-code-without-additional-extensions" id="toc-option-1-render-from-vs-code-without-additional-extensions" class="nav-link" data-scroll-target="#option-1-render-from-vs-code-without-additional-extensions">Option 1: Render from VS Code (without additional extensions)</a></li>
+  <li><a href="#option-1-render-from-vs-code-without-additional-extensions" id="toc-option-1-render-from-vs-code-without-additional-extensions" class="nav-link" data-scroll-target="#option-1-render-from-vs-code-without-additional-extensions">Option 1: Render from VS Code (Without Additional Extensions)</a></li>
   <li><a href="#option-2-render-from-vs-code-with-quarto-and-latex" id="toc-option-2-render-from-vs-code-with-quarto-and-latex" class="nav-link" data-scroll-target="#option-2-render-from-vs-code-with-quarto-and-latex">Option 2: Render from VS Code with Quarto and LaTeX</a></li>
   <li><a href="#option-3-render-from-jupyter-notebooks" id="toc-option-3-render-from-jupyter-notebooks" class="nav-link" data-scroll-target="#option-3-render-from-jupyter-notebooks">Option 3: Render from Jupyter Notebooks</a></li>
   </ul></li>
   <li><a href="#figure-guidelines" id="toc-figure-guidelines" class="nav-link" data-scroll-target="#figure-guidelines">Figure Guidelines</a>
   <ul class="collapse">
-  <li><a href="#figure-checklist" id="toc-figure-checklist" class="nav-link" data-scroll-target="#figure-checklist">Figure checklist</a></li>
+  <li><a href="#figure-checklist" id="toc-figure-checklist" class="nav-link" data-scroll-target="#figure-checklist">Figure Checklist</a></li>
   </ul></li>
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul>
@@ -324,7 +333,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/assignment_instructions.html">Assignments</a></li><li class="breadcrumb-item"><a href="../notebooks/assignment_instructions.html">Assignment Instructions</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Assignment Instructions</h1>
-<p class="subtitle lead">IDS:705 Principles of Machine Learning</p>
+<p class="subtitle lead">Grading, Formatting, and Submission</p>
 </div>
 
 
@@ -346,17 +355,17 @@ window.Quarto = {
 <p>Assignment grading will consist of two components: content (90%) and presentation (10%). The content grade will be based on the accuracy and completeness (including the depth) of your answers to each question. If a question asks you to explain, hypothesize, or otherwise think critically, be sure to demonstrate your critical engagement with the question. Presentation and collaboration are critical skills for success as a data scientist. To support you in refining those skills, we include the presentation component of the grade. The presentation score will be based on how well you communicate in writing, figure creation, and coding. Clear writing (with appropriate grammar and spelling), organized answers, well-organized/commented code, and properly formatted figures will ensure your success on the presentation component of the assignment.</p>
 </section>
 <section id="how-to-submit-assignments" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-submit-assignments">How to submit assignments</h2>
+<h2 class="anchored" data-anchor-id="how-to-submit-assignments">How to Submit Assignments</h2>
 <p>Assignments will be submitted via Gradescope as a PDF and you will need to indicate the location of your work for each question and subquestion. Below is a step-by-step guide to submitting your assignments.</p>
 <ol type="1">
-<li><strong>Header</strong>. At the top of the document, include the assignment number, your name, your netid, and a list of anyone you collaborated with on the assignment.</li>
+<li><strong>Header</strong>. At the top of the document, include the assignment number, your name, your NetID, and a list of anyone you collaborated with on the assignment.</li>
 <li><strong>Each answer is prefaced in bold by the question/subquestion number</strong>. Each question is followed by one or more sections typically labeled with section numbers (e.g.&nbsp;2.3). Make sure you have a cell with that section number prior to your response. You may use multiple cells for each answer that include both markdown and code. For full credit, submitted assignments should be easily navigable with answers for subsections clearly indicated.</li>
 <li><strong>Ensure that all cells have been run</strong>. Cells that have not been run will be treated as unanswered questions and assigned zero points.</li>
 <li><strong>Create a PDF document of your notebook</strong>. There are a few ways to do this. Please see the guide below.</li>
 <li><strong>Your content is legible prior to submission</strong>. Look over your PDF before you submit it. If we cannot read it, or parts are missing, we cannot grade it, and no credit will be given for anything we cannot read or is missing.
 <ul>
 <li>Code is valid (able to run and producing the correct answer), neat, understandable, and well commented.</li>
-<li>Math is either clearly written and inserted into the proper part of the document or typeset using <a href="https://tobi.oetiker.ch/lshort/lshort.pdf">LateX equations</a>.</li>
+<li>Math is either clearly written and inserted into the proper part of the document or typeset using <a href="https://tobi.oetiker.ch/lshort/lshort.pdf">LaTeX equations</a>.</li>
 <li>All text that is not code should be formatted using markdown. Two references to help include: <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">ref1</a> and <a href="http://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html">ref2</a>.</li>
 </ul></li>
 <li><strong>Submit your assignment by the deadline on gradescope</strong>. Any assignments received after the deadline will be treated as late. Please <a href="https://www.youtube.com/watch?v=nksyA0s-Geo">see this video</a> for how to submit your assignment on gradescope. The submission link is here: <a href="https://www.gradescope.com/">https://www.gradescope.com/</a></li>
@@ -371,14 +380,14 @@ window.Quarto = {
 <li><a href="../shared/assignment_template.html">Sample assignment template and example for submission</a></li>
 </ul>
 <section id="entering-mathematical-equations" class="level3">
-<h3 class="anchored" data-anchor-id="entering-mathematical-equations">Entering mathematical equations</h3>
-<p>You may either write out equations by hand or using markdown and <a href="https://tobi.oetiker.ch/lshort/lshort.pdf">LaTeX</a> (LaTeX is recommended). Either way, I recommend that you complete the work on paper before typing up the final version if you choose to use LaTeX. If you hand-write your math, please digitize them (scan them in or take a picture) and place them in the proper order for of the document for your final PDF. Either way, show your math including any intermediate steps necessary to understand the logic of your solution. If we are not able to interpret your meaning (or understand your writing), no credit will be given.</p>
+<h3 class="anchored" data-anchor-id="entering-mathematical-equations">Entering Mathematical Equations</h3>
+<p>You may either write out equations by hand or using markdown and <a href="https://tobi.oetiker.ch/lshort/lshort.pdf">LaTeX</a> (LaTeX is recommended). Either way, I recommend that you complete the work on paper before typing up the final version if you choose to use LaTeX. If you hand-write your math, please digitize them (scan them in or take a picture) and place them in the proper order of the document for your final PDF. Either way, show your math including any intermediate steps necessary to understand the logic of your solution. If we are not able to interpret your meaning (or understand your writing), no credit will be given.</p>
 </section>
 </section>
 <section id="rendering-a-pdf-file" class="level2">
-<h2 class="anchored" data-anchor-id="rendering-a-pdf-file">Rendering a PDF file</h2>
+<h2 class="anchored" data-anchor-id="rendering-a-pdf-file">Rendering a PDF File</h2>
 <section id="option-1-render-from-vs-code-without-additional-extensions" class="level3">
-<h3 class="anchored" data-anchor-id="option-1-render-from-vs-code-without-additional-extensions">Option 1: Render from VS Code (without additional extensions)</h3>
+<h3 class="anchored" data-anchor-id="option-1-render-from-vs-code-without-additional-extensions">Option 1: Render from VS Code (Without Additional Extensions)</h3>
 <p>We recommend using VS Code for this course and for use in developing your Jupyter notebooks. Rendering pdfs from Jupyter Notebooks in VS Code has a couple of extra steps, though. To render a pdf without any additional extensions, you do the following:</p>
 <ol type="1">
 <li>Open your notebook in VS code and hit the ellipsis (the three horizontal dots) just to the right of the tools for your notebook:</li>
@@ -415,7 +424,7 @@ window.Quarto = {
 </section>
 <section id="option-3-render-from-jupyter-notebooks" class="level3">
 <h3 class="anchored" data-anchor-id="option-3-render-from-jupyter-notebooks">Option 3: Render from Jupyter Notebooks</h3>
-<p>Open your notebook in a Jupyter Notebook in Google Chrome. Go to File-&gt;Print Preview, then after verifying the document looks correct, click “print” and for your printer choose “Save as PDF.”</p>
+<p>Open your notebook in Jupyter Notebook or JupyterLab in your browser. Choose <strong>File → Print…</strong>, verify that the preview looks correct, and choose <strong>Save as PDF</strong> as the destination.</p>
 <p><strong>Whichever method you choose - always check your pdf before submitting to make sure everything is rendered and nothing is cut off!</strong></p>
 </section>
 </section>
@@ -423,7 +432,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="figure-guidelines">Figure Guidelines</h2>
 <p>Here is an example of a well-prepared figure that checks all of the requirements for good figures. Please check out <a href="https://www.coursera.org/learn/python-data-modeling">this Coursera course</a> for skill development and Python plotting best practices.</p>
 <section id="figure-checklist" class="level3">
-<h3 class="anchored" data-anchor-id="figure-checklist">Figure checklist</h3>
+<h3 class="anchored" data-anchor-id="figure-checklist">Figure Checklist</h3>
 <ol type="1">
 <li>All plots should have a purpose - either being directly requested or should make a clear point.</li>
 <li><strong>All</strong> plots should have axes labels and legible fonts (large enough to read).</li>
@@ -487,7 +496,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p><em>Figure 1. Ideally, each figure should have a caption that explains the figure. Here, the test data (green) approximates the generalization error rate, the lower-bound of which is the Bayes error rate (grey dotted line). The value of <span class="math inline">\(k\)</span> represents the flexibility of the model with lower values of <span class="math inline">\(k\)</span> representing higher model flexibility and higher values of <span class="math inline">\(k\)</span>, lower flexibility. The training error (black) is not considered out of sample, so in cases of high model flexiblity (and in this case high overfit), the training error rate can reach zero.</em></p>
+<p><em>Figure 1. Ideally, each figure should have a caption that explains the figure. Here, the test data (green) approximates the generalization error rate, the lower-bound of which is the Bayes error rate (grey dotted line). The value of <span class="math inline">\(k\)</span> represents the flexibility of the model with lower values of <span class="math inline">\(k\)</span> representing higher model flexibility and higher values of <span class="math inline">\(k\)</span>, lower flexibility. The training error (black) is not considered out of sample, so in cases of high model flexibility (and in this case high overfit), the training error rate can reach zero.</em></p>
 <p>Note the clear x and y axis labels and legends - there are no acronyms or shorthands used, just the full description of what is being plotted. Also note how easy it is to compare the color of lines and identify the baseline (Bayes) comparison line. Make your plots easy to read and understand. A figure caption is generally helpful as well to indicate what we are seeing in each plot.</p>
 </section>
 </section>
@@ -592,7 +601,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/kylebradbury\.github\.io\/ids705\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -920,6 +929,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://kylebradbury.org">Kyle Bradbury</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://duke.edu">Duke University</a> · <a href="https://datascience.duke.edu">MIDS</a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="../history.html">Past Offerings</a> · <a href="https://github.com/kylebradbury/ids705">Source</a></p>
+</div>
+  </div>
+</footer>
 
 
 

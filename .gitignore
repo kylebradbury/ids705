@@ -10,3 +10,24 @@ archive/*
 
 /solutions
 **/solution*.ipynb
+
+# Personal notes (kept locally, not published)
+MANUAL_TODO.md
+SITE_REVIEW_PLAN.md
+
+# LaTeX build artifacts (from rendering notebooks to PDF)
+*.aux
+*.toc
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex*
+notebooks/*.tex
+notebooks/*_files/
+
+# Dropbox conflict copies
+*conflicted copy*
+
+# Stray output from rendering single files outside the project
+/site_libs/
+/*_files/

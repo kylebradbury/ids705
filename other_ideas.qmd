@@ -1,3 +1,8 @@
+---
+title: More Sample Projects
+toc: true
+number-sections: false
+---
 
 ### Example Project 3: Urban Air Quality Prediction
 
@@ -107,7 +112,7 @@
 
 **Short description of why stakeholders care**: Detecting emotional state from speech has two distinct high-stakes use cases. In mental health tech, an app that passively monitors vocal patterns could flag signs of depression or acute distress and prompt a check-in — but deploying such a tool irresponsibly raises significant privacy and consent concerns. In call centers, emotion-aware systems can route frustrated callers to senior agents or alert supervisors in real time. Both use cases demand careful attention to whether the model's emotion labels generalize across different speakers, accents, ages, and cultural backgrounds — making the fairness and distribution shift analyses especially meaningful here.
 
-**Dataset**: [RAVDESS](https://zenodo.org/record/1188976) + [CREMA-D](https://github.com/CheyneyComputerScience/CREMA-D) combined (~10K clips across diverse speakers, 6–8 emotion classes)
+**Dataset**: [RAVDESS](https://zenodo.org/records/1188976) + [CREMA-D](https://github.com/CheyneyComputerScience/CREMA-D) combined (~10K clips across diverse speakers, 6–8 emotion classes)
 
 **Core requirements**:
 

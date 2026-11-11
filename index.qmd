@@ -1,27 +1,33 @@
 ---
 title: Overview
-subtitle: IDS 705 Principles of Machine Learning
+subtitle: Spring 2027
+# Search/link-preview description (not shown on the page)
+description-meta: "Course website for IDS 705, Principles of Machine Learning, at Duke University (Spring 2027): an applied introduction to supervised, unsupervised, and reinforcement learning."
+open-graph:
+  description: "Course website for IDS 705, Principles of Machine Learning, at Duke University (Spring 2027): an applied introduction to supervised, unsupervised, and reinforcement learning."
+twitter-card:
+  description: "Course website for IDS 705, Principles of Machine Learning, at Duke University (Spring 2027): an applied introduction to supervised, unsupervised, and reinforcement learning."
 author:
     - name: Kyle Bradbury
       email: kyle.bradbury@duke.edu
-      affiliation: 
+      affiliation:
       - name: Duke University
         city: Durham
         state: NC
-        url: www.duke.edu
+        url: https://duke.edu
 # date: 'January 1, 2024'
 toc: true
 number-sections: false
 ---
 
-![](img/decision-boundaries.png)
+![](img/decision-boundaries.png){fig-alt="Three panels showing decision boundaries on the same two-class dataset: the Bayes decision boundary, a linear classifier, and a decision tree."}
 
 
 ## Course Summary
 
-In almost every field, there is a need to make predictions based on data to drive decisions. The goal of this course is to provide an introduction to machine learning that is approachable to diverse disciplines and empowers students to become proficient in the foundational concepts and tools. You will learn to (a) structure a machine learning problems and determine which algorithmic tools are appropriate, (b) evaluate the performance of your solution using field-appropriate metrics and practices, and (c) accurately interpret your model output and communicate your results to interdisciplinary audiences. This course is a fast-paced, applied introduction to machine learning that through extensive practice with foundational tools, helps you to develop your knowledge of foundational machine learning concepts, and provides practical experience with those tools to prepare you for practice or future study.
+In almost every field, there is a need to make predictions based on data to drive decisions. The goal of this course is to provide an introduction to machine learning that is approachable to diverse disciplines and empowers students to become proficient in the foundational concepts and tools. You will learn to (a) structure machine learning problems and determine which algorithmic tools are appropriate, (b) evaluate the performance of your solution using field-appropriate metrics and practices, and (c) accurately interpret your model output and communicate your results to interdisciplinary audiences. This course is a fast-paced, applied introduction to machine learning that, through extensive practice with foundational tools, helps you develop your knowledge of foundational machine learning concepts and provides practical experience with those tools to prepare you for practice or future study.
 
-## Detailed description
+## Detailed Description
 
 Machine learning is a collection of useful tools for understanding and making decisions based on data and past experience; it is not a hammer to be applied to every nail, but rather a precision tool to be used when needed. This course will begin with exploring the purpose of machine learning told through a discussion of the types of problems that machine learning can answer: describing, predicting, and strategizing based on data and the tools at our disposal to address these challenges: supervised learning including classification and regression; unsupervised learning including clustering and density estimation; and reinforcement learning. There will be a strong focus on how to formulate a machine learning problem. Central to that formulation will be developing an understanding of how to preprocess data for analysis (e.g. feature extraction/dimensionality reduction, training/validation data sampling), model selection, and performance evaluation with cross validation. The final topic of this course will be a brief overview of state-of-the-art machine learning techniques that are emerging in the field.
 
