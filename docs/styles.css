@@ -1,60 +1,117 @@
 /* css styles */
-.module {
-    font-size: 18px;
-    background: darkgray;
-    color: white;
-  }
 
-  .table-primary {
-    background: rgb(218, 233, 250);
-    /* color: white; */
-  }
+/* ===================== Schedule table (schedule.qmd) =====================
+   Columns: 1 Date | 2 Event | 3 Topic | 4 Readings | 5 Materials          */
 
-  .table-warning {
-    background: rgb(247, 226, 214);
-    /* color: white; */
-  }
+.schedule th {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--bs-secondary-color);
+  font-weight: 600;
+}
+table.schedule > tbody > tr > td { background-color: transparent; }  /* let row colors show */
 
+/* Date: bold. A struck-out old date shows small underneath */
+.schedule td:nth-child(1) { font-weight: 600; white-space: nowrap; }
+.schedule td:nth-child(1) s { display: block; font-weight: 400; font-size: .8rem; color: var(--bs-secondary-color); }
 
-/* Schedule on phones: show each row of the schedule table as a compact card.
-   Columns: 1 = event, 2 = date, 3 = description, 4 = readings, 5 = materials */
+/* Event: "Lecture 3" in small gray text */
+.schedule td:nth-child(2) { font-size: .85rem; color: var(--bs-secondary-color); white-space: nowrap; }
+
+/* Topic: bold title, smaller gray description */
+.schedule td:nth-child(3)   { font-size: .9rem; color: var(--bs-secondary-color); }
+.schedule td:nth-child(3) b { font-size: 1rem; color: var(--bs-body-color); }
+.schedule td:nth-child(3) ul { margin: .25rem 0 0; }
+
+/* Column widths: Date, Event, and Materials shrink to fit; Topic gets the rest */
+.schedule th:nth-child(1), .schedule th:nth-child(2), .schedule th:nth-child(5) { width: 1%; }
+.schedule th:nth-child(4) { width: 22%; }
+
+/* Tags: <span class="due">, <span class="exam">, <span class="tag"> */
+.schedule .due, .schedule .exam, .schedule .tag {
+  display: inline-block;
+  padding: 0 .45rem;
+  border-radius: .25rem;
+  font-size: .8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.schedule .due  { background: #f6d8b8; color: #6b3a00; }
+.schedule .exam { background: #f5c2c7; color: #842029; }
+.schedule .tag  { background: #e9ecef; color: #495057; }
+
+/* Rows are colored automatically from the tag in their Event cell */
+.schedule tr:has(> td:nth-child(2) .due)  { background: #fdf4ea; }
+.schedule tr:has(> td:nth-child(2) .exam) { background: #fbeaec; }
+.schedule tr:has(> td:nth-child(2) .tag),
+.schedule tr:has(> td:nth-child(2) .tag) b { color: var(--bs-secondary-color); }
+
+/* Red note: <span class="note"> */
+.schedule .note { color: #b02a37; font-weight: 600; }
+.schedule .note::before { font-family: "bootstrap-icons"; content: "\f33b"; margin-right: .3rem; font-weight: normal; }
+
+/* Module rows: <tr class="module"><td colspan="5">...</td></tr> */
+table.schedule > tbody > tr.module > td {
+  background: #495057;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: normal;
+}
+
+/* Materials: one link per line, with an icon picked from the link address */
+.schedule td:nth-child(5) a { display: block; white-space: nowrap; text-decoration: none; }
+.schedule td:nth-child(5) br { display: none; }
+.schedule td:nth-child(5) a::before {
+  display: inline-block;
+  font-family: "bootstrap-icons";
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: -.125em;
+  margin-right: .35rem;
+  content: "\f470";                                                /* any other link */
+}
+.schedule td:nth-child(5) a[href$=".pdf"]::before          { content: "\f63e"; }  /* PDF */
+.schedule td:nth-child(5) a[href*="/lectures/"]::before    { content: "\f387"; }  /* lecture slides */
+.schedule td:nth-child(5) a[href$=".ipynb"]::before        { content: "\f2c6"; }  /* code */
+.schedule td:nth-child(5) a[href*="/assignment"]::before,
+.schedule td:nth-child(5) a[href*="/project.html"]::before { content: "\f444"; }  /* assignment / project page */
+.schedule td:nth-child(5) a[href*="gradescope"]::before    { content: "\f603"; }  /* submit */
+.schedule td:nth-child(5) a[href*="warpwire"]::before,
+.schedule td:nth-child(5) a[href*="youtube"]::before       { content: "\f4f1"; }  /* video */
+
+/* Phones: each row becomes a card */
 @media (max-width: 767.98px) {
   .schedule, .schedule tbody, .schedule tr, .schedule td { display: block; }
-
-  /* Hide the header row visually but keep it for screen readers */
   .schedule thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-
   .schedule tr {
     border: 1px solid var(--bs-border-color);
     border-radius: .5rem;
-    margin-bottom: .75rem;
-    padding: .5rem 0;
+    margin-bottom: .6rem;
+    padding: .45rem 0;
   }
-  table.schedule > tbody > tr > td { border: 0; padding: .1rem .75rem; background-color: transparent; }
+  table.schedule > tbody > tr > td { border: 0; padding: .1rem .75rem; }
 
-  /* Event and date on one line: "Lecture 3 · Tuesday Jan 20" */
-  .schedule td:nth-child(1),
-  .schedule td:nth-child(2) { display: inline-block; font-weight: bold; }
-  .schedule td:nth-child(1):not(:empty)::after { content: " ·"; }
-  table.schedule > tbody > tr > td:nth-child(1):not(:empty) + td { padding-left: 0; }
-  .schedule td:nth-child(2) br { display: none; }
+  /* Date and event on one line */
+  .schedule td:nth-child(1), .schedule td:nth-child(2) { display: inline-block; }
+  table.schedule > tbody > tr > td:nth-child(2) { padding-left: 0; }
+  .schedule td:nth-child(1) s { display: inline; margin-left: .3rem; }
 
-  /* Label the readings */
   .schedule td:nth-child(4)::before {
     content: "Readings";
     display: block;
-    margin-top: .35rem;
-    font-size: .75rem;
+    margin-top: .3rem;
+    font-size: .7rem;
     text-transform: uppercase;
-    letter-spacing: .04em;
+    letter-spacing: .05em;
     color: var(--bs-secondary-color);
   }
+  .schedule td:nth-child(5) { margin-top: .3rem; }
+  .schedule td:nth-child(5) a { display: inline-block; margin-right: .9rem; }
 
-  /* Materials links side by side */
-  .schedule td:nth-child(5) { margin-top: .35rem; }
-  .schedule td:nth-child(5) br { display: none; }
-  .schedule td:nth-child(5) a { margin-right: .75rem; }
+  .schedule tr.module { border: 0; padding: 0; }
+  table.schedule > tbody > tr.module > td { display: block; border-radius: .5rem; padding: .5rem .75rem; }
 
-  /* Hide blank cells (keep this last) */
-  table.schedule > tbody > tr > td:empty { display: none; }
+  table.schedule > tbody > tr > td:empty { display: none; }  /* keep last: hides blank cells */
 }

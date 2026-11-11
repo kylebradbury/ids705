@@ -275,579 +275,405 @@ Key to books used below
 </ul>
 </div>
 </div>
-<!-- On phones each row becomes a card (see styles.css). Leave unused cells as <td></td> so they are hidden there. -->
+<!--
+  HOW TO EDIT: each row has 5 cells: Date | Event | Topic | Readings | Materials.
+  Leave unused cells as <td></td> (nothing inside) so they are hidden on phones.
+
+  Lecture:   <td>Tue, Jan 20</td> <td>Lecture 3</td> <td><b>Title</b><br>Description</td> <td>ISL 2.2</td> <td><a href="...">Slides</a></td>
+  Tags (go in the Event cell; the row is colored to match):
+             <span class="due">Due 9pm</span>     orange, for deadlines
+             <span class="exam">Exam</span>       red
+             <span class="tag">No class</span>    gray, for holidays/breaks/cancellations (also "No quiz" in Readings)
+  Red note:  <span class="note">This meeting will be virtual</span>
+  Moved date: <td>Fri, Mar 6 <s>Wed, Mar 4</s></td>
+  Module:    <tr class="module"><td colspan="5">Module 2: Unsupervised Learning</td></tr>
+  Materials: plain links. The icon is picked from the link address (see styles.css):
+             lecture PDFs = slides, other PDFs, .ipynb = code, assignment/project pages,
+             Gradescope = submit, Warpwire/YouTube = video, anything else = link.
+-->
 <table class="table table-hover schedule">
-  <thead class="thead-light">
+  <thead>
     <tr>
-      <th>Event Type</th>
       <th>Date</th>
-      <th>Description</th>
+      <th>Event</th>
+      <th>Topic</th>
       <th>Readings</th>
-      <th style="min-width:120px">Course Materials</th>
+      <th>Materials</th>
     </tr>
   </thead>
+  <tbody>
 
-  <tbody><tr>
-    <td class="lecnum">Lecture 1</td>
-    <td class="date">Thursday<br> Jan 8</td>
-    <td>
-      <b>What is machine learning?</b> <br>
-      Course overview and an orientation to the major branches of machine learning: supervised, unsupervised, and reinforcement learning 
-    </td>
-    <td>None</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture01_what_is_machine_learning.pdf">[slides]</a><br>
-    </td>
+  <tr>
+    <td>Thu, Jan 8</td>
+    <td>Lecture 1</td>
+    <td><b>What is machine learning?</b><br>
+      Course overview and an orientation to the major branches of machine learning: supervised, unsupervised, and reinforcement learning</td>
+    <td></td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture01_what_is_machine_learning.pdf">Slides</a></td>
   </tr>
 
-  <tr class="module">
-    <td></td>
-    <td></td>
-    <td><b>Module 1: Supervised Learning</b></td>
-    <td></td>
-    <td></td>
-  </tr>
+  <tr class="module"><td colspan="5">Module 1: Supervised Learning</td></tr>
 
-  <tr class="table-primary">
-    <td class="lecnum"></td>
-    <td class="date">Tuesday<br> Jan 13</td>
-    <td>
-      <b>NO CLASS</b> <br>
-      Make up class on Friday January 30th (10:05-11:20am) in Gross Hall 270
-    </td>
+  <tr>
+    <td>Tue, Jan 13</td>
+    <td><span class="tag">No class</span></td>
+    <td>Make up class on Friday January 30th (10:05-11:20am) in Gross Hall 270</td>
     <td></td>
     <td></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 2</td>
-    <td class="date">Thursday <br> Jan 15</td>
-    <td>
-      <b>An end-to-end machine learning example</b> <br>
-      An introduction to formulating a supervised machine learning problem. Stating the problem, creating the model, evaluating performance, and operationalizing the solution. </td>
-    <td>ISL Ch. 1 + 2.1<br><a href="https://warpwire.duke.edu/w/aWQHAA/">Watch this lecture</a> </td>
-    <td>
-      <!-- [slides]<br> -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture02_end_to_end_machine_learning.pdf">[slides]</a><br>
-      <a href="https://github.com/ageron/handson-ml/blob/master/02_end_to_end_machine_learning_project.ipynb">[sample code]</a>
-    </td>
+    <td>Thu, Jan 15</td>
+    <td>Lecture 2</td>
+    <td><b>An end-to-end machine learning example</b><br>
+      An introduction to formulating a supervised machine learning problem. Stating the problem, creating the model, evaluating performance, and operationalizing the solution.</td>
+    <td>ISL Ch. 1 + 2.1</td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture02_end_to_end_machine_learning.pdf">Slides</a>
+      <a href="https://warpwire.duke.edu/w/aWQHAA/">Recording</a>
+      <a href="https://github.com/ageron/handson-ml/blob/master/02_end_to_end_machine_learning_project.ipynb">Code</a></td>
   </tr>
 
-  <tr class="table-primary">
-    <td></td>
-    <td class="date">Monday <br> Jan 19</td>
+  <tr>
+    <td>Mon, Jan 19</td>
+    <td><span class="tag">Holiday</span></td>
     <td><b>Martin Luther King Jr. Day</b></td>
     <td></td>
     <td></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 3</td>
-    <td class="date">Tuesday <br> Jan 20</td>
-    <td>
-      <b>How flexible should my algorithms be? The bias-variance tradeoff </b> <br>
-      The bias-variance tradeoff explained using K-nearest neighbors classification
-    </td>
+    <td>Tue, Jan 20</td>
+    <td>Lecture 3</td>
+    <td><b>How flexible should my algorithms be? The bias-variance tradeoff</b><br>
+      The bias-variance tradeoff explained using K-nearest neighbors classification</td>
     <td>ISL 2.2</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture03_bias_variance_tradeoff.pdf">[slides]</a>
-    </td>
-  </tr>
-
-  <tr class="table-warning">
-    <td><b>Deliverable</b></td>
-    <td class="date"> Wednesday <br> Jan 21</td>
-    <td><b>Assignment #1 Due (at 9pm)</b><br> Probability, Linear Algebra, &amp; Computational Programming</td>
-    <td></td>
-    <td>
-      <a href="https://kylebradbury.github.io/ids705/notebooks/assignment1.html">[assignment]</a><br>
-      <!-- [submit] -->
-      <a href="https://www.gradescope.com/">[submit]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture03_bias_variance_tradeoff.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 4</td>
-    <td class="date">Thursday <br> Jan 22</td>
-    <td>
-      <b>Linear Models I</b> <br>
-      Simple linear regression, multiple linear regression, measuring error, model fitting and least squares, comparing linear regression and classification
-    </td>
+    <td>Wed, Jan 21</td>
+    <td><span class="due">Due 9pm</span></td>
+    <td><b>Assignment #1</b><br>
+      Probability, Linear Algebra, &amp; Computational Programming</td>
+    <td></td>
+    <td><a href="https://kylebradbury.github.io/ids705/notebooks/assignment1.html">Assignment</a>
+      <a href="https://www.gradescope.com/">Submit</a></td>
+  </tr>
+
+  <tr>
+    <td>Thu, Jan 22</td>
+    <td>Lecture 4</td>
+    <td><b>Linear Models I</b><br>
+      Simple linear regression, multiple linear regression, measuring error, model fitting and least squares, comparing linear regression and classification</td>
     <td>ISL Intro of 3, 3.1, and 3.2</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture04_linear_models_1.pdf">[slides]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture04_linear_models_1.pdf">Slides</a></td>
   </tr>
 
-  
-
   <tr>
-    <td class="lecnum">Lecture 5</td>
-    <td class="date">Tuesday <br> Jan 27</td>
-    <td>
-      <b>Linear Models II</b> <br>
-      Nonlinear transformations of predictors; linear models for classification including the perceptron and logistic regression; cost/loss functions for classification (cross entropy loss); introduction to gradient descent.
-    </td>
+    <td>Tue, Jan 27</td>
+    <td>Lecture 5</td>
+    <td><b>Linear Models II</b><br>
+      Nonlinear transformations of predictors; linear models for classification including the perceptron and logistic regression; cost/loss functions for classification (cross entropy loss); introduction to gradient descent.</td>
     <td>ISL 3.3 and 3.5</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture05_linear_models_2.pdf">[slides]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture05_linear_models_2.pdf">Slides</a></td>
   </tr>
-  
+
   <tr>
-    <td class="lecnum">Lecture 6</td>
-    <td class="date">Thursday <br> Jan 29</td>
-    <td>
-      <b>Performance evaluation: metrics for regression/classification</b> <br>
-      Choosing the right model: accuracy vs speed vs interpretability; metrics for supervised learning performance evaluation: types of errors, receiver operating characteristics curves, and confusion matrices
-    </td>
+    <td>Thu, Jan 29</td>
+    <td>Lecture 6</td>
+    <td><b>Performance evaluation: metrics for regression/classification</b><br>
+      Choosing the right model: accuracy vs speed vs interpretability; metrics for supervised learning performance evaluation: types of errors, receiver operating characteristics curves, and confusion matrices</td>
     <td>ISL 4.1, 4.2, and 4.3</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture06_performance_evaluation_1.pdf">[slides]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture06_performance_evaluation_1.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 7</td>
-    <td class="date"><b>FRIDAY <br> Jan 30</b></td>
-    <td>
-      <b style="color:red">MAKE UP CLASS - GROSS HALL 270, 10:05-11:20am</b> <br>
-      <b>Experimental designs for evaluating generalization performance and model comparison</b> <br>
-      How to construct effective experimental designs for evaluating and comparing models; using model performance metrics to measure generalization performance; resampling techniques: training, testing, and validation datasets and cross validation; common pitfalls around biased sampling and data snooping/leakage
-    </td>
+    <td>Fri, Jan 30</td>
+    <td>Lecture 7</td>
+    <td><b>Experimental designs for evaluating generalization performance and model comparison</b><br>
+      <span class="note">Make-up class: Gross Hall 270, 10:05-11:20am</span><br>
+      How to construct effective experimental designs for evaluating and comparing models; using model performance metrics to measure generalization performance; resampling techniques: training, testing, and validation datasets and cross validation; common pitfalls around biased sampling and data snooping/leakage</td>
     <td>ISL 5.1 and 5.2</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture07_performance_evaluation_2.pdf">[slides]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture07_performance_evaluation_2.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 8</td>
-    <td class="date">Tuesday <br> Feb 3</td>
-    <td>
-      <b>Decision theory</b> <br>
-      A risk-based framework for determining to operate supervised learning algorithms in practice; choosing ROC operating points through risk-minimization and how application-specific costs associated with different types of errors can be used to determine optimal operating points for classifiers
-    </td>
-    <td>
-      <!-- Link to reading -->
-      <a href="https://edstem.org/us/courses/90514/resources?download=97746">Link to reading</a>
-    </td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture08_decision_theory.pdf">[slides]</a>
-    </td>
+    <td>Tue, Feb 3</td>
+    <td>Lecture 8</td>
+    <td><b>Decision theory</b><br>
+      A risk-based framework for determining to operate supervised learning algorithms in practice; choosing ROC operating points through risk-minimization and how application-specific costs associated with different types of errors can be used to determine optimal operating points for classifiers</td>
+    <td><a href="https://edstem.org/us/courses/90514/resources?download=97746">Link to reading</a></td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture08_decision_theory.pdf">Slides</a></td>
   </tr>
 
-  <tr class="table-warning">
-    <td><b>Deliverable</b></td>
-    <td class="date"> Wednesday<br> Feb 4</td>
-    <td><b>Assignment #2 Due (at 9pm)</b><br>Supervised Machine Learning Fundamentals</td>
+  <tr>
+    <td>Wed, Feb 4</td>
+    <td><span class="due">Due 9pm</span></td>
+    <td><b>Assignment #2</b><br>
+      Supervised Machine Learning Fundamentals</td>
     <td></td>
-    <td>
-      <!-- [assignment] <br> -->
-      <a href="https://kylebradbury.github.io/ids705/notebooks/assignment2.html">[assignment]</a><br>
-      <!-- [submit] -->
-      <a href="https://www.gradescope.com/">[submit]</a>
-    </td>
+    <td><a href="https://kylebradbury.github.io/ids705/notebooks/assignment2.html">Assignment</a>
+      <a href="https://www.gradescope.com/">Submit</a></td>
   </tr>
 
-  <tr>  
-    <td class="lecnum">Lecture 9</td>
-    <td class="date">Thursday <br> Feb 5</td>
-    <td>
-      <b>Reducing overfit</b> <br>
-      Feature selection; Occam’s razor; Subset selection; L1 (LASSO), L2 (ridge), and elastic net regularization; early stopping.
-    </td>
+  <tr>
+    <td>Thu, Feb 5</td>
+    <td>Lecture 9</td>
+    <td><b>Reducing overfit</b><br>
+      Feature selection; Occam’s razor; Subset selection; L1 (LASSO), L2 (ridge), and elastic net regularization; early stopping.</td>
     <td>ISL 6.1 and 6.2</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture09_regularization.pdf">[slides]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture09_regularization.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 10</td>
-    <td class="date">Tuesday <br> Feb 10</td>
-    <td>
-      <b>Generative models for classification</b> <br>
-      Generative vs discriminative models; naïve Bayes
-    </td>
+    <td>Tue, Feb 10</td>
+    <td>Lecture 10</td>
+    <td><b>Generative models for classification</b><br>
+      Generative vs discriminative models; naïve Bayes</td>
     <td>ISL 4.4 and 4.5</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture10_generative_classification.pdf">[slides]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture10_generative_classification.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 11</td>
-    <td class="date">Thursday <br> Feb 12</td>
-    <td>
-      <b>Tree-based models and ensembles</b> <br>
-      From decision trees to random forests: bagging, bootstrapping, and boosting
-    </td>
+    <td>Thu, Feb 12</td>
+    <td>Lecture 11</td>
+    <td><b>Tree-based models and ensembles</b><br>
+      From decision trees to random forests: bagging, bootstrapping, and boosting</td>
     <td>ISL 8.1 and 8.2</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture11_trees_and_ensembles.pdf">[slides]</a>
-    </td>
-  </tr>
-
-    <tr>
-    <td class="lecnum">Lecture 12</td>
-    <td class="date">Tuesday <br> Feb 17</td>
-    <td>
-      <b>Neural networks I</b> <br>
-      Introduction to neural networks and representation learning; forward propagation, network architecture, and how to adapt to regression or classification problems
-    </td>
-    <td>UDL Ch 3: 3.1, 3.2; PRML Ch 5: 5.1 </td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture12_neural_networks_1.pdf">[slides]</a>
-    </td>
-  </tr>
-
-  <tr class="table-warning">
-    <td><b>Deliverable</b></td>
-    <td class="date"> Wednesday <br> Feb 18</td>
-    <td><b>Assignment #3 Due (at 9pm)</b><br>Supervised learning model training and evaluation</td>
-    <td></td>
-    <td>
-      <!-- [assignment] <br> -->
-      <a href="https://kylebradbury.github.io/ids705/notebooks/assignment3.html">[assignment]</a><br>
-      <!-- [submit] -->
-      <a href="https://www.gradescope.com/">[submit]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture11_trees_and_ensembles.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 13</td>
-    <td class="date">Thursday <br> Feb 19</td>
-    <td>
-      <b>Neural networks II</b> <br>
-      <b style="color:red;">THIS MEETING WILL BE VIRTUAL</b>. Please <a href="https://edstem.org/us/courses/90514/discussion/7695238">see this Ed post for Zoom information</a>.<br>
+    <td>Tue, Feb 17</td>
+    <td>Lecture 12</td>
+    <td><b>Neural networks I</b><br>
+      Introduction to neural networks and representation learning; forward propagation, network architecture, and how to adapt to regression or classification problems</td>
+    <td>UDL Ch 3: 3.1, 3.2; PRML Ch 5: 5.1</td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture12_neural_networks_1.pdf">Slides</a></td>
+  </tr>
 
-      Fitting a neural network to training data through gradient descent and backpropagation; how backpropagation is used to compute gradients in neural networks; hyperparameters and architecture choices in neural networks and practices for training neural networks successfully
-    </td>
+  <tr>
+    <td>Wed, Feb 18</td>
+    <td><span class="due">Due 9pm</span></td>
+    <td><b>Assignment #3</b><br>
+      Supervised learning model training and evaluation</td>
+    <td></td>
+    <td><a href="https://kylebradbury.github.io/ids705/notebooks/assignment3.html">Assignment</a>
+      <a href="https://www.gradescope.com/">Submit</a></td>
+  </tr>
+
+  <tr>
+    <td>Thu, Feb 19</td>
+    <td>Lecture 13</td>
+    <td><b>Neural networks II</b><br>
+      <span class="note">This meeting will be virtual.</span> Please <a href="https://edstem.org/us/courses/90514/discussion/7695238">see this Ed post for Zoom information</a>.<br>
+      Fitting a neural network to training data through gradient descent and backpropagation; how backpropagation is used to compute gradients in neural networks; hyperparameters and architecture choices in neural networks and practices for training neural networks successfully</td>
     <td>UDL Ch 6: 6.1-6.2.2; PRML Ch 5: 5.3.1, and <a href="http://colah.github.io/posts/2015-08-Backprop/">Calculus on Computational Graphs</a></td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture13_neural_networks_2.pdf">[slides]</a>
-    </td>
-  </tr>
-
-
-
-  <tr>
-    <td class="lecnum">Lecture 14</td>
-    <td class="date">Tuesday <br> Feb 24</td>
-    <td>
-      <b>Introduction to Deep learning I</b> <br>
-      Common architectures of deep learning models and the tools used to implement them. Introduction to convolutional neural networks (CNNs) and neural networks for gridded data (e.g. imagery).
-    </td>
-    <td>UDL Ch 10: Convolutional Neural Networks;<br>DL Ch 11: Practical Methodology<br></td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture14_deep_learning_1.pdf">[slides]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture13_neural_networks_2.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 15</td>
-    <td class="date">Thursday <br> Feb 26</td>
-    <td>
-      <b>Introduction to Deep learning II</b> <br>
-      Common architectures of deep learning models and the tools used to implement them.
-    </td>
+    <td>Tue, Feb 24</td>
+    <td>Lecture 14</td>
+    <td><b>Introduction to Deep learning I</b><br>
+      Common architectures of deep learning models and the tools used to implement them. Introduction to convolutional neural networks (CNNs) and neural networks for gridded data (e.g. imagery).</td>
+    <td>UDL Ch 10: Convolutional Neural Networks;<br>DL Ch 11: Practical Methodology</td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture14_deep_learning_1.pdf">Slides</a></td>
+  </tr>
+
+  <tr>
+    <td>Thu, Feb 26</td>
+    <td>Lecture 15</td>
+    <td><b>Introduction to Deep learning II</b><br>
+      Common architectures of deep learning models and the tools used to implement them.</td>
     <!-- ###### NOTE: UPDATE THIS IN 2026 - Remove Practical Methodology ######## -->
-    <td>UDL Ch 12.1-12.5: Transformers;<br><a href="https://www.youtube.com/watch?v=wjZofJX0v4M">[Video: Transformers]</a>;<br><a href="https://www.youtube.com/watch?v=eMlx5fFNoYc">[Video: Self-attention]</a></td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture15_deep_learning_2.pdf">[slides]</a>
-    </td>
+    <td>UDL Ch 12.1-12.5: Transformers;<br><a href="https://www.youtube.com/watch?v=wjZofJX0v4M">Video: Transformers</a>;<br><a href="https://www.youtube.com/watch?v=eMlx5fFNoYc">Video: Self-attention</a></td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture15_deep_learning_2.pdf">Slides</a></td>
   </tr>
 
-  <tr class="module">
-    <td></td>
-    <td></td>
-    <td><b>Module 2: Unsupervised Learning</b></td>
-    <td></td>
-    <td></td>
+  <tr class="module"><td colspan="5">Module 2: Unsupervised Learning</td></tr>
+
+  <tr>
+    <td>Tue, Mar 3</td>
+    <td>Lecture 16</td>
+    <td><b>Dimensionality reduction</b><br>
+      The Curse of Dimensionality and intro to principal components analysis (PCA)</td>
+    <td>ISL 6.3, 6.4, 12.1, and 12.2</td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture16_dimensionality_reduction.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 16</td>
-    <td class="date">Tuesday<br> Mar 3</td>
-    <td>
-      <b>Dimensionality reduction</b> <br>
-      The Curse of Dimensionality and intro to principal components analysis (PCA)
-    </td>
-    <td>ISL 6.3, 6.4, 12.1, and 12.2 </td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture16_dimensionality_reduction.pdf">[slides]</a>
-    </td>
+    <td>Thu, Mar 5</td>
+    <td>Lecture 17</td>
+    <td><b>Principal components analysis (PCA)</b><br>
+      Explaining how PCA works and how we calculate the principal components.</td>
+    <td>ISL 12.4 <span class="tag">No quiz</span></td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture16_dimensionality_reduction.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 17</td>
-    <td class="date">Thursday<br> Mar 5</td>
-    <td>
-      <b>Principal components analysis (PCA)</b> <br>
-      Explaining how PCA works and how we calculate the principal components.
-    </td>
-    <td>ISL 12.4<br><strong>NO QUIZ</strong></td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture16_dimensionality_reduction.pdf">[slides]</a>
-    </td>
+    <td>Fri, Mar 6 <s>Wed, Mar 4</s></td>
+    <td><span class="due">Due 9pm</span></td>
+    <td><b>Assignment #4</b><br>
+      Neural Networks</td>
+    <td></td>
+    <td><a href="https://kylebradbury.github.io/ids705/notebooks/assignment4.html">Assignment</a>
+      <a href="https://www.gradescope.com/">Submit</a>
+      <a href="https://github.com/kylebradbury/neural-network-math/raw/master/neural_network_math.pdf">NN Math Guide</a></td>
   </tr>
 
-  <tr class="table-warning">
-    <td><b>Deliverable</b></td>
-    <td class="date">Friday <br> Mar 6 <s>Mar 4</s></td>
-    <td><b>Assignment #4 Due (at 9pm)</b><br>Neural Networks</td>
-    <td></td>
-    <td>
-      <!-- [assignment] <br> -->
-      <!-- [submit]<br> -->
-      <a href="https://kylebradbury.github.io/ids705/notebooks/assignment4.html">[assignment]</a><br>
-      <a href="https://www.gradescope.com/">[submit]</a><br>
-      <a href="https://github.com/kylebradbury/neural-network-math/raw/master/neural_network_math.pdf">[NN Math Guide]</a>
-    </td>
-  </tr>
-
-  <tr class="table-primary">
-    <td></td>
-    <td class="date">Mar 6-16</td>
+  <tr>
+    <td>Mar 6-16</td>
+    <td><span class="tag">No class</span></td>
     <td><b>Spring Break Week</b></td>
     <td></td>
     <td></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 18</td>
-    <td class="date">Tuesday <br> Mar 17</td>
-    <td>
-      <b>Density Estimation and Clustering</b> <br>
-      Approaches for density estimation from histograms to Gaussian mixture models (for density estimation and clustering)
-    </td>
-    <td>DM Ch 7 (<a href="https://www-users.cs.umn.edu/~kumar001/dmbook/ch7_clustering.pdf">link</a>): Intro, 7.1 and 7.2<br><strong>NO QUIZ</strong></td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture18_density_estimation.pdf">[slides]</a>
-    </td>
+    <td>Tue, Mar 17</td>
+    <td>Lecture 18</td>
+    <td><b>Density Estimation and Clustering</b><br>
+      Approaches for density estimation from histograms to Gaussian mixture models (for density estimation and clustering)</td>
+    <td>DM Ch 7 (<a href="https://www-users.cs.umn.edu/~kumar001/dmbook/ch7_clustering.pdf">link</a>): Intro, 7.1 and 7.2 <span class="tag">No quiz</span></td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture18_density_estimation.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 19</td>
-    <td class="date">Thursday <br> Mar 19</td>
-    <td>
-      <b>Clustering</b> <br>
-      Hierarchical clustering, DBSCAN, and spectral clustering
-    </td>
-   <td>DM Ch 7 (<a href="https://www-users.cs.umn.edu/~kumar001/dmbook/ch7_clustering.pdf">link</a>): 7.3 and 7.4</td>
-   <td>
-     <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture19_clustering.pdf">[slides]</a>
-    </td>
+    <td>Thu, Mar 19</td>
+    <td>Lecture 19</td>
+    <td><b>Clustering</b><br>
+      Hierarchical clustering, DBSCAN, and spectral clustering</td>
+    <td>DM Ch 7 (<a href="https://www-users.cs.umn.edu/~kumar001/dmbook/ch7_clustering.pdf">link</a>): 7.3 and 7.4</td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture19_clustering.pdf">Slides</a></td>
   </tr>
 
-  <tr class="module">
-    <td></td>
-    <td></td>
-    <td><b>Module 3: Reinforcement Learning</b></td>
-    <td></td>
-    <td></td>
-  </tr>
+  <tr class="module"><td colspan="5">Module 3: Reinforcement Learning</td></tr>
 
   <tr>
-    <td class="lecnum">Lecture 20</td>
-    <td class="date">Tuesday <br> Mar 24</td>
-    <td>
-      <b>Reinforcement Learning I</b> <br>
-      Formulating the reinforcement learning problem
-    </td>
+    <td>Tue, Mar 24</td>
+    <td>Lecture 20</td>
+    <td><b>Reinforcement Learning I</b><br>
+      Formulating the reinforcement learning problem</td>
     <td>RL Ch 1: 1.1-1.6; Ch 2: 2.1-2.5</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture20_reinforcement_learning_1.pdf">[slides]</a>
-    </td>
-  </tr>
-
-  <tr class="table-warning">
-    <td><b>Deliverable</b></td>
-    <td class="date"> Wednesday <br> Mar 25 </td>
-    <td><b>Project Proposal Due (at 9pm)</b></td>
-    <td></td>
-    <td>
-      <!-- [project] -->
-      <!-- [submit] -->
-      <a href="https://kylebradbury.github.io/ids705/project.html">[project]</a><br>
-      <a href="https://www.gradescope.com/">[submit]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture20_reinforcement_learning_1.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 21</td>
-    <td class="date">Thursday <br> Mar 26</td>
-    <td>
-      <b>Reinforcement Learning II</b> <br>
-      Policy and value functions, rewards, and introduction to Markov processes 
-    </td>
+    <td>Wed, Mar 25</td>
+    <td><span class="due">Due 9pm</span></td>
+    <td><b>Project Proposal</b></td>
+    <td></td>
+    <td><a href="https://kylebradbury.github.io/ids705/project.html">Project</a>
+      <a href="https://www.gradescope.com/">Submit</a></td>
+  </tr>
+
+  <tr>
+    <td>Thu, Mar 26</td>
+    <td>Lecture 21</td>
+    <td><b>Reinforcement Learning II</b><br>
+      Policy and value functions, rewards, and introduction to Markov processes</td>
     <td>RL Ch 3</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture21_reinforcement_learning_2.pdf">[slides]</a>
-    </td>
-  </tr>
-
-  <tr class="table-warning">
-    <td><b>Deliverable</b></td>
-    <td class="date">Monday <br> Mar 30 <s>27</s></td>
-    <td><b>Assignment #5 Due (at 9pm)</b> <br> Kaggle Competition and Unsupervised Learning<br><b>Kaggle Competition Ends 9pm this day</b></td>
-    <td></td>
-    <td>
-      <!-- [assignment] <br> -->
-      <a href="https://kylebradbury.github.io/ids705/notebooks/assignment5.html">[assignment]</a><br>
-      <!-- [submit] -->
-      <a href="https://www.gradescope.com/">[submit]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture21_reinforcement_learning_2.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 22</td>
-    <td class="date">Tuesday<br> Mar 31</td>
-    <td>
-      <b>Reinforcement Learning III</b> <br>
-      From Markov Chains to Markov Decision Processes (MDPs)
-    </td>
+    <td>Mon, Mar 30 <s>Fri, Mar 27</s></td>
+    <td><span class="due">Due 9pm</span></td>
+    <td><b>Assignment #5</b><br>
+      Kaggle Competition and Unsupervised Learning<br>
+      <span class="note">Kaggle competition ends 9pm this day</span></td>
+    <td></td>
+    <td><a href="https://kylebradbury.github.io/ids705/notebooks/assignment5.html">Assignment</a>
+      <a href="https://www.gradescope.com/">Submit</a></td>
+  </tr>
+
+  <tr>
+    <td>Tue, Mar 31</td>
+    <td>Lecture 22</td>
+    <td><b>Reinforcement Learning III</b><br>
+      From Markov Chains to Markov Decision Processes (MDPs)</td>
     <td>RL Ch 4</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture22_reinforcement_learning_3.pdf">[slides]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture22_reinforcement_learning_3.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 23</td>
-    <td class="date">Thursday <br> Apr 2</td>
-    <td>
-      <b>Reinforcement Learning IV</b> <br>
-      Finding optimal policies through policy iteration, value iteration, and Monte Carlo methods
-    </td>
+    <td>Thu, Apr 2</td>
+    <td>Lecture 23</td>
+    <td><b>Reinforcement Learning IV</b><br>
+      Finding optimal policies through policy iteration, value iteration, and Monte Carlo methods</td>
     <td>RL Ch 5: 5.1-5.3</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture23_reinforcement_learning_4.pdf">[slides]</a>
-    </td>
-  </tr>
-
-  <tr class="table-warning">
-    <td class="lecnum">Lecture 24</td>
-    <td class="date">Tuesday <br> Apr 7</td>
-    <td>
-      <b>Exam</b> <br>
-      An in-class exam covering topics across the course. 
-    </td>
-    <td>None</td>
-    <td></td>
-  </tr>
-
-  <tr class="module">
-    <td></td>
-    <td></td>
-    <td><b>Module 4: Practical Considerations and Advanced Topics</b></td>
-    <td></td>
-    <td></td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture23_reinforcement_learning_4.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td class="lecnum">Lecture 25</td>
-    <td class="date">Thursday <br> Apr 9</td>
-    <td>
-      <b>Practical Considerations and Advanced Topics I</b> <br>
-      A survey of practical considerations and advanced topics
-    </td>
-    <td>None</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture24_special_topics.pdf">[slides]</a>
-    </td>
+    <td>Tue, Apr 7</td>
+    <td><span class="exam">Exam</span></td>
+    <td><b>Exam</b><br>
+      An in-class exam covering topics across the course.</td>
+    <td></td>
+    <td></td>
   </tr>
 
-
+  <tr class="module"><td colspan="5">Module 4: Practical Considerations and Advanced Topics</td></tr>
 
   <tr>
-    <td class="lecnum">Lecture 26</td>
-    <td class="date">Tuesday <br> Apr 14</td>
-    <td>
-      <b>Practical Considerations and Advanced Topics II</b> <br>
-      A survey of practical considerations and advanced topics
-    </td>
-    <td>None</td>
-    <td>
-      <!-- [slides] -->
-      <a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture25_machine_learning_frontiers.pdf">[slides]</a>
-    </td>
-  </tr>
-
-  <tr class="table-warning">
-    <td><b>Deliverable</b></td>
-    <td class="date">Wednesday <br> Apr 15 </td>
-    <td><b>Draft Final Project Report Due (at 9pm)</b></td>
+    <td>Thu, Apr 9</td>
+    <td>Lecture 25</td>
+    <td><b>Practical Considerations and Advanced Topics I</b><br>
+      A survey of practical considerations and advanced topics</td>
     <td></td>
-    <td>
-      [project] <br>
-      [submit]
-      <a href="https://kylebradbury.github.io/ids705/project.html#finalreport">[project]</a><br>
-      <a href="https://www.gradescope.com/">[submit]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture24_special_topics.pdf">Slides</a></td>
   </tr>
 
-  <tr class="table-warning">
-    <td><b>Deliverable</b></td>
-    <td class="date">Wednesday <br> Apr 15</td>
-    <td><b>(Optional) Assignment #6 Due (at 9pm)</b><br>Reinforcement learning</td>
+  <tr>
+    <td>Tue, Apr 14</td>
+    <td>Lecture 26</td>
+    <td><b>Practical Considerations and Advanced Topics II</b><br>
+      A survey of practical considerations and advanced topics</td>
     <td></td>
-    <td>
-      <!-- [assignment] -->
-      <!-- [submit] -->
-      <a href="https://kylebradbury.github.io/ids705/notebooks/assignment6.html">[assignment]</a><br>
-      <a href="https://www.gradescope.com/">[submit]</a>
-    </td>
+    <td><a href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture25_machine_learning_frontiers.pdf">Slides</a></td>
   </tr>
 
-  <tr class="table-warning">
-    <td><b>Deliverable</b></td>
-    <td class="date">Thursday <br> Apr 30 <br> </td>
-    <td>
-      
-      <b>Final project due date</b> <br>
-      We DO NOT MEET on this day<br><br> Due on this day:
+  <tr>
+    <td>Wed, Apr 15</td>
+    <td><span class="due">Due 9pm</span></td>
+    <td><b>Draft Final Project Report</b></td>
+    <td></td>
+    <td><a href="https://kylebradbury.github.io/ids705/project.html#finalreport">Project</a>
+      <a href="https://www.gradescope.com/">Submit</a></td>
+  </tr>
+
+  <tr>
+    <td>Wed, Apr 15</td>
+    <td><span class="due">Due 9pm</span></td>
+    <td><b>(Optional) Assignment #6</b><br>
+      Reinforcement learning</td>
+    <td></td>
+    <td><a href="https://kylebradbury.github.io/ids705/notebooks/assignment6.html">Assignment</a>
+      <a href="https://www.gradescope.com/">Submit</a></td>
+  </tr>
+
+  <tr>
+    <td>Thu, Apr 30</td>
+    <td><span class="due">Due</span></td>
+    <td><b>Final project due date</b><br>
+      We DO NOT MEET on this day. Due on this day:
       <ul>
         <li>Final Project Report (due by 9am on GradeScope)</li>
         <li>Project Github Repository (due by 9am on GradeScope)</li>
         <li>Final Project Peer Evaluation (due by 9pm; submit via TEAMMATES, see email)</li>
-      </ul>
-    </td>
+      </ul></td>
     <td></td>
-    <td>
-      <!-- [project] -->
-      <a href="https://kylebradbury.github.io/ids705/project.html">[project]</a>
-    </td>
+    <td><a href="https://kylebradbury.github.io/ids705/project.html">Project</a></td>
   </tr>
 
+  </tbody>
+</table>
 
 
 
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1265,9 +1091,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
- <!-- /content -->
+</div> <!-- /content -->
 
 
 
 
-</tbody></table></main></div></body></html>
+</body></html>
