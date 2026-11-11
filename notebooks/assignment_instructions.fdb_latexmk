@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1794414159 "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.tex" "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.pdf" "assignment_instructions" 1794414160
-  "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.aux" 1794414160 3174 f3bbe409ab8ae9bc353f7fb7e8c2b855 ""
-  "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.tex" 1794414151 22191 e83863aee357197be771a29578cb7936 ""
+["pdflatex"] 1794415096 "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.tex" "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.pdf" "assignment_instructions" 1794415097
+  "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.aux" 1794415097 3174 f3bbe409ab8ae9bc353f7fb7e8c2b855 ""
+  "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.tex" 1794415090 22191 e83863aee357197be771a29578cb7936 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc" 1254269338 3031 6c4d3515bf7115d8518af1c9ab97ca44 ""
@@ -140,10 +140,10 @@
   "/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1586288239 4811913 0be9a7e86c70a26e5e3042966bcd7097 ""
   "/usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1586288259 2432462 fd0fa20e9a3cb5f8169fd0ba1c955158 ""
   "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
-  "assignment_instructions.aux" 1794414160 3174 f3bbe409ab8ae9bc353f7fb7e8c2b855 "pdflatex"
-  "assignment_instructions.tex" 1794414151 22191 e83863aee357197be771a29578cb7936 ""
-  "assignment_instructions.toc" 1794414160 982 16bb1d442a411fcfcaa1eb46f349c29f "pdflatex"
-  "assignment_instructions_files/figure-pdf/cell-3-output-1.png" 1794414151 97297 0027a944ff09e4c858818d81082ca813 ""
+  "assignment_instructions.aux" 1794415097 3174 f3bbe409ab8ae9bc353f7fb7e8c2b855 "pdflatex"
+  "assignment_instructions.tex" 1794415090 22191 e83863aee357197be771a29578cb7936 ""
+  "assignment_instructions.toc" 1794415097 982 16bb1d442a411fcfcaa1eb46f349c29f "pdflatex"
+  "assignment_instructions_files/figure-pdf/cell-3-output-1.png" 1794415089 97297 0027a944ff09e4c858818d81082ca813 ""
   "images_instruction/guide01.JPG" 1674251558 107042 57e1bbdc76dfdd96e5f44c9e33c1d12a ""
   "images_instruction/guide02.JPG" 1674251601 100482 10645796b9b00a81440217cd5bbe5956 ""
   "images_instruction/guide03.JPG" 1674251657 96983 e8d8400621cbb0325103135be54624be ""
@@ -153,8 +153,8 @@
   "images_instruction/guide07.JPG" 1674253561 131642 5811d0049b3ad73af2f5a6c97ba422f6 ""
   (generated)
   "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.pdf"
-  "assignment_instructions.log"
-  "assignment_instructions.aux"
-  "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.log"
-  "assignment_instructions.pdf"
   "assignment_instructions.toc"
+  "assignment_instructions.log"
+  "assignment_instructions.pdf"
+  "/Users/kyle/Library/CloudStorage/Dropbox/ids705/ids705_sp2027/notebooks/assignment_instructions.log"
+  "assignment_instructions.aux"
