@@ -16,46 +16,45 @@
   }
 
 
-/* Fix the table so that it is readable in smaller settings */
-@media 
-only screen and (max-width: 600px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+/* Schedule on phones: show each row of the schedule table as a compact card.
+   Columns: 1 = event, 2 = date, 3 = description, 4 = readings, 5 = materials */
+@media (max-width: 767.98px) {
+  .schedule, .schedule tbody, .schedule tr, .schedule td { display: block; }
 
-  /* Force table to not be like tables anymore */
-  table, thead, tbody, th, td, tr { 
-    display: block; 
-  }
-  
-  /* Hide table headers (but not display: none;, for accessibility) */
-  thead tr { 
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-  
-  /*tr { border: 1px solid #ccc; }*/
-  
-  td { 
-    /* Behave  like a "row" */
-    border: none;
-    /*border-bottom: 1px solid #eee; */
-    position: relative;
-    padding-left: 50%; 
-  }
-  
-  .lecnum {
-    font-weight: bold;
-  }
+  /* Hide the header row visually but keep it for screen readers */
+  .schedule thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
-  td:before { 
-    /* Now like a table header */
-    position: absolute;
-    /* Top/left values mimic padding */
-    top: 6px;
-    left: 6px;
-    width: 45%; 
-    padding-right: 10px; 
-    white-space: nowrap;
+  .schedule tr {
+    border: 1px solid var(--bs-border-color);
+    border-radius: .5rem;
+    margin-bottom: .75rem;
+    padding: .5rem 0;
+  }
+  table.schedule > tbody > tr > td { border: 0; padding: .1rem .75rem; background-color: transparent; }
+
+  /* Event and date on one line: "Lecture 3 · Tuesday Jan 20" */
+  .schedule td:nth-child(1),
+  .schedule td:nth-child(2) { display: inline-block; font-weight: bold; }
+  .schedule td:nth-child(1):not(:empty)::after { content: " ·"; }
+  table.schedule > tbody > tr > td:nth-child(1):not(:empty) + td { padding-left: 0; }
+  .schedule td:nth-child(2) br { display: none; }
+
+  /* Label the readings */
+  .schedule td:nth-child(4)::before {
+    content: "Readings";
+    display: block;
+    margin-top: .35rem;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--bs-secondary-color);
   }
 
+  /* Materials links side by side */
+  .schedule td:nth-child(5) { margin-top: .35rem; }
+  .schedule td:nth-child(5) br { display: none; }
+  .schedule td:nth-child(5) a { margin-right: .75rem; }
+
+  /* Hide blank cells (keep this last) */
+  table.schedule > tbody > tr > td:empty { display: none; }
 }

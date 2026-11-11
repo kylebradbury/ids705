@@ -1,6 +1,6 @@
 ---
 title: Schedule
-subtitle: Spring 2026
+subtitle: Spring 2027
 # author:
 #     - name: Kyle Bradbury
 #       email: kyle.bradbury@duke.edu
@@ -28,7 +28,8 @@ The schedule below is a guide to what we will be covering throughout the semeste
 :::
 
 ```{=html}
-<table class="table table-hover">
+<!-- On phones each row becomes a card (see styles.css). Leave unused cells as <td></td> so they are hidden there. -->
+<table class="table table-hover schedule">
   <thead class="thead-light">
     <tr>
       <th>Event Type</th>
@@ -87,7 +88,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
   </tr>
 
   <tr class="table-primary">
-    <td><b></b></td>
+    <td></td>
     <td class="date">Monday <br> Jan 19</td>
     <td><b>Martin Luther King Jr. Day</b></td>
     <td></td>
@@ -198,7 +199,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
 
   <tr class="table-warning">
     <td><b>Deliverable</b></td>
-    <td class="date"> Wednesday<br>Feb 4</td>
+    <td class="date"> Wednesday<br> Feb 4</td>
     <td><b>Assignment #2 Due (at 9pm)</b><br>Supervised Machine Learning Fundamentals</td>
     <td></td>
     <td>
@@ -214,7 +215,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
     <td class="date">Thursday <br> Feb 5</td>
     <td>
       <b>Reducing overfit</b> <br>
-      Feature selection; Occam’s razor; Subset selection; L1 (ridge), L2 (LASSO), and elastic net regularization; early stopping.
+      Feature selection; Occam’s razor; Subset selection; L1 (LASSO), L2 (ridge), and elastic net regularization; early stopping.
     </td>
     <td>ISL 6.1 and 6.2</td>
     <td>
@@ -335,7 +336,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
 
   <tr>
     <td class="lecnum">Lecture 16</td>
-    <td class="date">Tuesday<br>Mar 3</td>
+    <td class="date">Tuesday<br> Mar 3</td>
     <td>
       <b>Dimensionality reduction</b> <br>
       The Curse of Dimensionality and intro to principal components analysis (PCA)
@@ -349,7 +350,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
 
   <tr>
     <td class="lecnum">Lecture 17</td>
-    <td class="date">Thursday<br>Mar 5</td>
+    <td class="date">Thursday<br> Mar 5</td>
     <td>
       <b>Principal components analysis (PCA)</b> <br>
       Explaining how PCA works and how we calculate the principal components.
@@ -509,8 +510,7 @@ The schedule below is a guide to what we will be covering throughout the semeste
       An in-class exam covering topics across the course. 
     </td>
     <td>None</td>
-    <td>
-    </td>
+    <td></td>
   </tr>
 
   <tr class="module">
