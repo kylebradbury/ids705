@@ -1,0 +1,198 @@
+
+### Example Project 3: Urban Air Quality Prediction
+
+**Stakeholder**: Municipal public health agencies and city emergency management offices.
+
+**Problem**: Predict next-day air quality index (AQI) using historical pollution levels, weather, and time features.
+
+**Short description of why stakeholders care**: High-pollution days disproportionately harm children, the elderly, and people with respiratory conditions. Cities that can reliably predict next-day AQI can issue timely public health alerts, temporarily restrict high-emission vehicles, and advise vulnerable populations to stay indoors. A model that produces well-calibrated uncertainty estimates is especially valuable here: an agency that knows a forecast is highly uncertain can issue a precautionary alert rather than wait for certainty.
+
+**Dataset**: [Beijing Multi-Site Air Quality Dataset](https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data) (UCI, ~420K rows across 12 monitoring stations)
+
+**Core requirements**:
+
+- Rigorous evaluation: time-aware train/test split (no future leakage), RMSE and MAE, plus residual plots to check for systematic errors across time of day or season
+- Compare at least three approaches: a persistence baseline (tomorrow = today), a classical regression model, and a tree-based ensemble model
+- Engineer and document lag features and rolling statistics; ablate them to show their contribution
+
+**Additional analyses** (choose at least 2):
+
+- **Uncertainty quantification:** Use dropout-based Monte Carlo estimation or quantile regression to produce prediction intervals — discuss when uncertainty is high and what that means for a public health alert system
+- **Operational deployment analysis:** Design a retraining pipeline — how often should the model be updated? What triggers retraining? What monitoring would detect model drift?
+- **Multi-site generalization:** Train on one monitoring station and evaluate on others — quantify how well the model transfers and identify which features drive degraded performance
+- **Computational profiling:** Compare training and inference time across model types; discuss the right tradeoff if the model must run hourly on a city server
+
+---
+
+### Example Project 4: Fake News / Misinformation Detection
+
+**Stakeholder**: Social media trust & safety teams and independent fact-checking organizations.
+
+**Problem**: Classify news articles as reliable or potentially misleading using a fine-tuned language model.
+
+**Short description of why stakeholders care**: Misinformation spreads faster than corrections, and human fact-checkers cannot scale to the volume of content posted daily on major platforms. An automated classifier could help prioritize which articles get routed to human reviewers first — but a model that systematically flags content from certain political perspectives or demographic communities could itself become a vector of harm, suppressing legitimate speech.
+
+**Dataset**: [WELFake Dataset](https://www.kaggle.com/datasets/saurabhshahane/fake-news-classification) (Kaggle, ~72K articles, combining 4 public datasets)
+
+**Core requirements**:
+
+- Rigorous evaluation: macro F1, calibration check, and held-out evaluation on articles from a time period *after* the training data to assess temporal generalization
+- Compare TF-IDF + logistic regression baseline against fine-tuned DistilBERT — report performance, training time, and inference latency for both
+- Perform error analysis on at least 30 misclassified examples, categorized by error type (e.g., satire, opinion pieces, etc.)
+
+**Additional analyses** (choose at least 2):
+
+- **Bias audit:** Test whether error rates differ systematically across political topics, sources, or writing styles — discuss the ethical implications of deploying a biased detector
+- **Adversarial robustness:** Apply text perturbations (synonym replacement, paraphrasing) and measure performance degradation — what does this imply about real-world adversarial misuse?
+- **Interpretability:** Use attention weights or LIME to identify which words most influence predictions; do they reflect genuine signals or dataset artifacts?
+- **Deployment feasibility:** Estimate the cost of running this model at scale (e.g., 1M posts/day) — discuss latency, compute cost, and the human-in-the-loop considerations required
+
+---
+
+### Example Project 5: Plant Disease Detection from Leaf Images
+
+**Stakeholder**: Smallholder farmers in low- and middle-income countries, and the agricultural extension officers who support them.
+
+**Problem**: Classify plant leaf images as healthy or diseased (and identify the disease type) using a fine-tuned CNN.
+
+**Short description of why stakeholders care**: Crop disease can devastate a family's food supply and income, but accurate diagnosis traditionally requires an agronomist to visit the farm — a service that is expensive and often unavailable in rural areas. A smartphone-based detection tool could allow a farmer to photograph a leaf and receive an immediate diagnosis, enabling early treatment before disease spreads across a field. However, the PlantVillage dataset consists of lab-quality images taken under controlled conditions, while real farm photos are taken in variable light, at odd angles, and with consumer-grade phones. This gap makes the distribution shift and edge deployment analyses central to whether this model would ever be useful in practice.
+
+**Dataset**: [PlantVillage Dataset](https://www.kaggle.com/datasets/emmarex/plantdisease) (~54K images, 38 classes)
+
+**Core requirements**:
+
+- Rigorous evaluation: per-class precision, recall, and F1; confusion matrix with analysis of which disease pairs are most often confused
+- Compare at least two backbone architectures (e.g., MobileNetV2 vs. EfficientNet-B0) on both accuracy *and* inference speed — justify the final model choice based on the tradeoff
+- Document the effect of data augmentation: train with and without it and report differences in validation performance and overfitting behavior
+
+**Additional analyses** (choose at least 2):
+
+- **Edge deployment analysis:** Profile model size, inference latency, and memory footprint — assess whether it could run on a smartphone (e.g., via TensorFlow Lite) and what accuracy is sacrificed
+- **Grad-CAM analysis:** Generate activation maps for correct and misclassified predictions — do highlighted regions correspond to actual lesions? What does a mislocalized heatmap imply about reliability?
+- **Distribution shift:** Evaluate on images taken with different lighting, angles, or camera quality — discuss the gap between controlled lab images and real farm conditions
+- **Low-data regime:** Simulate a scenario where only 10% of labeled data is available; compare to the full-data model and discuss strategies like augmentation or synthetic data generation
+
+---
+
+### Example Project 6: Environmental Sound Classification
+
+**Stakeholder**: Smart city infrastructure teams and urban noise pollution regulators.
+
+**Problem**: Classify short audio clips into environmental sound categories (e.g., dog bark, siren, jackhammer, street music) using audio feature extraction and a fine-tuned model.
+
+**Short description of why stakeholders care**: Cities are increasingly deploying acoustic sensor networks to monitor urban environments — detecting sirens, construction, gunshots, or crowd noise in real time. Automating the classification of these sounds enables faster emergency response, noise ordinance enforcement, and quality-of-life monitoring in dense neighborhoods. A model that can run efficiently on low-power edge hardware (a sensor mounted on a lamppost) is far more deployable than one requiring cloud inference for every audio clip, making the edge deployment and computational profiling analyses directly relevant.
+
+**Dataset**: [UrbanSound8K](https://urbansounddataset.weebly.com/urbansound8k.html) (~8,700 clips, 10 classes, with pre-defined cross-validation folds)
+
+**Core requirements**:
+
+- Rigorous evaluation: use the pre-defined 10-fold cross-validation splits in UrbanSound8K (these exist specifically to prevent leakage across recording locations — do not shuffle and re-split)
+- Compare at least two feature representations: hand-crafted features (MFCCs, mel spectrograms) vs. a pre-trained audio model (e.g., VGGish or YAMNet)
+- Analyze per-class performance and identify which sound categories are hardest to distinguish and why
+
+**Additional analyses** (choose at least 2):
+
+- **Edge deployment analysis:** Profile model size and inference latency — benchmark whether the model could run in real time on a constrained device; compare a lightweight vs. full model on the accuracy/efficiency tradeoff
+- **Data augmentation for audio:** Experiment with audio-specific augmentations (time stretching, pitch shifting, adding background noise) and measure their effect on robustness
+- **Acoustic environment shift:** Evaluate a model trained on one acoustic environment (e.g., one neighborhood type) on clips from a different one — quantify and interpret the performance gap
+- **Confusion analysis:** For the most-confused class pairs, retrieve and listen to misclassified clips; write a structured analysis of whether errors are model failures or genuinely ambiguous sounds
+
+---
+
+### Example Project 7: Speech Emotion Recognition
+
+**Stakeholder**: Mental health technology companies and call center quality assurance teams.
+
+**Problem**: Classify emotional state (e.g., angry, happy, sad, neutral, fearful) from short speech recordings using audio features and a pre-trained model.
+
+**Short description of why stakeholders care**: Detecting emotional state from speech has two distinct high-stakes use cases. In mental health tech, an app that passively monitors vocal patterns could flag signs of depression or acute distress and prompt a check-in — but deploying such a tool irresponsibly raises significant privacy and consent concerns. In call centers, emotion-aware systems can route frustrated callers to senior agents or alert supervisors in real time. Both use cases demand careful attention to whether the model's emotion labels generalize across different speakers, accents, ages, and cultural backgrounds — making the fairness and distribution shift analyses especially meaningful here.
+
+**Dataset**: [RAVDESS](https://zenodo.org/record/1188976) + [CREMA-D](https://github.com/CheyneyComputerScience/CREMA-D) combined (~10K clips across diverse speakers, 6–8 emotion classes)
+
+**Core requirements**:
+
+- Rigorous evaluation: speaker-independent cross-validation (train and test sets must contain *different* speakers — not just different clips from the same speaker, which would inflate results significantly)
+- Compare MFCCs + classical classifier baseline against a pre-trained audio model (e.g., wav2vec 2.0 features)
+- Report per-emotion F1 scores and analyze which emotions are most frequently confused
+
+**Additional analyses** (choose at least 2):
+
+- **Speaker generalization:** Analyze performance broken down by speaker demographics (age, gender) available in CREMA-D — does the model perform worse for certain groups?
+- **Cross-dataset generalization:** Train on RAVDESS, evaluate on CREMA-D (or vice versa) — quantify the performance drop and discuss what causes it (studio conditions, actor demographics, label definitions)
+- **Ethical analysis:** Write a structured analysis of the risks of deploying this model in a mental health or call center context — consider consent, false positives, cultural variation in emotional expression, and potential for misuse
+- **Uncertainty quantification:** Identify clips where the model is least confident; listen to a sample and assess whether low confidence corresponds to genuinely ambiguous emotional expression
+
+---
+
+### Example Project 8: Credit Card Fraud Detection
+
+**Stakeholder**: Retail banks and payment processors (e.g., Visa, Mastercard, Stripe).
+
+**Problem**: Detect fraudulent credit card transactions from anonymized transaction features.
+
+**Short description of why stakeholders care**: Credit card fraud costs the global financial industry tens of billions of dollars annually. Banks must flag fraudulent transactions in milliseconds at the point of sale — too slow and the transaction goes through; too many false positives and legitimate customers are frustrated by declined cards. This makes the tradeoff between precision and recall not just an academic exercise but a business decision with direct revenue and customer satisfaction implications. The extreme class imbalance (~0.17% fraud rate) and the need for real-time inference make this one of the most technically demanding production ML problems in industry.
+
+**Dataset**: [IEEE-CIS Fraud Detection Dataset](https://www.kaggle.com/competitions/ieee-fraud-detection/data) (Kaggle, ~590K transactions with transaction, device, and identity features)
+
+**Core requirements**:
+
+- Rigorous evaluation: precision-recall AUC (not ROC-AUC — with extreme class imbalance, ROC-AUC is misleading), with explicit analysis of the precision/recall tradeoff at different operating thresholds
+- Handle extreme class imbalance (~0.17% fraud rate) explicitly — compare at least two strategies and justify the choice
+- Establish a simple rule-based baseline (e.g., flag transactions over a dollar threshold) and compare model performance against it
+
+**Additional analyses** (choose at least 2):
+
+- **Threshold optimization:** Frame threshold selection as a business decision — assign a realistic cost to false positives (customer friction) and false negatives (fraud loss) and identify the threshold that minimizes expected cost
+- **Feature importance and interpretability:** Use SHAP to identify the most predictive features; discuss whether they make intuitive sense and whether any raise fairness concerns (e.g., device type or location as proxies for demographics)
+- **Temporal validation:** Split train/test by transaction time rather than randomly — evaluate how much performance degrades when tested on more recent transactions, and discuss what this means for model maintenance
+- **Inference latency analysis:** Profile model inference time per transaction — discuss what latency budget is realistic for point-of-sale fraud detection and which model types fit within it
+
+---
+
+### Example Project 9: Customer Churn Prediction
+
+**Stakeholder**: Subscription businesses (telecom providers, SaaS companies, streaming platforms) and their customer retention teams.
+
+**Problem**: Predict which customers are likely to cancel their subscription based on usage patterns, contract details, and service interactions.
+
+**Short description of why stakeholders care**: Acquiring a new customer costs significantly more than retaining an existing one. A churn prediction model allows a retention team to proactively intervene — offering a discount, a service upgrade, or a personal outreach call — before a customer cancels. But interventions cost money and can backfire (offering a discount to a customer who was not going to churn anyway reduces revenue), so the model needs to be well-calibrated and the decision of *who* to intervene with must be economically justified. This makes threshold optimization and uplift modeling particularly natural additional analyses.
+
+**Dataset**: [Microsoft Azure Telco Customer Churn Dataset](https://www.kaggle.com/datasets/ylchang/telco-customer-churn-1113) (Kaggle, ~100K customers with rich behavioral features)
+
+**Core requirements**:
+
+- Rigorous evaluation: stratified k-fold cross-validation, ROC-AUC and precision-recall AUC, with analysis of performance at multiple operating thresholds
+- Compare at least three model types (e.g., logistic regression, random forest, gradient boosting) and document the performance/interpretability tradeoff across them
+- Analyze feature importance and identify the top behavioral signals associated with churn risk
+
+**Additional analyses** (choose at least 2):
+
+- **Business-driven threshold selection:** Assign realistic costs to false positives (wasted retention offer) and false negatives (lost customer lifetime value) — identify the profit-maximizing operating threshold
+- **Interpretability:** Use SHAP to explain individual predictions — which customers are at risk *and why*? Discuss how a retention agent would use this information in a real outreach workflow
+- **Temporal validation:** Split train/test by customer observation date — evaluate whether the model generalizes to more recently acquired customers and discuss concept drift
+- **Retention uplift analysis:** Discuss the difference between predicting churn and predicting *who will respond to an intervention* — introduce the concept of uplift modeling and explain why targeting the highest-churn customers is not always the right strategy
+
+---
+
+### Example Project 10: Clinical Note Classification (Medical NLP)
+
+**Stakeholder**: Hospital informatics departments and health insurance prior authorization teams.
+
+**Problem**: Classify clinical notes by medical specialty or procedure type using a fine-tuned biomedical language model.
+
+**Short description of why stakeholders care**: Enormous amounts of clinically valuable information are locked in unstructured physician notes — discharge summaries, radiology reports, nursing notes. Automatically classifying these notes by medical specialty, diagnosis category, or acuity level could accelerate clinical workflows, improve billing accuracy, and help insurers process prior authorization requests faster. However, clinical NLP models trained on notes from one hospital system often fail when deployed at another due to differences in documentation style, abbreviation conventions, and patient populations — making distribution shift a first-class concern rather than an afterthought.
+
+**Dataset**: [MTSamples](https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions) (Kaggle, ~5K transcription samples across 40 specialties) or [MIMIC-III](https://physionet.org/content/mimiciii/1.4/) discharge summaries (~52K notes, requires free credentialing via PhysioNet)
+
+**Core requirements**:
+
+- Rigorous evaluation: macro F1 across all specialty classes (many are underrepresented), with analysis of which specialties are hardest to classify and why
+- Compare a general-purpose baseline (TF-IDF + logistic regression) against a fine-tuned biomedical language model (e.g., BioBERT or ClinicalBERT via HuggingFace)
+- Analyze the effect of note length and document truncation on model performance — clinical notes are often much longer than model context windows
+
+**Additional analyses** (choose at least 2):
+
+- **Distribution shift:** Evaluate whether a model trained on one note type (e.g., discharge summaries) generalizes to another (e.g., radiology reports) — identify what linguistic features change across note types
+- **Interpretability:** Use attention visualization or LIME to identify which clinical terms most drive predictions; verify that they correspond to medically meaningful signals rather than formatting artifacts
+- **Data efficiency:** Plot a learning curve by training on progressively smaller subsets — discuss the practical implication for a small community hospital that cannot afford to annotate thousands of notes
+- **Privacy and de-identification analysis:** Discuss the risks of training on real clinical text — what types of sensitive information appear in notes, how is de-identification typically done, and what residual risks remain even after de-identification?

@@ -1,0 +1,16 @@
+---
+title: Past Offerings of this Course
+subtitle: IDS 705 Principles of Machine Learning
+toc: true
+toc-expand: 2
+number-sections: false
+---
+
+- [Spring 2025 (IDS705)](https://kylebradbury.github.io/ids705_2025/)
+- [Spring 2024 (IDS705)](https://kylebradbury.github.io/ids705_2024/)
+- [Spring 2023 (IDS705)](https://kylebradbury.github.io/ids705_2023/)
+- [Spring 2022 (IDS705)](https://kylebradbury.github.io/ids705_sp2022/)
+- [Spring 2021 (IDS705)](https://kylebradbury.github.io/ids705_sp2021/)
+- [Spring 2020 (IDS705)](https://kylebradbury.github.io/ids705_sp2020/)
+- [Spring 2019 (IDS705)](https://kylebradbury.github.io/ids705_sp2019/)
+- [Spring 2018 (ECE590)](https://kylebradbury.github.io/ece590/)

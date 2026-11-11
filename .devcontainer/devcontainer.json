@@ -1,0 +1,16 @@
+{
+  // "image": "ghcr.io/quarto-dev/quarto:1.7.1",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+  },
+  // "postCreateCommand": "sudo apt-get update && sudo apt-get install -y git && git --version",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "quarto.quarto"
+      ]
+    }
+  }
+}
