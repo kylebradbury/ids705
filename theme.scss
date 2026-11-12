@@ -13,6 +13,11 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400
 $font-family-sans-serif: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 $font-family-monospace: "IBM Plex Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
+// ---- Link underlines --------------------------------------------------------
+// Quarto 1.8+ underlines all links by default; this keeps the site's original
+// look (no underline). Delete this line to get Quarto's underlined links back.
+$link-decoration: none;
+
 /*-- scss:rules --*/
 
 // ---- Navbar (choice B2): a Kelly line along the top edge ------------------

@@ -31,3 +31,5 @@ notebooks/*_files/
 # Stray output from rendering single files outside the project
 /site_libs/
 /*_files/
+
+**/*.quarto_ipynb

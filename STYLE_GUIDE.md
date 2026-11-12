@@ -23,8 +23,7 @@ The site currently uses these choices from the [style options page](https://clau
 | `theme-dark.scss` | Dark-mode colors: the same variables, plus page background, text, and line colors |
 | `theme.scss` | Shared by both modes: the font, the navbar's green line, the sidebar marker, the phone-size navbar title |
 | `styles.css` | Schedule table colors. The top of the file has a light block (`:root`) and a dark block (`body.quarto-dark`) |
-| `_color-scheme.html` | Makes the site follow the visitor's system light/dark setting until they click the toggle |
-| `_quarto.yml` (under `format: html:`) | Which theme files load, whether dark mode exists, and site-wide options such as callout appearance |
+| `_quarto.yml` (under `format: html:`) | Which theme files load, whether dark mode exists, whether it follows the visitor's system setting (`respect-user-color-scheme`), and site-wide options such as callout appearance |
 | `img/favicon.svg` | The browser-tab icon |
 
 Most changes are a one-line edit in `theme-light.scss`, with a matching edit in `theme-dark.scss`. The two files use the same variable names on purpose, so keep them in step.
@@ -40,7 +39,7 @@ Most changes are a one-line edit in `theme-light.scss`, with a matching edit in 
 **Testing dark mode.** Click the toggle in the navbar, or switch your computer's system appearance to dark. Once you click the toggle, your browser remembers that choice and stops following the system setting. To make your browser follow the system setting again, clear the site's data, or run this in the browser console:
 
 ```js
-localStorage.removeItem("quarto-color-scheme"); localStorage.removeItem("ids705-color-scheme-auto");
+localStorage.removeItem("quarto-color-scheme");
 ```
 
 **Dropbox.** Rendering inside a Dropbox folder can produce "conflicted copy" files in `docs/`, because Quarto rewrites files faster than Dropbox syncs them. If they appear, delete them and render again, or pause Dropbox syncing while you render. They're listed in `.gitignore`, so they won't be committed by accident.
@@ -53,7 +52,9 @@ localStorage.removeItem("quarto-color-scheme"); localStorage.removeItem("ids705-
 
 **Adjust the color:** change `$kelly-700` (links) and `$kelly-800` (hover) in `theme-light.scss`, and the same two variables in `theme-dark.scss`. Link text needs at least 4.5:1 contrast against the page background.
 
-**Underline links (option A3):** add this to the end of `theme.scss`. Note that it also underlines the breadcrumb at the top of each page.
+**No underlines:** links aren't underlined because `$link-decoration: none;` is set in `theme.scss`. Quarto 1.8 and later underline every link by default (navbar, sidebar, footer, and page text); deleting that line brings Quarto's default back.
+
+**Underline links in page text only (option A3):** keep `$link-decoration: none;` and add this to the end of `theme.scss`. Note that it also underlines the breadcrumb at the top of each page.
 
 ```scss
 // Underline links in page content
@@ -200,7 +201,7 @@ If you switch away from IBM Plex, the code font stays IBM Plex Mono only while `
 
 **Adjust dark colors:** edit `theme-dark.scss` (page background, text, lines, links, navbar, callouts) and the `body.quarto-dark` block at the top of `styles.css` (schedule colors).
 
-**Always start in light mode, but keep the toggle:** delete `_color-scheme.html`, and delete the `include-in-header: _color-scheme.html` line in `_quarto.yml`.
+**Always start in light mode, but keep the toggle:** delete the `respect-user-color-scheme: true` line in `_quarto.yml`. (This setting needs Quarto 1.7 or later.)
 
 **Turn dark mode off entirely (option F1):** in `_quarto.yml`, replace the two-line `theme:` block with:
 
@@ -208,7 +209,7 @@ If you switch away from IBM Plex, the code font stays IBM Plex Mono only while `
     theme: [cosmo, theme.scss, theme-light.scss]
 ```
 
-Then delete the `include-in-header` line. The toggle disappears. You can keep `theme-dark.scss` and `_color-scheme.html` for later, or delete them.
+Then delete the `respect-user-color-scheme` line. The toggle disappears. You can keep `theme-dark.scss` for later, or delete it.
 
 ---
 
@@ -216,8 +217,8 @@ Then delete the `include-in-header` line. The toggle disappears. You can keep `t
 
 To go back to the plain Cosmo look the site had before these changes:
 
-1. In `_quarto.yml`, replace the `theme:` block with `theme: cosmo`, and delete the `include-in-header` line.
-2. Optionally delete `theme.scss`, `theme-light.scss`, `theme-dark.scss`, and `_color-scheme.html`.
+1. In `_quarto.yml`, replace the `theme:` block with `theme: cosmo`, and delete the `respect-user-color-scheme` line.
+2. Optionally delete `theme.scss`, `theme-light.scss`, and `theme-dark.scss`.
 3. Render.
 
 `styles.css` keeps working as it is. Its light-mode colors are the same ones the schedule used before. Once these changes are committed, you can also restore any earlier version of a single file with `git checkout <commit> -- <file>`.

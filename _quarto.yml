@@ -74,13 +74,13 @@ website:
 format:
   html:
     # Site styling: see STYLE_GUIDE.md for how to change or revert each choice.
-    # Listing light first makes light the default; _color-scheme.html then
-    # follows each visitor's system setting until they use the navbar toggle.
+    # Light and dark themes; each visitor sees the one matching their system
+    # setting (respect-user-color-scheme) until they use the navbar toggle.
     theme:
       light: [cosmo, theme.scss, theme-light.scss]
       dark: [cosmo, theme.scss, theme-dark.scss]
+    respect-user-color-scheme: true
     css: styles.css
-    include-in-header: _color-scheme.html
     toc: true
     grid:
       body-width: 1100px
