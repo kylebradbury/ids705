@@ -1,0 +1,30 @@
+/*
+  Dark-mode colors (choice F2). Light-mode equivalents are in theme-light.scss.
+  The variable names match, so a change here usually needs a matching change there.
+  See STYLE_GUIDE.md.
+*/
+
+/*-- scss:defaults --*/
+
+// ---- Page -------------------------------------------------------------------
+$body-bg:      #131713;  // near-black with a slight green tint
+$body-color:   #D9DFD6;  // body text
+$border-color: #343B33;  // lines: heading underlines, callout outlines, table rules, navbar edge
+
+// ---- Brand greens (lighter link shades so they read on a dark background) ---
+$kelly:     #4CBB17;  // same brand green as light mode
+$kelly-700: #7ACF4B;  // links and the current sidebar page
+$kelly-800: #9BDD73;  // link hover
+
+// ---- Links -------------------------------------------------------------------
+$primary:          $kelly-700;
+$link-color:       $kelly-700;
+$link-hover-color: $kelly-800;
+
+// ---- Navbar -----------------------------------------------------------------
+$navbar-bg: $body-bg;
+$navbar-fg: $body-color;
+
+// ---- Callouts ---------------------------------------------------------------
+$callout-color-tip:  $kelly;
+$callout-color-note: #8C9A88;

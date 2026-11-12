@@ -1,0 +1,24 @@
+/*
+  Light-mode colors. Dark-mode equivalents are in theme-dark.scss.
+  Change a value, re-render, and the whole site follows. See STYLE_GUIDE.md.
+*/
+
+/*-- scss:defaults --*/
+
+// ---- Brand greens -----------------------------------------------------------
+$kelly:     #4CBB17;  // accents only: navbar edge, sidebar marker, tip callouts (too light for text on white)
+$kelly-700: #2F7A0E;  // links and the current sidebar page (5.4:1 contrast on white)
+$kelly-800: #256309;  // link hover
+
+// ---- Links (choice A2: Kelly links) ---------------------------------------
+$primary:          $kelly-700;  // also used for buttons, focus rings, and search highlights
+$link-color:       $kelly-700;
+$link-hover-color: $kelly-800;
+
+// ---- Navbar (choice B2: white bar; the green top line is in theme.scss) ---
+$navbar-bg: #FFFFFF;
+$navbar-fg: #373A3C;
+
+// ---- Callouts (choice D2: brand green) -------------------------------------
+$callout-color-tip:  $kelly;    // "Key to Books Used Below", etc.
+$callout-color-note: #8C9A88;   // "Class Time and Location", etc. (quiet gray-green)

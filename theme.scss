@@ -1,0 +1,40 @@
+/*
+  Shared site styling, used by both the light and dark themes (see _quarto.yml).
+  Colors live in theme-light.scss and theme-dark.scss; this file uses them.
+  How to change or revert any of this: see STYLE_GUIDE.md.
+*/
+
+/*-- scss:defaults --*/
+
+// ---- Typeface (choice E3: IBM Plex Sans) ----------------------------------
+// Replaces Cosmo's default font (Source Sans Pro). To go back to Source Sans,
+// delete these three variables.
+$web-font-path: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap";
+$font-family-sans-serif: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "IBM Plex Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+/*-- scss:rules --*/
+
+// ---- Navbar (choice B2): a Kelly line along the top edge ------------------
+// To remove the green line, delete the border-top line below.
+.navbar {
+  border-top: 3px solid $kelly;
+  border-bottom: 1px solid $border-color;
+}
+
+// Phones: shrink the navbar title so "IDS 705 · Spring 2027" fits beside the
+// dark-mode toggle and search icons.
+@media (max-width: 575.98px) {
+  .navbar .navbar-title { font-size: 1.05rem; }
+}
+
+// ---- Sidebar (choice A2): mark the page you're on --------------------------
+// Bold green text with a Kelly bar to its left. Delete this block to go back
+// to Quarto's default (colored text only).
+div.sidebar-item-container .sidebar-link.active {
+  color: $link-color;
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 $kelly;
+  padding-left: 0.5rem;
+  margin-left: -0.5rem;
+}

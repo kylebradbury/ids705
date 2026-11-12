@@ -29,7 +29,7 @@ website:
     - other_ideas.qmd
   draft-mode: unlinked
   navbar:
-    title: "IDS 705 · Spring 2027"
+    title: "IDS 705 · Principles of Machine Learning · 2027"
     left:
       - href: ./schedule.qmd
         text: Schedule
@@ -73,9 +73,14 @@ website:
             href: https://github.com/kylebradbury/ml-project-structure-demo
 format:
   html:
+    # Site styling: see STYLE_GUIDE.md for how to change or revert each choice.
+    # Listing light first makes light the default; _color-scheme.html then
+    # follows each visitor's system setting until they use the navbar toggle.
     theme:
-      - cosmo
+      light: [cosmo, theme.scss, theme-light.scss]
+      dark: [cosmo, theme.scss, theme-dark.scss]
     css: styles.css
+    include-in-header: _color-scheme.html
     toc: true
     grid:
       body-width: 1100px

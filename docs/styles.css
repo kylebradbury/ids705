@@ -1,5 +1,38 @@
 /* css styles */
 
+/* ===================== Colors for the custom styles below =====================
+   Light-mode values first; dark-mode values in the second block (Quarto adds
+   the class "quarto-dark" to <body> in dark mode). Site-wide colors such as
+   links, the navbar, and callouts live in theme-light.scss / theme-dark.scss.
+   See STYLE_GUIDE.md.                                                          */
+:root {
+  --sched-module-bg:   #495057;  /* module rows (choice C1: dark gray bar) */
+  --sched-module-fg:   #ffffff;
+  --sched-module-edge: none;     /* optional left edge on module rows, e.g. 4px solid #4CBB17 */
+  --sched-due-row:   #fdf4ea;  /* row behind a "Due" tag */
+  --sched-due-bg:    #f6d8b8;  /* the "Due" tag itself */
+  --sched-due-fg:    #6b3a00;
+  --sched-exam-row:  #fbeaec;
+  --sched-exam-bg:   #f5c2c7;
+  --sched-exam-fg:   #842029;
+  --sched-tag-bg:    #e9ecef;  /* gray tags: Holiday, No class, No quiz */
+  --sched-tag-fg:    #495057;
+  --sched-note:      #b02a37;  /* red notes */
+}
+body.quarto-dark {
+  --sched-module-bg: #3b4247;
+  --sched-module-fg: #ffffff;
+  --sched-due-row:   #2e2416;
+  --sched-due-bg:    #5a3d17;
+  --sched-due-fg:    #f6d8b8;
+  --sched-exam-row:  #33191d;
+  --sched-exam-bg:   #6a1f28;
+  --sched-exam-fg:   #f5c2c7;
+  --sched-tag-bg:    #2c332b;
+  --sched-tag-fg:    #c3cbbf;
+  --sched-note:      #ff8a95;
+}
+
 /* ===================== Schedule table (schedule.qmd) =====================
    Columns: 1 Date | 2 Event | 3 Topic | 4 Readings | 5 Materials          */
 
@@ -37,24 +70,25 @@ table.schedule > tbody > tr > td { background-color: transparent; }  /* let row 
   font-weight: 600;
   white-space: nowrap;
 }
-.schedule .due  { background: #f6d8b8; color: #6b3a00; }
-.schedule .exam { background: #f5c2c7; color: #842029; }
-.schedule .tag  { background: #e9ecef; color: #495057; }
+.schedule .due  { background: var(--sched-due-bg);  color: var(--sched-due-fg); }
+.schedule .exam { background: var(--sched-exam-bg); color: var(--sched-exam-fg); }
+.schedule .tag  { background: var(--sched-tag-bg);  color: var(--sched-tag-fg); }
 
 /* Rows are colored automatically from the tag in their Event cell */
-.schedule tr:has(> td:nth-child(2) .due)  { background: #fdf4ea; }
-.schedule tr:has(> td:nth-child(2) .exam) { background: #fbeaec; }
+.schedule tr:has(> td:nth-child(2) .due)  { background: var(--sched-due-row); }
+.schedule tr:has(> td:nth-child(2) .exam) { background: var(--sched-exam-row); }
 .schedule tr:has(> td:nth-child(2) .tag),
 .schedule tr:has(> td:nth-child(2) .tag) b { color: var(--bs-secondary-color); }
 
 /* Red note: <span class="note"> */
-.schedule .note { color: #b02a37; font-weight: 600; }
+.schedule .note { color: var(--sched-note); font-weight: 600; }
 .schedule .note::before { font-family: "bootstrap-icons"; content: "\f33b"; margin-right: .3rem; font-weight: normal; }
 
 /* Module rows: <tr class="module"><td colspan="5">...</td></tr> */
 table.schedule > tbody > tr.module > td {
-  background: #495057;
-  color: #fff;
+  background: var(--sched-module-bg);
+  color: var(--sched-module-fg);
+  border-left: var(--sched-module-edge);
   font-size: 1rem;
   font-weight: 600;
   white-space: normal;
