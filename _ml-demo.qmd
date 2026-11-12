@@ -55,9 +55,9 @@
     <!-- Right (or below on phones): the readout, the controls, and the chart -->
     <div class="mld-controls">
       <div class="mld-readout">
-        <div class="mld-stat"><span class="mld-stat-label">Training</span><strong data-out="train">—</strong></div>
-        <div class="mld-stat"><span class="mld-stat-label">Test</span><strong data-out="test">—</strong></div>
-        <div class="mld-stat mld-stat-minor"><span class="mld-stat-label">Best possible</span><strong data-out="bayes">—</strong></div>
+        <div class="mld-stat"><span class="mld-stat-label">Training accuracy</span><strong data-out="train">—</strong></div>
+        <div class="mld-stat"><span class="mld-stat-label">Test accuracy</span><strong data-out="test">—</strong></div>
+        <div class="mld-stat mld-stat-minor"><span class="mld-stat-label">Best possible accuracy</span><strong data-out="bayes">—</strong></div>
       </div>
       <div class="mld-seg" data-group="model" role="group" aria-label="Model">
         <button type="button" data-value="knn" title="k-nearest neighbors">k-NN</button>
@@ -73,6 +73,7 @@
       <!-- The accuracy-at-every-setting chart (hidden on phones to save space) -->
       <div class="mld-chart">
         <div class="mld-legend" aria-hidden="true">
+          <span class="mld-legend-title">Accuracy:</span>
           <span><span class="mld-line mld-line-train"></span>Training</span>
           <span><span class="mld-line mld-line-test"></span>Test</span>
           <span><span class="mld-line mld-line-bayes"></span>Best possible</span>
@@ -176,9 +177,10 @@ body.quarto-dark #ml-demo {
 #ml-demo .mld-axis-y { writing-mode: vertical-rl; transform: rotate(180deg); }
 #ml-demo .mld-axis-x { grid-column: 2; text-align: center; margin-top: 0.25rem; }
 /* The readout: big training and test numbers */
-#ml-demo .mld-readout { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.25rem 1.4rem; margin: 0 0 0.6rem; }
-#ml-demo .mld-stat { display: flex; flex-direction: column; line-height: 1.1; }
-#ml-demo .mld-stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--mld-muted); }
+/* The three stay on one row; on narrow screens their labels wrap onto two lines instead. */
+#ml-demo .mld-readout { display: flex; align-items: flex-end; gap: 1.25rem; margin: 0 0 0.6rem; }
+#ml-demo .mld-stat { display: flex; flex-direction: column; flex: 0 1 auto; min-width: 0; line-height: 1.1; }
+#ml-demo .mld-stat-label { font-size: 0.75rem; font-weight: 600; color: var(--mld-muted); }
 #ml-demo .mld-stat strong { font-size: 1.6rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 #ml-demo .mld-stat-minor strong { font-size: 1.05rem; color: var(--mld-muted); }
 /* Buttons: outlined, and filled in when selected (aria-pressed="true") */
@@ -202,6 +204,7 @@ body.quarto-dark #ml-demo {
 #ml-demo .mld-chart { display: none; margin: 0 0 0.6rem; }
 @container (min-width: 620px) { #ml-demo .mld-chart { display: block; } }
 #ml-demo .mld-legend { display: flex; flex-wrap: wrap; gap: 0 0.7rem; font-size: 0.72rem; color: var(--mld-muted); }
+#ml-demo .mld-legend-title { font-weight: 600; }
 #ml-demo .mld-line { display: inline-block; width: 1.1em; margin-right: 0.3em; vertical-align: 0.3em; }
 #ml-demo .mld-line-train { border-top: 2px solid var(--mld-chart-train); }
 #ml-demo .mld-line-test { border-top: 3px solid var(--mld-chart-test); }
