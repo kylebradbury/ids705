@@ -478,7 +478,1422 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 </header>
 
 
-<p><img src="img/decision-boundaries.png" class="img-fluid" alt="Three panels showing decision boundaries on the same two-class dataset: the Bayes decision boundary, a linear classifier, and a decision tree."></p>
+<!--
+  Interactive classifier demo for the homepage (included by index.qmd with
+  {{< include _ml-demo.qmd >}}). The underscore keeps Quarto from rendering it as its own page.
+
+  Origin: adapted from the IDS 542 site's _ml-demo.qmd (ids542_sp2027). This version is written to
+  work on any Quarto site: control colors come from the site's Bootstrap theme, plot colors from the
+  --mld-* variables below, and it follows Quarto's light/dark toggle. To use it on another site, copy
+  this file next to that site's index.qmd and add the include line. See STYLE_GUIDE.md, section G.
+
+  What it does: you pick a dataset and a classifier (k-nearest neighbors, a decision tree, or
+  logistic regression), turn the model's flexibility knob, and watch the decision boundary, the
+  training vs. test accuracy, and an accuracy-vs-flexibility chart change. The best possible
+  (Bayes) classifier is shown for comparison. The demo opens deliberately overfit (k-NN, k = 1).
+  It's kept compact (a 360px plot) so the course description below stays near the top of the page.
+
+  How this file is organized: one raw HTML block containing
+    a. the demo's HTML (the plot, the chart, and the controls), plus a <noscript> fallback image,
+    b. its CSS (every rule is scoped under #ml-demo, so it can't affect the rest of the site),
+    c. its JavaScript: data generation, the ML models, the Bayes classifier, and the drawing code.
+  Everything runs in the browser, with no libraries and no network requests. If JavaScript is off,
+  the static figure shows instead; if the demo hits an error, it removes itself and shows that figure.
+-->
+<!-- Without JavaScript, show the static figure. (With JavaScript, it's never downloaded.) -->
+<noscript>
+  <p><img src="img/decision-boundaries.png" class="img-fluid" alt="Three panels showing decision boundaries on the same two-class dataset: the Bayes decision boundary, a linear classifier, and a decision tree."></p>
+</noscript>
+
+<!-- The demo starts hidden; the script un-hides it once everything is ready.
+     data-fallback-*: the static figure the script shows instead if anything goes wrong.
+     Elements the script uses are tagged with data-* attributes:
+       data-group   a row of toggle buttons where one is selected at a time
+       data-value   the value a toggle button selects
+       data-input   a slider or checkbox the script reads
+       data-out     text the script writes (accuracies, slider label, hint, chart labels)
+       data-action  a one-shot button (new sample, reset) -->
+<div id="ml-demo" hidden="" data-fallback-src="img/decision-boundaries.png" data-fallback-alt="Three panels showing decision boundaries on the same two-class dataset: the Bayes decision boundary, a linear classifier, and a decision tree.">
+  <div class="mld-layout">
+    <!-- Left (or top on phones): the plot -->
+    <div class="mld-plot">
+      <!-- Axis labels sit outside the canvas: the y-axis label in a narrow left column and the
+           x-axis label underneath. Both axes are input FEATURES (x1 and x2); the class label is
+           shown by shape. They're named x1 and x2 rather than x and y because in ML, y usually
+           means the label. The subscripts are Unicode characters rather than <sub> tags, because
+           <sub> renders as a superscript in rotated (vertical) text. -->
+      <div class="mld-axes">
+        <span class="mld-axis-y" aria-hidden="true">Feature x₂</span>
+        <canvas class="mld-canvas" role="img" aria-label="Interactive classifier plot"></canvas>
+        <span class="mld-axis-x" aria-hidden="true">Feature x₁</span>
+      </div>
+    </div>
+    <!-- Right (or below on phones): the readout, the controls, and the chart -->
+    <div class="mld-controls">
+      <div class="mld-readout">
+        <div class="mld-stat"><span class="mld-stat-label">Training</span><strong data-out="train">—</strong></div>
+        <div class="mld-stat"><span class="mld-stat-label">Test</span><strong data-out="test">—</strong></div>
+        <div class="mld-stat mld-stat-minor"><span class="mld-stat-label">Best possible</span><strong data-out="bayes">—</strong></div>
+      </div>
+      <div class="mld-seg" data-group="model" role="group" aria-label="Model">
+        <button type="button" data-value="knn" title="k-nearest neighbors">k-NN</button>
+        <button type="button" data-value="tree">Decision tree</button>
+        <button type="button" data-value="lr">Logistic regression</button>
+      </div>
+      <!-- The flexibility slider. It moves through the model's list of settings (simplest on the
+           left), so its value is a position in that list; the label shows the actual setting. -->
+      <label class="mld-range"><span><span data-out="param-label">Neighbors k</span>: <output data-out="param-value">1</output></span>
+        <input type="range" data-input="param" min="0" max="10" step="1" value="10">
+      </label>
+      <p class="mld-hint" data-out="hint"></p>
+      <!-- The accuracy-at-every-setting chart (hidden on phones to save space) -->
+      <div class="mld-chart">
+        <div class="mld-legend" aria-hidden="true">
+          <span><span class="mld-line mld-line-train"></span>Training</span>
+          <span><span class="mld-line mld-line-test"></span>Test</span>
+          <span><span class="mld-line mld-line-bayes"></span>Best possible</span>
+        </div>
+        <canvas class="mld-chart-canvas" role="img" aria-label="Accuracy chart"></canvas>
+        <div class="mld-chart-axis" aria-hidden="true"><span data-out="chart-left"></span><span>more flexible →</span><span data-out="chart-right"></span></div>
+      </div>
+      <div class="mld-seg" data-group="dataset" role="group" aria-label="Dataset">
+        <button type="button" data-value="blobs">Blobs</button>
+        <button type="button" data-value="moons">Moons</button>
+        <button type="button" data-value="circles">Circles</button>
+        <button type="button" data-value="xor">XOR</button>
+      </div>
+      <div class="mld-foot">
+        <details class="mld-more">
+          <summary>More options</summary>
+          <label class="mld-range">Noise
+            <input type="range" data-input="noise" min="0" max="1" step="0.05" value="0.65">
+          </label>
+          <label class="mld-check"><input type="checkbox" data-input="showTest" checked=""> Show test points</label>
+          <label class="mld-check"><input type="checkbox" data-input="showBayes"> Show best possible boundary</label>
+          <button type="button" data-action="new-train">New training sample</button>
+        </details>
+        <button type="button" class="mld-reset" data-action="reset">Reset</button>
+      </div>
+    </div>
+  </div>
+  <!-- The figure caption, which also serves as the plot's key -->
+  <p class="mld-caption"><strong>Interactive figure:</strong> a classifier learns a decision boundary from training data
+    (filled points) and is judged on new test data (hollow points). Finding the right flexibility, between underfitting and
+    overfitting, is an important idea of this course. Try it yourself here and dive deeply into these topics through the course. <span data-out="bayes-key" hidden=""> The dashed line is the
+    best possible boundary.</span></p>
+  <!-- Screen readers: a full-sentence summary, updated shortly after the last change -->
+  <p class="mld-sr" role="status" data-out="status"></p>
+</div>
+
+<style>
+#ml-demo {
+  /* Control colors follow the site's Bootstrap theme (and its dark mode), with fallbacks. */
+  --mld-accent: var(--bs-primary, #2F7A0E);
+  --mld-accent-rgb: var(--bs-primary-rgb, 47, 122, 14);
+  --mld-on-accent: var(--bs-body-bg, #ffffff);
+  --mld-muted: var(--bs-secondary-color, #6c757d);
+  --mld-line: var(--bs-border-color, #dee2e6);
+  /* Plot and chart colors (light mode). The script reads these, so the plot can be recolored here
+     without touching any JavaScript. Use solid colors. To override them for one site, set the same
+     variables on #ml-demo in that site's styles.css. */
+  --mld-neutral: #f5f7f4;      /* plot background where the model is unsure */
+  --mld-region-a: #cdeabb;     /* region predicted as class A */
+  --mld-region-b: #d3dae6;     /* region predicted as class B */
+  --mld-point-a: #2F7A0E;      /* class A points (circles) */
+  --mld-point-b: #1f2933;      /* class B points (squares) */
+  --mld-point-edge: #ffffff;   /* outline of filled points; fill of hollow test points */
+  --mld-boundary: #1f2933;     /* the model's decision boundary */
+  --mld-bayes: #c2410c;        /* the best possible boundary (dashed), and its chart line */
+  --mld-chart-train: #868e96;
+  --mld-chart-test: #2F7A0E;
+  --mld-chart-grid: #e6e9e4;
+  --mld-chart-text: #6c757d;
+  /* How big the plot may get when it sits beside the controls */
+  --mld-plot-max: min(360px, 50vh);
+  /* Lets the layout below respond to the demo's own width rather than the whole window's */
+  container-type: inline-size;
+  margin: 0 0 1.5rem;
+}
+/* Dark mode (Quarto adds the class quarto-dark to <body>) */
+body.quarto-dark #ml-demo {
+  --mld-neutral: #1a1f1a;
+  --mld-region-a: #25401b;
+  --mld-region-b: #283142;
+  --mld-point-a: #7ACF4B;
+  --mld-point-b: #e3e8f0;
+  --mld-point-edge: #131713;
+  --mld-boundary: #f2f5f0;
+  --mld-bayes: #fb923c;
+  --mld-chart-train: #8f988c;
+  --mld-chart-test: #7ACF4B;
+  --mld-chart-grid: #2a312a;
+  --mld-chart-text: #a3ac9f;
+}
+#ml-demo .mld-caption { margin: 0.4rem 0 0; font-size: 0.85rem; line-height: 1.4; color: var(--mld-muted); }
+#ml-demo .mld-caption strong { color: var(--bs-body-color, inherit); }
+/* One column by default (phones); plot and controls side by side when there's room. The plot is
+   kept small so the course description below stays close to the top of the page. */
+#ml-demo .mld-layout { display: grid; gap: 0.75rem 1.5rem; grid-template-columns: minmax(0, 1fr); }
+@container (min-width: 620px) {
+  #ml-demo .mld-layout {
+    grid-template-columns: minmax(0, calc(var(--mld-plot-max) + 1.3rem)) minmax(15rem, 1fr);
+    align-items: start;
+  }
+}
+/* The plot is always square and fills its column */
+#ml-demo .mld-canvas {
+  display: block; width: 100%; height: auto; aspect-ratio: 1;
+  border: 1px solid var(--mld-line);
+}
+/* Axis labels: a left column for the vertical label (rotated to read bottom to top) and a
+   row under the plot for the horizontal one */
+#ml-demo .mld-axes { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 0.25rem; }
+#ml-demo .mld-axis-x, #ml-demo .mld-axis-y { font-size: 0.75rem; line-height: 1; color: var(--mld-muted); white-space: nowrap; }
+#ml-demo .mld-axis-y { writing-mode: vertical-rl; transform: rotate(180deg); }
+#ml-demo .mld-axis-x { grid-column: 2; text-align: center; margin-top: 0.25rem; }
+/* The readout: big training and test numbers */
+#ml-demo .mld-readout { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.25rem 1.4rem; margin: 0 0 0.6rem; }
+#ml-demo .mld-stat { display: flex; flex-direction: column; line-height: 1.1; }
+#ml-demo .mld-stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--mld-muted); }
+#ml-demo .mld-stat strong { font-size: 1.6rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+#ml-demo .mld-stat-minor strong { font-size: 1.05rem; color: var(--mld-muted); }
+/* Buttons: outlined, and filled in when selected (aria-pressed="true") */
+#ml-demo .mld-seg { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+#ml-demo button {
+  font: inherit; font-size: 0.82rem; line-height: 1.2;
+  padding: 0.3rem 0.55rem; border-radius: 0.3rem;
+  border: 1px solid var(--mld-accent); background: transparent; color: var(--mld-accent);
+  cursor: pointer;
+}
+#ml-demo button:hover { background: rgba(var(--mld-accent-rgb), 0.1); }
+#ml-demo button[aria-pressed="true"] { background: var(--mld-accent); color: var(--mld-on-accent); }
+#ml-demo button:focus-visible, #ml-demo input:focus-visible, #ml-demo summary:focus-visible { outline: 2px solid var(--mld-accent); outline-offset: 2px; }
+/* Sliders, checkboxes, and the hint */
+#ml-demo .mld-range { display: flex; flex-direction: column; gap: 0.1rem; margin: 0; font-size: 0.85rem; }
+#ml-demo input[type="range"] { width: 100%; accent-color: var(--mld-accent); }
+#ml-demo .mld-check { display: flex; align-items: center; gap: 0.4rem; margin: 0.3rem 0; font-size: 0.85rem; }
+#ml-demo input[type="checkbox"] { accent-color: var(--mld-accent); }
+#ml-demo .mld-hint { margin: 0 0 0.6rem; font-size: 0.78rem; line-height: 1.35; color: var(--mld-muted); }
+/* The accuracy-at-every-setting chart: hidden on phones, shown when there's room beside the plot */
+#ml-demo .mld-chart { display: none; margin: 0 0 0.6rem; }
+@container (min-width: 620px) { #ml-demo .mld-chart { display: block; } }
+#ml-demo .mld-legend { display: flex; flex-wrap: wrap; gap: 0 0.7rem; font-size: 0.72rem; color: var(--mld-muted); }
+#ml-demo .mld-line { display: inline-block; width: 1.1em; margin-right: 0.3em; vertical-align: 0.3em; }
+#ml-demo .mld-line-train { border-top: 2px solid var(--mld-chart-train); }
+#ml-demo .mld-line-test { border-top: 3px solid var(--mld-chart-test); }
+#ml-demo .mld-line-bayes { border-top: 2px dashed var(--mld-bayes); }
+#ml-demo .mld-chart-canvas { display: block; width: 100%; height: 4.5rem; cursor: pointer; }
+#ml-demo .mld-chart-axis { display: flex; justify-content: space-between; padding-left: 34px; font-size: 0.7rem; color: var(--mld-muted); }
+/* "More options" and Reset share the last row */
+#ml-demo .mld-foot { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
+#ml-demo .mld-more { flex: 1; min-width: 0; }
+#ml-demo .mld-more summary { cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--mld-accent); }
+#ml-demo .mld-more[open] summary { margin-bottom: 0.35rem; }
+#ml-demo .mld-reset { border-color: var(--mld-line); color: var(--mld-muted); font-size: 0.78rem; padding: 0.15rem 0.5rem; }
+/* Visually hidden, but read by screen readers */
+#ml-demo .mld-sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; padding: 0; }
+/* Touch screens: larger tap targets */
+@media (pointer: coarse) {
+  #ml-demo button { min-height: 44px; padding: 0.45rem 0.7rem; }
+  #ml-demo .mld-more summary { min-height: 44px; display: flex; align-items: center; }
+  #ml-demo .mld-check { min-height: 44px; }
+}
+</style>
+
+<script>
+// =====================================================================================
+// HOW TO READ THIS SCRIPT (a quick JavaScript guide for Python users)
+//
+//   var x = 5;                     is like   x = 5
+//   function f(a, b) { ... }       is like   def f(a, b): ...
+//   for (i = 0; i < n; i++)        is like   for i in range(n):
+//   cond ? a : b                   is like   a if cond else b
+//   [1, 2, 3]  and  { x: 1 }       are like  a list and a dict
+//   pts.push(p)                    is like   pts.append(p)
+//   new Float64Array(n)            is like   np.zeros(n)  (a fixed-size array of floats)
+//
+// The ML code follows scikit-learn's fit/predict idea, with one twist: each fit function
+// RETURNS a predict function. That returned function "remembers" the fitted parameters
+// (the stored neighbors, the tree, or the weights), the way a fitted sklearn model object
+// remembers its coef_ or tree_.
+//
+// Sections, in order:
+//   1. Random data ............. seeded random numbers and the four toy datasets
+//   2. Models .................. k-NN, decision tree, logistic regression (fit + predict)
+//   3. Best possible classifier  the Bayes classifier, from the known data-generating process
+//   4. Evaluation .............. accuracy, the decision-boundary map, and boundary tracing
+//   5. State ................... the current settings (dataset, model, seeds, and so on)
+//   6. Fitting ................. train the model and refresh everything that depends on it
+//   7. Drawing ................. paint the plot and the chart on their canvases
+//   8. Events .................. respond to buttons, sliders, clicks, and the dark-mode toggle
+//
+// Sections 1-4 are pure computation (no web page involved), marked CORE-START / CORE-END, so they
+// can be tested on their own. Everything is wrapped in one function that runs immediately, so none
+// of these variables leak into the rest of the web page.
+// =====================================================================================
+(function () {
+  "use strict";
+  var root = document.getElementById("ml-demo");
+  if (!root) return;
+
+  // If anything goes wrong, remove the demo and show the static figure instead, so the page never
+  // ends up broken. (The figure isn't in the page until now, so normal visits never download it.)
+  var failed = false;
+  function fail(err) {
+    if (failed) return;
+    failed = true;
+    root.hidden = true;
+    var p = document.createElement("p"), img = document.createElement("img");
+    img.src = root.getAttribute("data-fallback-src");
+    img.alt = root.getAttribute("data-fallback-alt") || "";
+    img.className = "img-fluid";
+    p.appendChild(img);
+    root.parentNode.insertBefore(p, root);
+    if (window.console) console.error("ML demo disabled:", err);
+  }
+
+  // [CORE-START]
+  // =====================================================================================
+  // 1. RANDOM DATA
+  // =====================================================================================
+
+  // A seeded pseudo-random number generator ("mulberry32"). JavaScript's built-in Math.random()
+  // can't be seeded, but ML experiments need reproducibility: the same seed must always produce
+  // the same dataset (like np.random.default_rng(seed) in Python). Each call to the returned
+  // function gives a new number uniformly distributed between 0 and 1. The bit manipulation
+  // below is just a fast way to scramble the seed; you don't need it to follow the ML.
+  function mulberry32(seed) {
+    return function () {
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  // One draw from a standard normal distribution N(0, 1), built from two uniform draws
+  // (the Box-Muller transform). Using 1 - rand() keeps u above 0, so log(u) is never log(0).
+  function gaussian(rand) {
+    var u = 1 - rand(), v = rand();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+  // Limit v to the range [lo, hi].
+  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+  // Sizes of the datasets. The model learns from the training set. The test set is held out and
+  // used only to measure how well the model does on data it has never seen. It's large (2,000
+  // points) so the test accuracy is a reliable estimate; only the first 60 are drawn on the plot.
+  var N_TRAIN = 140, N_TEST = 2000, N_TEST_SHOWN = 60;
+  // Every point lies inside the square -BOX <= x, y <= BOX, just inside the plot's edges.
+  var BOX = 0.98;
+
+  // The four toy datasets (similar to scikit-learn's make_blobs, make_moons, and make_circles).
+  // Each generator draws ONE point for class c (1 = class A, drawn as circles; 0 = class B, drawn
+  // as squares) at noise level s between 0 and 1.
+  //
+  // Naming note: throughout this code, x and y are the point's two input FEATURES (labeled
+  // "Feature x1" and "Feature x2" on the plot), not an input and an output. The class label,
+  // which is what ML usually calls y, is stored separately as c.
+  //
+  // "Noise" sets the standard deviation (sd) of random Gaussian jitter added to each point.
+  // More noise means the two classes overlap more, so even the best possible classifier makes
+  // some mistakes (that unavoidable error is called the Bayes error). Overlap is also what makes
+  // overfitting hurt: a model that bends its boundary around every noisy point is learning the
+  // noise, not the underlying pattern.
+  var GENERATORS = {
+    // Two round clouds: class A centered at (-0.4, 0.35), class B at (0.4, -0.35).
+    blobs: function (c, s, rand) {
+      var sd = 0.1 + 0.4 * s, cx = c ? -0.4 : 0.4, cy = c ? 0.35 : -0.35;
+      return { x: cx + sd * gaussian(rand), y: cy + sd * gaussian(rand) };
+    },
+    // Two interlocking half circles. Pick a random angle t along the arc, take that point on
+    // class A's upper arc or class B's lower arc, add noise, then shift and shrink everything
+    // to fit inside the square.
+    moons: function (c, s, rand) {
+      var t = Math.PI * rand(), sd = 0.05 + 0.35 * s, x, y;
+      if (c) { x = Math.cos(t); y = Math.sin(t); } else { x = 1 - Math.cos(t); y = 0.5 - Math.sin(t); }
+      x += sd * gaussian(rand); y += sd * gaussian(rand);
+      return { x: (x - 0.5) / 1.75, y: (y - 0.25) / 1.75 };
+    },
+    // Class A on a small ring (radius 0.35) inside class B's larger ring (radius 0.8).
+    // No straight line can separate these, so this dataset shows why logistic regression
+    // needs polynomial features to handle curved boundaries.
+    circles: function (c, s, rand) {
+      var t = 2 * Math.PI * rand(), sd = 0.03 + 0.25 * s, r = c ? 0.35 : 0.8;
+      return { x: r * Math.cos(t) + sd * gaussian(rand), y: r * Math.sin(t) + sd * gaussian(rand) };
+    },
+    // Four clusters at the corners of a square. Class A sits top-right and bottom-left; class B
+    // top-left and bottom-right. As with XOR in logic, the class depends on whether x and y have
+    // the same sign. sx picks left or right at random; sy is then set from sx and the class.
+    xor: function (c, s, rand) {
+      var sd = 0.08 + 0.3 * s, sx = rand() < 0.5 ? -1 : 1, sy = c ? sx : -sx;
+      return { x: 0.45 * sx + sd * gaussian(rand), y: 0.45 * sy + sd * gaussian(rand) };
+    }
+  };
+
+  // Draw a dataset of count points, alternating class A and class B so the classes are exactly
+  // balanced. Each point is a small object {x, y, c}, where c is the label (1 = A, 0 = B).
+  //
+  // The training and test sets are drawn SEPARATELY, each from its own seed, but from the same
+  // distribution (same dataset and noise level). That's the key assumption behind a test set:
+  // it comes from the same process as the training data, so accuracy on it estimates how the
+  // model will do on new data. Separate seeds also let you redraw the training set on its own.
+  //
+  // A point that lands outside the plot is thrown away and redrawn ("rejection sampling"), so
+  // no points pile up along the edges.
+  function generate(name, noise, seed, count) {
+    var rand = mulberry32(seed), pts = [];
+    for (var i = 0; i < count; i++) {
+      var c = i % 2, p, tries = 0;
+      do { p = GENERATORS[name](c, noise, rand); }
+      while ((Math.abs(p.x) > BOX || Math.abs(p.y) > BOX) && ++tries < 1000);
+      pts.push({ x: clamp(p.x, -BOX, BOX), y: clamp(p.y, -BOX, BOX), c: c });
+    }
+    return pts;
+  }
+
+  // =====================================================================================
+  // 2. MODELS
+  //
+  // Every model follows the same pattern:
+  //     predict = fitSomething(train, param)
+  //     predict(x, y)  ->  estimated probability that the point (x, y) is class A
+  //
+  // A point is classified as class A when that probability is above 0.5, and as class B
+  // otherwise. The DECISION BOUNDARY is the curve where the probability is exactly 0.5.
+  //
+  // Each model has one "flexibility knob" (param), set by the slider:
+  //   k-NN                  k, the number of neighbors   (SMALLER k = more flexible)
+  //   decision tree         maximum depth                (DEEPER = more flexible)
+  //   logistic regression   polynomial degree            (HIGHER = more flexible)
+  // Too little flexibility underfits (misses the real pattern). Too much overfits (memorizes the
+  // noise in the training data, which shows up as high training accuracy but lower test accuracy).
+  // =====================================================================================
+
+  // ---- k-nearest neighbors (like sklearn's KNeighborsClassifier) ----
+  //
+  // k-NN is a "lazy" learner: fitting does no real work, it just stores the training points.
+  // The work happens at prediction time. To classify a new point, find the k training points
+  // closest to it and let them vote. The predicted probability of class A is the fraction of
+  // those k neighbors that are class A.
+  //
+  // With k = 1, every training point is its own nearest neighbor, so training accuracy is 100%
+  // (unless two points of different classes sit at exactly the same spot) and the boundary bends
+  // around every single point: classic overfitting. Larger k averages over more neighbors,
+  // which smooths the boundary. Very large k smooths away real structure (underfitting).
+  function fitKnn(train, k) {
+    var n = train.length, i;
+    // k can't be larger than the number of training points.
+    k = Math.min(k, n);
+    // "Fitting": copy the coordinates and labels into compact arrays for fast access.
+    var xs = new Float64Array(n), ys = new Float64Array(n), cs = new Uint8Array(n);
+    for (i = 0; i < n; i++) { xs[i] = train[i].x; ys[i] = train[i].y; cs[i] = train[i].c; }
+    // Scratch space reused by every prediction: the k smallest distances found so far (bestD)
+    // and the labels of those points (bestC), kept sorted from nearest to farthest.
+    var bestD = new Float64Array(k), bestC = new Uint8Array(k);
+    return function (x, y) {
+      var m = 0, i, j;
+      // Check the distance to every training point (brute force is fine for a few hundred points).
+      for (i = 0; i < n; i++) {
+        // Squared Euclidean distance. The square root is skipped because it doesn't change
+        // which points are closest, and skipping it saves time.
+        var dx = xs[i] - x, dy = ys[i] - y, d = dx * dx + dy * dy;
+        // Maintain the sorted list of the k nearest points so far (an insertion sort):
+        //   - until k points have been seen, every point is added;
+        //   - after that, a point is added only if it's closer than the current k-th nearest,
+        //     which then drops off the end of the list.
+        if (m < k) j = m++;
+        else if (d < bestD[k - 1]) j = k - 1;
+        else continue;
+        // Shift farther points down one slot until this point's sorted position is found.
+        while (j > 0 && bestD[j - 1] > d) { bestD[j] = bestD[j - 1]; bestC[j] = bestC[j - 1]; j--; }
+        bestD[j] = d; bestC[j] = cs[i];
+      }
+      // The vote: count how many of the k neighbors are class A (label 1).
+      var a = 0;
+      for (j = 0; j < k; j++) a += bestC[j];
+      var p = a / k;
+      // A tie leaves p at exactly 0.5, right on the boundary. The slider only offers odd k, so
+      // ties happen only when k is capped at an even number of training points.
+      if (p === 0.5) p += bestC[0] ? 0.01 : -0.01; // break ties with the nearest neighbor
+      return p;
+    };
+  }
+
+  // ---- Decision tree (like sklearn's DecisionTreeClassifier with criterion="gini") ----
+  //
+  // A decision tree asks a series of yes/no questions such as "is x <= 0.12?". Each answer
+  // sends a point left or right until it reaches a leaf, which predicts the fraction of class A
+  // among the training points that ended up in that leaf. Every question cuts the plane with a
+  // vertical or horizontal line, which is why tree boundaries look like staircases.
+  //
+  // The tree is grown greedily from the top down (the CART algorithm): at each node, try every
+  // possible cut and keep the one that makes the two sides as "pure" (single-class) as possible.
+  // Then repeat on each side, until a side is pure or the maximum depth is reached. A deep tree
+  // can carve out tiny regions around individual noisy points: overfitting.
+
+  // Gini impurity measures how mixed a group is. For a group where a fraction p is class A:
+  //     Gini = 1 - p^2 - (1 - p)^2 = 2 p (1 - p)
+  // It's 0 for a pure group and 0.5 for a 50/50 mix. Here a is the number of class A points
+  // and n the group size, and the function returns n * Gini (impurity weighted by size), so a
+  // split's score is simply  n_left * Gini_left + n_right * Gini_right  (lower is better).
+  function gini(a, n) { var p = a / n; return n * 2 * p * (1 - p); }
+
+  function fitTree(train, maxDepth) {
+    // Grow the tree recursively. pts are the training points that reached this node, and depth
+    // counts how many questions were asked to get here (the root has depth 0).
+    function build(pts, depth) {
+      // Count the class A points (a) out of the n points here.
+      var n = pts.length, a = 0, i;
+      for (i = 0; i < n; i++) a += pts[i].c;
+      // If growth stops here, this node becomes a leaf predicting the fraction of class A.
+      var leaf = { p: a / n };
+      // Stopping rules: the depth limit is reached, or the node is already pure (one class only).
+      if (depth >= maxDepth || a === 0 || a === n) return leaf;
+      // Search both features (x and y) for the best single cut.
+      var best = null;
+      ["x", "y"].forEach(function (f) {
+        // Sort the points by this feature. The candidate cuts lie between neighboring values,
+        // so walking along the sorted list visits every possible split exactly once.
+        // la counts the class A points on the left side as the cut moves to the right.
+        var s = pts.slice().sort(function (u, v) { return u[f] - v[f]; }), la = 0;
+        for (var i = 0; i < n - 1; i++) {
+          // Move point i onto the left side of the cut.
+          la += s[i].c;
+          // There's no gap to cut between two points with the same value.
+          if (s[i][f] === s[i + 1][f]) continue;
+          // Score this split: the left side has ln points (la of them class A); the right has
+          // the remaining n - ln points (a - la of them class A).
+          var ln = i + 1, g = gini(la, ln) + gini(a - la, n - ln);
+          // Keep the lowest-impurity split seen so far. The threshold sits halfway between
+          // the two neighboring values, as in scikit-learn.
+          if (!best || g < best.g) best = { g: g, f: f, t: (s[i][f] + s[i + 1][f]) / 2 };
+        }
+      });
+      // No valid cut exists (every point here has identical coordinates), so make a leaf.
+      if (!best) return leaf;
+      // Divide the points using the best question, then grow each side the same way.
+      // There's no "minimum improvement" rule: an impure node below the depth limit always
+      // splits if it can. Only purity or the depth limit stops the growth.
+      var left = [], right = [];
+      for (i = 0; i < n; i++) (pts[i][best.f] <= best.t ? left : right).push(pts[i]);
+      // An internal node stores its question (feature f and threshold t) and its two children.
+      return { f: best.f, t: best.t, l: build(left, depth + 1), r: build(right, depth + 1) };
+    }
+    var tree = build(train, 0);
+    // To predict, start at the root and follow the answers down to a leaf.
+    // (Leaves have no f property, so the loop stops when it reaches one.)
+    return function (x, y) {
+      var node = tree;
+      while (node.f) node = (node.f === "x" ? x : y) <= node.t ? node.l : node.r;
+      return node.p;
+    };
+  }
+
+  // ---- Logistic regression (like sklearn's LogisticRegression on PolynomialFeatures) ----
+  //
+  // Logistic regression computes a weighted sum of features,
+  //     z = w0 * 1 + w1 * f1(x, y) + w2 * f2(x, y) + ...
+  // and squashes it into a probability with the sigmoid function: p = sigmoid(z).
+  // Since p > 0.5 exactly when z > 0, the decision boundary is the curve z = 0.
+  //
+  // With degree 1 the features are just 1, y, and x, so z = 0 is a straight line.
+  // Higher degrees add polynomial terms in x and y (think x^2, x*y, y^2, x^3, and so on). The model
+  // is still LINEAR IN ITS WEIGHTS, but in terms of x and y the boundary z = 0 can now curve: degree
+  // 2 can draw circles and ellipses, and higher degrees can wiggle. That's how a "linear" model can
+  // fit the Circles data, and, at high degrees, how it overfits: with degree 15 there are 136
+  // features for 140 training points, enough to bend the boundary around individual noisy points.
+
+  // The sigmoid (logistic) function, sigmoid(z) = 1 / (1 + e^(-z)), maps any number into (0, 1).
+  // It's written two ways so that e^(...) is never computed for a large positive number,
+  // which could overflow to infinity.
+  function sigmoid(z) {
+    if (z >= 0) return 1 / (1 + Math.exp(-z));
+    var e = Math.exp(z);
+    return e / (1 + e);
+  }
+
+  function fitLogistic(train, degree) {
+    // ---- Step 1: polynomial feature expansion ----
+    // One feature for every pair (i, j) with i + j <= degree, stored as [i, j] pairs. For degree 2
+    // that's [0,0] [0,1] [1,0] [0,2] [1,1] [2,0]. The first one is the constant 1, the bias
+    // (intercept) term. There are (degree + 1)(degree + 2) / 2 features in total: 3 for degree 1,
+    // 28 for degree 6, 136 for degree 15.
+    //
+    // Feature (i, j) is T_i(x) * T_j(y), where T_d is the Chebyshev polynomial of degree d:
+    //     T_0(x) = 1,  T_1(x) = x,  T_2(x) = 2x^2 - 1,  ...,  T_d(x) = 2x T_(d-1)(x) - T_(d-2)(x)
+    // Together these describe exactly the same curves as the plain powers x^i * y^j (sklearn's
+    // PolynomialFeatures); they're just a better-behaved way to write them down. Plain powers
+    // shrink toward 0 inside [-1, 1] (0.5^15 is about 0.00003), so high-degree terms would need
+    // enormous weights to matter and training could barely use them. Chebyshev polynomials stay
+    // between -1 and 1 at every degree, so every feature is on the same scale, the same job that
+    // StandardScaler does in a scikit-learn pipeline. Every point lies between -1 and 1, the range
+    // where Chebyshev polynomials behave this way.
+    var powers = [], t, i;
+    for (t = 0; t <= degree; t++) for (i = 0; i <= t; i++) powers.push([i, t - i]);
+    var m = powers.length, n = train.length;
+    // features() computes one point's m features and writes them into out[offset], out[offset + 1],
+    // and so on. tx[d] holds T_d(x) and ty[d] holds T_d(y), built with the recurrence above.
+    var tx = new Float64Array(degree + 1), ty = new Float64Array(degree + 1);
+    function features(x, y, out, offset) {
+      tx[0] = ty[0] = 1;
+      if (degree >= 1) { tx[1] = x; ty[1] = y; }
+      for (var d = 2; d <= degree; d++) { tx[d] = 2 * x * tx[d - 1] - tx[d - 2]; ty[d] = 2 * y * ty[d - 1] - ty[d - 2]; }
+      for (var f = 0; f < m; f++) out[offset + f] = tx[powers[f][0]] * ty[powers[f][1]];
+    }
+    // The design matrix X (n rows by m feature columns, stored row after row in one flat array,
+    // like a flattened NumPy array) and the label vector Y (1 = class A, 0 = class B).
+    var X = new Float64Array(n * m), Y = new Float64Array(n);
+    for (i = 0; i < n; i++) { features(train[i].x, train[i].y, X, i * m); Y[i] = train[i].c; }
+
+    // ---- Step 2: learn the weights ----
+    // Training minimizes the average cross-entropy (log) loss plus a small L2 penalty:
+    //     L(w) = -(1/n) * sum_i [ y_i * log(p_i) + (1 - y_i) * log(1 - p_i) ]  +  (l2 / 2) * |w|^2
+    // where p_i = sigmoid(w . features_i). The gradient has a famously simple form:
+    //     dL/dw = (1/n) * sum_i (p_i - y_i) * features_i  +  l2 * w
+    // In words: each training point pushes the weights in proportion to its prediction error.
+    //
+    // The weights move downhill along that gradient using Adam, a version of gradient descent
+    // that's popular in deep learning because it adapts the step size for each weight.
+    // "Full batch" means every step uses all n training points.
+    //   - lr (the learning rate) is the base step size; b1 and b2 control Adam's running averages.
+    //   - l2 is a small ridge penalty that stops the weights from growing without limit when the
+    //     classes can be perfectly separated. The bias w0 is not penalized. In scikit-learn terms
+    //     this is roughly C = 1 / (n * l2), about 70, which is weak regularization.
+    //   - iters = 800 steps, starting from all-zero weights, so the same data always gives the
+    //     same model.
+    // On the default Moons data, test accuracy peaks around degree 3-4 (91%) and falls to about
+    // 82% by degree 15, while training accuracy climbs to 99%.
+    // w holds the weights; mo and ve are Adam's running averages of the gradient and of its
+    // square; g accumulates the gradient on each step.
+    var w = new Float64Array(m), mo = new Float64Array(m), ve = new Float64Array(m), g = new Float64Array(m);
+    var lr = 0.05, b1 = 0.9, b2 = 0.999, l2 = 1e-4, iters = 800, it, f;
+    // b1t and b2t hold b1^it and b2^it, updated by one multiplication per step.
+    var b1t = 1, b2t = 1;
+    for (it = 1; it <= iters; it++) {
+      // Accumulate sum_i (p_i - y_i) * features_i over all training points.
+      g.fill(0);
+      for (i = 0; i < n; i++) {
+        // z = w . features_i, the model's raw score for point i
+        var z = 0, row = i * m;
+        for (f = 0; f < m; f++) z += w[f] * X[row + f];
+        // The prediction error: predicted probability minus the true label (between -1 and 1).
+        var err = sigmoid(z) - Y[i];
+        for (f = 0; f < m; f++) g[f] += err * X[row + f];
+      }
+      b1t *= b1; b2t *= b2;
+      for (f = 0; f < m; f++) {
+        // The average gradient, plus the L2 penalty's gradient (skipped for the bias, f = 0).
+        var grad = g[f] / n + (f ? l2 * w[f] : 0);
+        // Adam's running averages: mo smooths the gradient (momentum), ve tracks its typical size.
+        mo[f] = b1 * mo[f] + (1 - b1) * grad;
+        ve[f] = b2 * ve[f] + (1 - b2) * grad * grad;
+        // Step the weight downhill. Dividing by sqrt(ve) makes every weight move at a similar
+        // rate, and the (1 - b^it) terms correct the averages' bias toward zero in early steps.
+        w[f] -= lr * (mo[f] / (1 - b1t)) / (Math.sqrt(ve[f] / (1 - b2t)) + 1e-8);
+      }
+    }
+    // To predict: expand the point into the same features, take the weighted sum, apply sigmoid.
+    var phi = new Float64Array(m);
+    return function (x, y) {
+      features(x, y, phi, 0);
+      var z = 0;
+      for (var f = 0; f < m; f++) z += w[f] * phi[f];
+      return sigmoid(z);
+    };
+  }
+
+  // The three models. values lists the slider's settings from SIMPLEST to MOST FLEXIBLE, so the
+  // slider and the chart both run left to right in that order. init is the starting position in
+  // that list. k-NN offers only odd k: with two classes, an odd number of neighbors can't tie
+  // (k = 2 would always predict the same as k = 1, since ties go to the nearest neighbor).
+  var MODELS = {
+    knn: { fit: fitKnn, label: "Neighbors k", sym: "k", name: "k-nearest neighbors",
+           values: [71, 51, 31, 21, 15, 11, 9, 7, 5, 3, 1], init: 10,
+           hint: "k = 1 memorizes the training points; large k smooths away the pattern." },
+    tree: { fit: fitTree, label: "Max depth", sym: "depth", name: "decision tree",
+            values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], init: 3,
+            hint: "Each level adds a cut; deep trees wall off single noisy points." },
+    lr: { fit: fitLogistic, label: "Polynomial degree", sym: "degree", name: "logistic regression",
+          values: [1, 2, 3, 4, 5, 6, 8, 10, 12, 15], init: 0,
+          hint: "Higher degrees let the boundary curve, and eventually wiggle around noise." }
+  };
+
+  // =====================================================================================
+  // 3. THE BEST POSSIBLE (BAYES) CLASSIFIER
+  //
+  // Real data never comes with its recipe, but these toy datasets do: we know exactly how each
+  // point was generated. That lets us compute the TRUE probability that a point at (x, y) is
+  // class A, using Bayes' rule:
+  //     P(A | x, y) = p(x, y | A) P(A) / [ p(x, y | A) P(A) + p(x, y | B) P(B) ]
+  // The classes are balanced, so P(A) = P(B) and they cancel. Predicting the more likely class
+  // everywhere gives the BAYES CLASSIFIER: no model can do better on average, and its error rate
+  // is the Bayes error. Its accuracy is the "Best possible" number, and its boundary is the
+  // dashed line. A model whose test accuracy gets close to it has little left to learn.
+  //
+  // Each class's density p(x, y | class) comes from its generator:
+  //   blobs    one Gaussian blob per class
+  //   xor      an equal mix of two Gaussian blobs per class
+  //   circles  Gaussian noise around a ring; averaging over the ring's angle has an exact formula
+  //            involving the modified Bessel function I0
+  //   moons    Gaussian noise around a half circle, averaged over 100 points along the arc
+  // Densities are handled as logarithms, because far from the data they're too small for floating
+  // point (e^-1000 rounds to 0). Constants shared by both classes cancel, so they're left out.
+  //
+  // One correction: points outside the plot are redrawn (see generate), which removes a slightly
+  // different share of each class (for Circles, the outer ring loses more). Each density is divided
+  // by its class's share of points inside the plot, estimated once by sampling.
+  // =====================================================================================
+
+  // log(e^a + e^b), computed without overflow or underflow
+  function logAddExp(a, b) {
+    var m = a > b ? a : b;
+    if (m === -Infinity) return m;
+    return m + Math.log(Math.exp(a - m) + Math.exp(b - m));
+  }
+  // log of the modified Bessel function I0(z) for z >= 0, from the polynomial approximations in
+  // Abramowitz and Stegun (9.8.1 and 9.8.2), accurate to about 1e-7.
+  function logI0(z) {
+    if (z < 3.75) {
+      var t = (z / 3.75) * (z / 3.75);
+      return Math.log(1 + t * (3.5156229 + t * (3.0899424 + t * (1.2067492 +
+        t * (0.2659732 + t * (0.0360768 + t * 0.0045813))))));
+    }
+    var u = 3.75 / z;
+    return z - 0.5 * Math.log(z) + Math.log(0.39894228 + u * (0.01328592 + u * (0.00225319 +
+      u * (-0.00157565 + u * (0.00916281 + u * (-0.02057706 + u * (0.02635537 +
+      u * (-0.01647633 + u * 0.00392377))))))));
+  }
+  // The share of class c's points that land inside the plot (before any are redrawn).
+  function insideShare(name, noise, c) {
+    var rand = mulberry32(9001 + c), inside = 0, N = 20000;
+    for (var i = 0; i < N; i++) {
+      var p = GENERATORS[name](c, noise, rand);
+      if (Math.abs(p.x) <= BOX && Math.abs(p.y) <= BOX) inside++;
+    }
+    return Math.max(inside, 1) / N;
+  }
+  // Returns predict(x, y) = P(class A | x, y), just like the fitted models.
+  function fitBayes(name, s) {
+    var logA, logB, sd, k;
+    if (name === "blobs") {
+      sd = 0.1 + 0.4 * s; k = -1 / (2 * sd * sd);
+      logA = function (x, y) { var dx = x + 0.4, dy = y - 0.35; return k * (dx * dx + dy * dy); };
+      logB = function (x, y) { var dx = x - 0.4, dy = y + 0.35; return k * (dx * dx + dy * dy); };
+    } else if (name === "xor") {
+      sd = 0.08 + 0.3 * s; k = -1 / (2 * sd * sd);
+      var blob = function (x, y, cx, cy) { var dx = x - cx, dy = y - cy; return k * (dx * dx + dy * dy); };
+      logA = function (x, y) { return logAddExp(blob(x, y, 0.45, 0.45), blob(x, y, -0.45, -0.45)); };
+      logB = function (x, y) { return logAddExp(blob(x, y, -0.45, 0.45), blob(x, y, 0.45, -0.45)); };
+    } else if (name === "circles") {
+      sd = 0.03 + 0.25 * s;
+      var v = sd * sd;
+      var ring = function (R) {
+        return function (x, y) { var r2 = x * x + y * y; return -(r2 + R * R) / (2 * v) + logI0(Math.sqrt(r2) * R / v); };
+      };
+      logA = ring(0.35); logB = ring(0.8);
+    } else {
+      // Moons: the generator adds noise before shrinking by 1.75, so the noise shrinks too.
+      sd = (0.05 + 0.35 * s) / 1.75; k = -1 / (2 * sd * sd);
+      var M = 100, ax = new Float64Array(M), ay = new Float64Array(M), bx = new Float64Array(M), by = new Float64Array(M);
+      for (var j = 0; j < M; j++) {
+        var t = Math.PI * (j + 0.5) / M;
+        ax[j] = (Math.cos(t) - 0.5) / 1.75;      ay[j] = (Math.sin(t) - 0.25) / 1.75;
+        bx[j] = (1 - Math.cos(t) - 0.5) / 1.75;  by[j] = (0.5 - Math.sin(t) - 0.25) / 1.75;
+      }
+      // log of the sum of the M Gaussians along an arc (the "log-sum-exp" trick: subtract the
+      // largest term before exponentiating)
+      var arc = function (cx, cy) {
+        return function (x, y) {
+          var mx = -Infinity, sum = 0, i, dx, dy, e;
+          for (i = 0; i < M; i++) { dx = x - cx[i]; dy = y - cy[i]; e = k * (dx * dx + dy * dy); if (e > mx) mx = e; }
+          for (i = 0; i < M; i++) { dx = x - cx[i]; dy = y - cy[i]; sum += Math.exp(k * (dx * dx + dy * dy) - mx); }
+          return mx + Math.log(sum);
+        };
+      };
+      logA = arc(ax, ay); logB = arc(bx, by);
+    }
+    // Dividing each density by its class's inside share adds log(share B / share A) to the log odds.
+    var shift = Math.log(insideShare(name, s, 0)) - Math.log(insideShare(name, s, 1));
+    return function (x, y) { return sigmoid(logA(x, y) - logB(x, y) + shift); };
+  }
+
+  // =====================================================================================
+  // 4. EVALUATION
+  // =====================================================================================
+
+  // Accuracy = the fraction of points whose predicted class matches their true label. The
+  // predicted class is A when the model's probability is above 0.5, otherwise B.
+  // Returns null when there's no model or no points to score.
+  function accuracy(predict, pts) {
+    if (!predict || !pts.length) return null;
+    var right = 0;
+    for (var i = 0; i < pts.length; i++) right += (predict(pts[i].x, pts[i].y) > 0.5 ? 1 : 0) === pts[i].c ? 1 : 0;
+    return right / pts.length;
+  }
+
+  // How finely to sample the plane when mapping the decision boundary (a G by G grid of cells).
+  // A finer grid draws a more accurate picture but needs more model predictions per redraw:
+  //   - a tree is cheap to evaluate (a few comparisons per point), so it gets a fine grid;
+  //   - logistic regression costs one weighted sum of up to 136 features per point;
+  //   - k-NN is the most expensive (a distance to every training point), so its grid shrinks
+  //     as the training set grows.
+  // While a slider is being dragged, the grid is halved (coarse) to keep dragging smooth, and the
+  // full grid is drawn as soon as the slider stops.
+  function gridSize(model, nTrain, coarse) {
+    var G = model === "tree" ? 300 : model === "lr" ? 160 :
+      clamp(Math.round(Math.sqrt(1.5e6 / Math.max(nTrain, 1))), 60, 110);
+    return coarse ? Math.round(G / 2) : G;
+  }
+
+  // Map the model's predictions across the whole plane. This is the same idea as the usual
+  // Python recipe for plotting a decision boundary: build a grid with np.meshgrid, call
+  // predict_proba at every grid point, then draw with plt.contourf (shading) and plt.contour (line).
+  //
+  // The plane from -1 to 1 in each direction is divided into G by G cells, and the model is
+  // evaluated at the (G + 1) by (G + 1) cell corners ("nodes"). Node (i, j) is column i and
+  // row j, with row 0 at the top: x = -1 + 2i/G and y = 1 - 2j/G (y shrinks going down,
+  // as on a graph).
+  function evaluateGrid(predict, G) {
+    var n = G + 1, vals = new Float64Array(n * n), i, j;
+    for (j = 0; j < n; j++) {
+      var y = 1 - (2 * j) / G;
+      for (i = 0; i < n; i++) vals[j * n + i] = predict(-1 + (2 * i) / G, y);
+    }
+    return { G: G, vals: vals, lines: chain(contour(vals, G, predict)) };
+  }
+
+  // Trace the decision boundary (where p = 0.5) as a line, like plt.contour(..., levels=[0.5]).
+  //
+  // The method is "marching squares". For each grid cell, check which of its four corners are
+  // class A (p > 0.5). If the corners disagree, the boundary passes through the cell, crossing
+  // each edge whose two ends disagree. Joining those crossing points, cell by cell, traces the line.
+  //
+  // Where exactly along an edge is the crossing? Many tools interpolate between the corner
+  // values, but k-NN and tree probabilities jump in steps, so interpolating would draw a jagged
+  // staircase. Instead, this code asks the model itself, halving the edge 8 times (bisection)
+  // to find where its prediction flips, to within 1/256 of a cell.
+  // Returns a flat list of segment endpoints, in units where the plot spans 0 to 1.
+  function contour(vals, G, predict) {
+    var n = G + 1, segs = [], cache = new Map(), i, j;
+    // Is the point at grid position (gi, gj) predicted to be class A? (Positions can be fractional.)
+    function inside(gi, gj) { return predict(-1 + (2 * gi) / G, 1 - (2 * gj) / G) > 0.5; }
+    // Crossing on the edge from node (i0, j0) to its neighbor (i1, j1), in grid units.
+    // Results are cached because each edge is shared by two neighboring cells.
+    function crossing(i0, j0, i1, j1) {
+      var key = (j0 * n + i0) * 2 + (i1 > i0 ? 0 : 1), hit = cache.get(key);
+      if (hit) return hit;
+      // side: the class at the starting corner. Each halving keeps the half where the flip is.
+      var side = vals[j0 * n + i0] > 0.5, lo = 0, hi = 1;
+      for (var k = 0; k < 8; k++) {
+        var t = (lo + hi) / 2;
+        if (inside(i0 + (i1 - i0) * t, j0 + (j1 - j0) * t) === side) lo = t; else hi = t;
+      }
+      t = (lo + hi) / 2;
+      hit = [(i0 + (i1 - i0) * t) / G, (j0 + (j1 - j0) * t) / G];
+      cache.set(key, hit);
+      return hit;
+    }
+    for (j = 0; j < G; j++) {
+      for (i = 0; i < G; i++) {
+        // Record which corners are class A as a 4-bit number: top-left = 8, top-right = 4,
+        // bottom-right = 2, bottom-left = 1. A code of 0 or 15 means all four corners agree,
+        // so the boundary doesn't pass through this cell.
+        var code = (vals[j * n + i] > 0.5 ? 8 : 0) | (vals[j * n + i + 1] > 0.5 ? 4 : 0) |
+                   (vals[(j + 1) * n + i + 1] > 0.5 ? 2 : 0) | (vals[(j + 1) * n + i] > 0.5 ? 1 : 0);
+        if (code === 0 || code === 15) continue;
+        var top = function () { return crossing(i, j, i + 1, j); };
+        var right = function () { return crossing(i + 1, j, i + 1, j + 1); };
+        var bottom = function () { return crossing(i, j + 1, i + 1, j + 1); };
+        var left = function () { return crossing(i, j, i, j + 1); };
+        // Each mixed case lists the two edges the boundary crosses. A case and its opposite
+        // (such as 1 and 14, where the corners are flipped) cross the same edges.
+        switch (code) {
+          case 1: case 14: segs.push(left(), bottom()); break;
+          case 2: case 13: segs.push(bottom(), right()); break;
+          case 3: case 12: segs.push(left(), right()); break;
+          case 4: case 11: segs.push(top(), right()); break;
+          case 6: case 9: segs.push(top(), bottom()); break;
+          case 7: case 8: segs.push(left(), top()); break;
+          case 5: case 10:
+            // Saddle: the model's prediction at the cell center decides which corners connect
+            // (two opposite corners are class A and the other two are class B, so the boundary
+            // could pass through the cell in two different ways).
+            if (inside(i + 0.5, j + 0.5) === (code === 5)) segs.push(left(), top(), bottom(), right());
+            else segs.push(left(), bottom(), top(), right());
+            break;
+        }
+      }
+    }
+    return segs;
+  }
+
+  // Join the boundary's many short segments into continuous lines (polylines), so a dashed line
+  // keeps its dash pattern instead of restarting it on every tiny segment, and corners join
+  // smoothly. Neighboring segments share an endpoint: contour's cache returns the very same
+  // [x, y] array for both, so endpoints can be matched exactly, by identity.
+  function chain(segs) {
+    var nSeg = segs.length / 2, used = new Uint8Array(nSeg), ends = new Map(), lines = [], s;
+    // ends maps each endpoint to the segments that touch it
+    for (s = 0; s < nSeg; s++) {
+      [segs[2 * s], segs[2 * s + 1]].forEach(function (p) {
+        var list = ends.get(p);
+        if (list) list.push(s); else ends.set(p, [s]);
+      });
+    }
+    // An unused segment touching point p, or -1 if there's none
+    function nextSegment(p) {
+      var list = ends.get(p);
+      for (var k = 0; k < list.length; k++) if (!used[list[k]]) return list[k];
+      return -1;
+    }
+    // Walk from p along unused segments, collecting the points passed
+    function walk(p) {
+      var pts = [], i;
+      while ((i = nextSegment(p)) >= 0) {
+        used[i] = 1;
+        p = segs[2 * i] === p ? segs[2 * i + 1] : segs[2 * i];
+        pts.push(p);
+      }
+      return pts;
+    }
+    for (s = 0; s < nSeg; s++) {
+      if (used[s]) continue;
+      used[s] = 1;
+      var a = segs[2 * s], b = segs[2 * s + 1];
+      // Extend in both directions, then join: (backward part, reversed) + a + b + (forward part)
+      lines.push(walk(a).reverse().concat([a, b], walk(b)));
+    }
+    return lines;
+  }
+  // [CORE-END]
+
+  // =====================================================================================
+  // 5. STATE: everything the user can change lives in one object
+  //
+  //   dataset, model         which dataset and classifier are selected
+  //   noise                  the noise slider, from 0 to 1
+  //   trainSeed, testSeed    the random seeds for the two samples
+  //   showTest, showBayes    whether the hollow test points and the dashed Bayes boundary are drawn
+  //   params                 each model's slider position, remembered when you switch models
+  // =====================================================================================
+  // The page opens overfit on purpose. With these settings (Moons, noise 0.65, training seed 9,
+  // test seed 7), k-NN with k = 1 scores 100% on training but 85.9% on test. Test accuracy rises to
+  // 91.8% around k = 9-11, close to the best possible 92.3%, and falls back to 80.5% at k = 71
+  // (underfitting). Decision trees show the same pattern: 88.9% at depth 2-3, about 84% when deeper.
+  // Across random training seeds at this noise level, tuning k gains about 3-4 points over k = 1
+  // (median); seed 9 shows a somewhat clearer gain of 6 points. Noise 0.65 keeps the moon shapes
+  // recognizable while leaving enough overlap for overfitting to matter.
+  function defaults() {
+    return {
+      dataset: "moons", model: "knn", noise: 0.65, trainSeed: 9, testSeed: 7,
+      showTest: true, showBayes: false,
+      params: { knn: MODELS.knn.init, tree: MODELS.tree.init, lr: MODELS.lr.init }
+    };
+  }
+  var state = defaults();
+  var DATASET_NAMES = { blobs: "Blobs", moons: "Moons", circles: "Circles", xor: "XOR" };
+
+  // Derived results, recomputed when the state changes:
+  //   data     the generated points, { train: [...], test: [...] }
+  //   predict  the currently fitted model
+  //   grid     the model's predictions over the plane plus its boundary line, ready to draw
+  //   scores   the model's training and test accuracy
+  //   bayes    the Bayes classifier for the current dataset and noise: its accuracy and boundary
+  //   curve    training and test accuracy at every slider setting, for the chart
+  //   version  goes up whenever the training or test points change, so the chart knows to refresh
+  var data = { train: [], test: [] }, predict = null, grid = null, scores = { train: null, test: null };
+  var bayes = null, curve = null, version = 0;
+
+  // A fresh random seed that differs from the other sample's seed. (With identical seeds, the
+  // test set would start with a copy of the training points.)
+  function newSeed(avoid) {
+    var s;
+    do { s = Math.floor(Math.random() * 1e9); } while (s === avoid);
+    return s;
+  }
+
+  // ---------- Page plumbing: find the canvases and controls ----------
+  // ctx and cctx are the 2D drawing interfaces of the plot and the chart. off is a small hidden
+  // canvas used to build the background shading image before it's stretched onto the plot.
+  var canvas = root.querySelector(".mld-canvas"), chartCanvas = root.querySelector(".mld-chart-canvas");
+  var ctx = canvas.getContext && canvas.getContext("2d");
+  var cctx = chartCanvas.getContext && chartCanvas.getContext("2d");
+  if (!ctx || !cctx) { fail("2D canvas not supported"); return; }
+  var off = document.createElement("canvas"), offCtx = off.getContext("2d");
+  // out and inputs look up page elements by their data-out and data-input names from the HTML.
+  var out = {}, inputs = {}, actions = {};
+  root.querySelectorAll("[data-out]").forEach(function (el) { out[el.getAttribute("data-out")] = el; });
+  root.querySelectorAll("[data-input]").forEach(function (el) { inputs[el.getAttribute("data-input")] = el; });
+  root.querySelectorAll("[data-action]").forEach(function (el) { actions[el.getAttribute("data-action")] = el; });
+  // css: colors read from the stylesheet; size: canvas sizes in CSS pixels.
+  var css = {}, size = { plot: 0, chartW: 0, chartH: 0 };
+  // The chart's left margin, which holds the percentage labels (matches .mld-chart-axis padding).
+  var CHART_PAD_L = 34, CHART_PAD_R = 8;
+
+  // Timers: later(name, ms, fn) runs fn after ms milliseconds, replacing any earlier pending call
+  // with the same name (so a burst of changes triggers just one run, after the burst ends).
+  var timers = {};
+  function later(name, ms, fn) {
+    clearTimeout(timers[name]);
+    timers[name] = setTimeout(function () { if (!failed) { try { fn(); } catch (e) { fail(e); } } }, ms);
+  }
+
+  // Read the plot colors from the CSS custom properties, so colors are defined in one place.
+  // Each color is painted onto a 1 x 1 canvas and read back, which turns any CSS color into
+  // [red, green, blue] numbers (0 to 255); those are needed to build the shading pixel by pixel.
+  var COLOR_KEYS = ["neutral", "region-a", "region-b", "point-a", "point-b", "point-edge", "boundary",
+                    "bayes", "chart-train", "chart-test", "chart-grid", "chart-text"];
+  var probe = document.createElement("canvas");
+  probe.width = probe.height = 1;
+  var probeCtx = probe.getContext("2d", { willReadFrequently: true });
+  function readColors() {
+    var cs = getComputedStyle(root);
+    COLOR_KEYS.forEach(function (k) {
+      probeCtx.clearRect(0, 0, 1, 1);
+      probeCtx.fillStyle = "#808080";                                   // used if the value is invalid
+      probeCtx.fillStyle = cs.getPropertyValue("--mld-" + k).trim() || "#808080";
+      probeCtx.fillRect(0, 0, 1, 1);
+      var d = probeCtx.getImageData(0, 0, 1, 1).data;
+      css[k] = { rgb: [d[0], d[1], d[2]], str: "rgb(" + d[0] + "," + d[1] + "," + d[2] + ")" };
+    });
+    css.font = cs.fontFamily || "sans-serif";
+  }
+
+  // Make the controls match the current state: highlight the selected buttons, set the slider's
+  // range, value, label, and hint for the current model, and enable or disable buttons.
+  function syncControls() {
+    root.querySelectorAll("[data-group]").forEach(function (group) {
+      var key = group.getAttribute("data-group");
+      group.querySelectorAll("button").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-value") === String(state[key])));
+      });
+    });
+    var m = MODELS[state.model], i = state.params[state.model], p = inputs.param, last = m.values.length - 1;
+    p.max = last; p.value = i;
+    p.setAttribute("aria-valuetext", m.sym + " = " + m.values[i]);
+    out["param-label"].textContent = m.label;
+    out["param-value"].textContent = m.values[i];
+    out.hint.textContent = m.hint;
+    out["chart-left"].textContent = m.sym + " = " + m.values[0];
+    out["chart-right"].textContent = m.sym + " = " + m.values[last];
+    inputs.noise.value = state.noise;
+    inputs.showTest.checked = state.showTest;
+    inputs.showBayes.checked = state.showBayes;
+    out["bayes-key"].hidden = !state.showBayes;
+  }
+
+  // =====================================================================================
+  // 6. FITTING: train the model and refresh everything that depends on it
+  // =====================================================================================
+
+  // What's out of date. update() marks things and schedules one refresh per screen frame.
+  //   train, test  regenerate that sample;  fit  refit the model;  coarse  use the quick grid
+  var pending = { train: true, test: true, fit: true, coarse: false }, frame = 0;
+
+  // update({ train/test/fit, coarse }) regenerates and/or refits; update() with no argument only
+  // redraws. requestAnimationFrame runs the work just before the browser's next screen refresh,
+  // so dragging a slider triggers at most one refit per frame instead of dozens.
+  function update(changes) {
+    if (changes) {
+      var wasPending = pending.fit;
+      if (changes.train) pending.train = true;
+      if (changes.test) pending.test = true;
+      // A quick (coarse) refresh only if every change in this frame asked for one
+      pending.coarse = !!changes.coarse && (!wasPending || pending.coarse);
+      pending.fit = true;
+      // After a quick refresh, draw the full-quality version once the changes stop
+      if (changes.coarse) later("settle", 200, function () { update({ fit: true }); });
+    }
+    if (frame) return;
+    // Whichever comes first: the next screen frame, or a short timer (browsers pause or slow
+    // screen frames in some situations, such as hidden tabs and embedded frames).
+    var run = function () {
+      if (!frame) return;
+      cancelAnimationFrame(frame); clearTimeout(frameTimer);
+      frame = 0;
+      if (failed) return;
+      try { if (pending.fit) refit(); draw(); drawChart(); } catch (e) { fail(e); }
+    };
+    frame = requestAnimationFrame(run);
+    frameTimer = setTimeout(run, 100);
+  }
+  var frameTimer = 0;
+
+  // The main ML step:
+  //   1. regenerate the training and test samples if they're out of date,
+  //   2. FIT the model, using the training set only,
+  //   3. evaluate the fitted model over a grid to map its decision boundary,
+  //   4. measure training and test accuracy,
+  //   5. schedule the slower extras (the Bayes classifier and the chart) if they're out of date.
+  // Notice that the test set never reaches fit(). If it did, test accuracy would stop being an
+  // honest estimate of performance on unseen data (a mistake known as data leakage).
+  function refit() {
+    var coarse = pending.coarse;
+    if (pending.train) { data.train = generate(state.dataset, state.noise, state.trainSeed, N_TRAIN); version++; }
+    if (pending.test) { data.test = generate(state.dataset, state.noise, state.testSeed, N_TEST); version++; }
+    pending.train = pending.test = pending.fit = pending.coarse = false;
+    var train = data.train, m = MODELS[state.model];
+    predict = m.fit(train, m.values[state.params[state.model]]);
+    grid = evaluateGrid(predict, gridSize(state.model, train.length, coarse));
+    shade(grid);
+    scores = { train: accuracy(predict, train), test: accuracy(predict, data.test) };
+    if (!bayes || bayes.key !== bayesKey() || (state.showBayes && !bayes.lines)) later("bayes", coarse ? 250 : 0, computeBayes);
+    if (curveStale()) later("curve", coarse ? 300 : 30, computeCurve);
+    updateReadout();
+  }
+
+  // The Bayes classifier depends only on the dataset, the noise, and the test set.
+  function bayesKey() { return state.dataset + "|" + state.noise + "|" + state.testSeed; }
+  function computeBayes() {
+    var key = bayesKey();
+    if (!bayes || bayes.key !== key) {
+      var post = fitBayes(state.dataset, state.noise);
+      bayes = { key: key, predict: post, acc: accuracy(post, data.test), lines: null };
+    }
+    // Its boundary is traced only when it's shown (on a coarser grid; it's smooth anyway)
+    if (state.showBayes && !bayes.lines) bayes.lines = evaluateGrid(bayes.predict, 120).lines;
+    updateReadout();
+    draw(); drawChart();
+  }
+  function bayesReady() { return bayes && bayes.key === bayesKey(); }
+
+  // The chart's data: refit the model at every slider setting on the current training set, and
+  // score each fit on the training and test sets. It depends on the model and the data, but not on
+  // the slider, so moving the slider just moves the chart's marker. The work is done a few fits at
+  // a time (about 12 ms per batch), so the page stays responsive while it runs. On phones the chart
+  // is hidden, and then this work is skipped (it runs if the chart appears, e.g. on rotating).
+  function curveKey() { return state.model + "|" + version; }
+  function curveStale() { return !curve || curve.key !== curveKey(); }
+  var curveJob = 0;
+  function computeCurve() {
+    if (!chartCanvas.clientWidth) return;
+    var job = ++curveJob, m = MODELS[state.model], train = data.train, n = m.values.length, i = 0;
+    var c = { key: curveKey(), model: state.model, train: [], test: [], done: 0 };
+    curve = c;
+    (function batch() {
+      if (failed || job !== curveJob) return;   // a newer job has started, or the demo failed
+      try {
+        var t0 = Date.now();
+        do {
+          var f = m.fit(train, m.values[i]);
+          c.train[i] = accuracy(f, train);
+          c.test[i] = accuracy(f, data.test);
+          i++;
+        } while (i < n && Date.now() - t0 < 12);
+        c.done = i;
+        drawChart();
+        if (i < n) setTimeout(batch, 0); else describeChart();
+      } catch (e) { fail(e); }
+    })();
+  }
+
+  // Format an accuracy (0 to 1) as a percentage, or as a dash when there's nothing to score.
+  function pct(v) { return v === null || v === undefined ? "—" : Math.round(v * 100) + "%"; }
+
+  // Show the accuracies, and update the descriptions for screen readers. The gap between training
+  // and test accuracy is the clearest sign of overfitting: a model that has memorized its training
+  // data scores high on training but noticeably lower on test.
+  function updateReadout() {
+    out.train.textContent = pct(scores.train);
+    out.test.textContent = pct(scores.test);
+    out.bayes.textContent = bayesReady() ? pct(bayes.acc) : "…";
+    var m = MODELS[state.model], setting = m.sym + " = " + m.values[state.params[state.model]];
+    var sentence = DATASET_NAMES[state.dataset] + " data, classified by " + m.name + " (" + setting + "): training accuracy " +
+      pct(scores.train) + ", test accuracy " + pct(scores.test) +
+      (bayesReady() ? ", best possible " + pct(bayes.acc) : "") + ".";
+    canvas.setAttribute("aria-label", sentence + " Feature x1 is on the horizontal axis and feature x2 on the vertical axis.");
+    // The live status line is updated only after changes pause, so a screen reader announces one
+    // complete sentence instead of every intermediate number while a slider moves.
+    later("status", 700, function () { out.status.textContent = sentence; });
+  }
+
+  // The chart's description for screen readers: where test accuracy peaks.
+  function describeChart() {
+    var m = MODELS[state.model], c = curve, best = 0;
+    for (var i = 1; i < c.test.length; i++) if (c.test[i] > c.test[best]) best = i;
+    chartCanvas.setAttribute("aria-label", "Training and test accuracy for every " + m.sym + " from " +
+      m.values[0] + " (simplest) to " + m.values[m.values.length - 1] + " (most flexible). Test accuracy is highest at " +
+      m.sym + " = " + m.values[best] + " (" + pct(c.test[best]) + ")" +
+      (bayesReady() ? "; best possible " + pct(bayes.acc) : "") + ".");
+  }
+
+  // =====================================================================================
+  // 7. DRAWING
+  // =====================================================================================
+
+  // Build the background shading, one pixel per grid node. Each pixel takes the predicted class's
+  // color, faded toward a neutral color where the model is unsure:
+  //     confidence t = |p - 0.5| * 2     (0 on the boundary, 1 where the model is certain)
+  // Raising it to the power 0.6 makes moderately confident regions easier to see. When drawn, this
+  // small image is smoothly stretched to fill the plot. It's rebuilt when the colors change.
+  function shade(g) {
+    var n = g.G + 1, vals = g.vals;
+    off.width = n; off.height = n;
+    var img = offCtx.createImageData(n, n), d = img.data;
+    var na = css.neutral.rgb, ra = css["region-a"].rgb, rb = css["region-b"].rgb;
+    for (var i = 0; i < n * n; i++) {
+      var p = vals[i], target = p > 0.5 ? ra : rb, t = Math.pow(Math.abs(p - 0.5) * 2, 0.6);
+      d[i * 4] = na[0] + (target[0] - na[0]) * t;
+      d[i * 4 + 1] = na[1] + (target[1] - na[1]) * t;
+      d[i * 4 + 2] = na[2] + (target[2] - na[2]) * t;
+      d[i * 4 + 3] = 255;
+    }
+    offCtx.putImageData(img, 0, 0);
+  }
+
+  // Match each canvas's internal pixel count to its on-screen size times the screen's pixel
+  // density (2 or 3 on many laptops and phones), so the drawing stays sharp instead of blurry.
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 3);
+    var w = canvas.clientWidth;
+    if (w) {
+      size.plot = w;
+      var px = Math.round(w * dpr);
+      if (canvas.width !== px) { canvas.width = px; canvas.height = px; }
+    }
+    var cw = chartCanvas.clientWidth, ch = chartCanvas.clientHeight;
+    if (cw && ch) {
+      size.chartW = cw; size.chartH = ch;
+      var pw = Math.round(cw * dpr), ph = Math.round(ch * dpr);
+      if (chartCanvas.width !== pw || chartCanvas.height !== ph) { chartCanvas.width = pw; chartCanvas.height = ph; }
+      if (curveStale()) later("curve", 30, computeCurve);   // the chart just appeared
+    } else {
+      size.chartW = size.chartH = 0;                         // the chart is hidden (phones)
+    }
+    draw(); drawChart();
+  }
+
+  // Draw boundary lines (from chain) as one path, solid or dashed.
+  function strokeLines(lines, W, color, dash) {
+    ctx.beginPath();
+    lines.forEach(function (line) {
+      ctx.moveTo(line[0][0] * W, line[0][1] * W);
+      for (var k = 1; k < line.length; k++) ctx.lineTo(line[k][0] * W, line[k][1] * W);
+    });
+    ctx.setLineDash(dash);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.lineCap = dash.length ? "butt" : "round";
+    ctx.lineJoin = "round";
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Paint the plot: the shading, the boundary line, the Bayes boundary (if shown), then the points
+  // (test points first, so the training points sit on top). Drawing coordinates are in CSS pixels;
+  // setTransform scales them up to the canvas's real pixel count.
+  function draw() {
+    var W = size.plot;
+    if (!W) return;
+    ctx.setTransform(canvas.width / W, 0, 0, canvas.width / W, 0, 0);
+    ctx.clearRect(0, 0, W, W);
+    if (grid) {
+      // Stretch the small shading image over the canvas, offset by half a cell so that each
+      // image pixel is centered on its grid node.
+      var cell = W / grid.G;
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(off, 0, 0, off.width, off.height, -cell / 2, -cell / 2, W + cell, W + cell);
+      // The boundary line, drawn as vector segments so it stays crisp at any zoom level.
+      strokeLines(grid.lines, W, css.boundary.str, []);
+    } else {
+      // No model (for example, only one class present): just a plain background.
+      ctx.fillStyle = css.neutral.str;
+      ctx.fillRect(0, 0, W, W);
+    }
+    if (state.showBayes && bayesReady() && bayes.lines) strokeLines(bayes.lines, W, css.bayes.str, [7, 5]);
+    if (state.showTest) {
+      var shown = Math.min(N_TEST_SHOWN, data.test.length);
+      for (var i = 0; i < shown; i++) drawPoint(data.test[i], W, true);
+    }
+    data.train.forEach(function (p) { drawPoint(p, W, false); });
+  }
+
+  // Draw one data point. Data coordinates (-1 to 1) become canvas pixels, with y flipped
+  // because canvas y grows downward. Class A is a circle and class B a square; training points
+  // are filled and test points are hollow.
+  function drawPoint(p, W, hollow) {
+    var x = ((p.x + 1) / 2) * W, y = ((1 - p.y) / 2) * W, r = Math.max(3.5, W / 110);
+    ctx.beginPath();
+    if (p.c) ctx.arc(x, y, r, 0, 2 * Math.PI);
+    else ctx.rect(x - r * 0.9, y - r * 0.9, r * 1.8, r * 1.8);
+    if (hollow) {
+      ctx.fillStyle = css["point-edge"].str;
+      ctx.fill();
+      ctx.strokeStyle = p.c ? css["point-a"].str : css["point-b"].str;
+      ctx.lineWidth = 2;
+    } else {
+      ctx.fillStyle = p.c ? css["point-a"].str : css["point-b"].str;
+      ctx.fill();
+      ctx.strokeStyle = css["point-edge"].str;
+      ctx.lineWidth = 1.25;
+    }
+    ctx.stroke();
+  }
+
+  // Paint the chart: percentage gridlines, the Bayes accuracy (dashed), the training and test
+  // accuracy at every setting, and a marker at the current setting. The vertical range starts at
+  // the nearest 10% below the lowest value, so differences of a few points are visible.
+  function drawChart() {
+    var W = size.chartW, H = size.chartH;
+    if (!W || !H) return;
+    cctx.setTransform(chartCanvas.width / W, 0, 0, chartCanvas.height / H, 0, 0);
+    cctx.clearRect(0, 0, W, H);
+    var m = MODELS[state.model], n = m.values.length, cur = state.params[state.model];
+    var c = curve && curve.model === state.model ? curve : null, i;
+    var lows = [];
+    if (c) for (i = 0; i < c.done; i++) lows.push(c.train[i], c.test[i]);
+    if (bayesReady()) lows.push(bayes.acc);
+    var lo = lows.length ? Math.min.apply(null, lows) : 0.5;
+    lo = clamp(Math.floor((lo - 0.01) * 10) / 10, 0.5, 0.9);
+    var top = 7, bottom = 5;
+    function X(k) { return CHART_PAD_L + (W - CHART_PAD_L - CHART_PAD_R) * (n > 1 ? k / (n - 1) : 0.5); }
+    function Y(a) { return top + (H - top - bottom) * (1 - a) / (1 - lo); }
+    // Gridlines and labels every 10%
+    cctx.font = "10px " + css.font;
+    cctx.textAlign = "right";
+    cctx.textBaseline = "middle";
+    cctx.lineWidth = 1;
+    for (var tick = Math.round(lo * 10); tick <= 10; tick++) {
+      var gy = Math.round(Y(tick / 10)) + 0.5;
+      cctx.strokeStyle = css["chart-grid"].str;
+      cctx.beginPath(); cctx.moveTo(CHART_PAD_L, gy); cctx.lineTo(W - CHART_PAD_R, gy); cctx.stroke();
+      cctx.fillStyle = css["chart-text"].str;
+      cctx.fillText(tick * 10 + "%", CHART_PAD_L - 5, gy);
+    }
+    // The current setting: a vertical line
+    var cx = Math.round(X(cur)) + 0.5;
+    cctx.strokeStyle = css["chart-text"].str;
+    cctx.globalAlpha = 0.5;
+    cctx.beginPath(); cctx.moveTo(cx, top - 4); cctx.lineTo(cx, H - bottom + 2); cctx.stroke();
+    cctx.globalAlpha = 1;
+    // Best possible accuracy: a dashed horizontal line
+    if (bayesReady()) {
+      cctx.setLineDash([5, 4]);
+      cctx.strokeStyle = css.bayes.str;
+      cctx.lineWidth = 1.5;
+      cctx.beginPath(); cctx.moveTo(CHART_PAD_L, Y(bayes.acc)); cctx.lineTo(W - CHART_PAD_R, Y(bayes.acc)); cctx.stroke();
+      cctx.setLineDash([]);
+    }
+    if (!c) return;
+    // Training (thin) and test (thick) accuracy lines, with dots at the current setting
+    function series(vals, color, width) {
+      cctx.strokeStyle = color;
+      cctx.lineWidth = width;
+      cctx.lineJoin = "round";
+      cctx.beginPath();
+      for (var k = 0; k < c.done; k++) { if (k) cctx.lineTo(X(k), Y(vals[k])); else cctx.moveTo(X(k), Y(vals[k])); }
+      cctx.stroke();
+      if (cur < c.done) {
+        cctx.fillStyle = color;
+        cctx.beginPath(); cctx.arc(X(cur), Y(vals[cur]), width + 2, 0, 2 * Math.PI); cctx.fill();
+      }
+    }
+    series(c.train, css["chart-train"].str, 1.5);
+    series(c.test, css["chart-test"].str, 2.5);
+  }
+
+  // =====================================================================================
+  // 8. EVENTS: connect the buttons, sliders, and clicks to the state
+  // =====================================================================================
+
+  // Rows of toggle buttons (model and dataset). Switching dataset draws new samples; switching
+  // model just refits on the same data.
+  root.querySelectorAll("[data-group]").forEach(function (group) {
+    var key = group.getAttribute("data-group");
+    group.addEventListener("click", function (e) {
+      var b = e.target.closest("button");
+      if (!b || !group.contains(b)) return;
+      var v = b.getAttribute("data-value");
+      if (state[key] === v) return;
+      state[key] = v;
+      if (key === "dataset") update({ train: true, test: true });
+      else update({ fit: true });
+      syncControls();
+    });
+  });
+
+  // Flexibility slider (and clicks on the chart): refit the current model at the new setting.
+  // The quick grid is used while the slider moves, then the full one once it stops.
+  function setParam(i, coarse) {
+    if (state.params[state.model] === i && !coarse) return;
+    state.params[state.model] = i;
+    syncControls();
+    update({ fit: true, coarse: coarse });
+  }
+  inputs.param.addEventListener("input", function () { setParam(Number(inputs.param.value), true); });
+  chartCanvas.addEventListener("click", function (e) {
+    var r = chartCanvas.getBoundingClientRect(), n = MODELS[state.model].values.length;
+    var t = (e.clientX - r.left - CHART_PAD_L) / (r.width - CHART_PAD_L - CHART_PAD_R);
+    setParam(clamp(Math.round(t * (n - 1)), 0, n - 1), false);
+  });
+  // Noise slider: redraw both samples with the SAME seeds, so the points slide smoothly as the
+  // noise changes instead of jumping to a whole new sample.
+  inputs.noise.addEventListener("input", function () {
+    state.noise = Number(inputs.noise.value);
+    update({ train: true, test: true, coarse: true });
+  });
+  // Show or hide the test points or the Bayes boundary. These only change the drawing.
+  inputs.showTest.addEventListener("change", function () { state.showTest = inputs.showTest.checked; update(); });
+  inputs.showBayes.addEventListener("change", function () {
+    state.showBayes = inputs.showBayes.checked;
+    syncControls();
+    if (state.showBayes) later("bayes", 0, computeBayes);
+    update();
+  });
+  // A new training sample: the model is refit on fresh training points; the test set stays put.
+  actions["new-train"].addEventListener("click", function () {
+    state.trainSeed = newSeed(state.testSeed);
+    update({ train: true });
+  });
+  // Reset: back to the starting state.
+  actions.reset.addEventListener("click", function () {
+    state = defaults();
+    syncControls();
+    update({ train: true, test: true });
+  });
+
+  // Keep the canvas buffers matched to their displayed size and the screen's pixel density.
+  // ResizeObserver reports layout changes; the matchMedia query fires when the pixel density
+  // changes (browser zoom, or moving the window to a different screen).
+  if (window.ResizeObserver) { var ro = new ResizeObserver(resize); ro.observe(canvas); ro.observe(chartCanvas); }
+  else window.addEventListener("resize", resize);
+  (function watchDpr() {
+    if (!window.matchMedia) return;
+    var mq = matchMedia("(resolution: " + (window.devicePixelRatio || 1) + "dppx)");
+    if (!mq.addEventListener) return;
+    mq.addEventListener("change", function () { resize(); watchDpr(); }, { once: true });
+  })();
+
+  // Light/dark toggle: Quarto switches the class on <body>. Re-read the colors and repaint. (It's
+  // done twice: once right away, and once shortly after, in case the theme's stylesheet is still
+  // loading at the moment of the switch.)
+  var dark = document.body.classList.contains("quarto-dark");
+  function recolor() { readColors(); if (grid) shade(grid); draw(); drawChart(); }
+  if (window.MutationObserver) {
+    new MutationObserver(function () {
+      var nowDark = document.body.classList.contains("quarto-dark");
+      if (nowDark === dark) return;
+      dark = nowDark;
+      recolor();
+      later("recolor", 300, recolor);
+    }).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  }
+
+  // ---------- Start ----------
+  // Read the colors, set up the controls, show the demo, fit the first model, and draw it.
+  // Any error falls back to the static figure.
+  try {
+    readColors();
+    syncControls();
+    root.hidden = false;
+    refit();
+    resize();
+  } catch (e) {
+    fail(e);
+  }
+})();
+</script>
 <section id="course-summary" class="level2">
 <h2 class="anchored" data-anchor-id="course-summary">Course Summary</h2>
 <p>In almost every field, there is a need to make predictions based on data to drive decisions. The goal of this course is to provide an introduction to machine learning that is approachable to diverse disciplines and empowers students to become proficient in the foundational concepts and tools. You will learn to (a) structure machine learning problems and determine which algorithmic tools are appropriate, (b) evaluate the performance of your solution using field-appropriate metrics and practices, and (c) accurately interpret your model output and communicate your results to interdisciplinary audiences. This course is a fast-paced, applied introduction to machine learning that, through extensive practice with foundational tools, helps you develop your knowledge of foundational machine learning concepts and provides practical experience with those tools to prepare you for practice or future study.</p>

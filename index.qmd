@@ -20,7 +20,7 @@ toc: true
 number-sections: false
 ---
 
-![](img/decision-boundaries.png){fig-alt="Three panels showing decision boundaries on the same two-class dataset: the Bayes decision boundary, a linear classifier, and a decision tree."}
+{{< include _ml-demo.qmd >}}
 
 
 ## Course Summary
