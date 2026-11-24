@@ -50,9 +50,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2d1c10ae43df009d8f07fbbd50031dc5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2b839bee051bb6f563a926f1433f3b3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8f126874553be9512901ef049fe907e3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-2b839bee051bb6f563a926f1433f3b3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cad17a679bdfb11550d8c4d4699220f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c282a254c09a30938a3613d0822ea466.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-cad17a679bdfb11550d8c4d4699220f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -480,6 +480,15 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   Leave unused cells as <td></td> (nothing inside) so they are hidden on phones.
 
   Lecture:   <td>Tue, Jan 20</td> <td>Lecture 3</td> <td><b>Title</b><br>Description</td> <td>ISL 2.2</td> <td><a href="...">Slides</a></td>
+  Longer description (hidden behind a "More" link): put it at the end of the Topic cell.
+             Wrap the text in <p> or <ul> tags so it gets the indented style.
+             <td><b>Title</b><br>Short description
+               <details><summary>More</summary>
+                 <p>A paragraph or two about the lecture.</p>
+                 <p><b>You'll be able to:</b></p>
+                 <ul><li>First objective</li><li>Second objective</li></ul>
+               </details></td>
+             An "Expand all" button appears above the table once any row has one.
   Tags (go in the Event cell; the row is colored to match):
              <span class="due">Due 9pm</span>     orange, for deadlines
              <span class="exam">Exam</span>       red
@@ -493,6 +502,9 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   Not posted yet: add class="pending" to hide a link until it's ready, e.g.
              <a class="pending" href="...">Slides</a>   (delete class="pending" to show it)
 -->
+<div class="schedule-tools" hidden="">
+  <button type="button" class="btn btn-sm btn-outline-primary" id="schedule-expand-all" aria-pressed="false">Expand all</button>
+</div>
 <table class="table table-hover schedule">
   <thead>
     <tr>
@@ -508,8 +520,8 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   <tr>
     <td>Thu, Jan 7</td>
     <td>Lecture 1</td>
-    <td><b>What Is Machine Learning?</b><br>
-      Course overview and an orientation to the major branches of machine learning: supervised, unsupervised, and reinforcement learning</td>
+    <td><b>What is machine learning?</b><br>
+      Tour the major branches of machine learning including supervised, unsupervised, and reinforcement learning. Explore how machine learning is algorithmically amplified inductive reasoning.</td>
     <td></td>
     <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture01_what_is_machine_learning.pdf">Slides</a></td>
   </tr>
@@ -519,8 +531,8 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   <tr>
     <td>Tue, Jan 12</td>
     <td>Lecture 2</td>
-    <td><b>An End-to-End Machine Learning Example</b><br>
-      An introduction to formulating a supervised machine learning problem. Stating the problem, creating the model, evaluating performance, and operationalizing the solution.</td>
+    <td><b>Supervised learning: learning from examples</b><br>
+      How do we learn from examples? The common supervised learning pipeline: formulating the problem, representing the data as features, choosing a model and learning algorithm, and estimating performance on new data.</td>
     <td>ISL Ch. 1 + 2.1</td>
     <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture02_end_to_end_machine_learning.pdf">Slides</a>
       <a href="https://warpwire.duke.edu/w/aWQHAA/">Recording</a>
@@ -530,8 +542,8 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   <tr>
     <td>Thu, Jan 14</td>
     <td>Lecture 3</td>
-    <td><b>How Flexible Should My Algorithms Be? The Bias-Variance Tradeoff</b><br>
-      The bias-variance tradeoff explained using K-nearest neighbors classification</td>
+    <td><b>Model flexibility: underfitting, overfitting, and generalization</b><br>
+      How flexible should my algorithms be? K-nearest neighbors classification and regression; how model flexibility and the bias-variance tradeoff impacts generalization performance</td>
     <td>ISL 2.2</td>
     <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture03_bias_variance_tradeoff.pdf">Slides</a></td>
   </tr>
@@ -547,8 +559,8 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   <tr>
     <td>Tue, Jan 19</td>
     <td>Lecture 4</td>
-    <td><b>Linear Models I</b><br>
-      Simple linear regression, multiple linear regression, measuring error, model fitting and least squares, comparing linear regression and classification</td>
+    <td><b>Cost function and optimization: defining a model’s goal and optimizing it</b><br>
+      How do we define a model’s goal and optimize it? Linear and logistic regression as a lens on why we use the cost functions we do (mean squared error and cross-entropy) and how gradient descent can minimize them.</td>
     <td>ISL Intro of 3, 3.1, and 3.2</td>
     <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture04_linear_models_1.pdf">Slides</a></td>
   </tr>
@@ -566,8 +578,8 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   <tr>
     <td>Thu, Jan 21</td>
     <td>Lecture 5</td>
-    <td><b>Linear Models II</b><br>
-      Nonlinear transformations of predictors; linear models for classification including the perceptron and logistic regression; cost/loss functions for classification (cross entropy loss); introduction to gradient descent.</td>
+    <td><b>Representations: from raw inputs to informative features</b><br>
+      Why are informative features so important? With the right features, the regression or classification model can be as simple as a linear model. Nonlinear transforms, encoding and scaling, and feature embedding spaces.</td>
     <td>ISL 3.3 and 3.5</td>
     <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture05_linear_models_2.pdf">Slides</a></td>
   </tr>
@@ -575,28 +587,28 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   <tr>
     <td>Tue, Jan 26</td>
     <td>Lecture 6</td>
-    <td><b>Performance Evaluation: Metrics for Regression/Classification</b><br>
-      Choosing the right model: accuracy vs speed vs interpretability; metrics for supervised learning performance evaluation: types of errors, receiver operating characteristics curves, and confusion matrices</td>
-    <td>ISL 4.1, 4.2, and 4.3</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture06_performance_evaluation_1.pdf">Slides</a></td>
+    <td><b>Regularization: preferencing simplicity through the cost function</b><br>
+      How can we adjust our cost functions to impose preferences for model simplicity? L1 (LASSO) and L2 (ridge) regularization.</td>
+    <td>ISL 6.1 and 6.2</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture09_regularization.pdf">Slides</a></td>
   </tr>
 
   <tr>
     <td>Thu, Jan 28</td>
     <td>Lecture 7</td>
-    <td><b>Experimental Designs for Evaluating Generalization Performance and Model Comparison</b><br>
-      How to construct effective experimental designs for evaluating and comparing models; using model performance metrics to measure generalization performance; resampling techniques: training, testing, and validation datasets and cross validation; common pitfalls around biased sampling and data snooping/leakage</td>
-    <td>ISL 5.1 and 5.2</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture07_performance_evaluation_2.pdf">Slides</a></td>
+    <td><b>Metrics: defining “good” models and quantifying performance</b><br>
+      How do we quantify the performance of regression and classification models? For classification: types of error, receiver operating characteristics (ROC) curves, and confusion matrices for classification. For regression: MAE, RMSE, and R².</td>
+    <td>ISL 4.1, 4.2, and 4.3</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture06_performance_evaluation_1.pdf">Slides</a></td>
   </tr>
 
   <tr>
     <td>Tue, Feb 2</td>
     <td>Lecture 8</td>
-    <td><b>Decision Theory</b><br>
-      A risk-based framework for determining to operate supervised learning algorithms in practice; choosing ROC operating points through risk-minimization and how application-specific costs associated with different types of errors can be used to determine optimal operating points for classifiers</td>
-    <td><a href="https://edstem.org/us/courses/90514/resources?download=97746">Link to reading</a></td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture08_decision_theory.pdf">Slides</a></td>
+    <td><b>Model evaluation and comparison: fair protocols and accounting for uncertainty</b><br>
+      How do we fairly evaluate or compare models? Designing evaluation protocols that mirror real use: train/validation/test splits, cross-validation, and resampling methods such as the bootstrap to quantify uncertainty, especially with limited data. Common pitfalls: biased sampling, test data leakage, grouped data, and distribution shift.</td>
+    <td>ISL 5.1 and 5.2</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture07_performance_evaluation_2.pdf">Slides</a></td>
   </tr>
 
   <tr>
@@ -612,37 +624,37 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
   <tr>
     <td>Thu, Feb 4</td>
     <td>Lecture 9</td>
-    <td><b>Reducing Overfit</b><br>
-      Feature selection; Occam’s razor; Subset selection; L1 (LASSO), L2 (ridge), and elastic net regularization; early stopping.</td>
-    <td>ISL 6.1 and 6.2</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture09_regularization.pdf">Slides</a></td>
+    <td><b>Timeseries data: supervised learning considerations and common pitfalls</b><br>
+      How does time change the way we build and evaluate models? Framing forecasting as supervised learning with lag features; time-based splits and avoiding time-based leakage; persistence and seasonal-naive baselines.</td>
+    <td></td>
+    <td></td>
   </tr>
 
   <tr>
     <td>Tue, Feb 9</td>
     <td>Lecture 10</td>
-    <td><b>Generative Models for Classification</b><br>
-      Generative vs discriminative models; naïve Bayes</td>
-    <td>ISL 4.4 and 4.5</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture10_generative_classification.pdf">Slides</a></td>
+    <td><b>From trained models to decisions: application-informed decision thresholds and calibrated probabilities</b><br>
+      How do we translate our application goals into risk-aware decisions? Choosing classifier operating points (decision thresholds) that reflect error costs and field-specific constraints, and calibrating classifiers so their probabilities are meaningful.</td>
+    <td><a href="https://edstem.org/us/courses/90514/resources?download=97746">Link to reading</a></td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture08_decision_theory.pdf">Slides</a></td>
   </tr>
 
   <tr>
     <td>Thu, Feb 11</td>
-    <td>Lecture 11</td>
-    <td><b>Tree-Based Models and Ensembles</b><br>
-      From decision trees to random forests: bagging, bootstrapping, and boosting</td>
-    <td>ISL 8.1 and 8.2</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture11_trees_and_ensembles.pdf">Slides</a></td>
+    <td><span class="exam">Exam 1</span></td>
+    <td><b>Exam 1</b><br>
+      Supervised learning foundations</td>
+    <td></td>
+    <td></td>
   </tr>
 
   <tr>
     <td>Tue, Feb 16</td>
-    <td>Lecture 12</td>
-    <td><b>Neural Networks I</b><br>
-      Introduction to neural networks and representation learning; forward propagation, network architecture, and how to adapt to regression or classification problems</td>
-    <td>UDL Ch 3: 3.1, 3.2; PRML Ch 5: 5.1</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture12_neural_networks_1.pdf">Slides</a></td>
+    <td>Lecture 11</td>
+    <td><b>Trees and ensembles: combining models to improve performance</b><br>
+      What methods are best for heterogeneous tabular data? From decision trees to random forests and gradient boosting: bagging, bootstrapping, and boosting.</td>
+    <td>ISL 8.1 and 8.2</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture11_trees_and_ensembles.pdf">Slides</a></td>
   </tr>
 
   <tr>
@@ -657,41 +669,38 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 
   <tr>
     <td>Thu, Feb 18</td>
+    <td>Lecture 12</td>
+    <td><b>Neural networks I: from inputs to predictions</b><br>
+      How do neural networks turn inputs into predictions? Introduction to neural networks and representation learning: forward propagation, network architecture, and how to apply neural nets to regression or classification problems</td>
+    <td>UDL Ch 3: 3.1, 3.2; PRML Ch 5: 5.1</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture12_neural_networks_1.pdf">Slides</a></td>
+  </tr>
+
+  <tr>
+    <td>Tue, Feb 23</td>
     <td>Lecture 13</td>
-    <td><b>Neural Networks II</b><br>
-      Fitting a neural network to training data through gradient descent and backpropagation; how backpropagation is used to compute gradients in neural networks; hyperparameters and architecture choices in neural networks and practices for training neural networks successfully</td>
+    <td><b>Neural networks II: training models and automatically learning representations</b><br>
+      How do neural networks learn from data? Fitting neural networks through gradient descent and backpropagation; hyperparameters and architecture choices; and practices for training neural networks successfully</td>
     <td>UDL Ch 6: 6.1-6.2.2; PRML Ch 5: 5.3.1, and <a href="http://colah.github.io/posts/2015-08-Backprop/">Calculus on Computational Graphs</a></td>
     <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture13_neural_networks_2.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td>Tue, Feb 23</td>
+    <td>Thu, Feb 25</td>
     <td>Lecture 14</td>
-    <td><b>Introduction to Deep Learning I</b><br>
-      Common architectures of deep learning models and the tools used to implement them. Introduction to convolutional neural networks (CNNs) and neural networks for gridded data (e.g. imagery).</td>
+    <td><b>Deep learning I: images and other gridded data with convolutional neural networks</b><br>
+      What architectures work well for images? Convolutional neural networks (CNNs) for imagery and gridded data.</td>
     <td>UDL Ch 10: Convolutional Neural Networks;<br>DL Ch 11: Practical Methodology</td>
     <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture14_deep_learning_1.pdf">Slides</a></td>
   </tr>
 
   <tr>
-    <td>Thu, Feb 25</td>
+    <td>Tue, Mar 2</td>
     <td>Lecture 15</td>
-    <td><b>Introduction to Deep Learning II</b><br>
-      Common architectures of deep learning models and the tools used to implement them.</td>
-    <!-- ###### NOTE: UPDATE THIS IN 2026 - Remove Practical Methodology ######## -->
+    <td><b>Deep learning II: text, attention, and transformers</b><br>
+      What architectures work well for text? Transformers, the backbone of modern AI systems: tokens, embeddings, attention, and using pretrained models for new tasks.</td>
     <td>UDL Ch 12.1-12.5: Transformers;<br><a href="https://www.youtube.com/watch?v=wjZofJX0v4M">Video: Transformers</a>;<br><a href="https://www.youtube.com/watch?v=eMlx5fFNoYc">Video: Self-attention</a></td>
     <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture15_deep_learning_2.pdf">Slides</a></td>
-  </tr>
-
-  <tr class="module"><td colspan="5">Module 2: Unsupervised Learning</td></tr>
-
-  <tr>
-    <td>Tue, Mar 2</td>
-    <td>Lecture 16</td>
-    <td><b>Dimensionality Reduction</b><br>
-      The Curse of Dimensionality and intro to principal components analysis (PCA)</td>
-    <td>ISL 6.3, 6.4, 12.1, and 12.2</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture16_dimensionality_reduction.pdf">Slides</a></td>
   </tr>
 
   <tr>
@@ -707,11 +716,11 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 
   <tr>
     <td>Thu, Mar 4</td>
-    <td>Lecture 17</td>
-    <td><b>Principal Components Analysis (PCA)</b><br>
-      Explaining how PCA works and how we calculate the principal components.</td>
-    <td>ISL 12.4 <span class="tag">No quiz</span></td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture16_dimensionality_reduction.pdf">Slides</a></td>
+    <td>Lecture 16</td>
+    <td><b>Deep learning III: self-supervised learning for representations from unlabeled data</b><br>
+      How can we learn useful representations without labels? Self-supervised learning and how to use representations (embeddings) from pretrained models as features or fine-tuning them rather than training from scratch.</td>
+    <td></td>
+    <td></td>
   </tr>
 
   <tr>
@@ -724,31 +733,31 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 
   <tr>
     <td>Tue, Mar 16</td>
-    <td>Lecture 18</td>
-    <td><b>Density Estimation and Clustering</b><br>
-      Approaches for density estimation from histograms to Gaussian mixture models (for density estimation and clustering)</td>
-    <td>DM Ch 7 (<a href="https://www-users.cse.umn.edu/~kumar001/dmbook/ch7_clustering.pdf">link</a>): Intro, 7.1 and 7.2 <span class="tag">No quiz</span></td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture18_density_estimation.pdf">Slides</a></td>
+    <td>Lecture 17</td>
+    <td><b>Interpretability: explaining what drives model predictions</b><br>
+      Why did the model make a given prediction? Global and local explanations of predictions and their limitations.</td>
+    <td></td>
+    <td></td>
   </tr>
+
+  <tr class="module"><td colspan="5">Module 2: Unsupervised Learning</td></tr>
 
   <tr>
     <td>Thu, Mar 18</td>
-    <td>Lecture 19</td>
-    <td><b>Clustering</b><br>
-      Hierarchical clustering, DBSCAN, and spectral clustering</td>
-    <td>DM Ch 7 (<a href="https://www-users.cse.umn.edu/~kumar001/dmbook/ch7_clustering.pdf">link</a>): 7.3 and 7.4</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture19_clustering.pdf">Slides</a></td>
+    <td>Lecture 18</td>
+    <td><b>Dimensionality reduction: visualizing high-dimensional data</b><br>
+      How can we visualize data that exist in 10s or 1,000s of dimensions? The curse of dimensionality and dimensionality reduction techniques (PCA, t-SNE, and UMAP) that enable visualization and when they may mislead.</td>
+    <td>ISL 6.3, 6.4, 12.1, and 12.2</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture16_dimensionality_reduction.pdf">Slides</a></td>
   </tr>
-
-  <tr class="module"><td colspan="5">Module 3: Reinforcement Learning</td></tr>
 
   <tr>
     <td>Tue, Mar 23</td>
-    <td>Lecture 20</td>
-    <td><b>Reinforcement Learning I</b><br>
-      Formulating the reinforcement learning problem</td>
-    <td>RL Ch 1: 1.1-1.6; Ch 2: 2.1-2.5</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture20_reinforcement_learning_1.pdf">Slides</a></td>
+    <td>Lecture 19</td>
+    <td><b>Clustering: identifying groupings in data</b><br>
+      How can we find groups in unlabeled data? K-means, agglomerative hierarchical clustering, and DBSCAN/HDBSCAN. The importance of good representations and how to evaluate clusters.</td>
+    <td>DM Ch 7 (<a href="https://www-users.cse.umn.edu/~kumar001/dmbook/ch7_clustering.pdf">link</a>): Intro, 7.1-7.4</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture19_clustering.pdf">Slides</a></td>
   </tr>
 
   <tr>
@@ -762,11 +771,11 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 
   <tr>
     <td>Thu, Mar 25</td>
-    <td>Lecture 21</td>
-    <td><b>Reinforcement Learning II</b><br>
-      Policy and value functions, rewards, and introduction to Markov processes</td>
-    <td>RL Ch 3</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture21_reinforcement_learning_2.pdf">Slides</a></td>
+    <td>Lecture 20</td>
+    <td><b>Density estimation: what is typical and what is unusual</b><br>
+      How do we describe what is typical of the data? Approaches including histograms, kernel density estimation, and Gaussian mixture models with connection to anomaly detection and generative modeling.</td>
+    <td></td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture18_density_estimation.pdf">Slides</a></td>
   </tr>
 
   <tr>
@@ -782,49 +791,50 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 
   <tr>
     <td>Tue, Mar 30</td>
-    <td>Lecture 22</td>
-    <td><b>Reinforcement Learning III</b><br>
-      From Markov Chains to Markov Decision Processes (MDPs)</td>
-    <td>RL Ch 4</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture22_reinforcement_learning_3.pdf">Slides</a></td>
+    <td><span class="exam">Exam 2</span></td>
+    <td><b>Exam 2</b><br>
+      Supervised and unsupervised learning</td>
+    <td></td>
+    <td></td>
   </tr>
+
+  <tr class="module"><td colspan="5">Module 3: Reinforcement Learning</td></tr>
 
   <tr>
     <td>Thu, Apr 1</td>
-    <td>Lecture 23</td>
-    <td><b>Reinforcement Learning IV</b><br>
-      Finding optimal policies through policy iteration, value iteration, and Monte Carlo methods</td>
-    <td>RL Ch 5: 5.1-5.3</td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture23_reinforcement_learning_4.pdf">Slides</a></td>
+    <td>Lecture 21</td>
+    <td><b>Reinforcement learning I: sequential decisions, rewards, and policies</b><br>
+      How can an agent learn from experience? Formulating the reinforcement learning problem: agents, actions, rewards, and policies, and the tradeoff between exploring and exploiting.</td>
+    <td>RL Ch 1: 1.1-1.6; Ch 2: 2.1-2.5</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture20_reinforcement_learning_1.pdf">Slides</a></td>
   </tr>
 
   <tr>
     <td>Tue, Apr 6</td>
-    <td><span class="exam">Exam</span></td>
-    <td><b>Exam</b><br>
-      An in-class exam covering topics across the course.</td>
-    <td></td>
-    <td></td>
+    <td>Lecture 22</td>
+    <td><b>Reinforcement learning II: Markov chains and Markov decision processes</b><br>
+      How can an agent plan ahead? From Markov chains to Markov decision processes (MDPs): states, transitions, returns and discounting, value functions, and the Bellman equations.</td>
+    <td>RL Ch 3</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture21_reinforcement_learning_2.pdf">Slides</a>
+      <a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture22_reinforcement_learning_3.pdf">Slides</a></td>
   </tr>
-
-  <tr class="module"><td colspan="5">Module 4: Practical Considerations and Advanced Topics</td></tr>
 
   <tr>
     <td>Thu, Apr 8</td>
-    <td>Lecture 24</td>
-    <td><b>Practical Considerations and Advanced Topics I</b><br>
-      A survey of practical considerations and advanced topics</td>
-    <td></td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture24_special_topics.pdf">Slides</a></td>
+    <td>Lecture 23</td>
+    <td><b>Reinforcement learning III: automatically learning better policies from experience</b><br>
+      How does an agent optimize its actions? Finding optimal policies by planning when the environment is known (policy iteration and value iteration) and by learning from experience when it isn’t (Monte Carlo methods).</td>
+    <td>RL Ch 4; Ch 5: 5.1-5.3</td>
+    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture23_reinforcement_learning_4.pdf">Slides</a></td>
   </tr>
 
   <tr>
     <td>Tue, Apr 13</td>
-    <td>Lecture 25</td>
-    <td><b>Practical Considerations and Advanced Topics II</b><br>
-      A survey of practical considerations and advanced topics</td>
+    <td>Lecture 24</td>
+    <td><b>Looking back and looking ahead: putting machine learning into practice</b><br>
+      What have we learned, and where do we go from here? A map of the course’s core workflows and cautions, how to put them into practice, and paths for continuing to build your machine learning skills.</td>
     <td></td>
-    <td><a class="pending" href="https://github.com/kylebradbury/ids705/raw/main/lectures/lecture25_machine_learning_frontiers.pdf">Slides</a></td>
+    <td></td>
   </tr>
 
   <tr>
@@ -870,6 +880,23 @@ gtag('config', 'G-63SKKDGFHG', { 'anonymize_ip': true});
 
   </tbody>
 </table>
+
+<script>
+  // "Expand all" opens or closes every longer description. The button stays
+  // hidden until at least one row has a <details> block.
+  (function () {
+    var all = document.querySelectorAll(".schedule details");
+    var btn = document.getElementById("schedule-expand-all");
+    if (!all.length || !btn) return;
+    btn.parentElement.hidden = false;
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-pressed") !== "true";
+      all.forEach(function (d) { d.open = open; });
+      btn.setAttribute("aria-pressed", String(open));
+      btn.textContent = open ? "Collapse all" : "Expand all";
+    });
+  })();
+</script>
 
 
 

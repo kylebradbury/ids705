@@ -45,6 +45,46 @@ body.quarto-dark {
 }
 table.schedule > tbody > tr > td { background-color: transparent; }  /* let row colors show */
 
+/* Longer description, hidden behind a "More" link in the Topic cell:
+   <details><summary>More</summary><p>...</p><ul><li>...</li></ul></details>  */
+.schedule details { margin: .3rem 0 0; }
+.schedule summary {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--bs-link-color);
+  font-size: .82rem;
+  font-weight: 600;
+  user-select: none;
+}
+.schedule summary::-webkit-details-marker { display: none; }
+.schedule summary::before {               /* chevron: points right when closed, down when open */
+  content: "";
+  width: .4rem;
+  height: .4rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform .15s ease;
+}
+.schedule details[open] > summary::before { transform: rotate(45deg); }
+.schedule td:nth-child(3) details > :not(summary) {  /* the revealed text, set off by a thin line on the left */
+  margin: 0;
+  padding: .4rem 0 0 .75rem;
+  border-left: 2px solid var(--bs-border-color);
+  color: var(--bs-body-color);
+}
+.schedule td:nth-child(3) details > summary + * { margin-top: .3rem; }
+.schedule td:nth-child(3) details > ul,
+.schedule td:nth-child(3) details > ol { padding-left: 2rem; }
+.schedule td:nth-child(3) details b { font-size: inherit; }
+@media (prefers-reduced-motion: reduce) { .schedule summary::before { transition: none; } }
+
+/* "Expand all" button above the table (shown only when some lecture has a <details>) */
+.schedule-tools { display: flex; justify-content: flex-end; margin-bottom: .5rem; }
+
 /* Date: bold. A struck-out old date shows small underneath */
 .schedule td:nth-child(1) { font-weight: 600; white-space: nowrap; }
 .schedule td:nth-child(1) s { display: block; font-weight: 400; font-size: .8rem; color: var(--bs-secondary-color); }
